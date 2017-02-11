@@ -21,11 +21,41 @@ public class HomeController {
 
     @FXML private StackPane ap;
 
-    public void ButtonClicked(ActionEvent e) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("PitchRecognition.fxml"));
+    @FXML
+    private void PitchRecognitionButtonClicked(ActionEvent event) throws IOException {
+        ButtonClicked(event, "Views/PitchRecognition.fxml");
+    }
+
+    @FXML
+    private void MelodicIntervalRecognitionButtonClicked(ActionEvent event) throws IOException {
+        ButtonClicked(event, "Views/MelodicIntervalRecognition.fxml");
+    }
+
+    @FXML
+    private void HarmonicIntervalRecognitionButtonClicked(ActionEvent event) throws IOException {
+        ButtonClicked(event, "Views/HarmonicIntervalRecognition.fxml");
+    }
+
+    @FXML
+    private void SharpFlatRecognitionButtonClicked(ActionEvent event) throws IOException {
+        ButtonClicked(event, "Views/SharpFlatRecognition.fxml");
+    }
+
+    @FXML
+    private void CadenceRecognitionButtonClicked(ActionEvent event) throws IOException {
+        ButtonClicked(event, "Views/CadenceRecognition.fxml");
+    }
+
+    @FXML
+    private void ModulationRecognitionButtonClicked(ActionEvent event) throws IOException {
+        ButtonClicked(event, "Views/ModulationRecognition.fxml");
+    }
+
+    public void ButtonClicked(ActionEvent e, String name) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(name));
         Parent root = (Parent)loader.load();
         Stage stage = (Stage) ap.getScene().getWindow();
-        stage.hide();
+        //stage.hide();
 
         Stage newStage = new Stage();
         Scene scene = new Scene(root);

@@ -15,7 +15,7 @@
    <children>
       <ImageView fitHeight="156.0" fitWidth="526.0" preserveRatio="true" style="-fx-background-color: transparent;" StackPane.alignment="TOP_CENTER">
          <image>
-            <Image url="@EarTrainerLogo.png" />
+            <Image url="@../EarTrainerLogo.png" />
          </image>
       </ImageView>
       <GridPane hgap="150.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="379.0" prefWidth="832.0" vgap="100.0">
@@ -29,32 +29,32 @@
           <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="ALWAYS" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" onAction="#ButtonClicked" prefHeight="69.0" prefWidth="428.0" text="Note Recognition">
+            <Button mnemonicParsing="false" onAction="#PitchRecognitionButtonClicked" prefHeight="69.0" prefWidth="428.0" text="Pitch Recognition">
                <GridPane.margin>
                   <Insets right="10.0" />
                </GridPane.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="69.0" prefWidth="428.0" text="Melodic Interval Recognition" GridPane.rowIndex="1">
+            <Button mnemonicParsing="false" onAction="#MelodicIntervalRecognitionButtonClicked" prefHeight="69.0" prefWidth="428.0" text="Melodic Interval Recognition" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets right="10.0" />
                </GridPane.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="69.0" prefWidth="428.0" text="Harmonic Interval Recognition" GridPane.rowIndex="2">
+            <Button mnemonicParsing="false" onAction="#HarmonicIntervalRecognitionButtonClicked" prefHeight="69.0" prefWidth="428.0" text="Harmonic Interval Recognition" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets right="10.0" />
                </GridPane.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="69.0" prefWidth="428.0" text="Sharp/Flat Note Recognition" GridPane.columnIndex="1">
+            <Button mnemonicParsing="false" onAction="#SharpFlatRecognitionButtonClicked" prefHeight="69.0" prefWidth="428.0" text="Sharp/Flat Note Recognition" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets left="10.0" />
                </GridPane.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="69.0" prefWidth="428.0" text="Cadence Recognition" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button mnemonicParsing="false" onAction="#CadenceRecognitionButtonClicked" prefHeight="69.0" prefWidth="428.0" text="Cadence Recognition" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="10.0" />
                </GridPane.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="69.0" prefWidth="428.0" text="Modulation Recognition" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Button mnemonicParsing="false" onAction="#ModulationRecognitionButtonClicked" prefHeight="69.0" prefWidth="428.0" text="Modulation Recognition" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets left="10.0" />
                </GridPane.margin>

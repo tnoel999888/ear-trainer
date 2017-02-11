@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.image.*?>
@@ -13,10 +14,10 @@
 
 <StackPane prefHeight="733.0" prefWidth="1320.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EarTrainer.HomeController">
    <children>
-      <ImageView fitHeight="156.0" fitWidth="526.0" preserveRatio="true" style="-fx-background-color: transparent;" StackPane.alignment="TOP_CENTER">
-         <image>
-            <Image url="@EarTrainerLogo.png" />
-         </image>
-      </ImageView>
+      <Text scaleX="4.0" scaleY="4.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadence Interval Recognition" StackPane.alignment="TOP_CENTER">
+         <StackPane.margin>
+            <Insets top="30.0" />
+         </StackPane.margin>
+      </Text>
    </children>
 </StackPane>

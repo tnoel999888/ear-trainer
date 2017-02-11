@@ -14,7 +14,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 /**
  * Created by timannoel on 31/01/2017.
@@ -39,7 +38,7 @@ public class SplashScreenController implements Initializable{
                     public void run() {
                         Parent root = null;
                         try {
-                            root = FXMLLoader.load(getClass().getResource("Home.fxml"));
+                            root = FXMLLoader.load(getClass().getResource("Views/Home.fxml"));
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
