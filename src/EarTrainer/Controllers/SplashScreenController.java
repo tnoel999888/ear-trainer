@@ -1,4 +1,4 @@
-package EarTrainer;
+package EarTrainer.Controllers;
 
 import java.io.IOException;
 import java.net.URL;
@@ -31,14 +31,14 @@ public class SplashScreenController implements Initializable{
         @Override
         public void run() {
             try {
-                Thread.sleep(3000);
+                Thread.sleep(2000);
 
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
                         Parent root = null;
                         try {
-                            root = FXMLLoader.load(getClass().getResource("Views/Home.fxml"));
+                            root = FXMLLoader.load(getClass().getResource("../Views/Home.fxml"));
                         } catch (IOException e) {
                             e.printStackTrace();
                         }

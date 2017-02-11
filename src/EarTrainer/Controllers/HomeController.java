@@ -1,4 +1,4 @@
-package EarTrainer;
+package EarTrainer.Controllers;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -23,32 +23,32 @@ public class HomeController {
 
     @FXML
     private void PitchRecognitionButtonClicked(ActionEvent event) throws IOException {
-        ButtonClicked(event, "Views/PitchRecognition.fxml");
+        ButtonClicked(event, "../Views/PitchRecognition.fxml");
     }
 
     @FXML
     private void MelodicIntervalRecognitionButtonClicked(ActionEvent event) throws IOException {
-        ButtonClicked(event, "Views/MelodicIntervalRecognition.fxml");
+        ButtonClicked(event, "../Views/MelodicIntervalRecognition.fxml");
     }
 
     @FXML
     private void HarmonicIntervalRecognitionButtonClicked(ActionEvent event) throws IOException {
-        ButtonClicked(event, "Views/HarmonicIntervalRecognition.fxml");
+        ButtonClicked(event, "../Views/HarmonicIntervalRecognition.fxml");
     }
 
     @FXML
     private void SharpFlatRecognitionButtonClicked(ActionEvent event) throws IOException {
-        ButtonClicked(event, "Views/SharpFlatRecognition.fxml");
+        ButtonClicked(event, "../Views/SharpFlatRecognition.fxml");
     }
 
     @FXML
     private void CadenceRecognitionButtonClicked(ActionEvent event) throws IOException {
-        ButtonClicked(event, "Views/CadenceRecognition.fxml");
+        ButtonClicked(event, "../Views/CadenceRecognition.fxml");
     }
 
     @FXML
     private void ModulationRecognitionButtonClicked(ActionEvent event) throws IOException {
-        ButtonClicked(event, "Views/ModulationRecognition.fxml");
+        ButtonClicked(event, "../Views/ModulationRecognition.fxml");
     }
 
     public void ButtonClicked(ActionEvent e, String name) throws IOException {
