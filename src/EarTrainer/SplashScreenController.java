@@ -14,14 +14,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * Created by timannoel on 31/01/2017.
  */
 public class SplashScreenController implements Initializable{
 
-    @FXML
-    private StackPane rootPane;
+    @FXML private StackPane ap;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -32,7 +32,7 @@ public class SplashScreenController implements Initializable{
         @Override
         public void run() {
             try {
-                Thread.sleep(4000);
+                Thread.sleep(3000);
 
                 Platform.runLater(new Runnable() {
                     @Override
@@ -43,12 +43,14 @@ public class SplashScreenController implements Initializable{
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-                        Stage primaryStage = new Stage();
-                        primaryStage.setTitle("Ear Trainer");
-                        primaryStage.setScene(new Scene(root, 300, 275));
-                        primaryStage.setMaximized(true);
-                        primaryStage.show();
-                        rootPane.getScene().getWindow().hide();
+                        Scene scene = new Scene(root);
+                        Stage splashStage = (Stage) ap.getScene().getWindow();
+                        splashStage.hide();
+
+                        Stage stage = new Stage();
+                        stage.setScene(scene);
+                        stage.setMaximized(true);
+                        stage.show();
                     }
                 });
             } catch (InterruptedException ex) {
