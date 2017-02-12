@@ -29,7 +29,7 @@
           <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="ALWAYS" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" onAction="#PitchRecognitionButtonClicked" prefHeight="69.0" prefWidth="428.0" text="Pitch Recognition">
+            <Button mnemonicParsing="false" onAction="#PitchRecognitionButtonClicked" prefHeight="60.0" prefWidth="360.0" text="Pitch Recognition&#10;" textAlignment="CENTER">
                <GridPane.margin>
                   <Insets right="10.0" />
                </GridPane.margin>
@@ -59,6 +59,45 @@
                   <Insets left="10.0" />
                </GridPane.margin>
             </Button>
+            <ImageView fitHeight="78.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/Pitch-Icon.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="78.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@../Images/Melodic-Interval-Icon.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="78.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+               <image>
+                  <Image url="@../Images/Harmonic-Interval-Icon.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="78.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <image>
+                  <Image url="@../Images/Modulation-Icon.png" />
+               </image>
+               <GridPane.margin>
+                  <Insets left="15.0" />
+               </GridPane.margin>
+            </ImageView>
+            <ImageView fitHeight="78.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="15.0" />
+               </GridPane.margin>
+               <image>
+                  <Image url="@../Images/Cadence-Icon.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="79.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+               <image>
+                  <Image url="@../Images/SharpFlat-Icon.png" />
+               </image>
+               <GridPane.margin>
+                  <Insets left="15.0" />
+               </GridPane.margin>
+            </ImageView>
          </children>
       </GridPane>
    </children>
