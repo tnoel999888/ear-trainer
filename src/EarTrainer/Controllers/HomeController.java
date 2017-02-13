@@ -52,7 +52,7 @@ public class HomeController {
         Stage newStage = new Stage();
         Scene scene = new Scene(root);
         newStage.setScene(scene);
-        newStage.setMaximized(true);
+        //newStage.setMaximized(true);
         newStage.show();
     }
 }
