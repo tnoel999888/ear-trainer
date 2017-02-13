@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
-<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 
-<StackPane fx:id="ap" prefHeight="733.0" prefWidth="1320.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EarTrainer.Controllers.HomeController">
+<StackPane fx:id="ap" prefHeight="733.0" prefWidth="1320.0" stylesheets="@../Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EarTrainer.Controllers.HomeController">
    <children>
       <ImageView fitHeight="255.0" fitWidth="699.0" preserveRatio="true" style="-fx-background-color: transparent;" StackPane.alignment="TOP_CENTER">
          <image>
@@ -66,28 +61,37 @@
                <image>
                   <Image url="@../Images/Pitch-Icon.png" />
                </image>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
             </ImageView>
             <ImageView fitHeight="78.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                <image>
                   <Image url="@../Images/Melodic-Interval-Icon.png" />
                </image>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
             </ImageView>
             <ImageView fitHeight="78.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
                <image>
                   <Image url="@../Images/Harmonic-Interval-Icon.png" />
                </image>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
             </ImageView>
             <ImageView fitHeight="78.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <image>
                   <Image url="@../Images/Modulation-Icon.png" />
                </image>
                <GridPane.margin>
-                  <Insets left="15.0" />
+                  <Insets left="20.0" />
                </GridPane.margin>
             </ImageView>
             <ImageView fitHeight="78.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
-                  <Insets left="15.0" />
+                  <Insets left="20.0" />
                </GridPane.margin>
                <image>
                   <Image url="@../Images/Cadence-Icon.png" />
