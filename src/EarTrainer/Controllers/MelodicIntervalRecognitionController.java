@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.io.InterruptedIOException;
 
 public class MelodicIntervalRecognitionController {
 
@@ -93,10 +94,25 @@ public class MelodicIntervalRecognitionController {
 
     @FXML
     private void StartButtonClicked(ActionEvent event) throws IOException {
+        questionNumber = 1;
         startTimer();
         questionLabel.setVisible(true);
         startButton.setDisable(true);
         radioButtonsGroup.setDisable(true);
+        questionLabel.setText("Question 1");
+    }
+
+    @FXML
+    private void AnswerButtonClicked(ActionEvent event) throws IOException {
+        if (questionNumber != 10) {
+            questionNumber++;
+            questionLabel.setText("Question " + Integer.toString(questionNumber));
+        } else {
+            startButton.setDisable(false);
+            radioButtonsGroup.setDisable(false);
+            timerLabel.setVisible(false);
+            questionLabel.setVisible(false);
+        }
     }
 
     private void startTimer() {
