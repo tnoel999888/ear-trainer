@@ -6,10 +6,16 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.effect.ColorAdjust;
+import javafx.scene.effect.GaussianBlur;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 import java.io.IOException;
@@ -112,6 +118,22 @@ public class MelodicIntervalRecognitionController {
             radioButtonsGroup.setDisable(false);
             timerLabel.setVisible(false);
             questionLabel.setVisible(false);
+
+            ColorAdjust adj = new ColorAdjust(0, 0, -0.2, 0);
+            GaussianBlur blur = new GaussianBlur(10); // 55 is just to show edge effect more clearly.
+            adj.setInput(blur);
+            stackPane.setEffect(adj);
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/PopupScore.fxml"));
+            Parent root = (Parent)loader.load();
+
+            Stage stage = (Stage) stackPane.getScene().getWindow();
+
+            Stage newStage = new Stage();
+            newStage.initStyle(StageStyle.UNDECORATED);
+            Scene scene = new Scene(root);
+            newStage.setScene(scene);
+            newStage.show();
         }
     }
 
