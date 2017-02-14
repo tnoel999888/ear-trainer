@@ -9,122 +9,125 @@
 
 <StackPane fx:id="stackPane" maxHeight="1080.0" maxWidth="1920.0" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EarTrainer.Controllers.MelodicIntervalRecognitionController">
    <children>
-      <ToolBar prefHeight="40.0" prefWidth="200.0" StackPane.alignment="TOP_CENTER">
-        <items>
-          <Button mnemonicParsing="false" onAction="#BackButtonClicked" prefHeight="27.0" prefWidth="62.0" text="Back" />
-            <Pane HBox.hgrow="ALWAYS" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Melodic Interval Recognition" />
-            <ImageView fitHeight="46.0" fitWidth="43.0">
-               <image>
-                  <Image url="@../Images/Melodic-Interval-Icon.png" />
-               </image>
-            </ImageView>
-            <Pane layoutX="73.0" layoutY="10.0" HBox.hgrow="ALWAYS" />
-            <ImageView fitHeight="31.0" fitWidth="104.0">
-               <image>
-                  <Image url="@../Images/EarTrainerLogo.png" />
-               </image>
-            </ImageView>
-        </items>
-         <padding>
-            <Insets left="15.0" />
-         </padding>
-      </ToolBar>
-      <GridPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="432.0" prefWidth="722.0" StackPane.alignment="CENTER">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
+      <VBox alignment="TOP_CENTER" maxHeight="1080.0" maxWidth="1920.0" prefHeight="1080.0" prefWidth="1920.0">
          <children>
-            <Button fx:id="unisonButton" maxHeight="50.0" maxWidth="130.0" minHeight="50.0" minWidth="130.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="Unison" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-            <Button fx:id="minorSecondButton" disable="true" maxHeight="50.0" maxWidth="130.0" minHeight="50.0" minWidth="130.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="Minor Second" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-            <Button fx:id="minorSixthButton" disable="true" maxHeight="50.0" maxWidth="130.0" minHeight="50.0" minWidth="130.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="Minor Sixth" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-            <Button fx:id="minorSeventhButton" disable="true" maxHeight="50.0" maxWidth="130.0" minHeight="50.0" minWidth="130.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="Minor Seventh" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-            <Button fx:id="octaveButton" disable="true" maxHeight="50.0" maxWidth="130.0" minHeight="50.0" minWidth="130.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="Octave" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-            <Button fx:id="minorThirdButton" maxHeight="50.0" maxWidth="130.0" minHeight="50.0" minWidth="130.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="Minor Third" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-            <Button fx:id="majorSecondButton" disable="true" layoutX="145.0" layoutY="30.0" maxHeight="50.0" maxWidth="130.0" minHeight="50.0" minWidth="130.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="Major Second" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-            <Button fx:id="perfectFourthButton" disable="true" layoutX="257.0" layoutY="30.0" maxHeight="50.0" maxWidth="130.0" minHeight="50.0" minWidth="130.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="Perfect Fourth" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-            <Button fx:id="majorThirdButton" layoutX="23.0" layoutY="120.0" maxHeight="50.0" maxWidth="130.0" minHeight="50.0" minWidth="130.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="Major Third" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-            <Button fx:id="majorSixthButton" disable="true" layoutX="373.0" layoutY="120.0" maxHeight="50.0" maxWidth="130.0" minHeight="50.0" minWidth="130.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="Major Sixth" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-            <Button fx:id="perfectFifthButton" layoutX="547.0" layoutY="30.0" maxHeight="50.0" maxWidth="130.0" minHeight="50.0" minWidth="130.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="Perfect Fifth" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-            <Button fx:id="majorSeventhButton" disable="true" layoutX="373.0" layoutY="210.0" maxHeight="50.0" maxWidth="130.0" minHeight="50.0" minWidth="130.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="Major Seventh" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-            <Button fx:id="tritoneButton" disable="true" layoutX="23.0" layoutY="120.0" maxHeight="50.0" maxWidth="130.0" minHeight="50.0" minWidth="130.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="Tritone" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-         </children>
-      </GridPane>
-      <VBox maxHeight="259.0" maxWidth="673.0" minHeight="200.0" minWidth="300.0" prefHeight="259.0" prefWidth="673.0">
-         <children>
-            <HBox fx:id="radioButtonsGroup" alignment="CENTER" maxHeight="50.0" maxWidth="414.0" minHeight="50.0" minWidth="100.0" prefHeight="50.0" prefWidth="414.0" spacing="20.0" StackPane.alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
-               <children>
-                  <Label text="Difficulty:" HBox.hgrow="ALWAYS">
-                     <font>
-                        <Font size="11.0" />
-                     </font>
-                  </Label>
-                  <RadioButton fx:id="easyRadioButton" mnemonicParsing="false" onAction="#easyRadioButtonSelected" selected="true" text="Easy" HBox.hgrow="ALWAYS">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                     <font>
-                        <Font size="11.0" />
-                     </font>
-                     <toggleGroup>
-                        <ToggleGroup fx:id="radioButtons" />
-                     </toggleGroup>
-                  </RadioButton>
-                  <RadioButton fx:id="mediumRadioButton" layoutX="10.0" layoutY="26.0" mnemonicParsing="false" onAction="#mediumRadioButtonSelected" text="Medium" toggleGroup="$radioButtons" HBox.hgrow="ALWAYS">
-                     <font>
-                        <Font size="11.0" />
-                     </font>
-                  </RadioButton>
-                  <RadioButton fx:id="hardRadioButton" layoutX="217.0" layoutY="26.0" mnemonicParsing="false" onAction="#hardRadioButtonSelected" text="Hard" toggleGroup="$radioButtons" HBox.hgrow="ALWAYS">
-                     <font>
-                        <Font size="11.0" />
-                     </font>
-                  </RadioButton>
-               </children>
-               <StackPane.margin>
+            <ToolBar prefHeight="40.0" prefWidth="200.0">
+              <items>
+                <Button mnemonicParsing="false" onAction="#BackButtonClicked" prefHeight="27.0" prefWidth="62.0" text="Back" />
+                  <Pane HBox.hgrow="ALWAYS" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Melodic Interval Recognition" />
+                  <ImageView fitHeight="46.0" fitWidth="43.0">
+                     <image>
+                        <Image url="@../Images/Melodic-Interval-Icon.png" />
+                     </image>
+                  </ImageView>
+                  <Pane layoutX="73.0" layoutY="10.0" HBox.hgrow="ALWAYS" />
+                  <ImageView fitHeight="31.0" fitWidth="104.0">
+                     <image>
+                        <Image url="@../Images/EarTrainerLogo.png" />
+                     </image>
+                  </ImageView>
+              </items>
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+            </ToolBar>
+            <Button id="lion-default" fx:id="startButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#StartButtonClicked" prefHeight="57.0" prefWidth="303.0" text="Start" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font size="29.0" />
+               </font>
+               <VBox.margin>
                   <Insets top="300.0" />
-               </StackPane.margin>
-               <VBox.margin>
-                  <Insets left="130.0" />
                </VBox.margin>
-            </HBox>
-            <HBox alignment="TOP_CENTER" maxHeight="38.0" maxWidth="200.0" minHeight="20.0" minWidth="50.0" prefHeight="38.0" prefWidth="200.0">
+            </Button>
+            <VBox maxHeight="100.0" maxWidth="673.0" minHeight="93.0" minWidth="300.0" prefHeight="128.0" prefWidth="673.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Label fx:id="timerLabel" text="00:00" StackPane.alignment="TOP_CENTER">
+                  <HBox fx:id="radioButtonsGroup" alignment="CENTER" maxHeight="50.0" maxWidth="414.0" minHeight="50.0" minWidth="100.0" prefHeight="50.0" prefWidth="414.0" spacing="20.0" StackPane.alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label text="Difficulty:" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                        <RadioButton fx:id="easyRadioButton" mnemonicParsing="false" onAction="#easyRadioButtonSelected" selected="true" text="Easy" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="radioButtons" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="mediumRadioButton" layoutX="10.0" layoutY="26.0" mnemonicParsing="false" onAction="#mediumRadioButtonSelected" text="Medium" toggleGroup="$radioButtons" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton fx:id="hardRadioButton" layoutX="217.0" layoutY="26.0" mnemonicParsing="false" onAction="#hardRadioButtonSelected" text="Hard" toggleGroup="$radioButtons" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </RadioButton>
+                     </children>
                      <StackPane.margin>
-                        <Insets top="275.0" />
+                        <Insets top="300.0" />
                      </StackPane.margin>
-                     <font>
-                        <Font name="Courier Bold" size="26.0" />
-                     </font>
-                  </Label>
+                     <VBox.margin>
+                        <Insets left="130.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="TOP_CENTER" maxHeight="38.0" maxWidth="200.0" minHeight="20.0" minWidth="50.0" prefHeight="38.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="timerLabel" text="00:00" StackPane.alignment="TOP_CENTER">
+                           <StackPane.margin>
+                              <Insets top="275.0" />
+                           </StackPane.margin>
+                           <font>
+                              <Font name="Courier Bold" size="26.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="230.0" />
+                     </VBox.margin>
+                  </HBox>
                </children>
                <VBox.margin>
-                  <Insets left="230.0" />
+                  <Insets />
                </VBox.margin>
-            </HBox>
+            </VBox>
+            <GridPane alignment="BOTTOM_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="432.0" prefWidth="722.0" StackPane.alignment="CENTER" VBox.vgrow="ALWAYS">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button fx:id="unisonButton" maxHeight="50.0" maxWidth="130.0" minHeight="50.0" minWidth="130.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="Unison" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <Button fx:id="minorSecondButton" disable="true" maxHeight="50.0" maxWidth="130.0" minHeight="50.0" minWidth="130.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="Minor Second" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <Button fx:id="minorSixthButton" disable="true" maxHeight="50.0" maxWidth="130.0" minHeight="50.0" minWidth="130.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="Minor Sixth" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <Button fx:id="minorSeventhButton" disable="true" maxHeight="50.0" maxWidth="130.0" minHeight="50.0" minWidth="130.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="Minor Seventh" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <Button fx:id="octaveButton" disable="true" maxHeight="50.0" maxWidth="130.0" minHeight="50.0" minWidth="130.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="Octave" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <Button fx:id="minorThirdButton" maxHeight="50.0" maxWidth="130.0" minHeight="50.0" minWidth="130.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="Minor Third" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <Button fx:id="majorSecondButton" disable="true" layoutX="145.0" layoutY="30.0" maxHeight="50.0" maxWidth="130.0" minHeight="50.0" minWidth="130.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="Major Second" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <Button fx:id="perfectFourthButton" disable="true" layoutX="257.0" layoutY="30.0" maxHeight="50.0" maxWidth="130.0" minHeight="50.0" minWidth="130.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="Perfect Fourth" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <Button fx:id="majorThirdButton" layoutX="23.0" layoutY="120.0" maxHeight="50.0" maxWidth="130.0" minHeight="50.0" minWidth="130.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="Major Third" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <Button fx:id="majorSixthButton" disable="true" layoutX="373.0" layoutY="120.0" maxHeight="50.0" maxWidth="130.0" minHeight="50.0" minWidth="130.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="Major Sixth" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <Button fx:id="perfectFifthButton" layoutX="547.0" layoutY="30.0" maxHeight="50.0" maxWidth="130.0" minHeight="50.0" minWidth="130.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="Perfect Fifth" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <Button fx:id="majorSeventhButton" disable="true" layoutX="373.0" layoutY="210.0" maxHeight="50.0" maxWidth="130.0" minHeight="50.0" minWidth="130.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="Major Seventh" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <Button fx:id="tritoneButton" disable="true" layoutX="23.0" layoutY="120.0" maxHeight="50.0" maxWidth="130.0" minHeight="50.0" minWidth="130.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="Tritone" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+               </children>
+            </GridPane>
          </children>
-         <StackPane.margin>
-            <Insets bottom="310.0" />
-         </StackPane.margin>
       </VBox>
-      <Button id="lion-default" fx:id="startButton" mnemonicParsing="false" onAction="#StartButtonClicked" prefHeight="57.0" prefWidth="303.0" text="Start" StackPane.alignment="TOP_CENTER">
-         <StackPane.margin>
-            <Insets top="175.0" />
-         </StackPane.margin>
-         <font>
-            <Font size="29.0" />
-         </font>
-      </Button>
    </children>
 </StackPane>
