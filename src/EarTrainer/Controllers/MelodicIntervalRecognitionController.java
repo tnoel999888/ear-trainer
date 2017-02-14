@@ -51,6 +51,7 @@ public class MelodicIntervalRecognitionController {
     @FXML private Button startButton;
 
     int questionNumber;
+    int numberOfCorrectAnswers = 0;
 
 
     @FXML
@@ -126,6 +127,10 @@ public class MelodicIntervalRecognitionController {
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/PopupScore.fxml"));
             Parent root = (Parent)loader.load();
+
+            PopupScoreController controller = loader.<PopupScoreController>getController();
+            controller.setNumberOfCorrectAnswers(numberOfCorrectAnswers);
+            controller.setStackPane(stackPane);
 
             Stage stage = (Stage) stackPane.getScene().getWindow();
 
