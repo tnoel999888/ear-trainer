@@ -32,6 +32,14 @@
                   <Insets left="15.0" />
                </padding>
             </ToolBar>
+            <Label fx:id="questionLabel" text="Question" visible="false" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font size="31.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
             <Button id="lion-default" fx:id="startButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#StartButtonClicked" prefHeight="57.0" prefWidth="303.0" text="Start" VBox.vgrow="ALWAYS">
                <font>
                   <Font size="29.0" />

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="49021a73-ff27-48b5-96a0-9e054912d8d1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/SplashScreenController.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/SplashScreenController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/MelodicIntervalRecognitionController.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/MelodicIntervalRecognitionController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Views/MelodicIntervalRecognition.fxml" afterPath="$PROJECT_DIR$/src/EarTrainer/Views/MelodicIntervalRecognition.fxml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -24,11 +24,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MelodicIntervalRecognitionController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MelodicIntervalRecognitionController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/MelodicIntervalRecognitionController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="88" column="5" lean-forward="false" selection-start-line="88" selection-start-column="5" selection-end-line="88" selection-end-column="5" />
+            <state relative-caret-position="217">
+              <caret line="86" column="0" lean-forward="true" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -52,40 +52,40 @@
         <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/MelodicIntervalRecognition.fxml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="195">
-              <caret line="14" column="21" lean-forward="true" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+              <caret line="14" column="21" lean-forward="false" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
               <folding>
-                <marker date="1487079401000" expanded="true" signature="1674:11262" ph="..." />
-                <marker date="1487079401000" expanded="true" signature="1674:11276" ph="..." />
-                <marker date="1487079401000" expanded="true" signature="1881:2087" ph="..." />
-                <marker date="1487079401000" expanded="true" signature="1903:1965" ph="..." />
-                <marker date="1487079401000" expanded="true" signature="1994:2065" ph="..." />
-                <marker date="1487079401000" expanded="true" signature="2232:5346" ph="..." />
-                <marker date="1487079401000" expanded="true" signature="2258:5238" ph="..." />
-                <marker date="1487079401000" expanded="true" signature="2500:4414" ph="..." />
-                <marker date="1487079401000" expanded="true" signature="2532:4141" ph="..." />
-                <marker date="1487079401000" expanded="true" signature="2603:2756" ph="..." />
-                <marker date="1487079401000" expanded="true" signature="2637:2723" ph="..." />
-                <marker date="1487079401000" expanded="true" signature="2926:3359" ph="..." />
-                <marker date="1487079401000" expanded="true" signature="2967:3050" ph="..." />
-                <marker date="1487079401000" expanded="true" signature="3084:3170" ph="..." />
-                <marker date="1487079401000" expanded="true" signature="3211:3320" ph="..." />
-                <marker date="1487079401000" expanded="true" signature="3577:3736" ph="..." />
-                <marker date="1487079401000" expanded="true" signature="3611:3697" ph="..." />
-                <marker date="1487079401000" expanded="true" signature="3949:4108" ph="..." />
-                <marker date="1487079401000" expanded="true" signature="3983:4069" ph="..." />
-                <marker date="1487079401000" expanded="true" signature="4181:4269" ph="..." />
-                <marker date="1487079401000" expanded="true" signature="4304:4388" ph="..." />
-                <marker date="1487079401000" expanded="true" signature="4585:5211" ph="..." />
-                <marker date="1487079401000" expanded="true" signature="4617:5066" ph="..." />
-                <marker date="1487079401000" expanded="true" signature="4714:5033" ph="..." />
-                <marker date="1487079401000" expanded="true" signature="4760:4860" ph="..." />
-                <marker date="1487079401000" expanded="true" signature="4894:5000" ph="..." />
-                <marker date="1487079401000" expanded="true" signature="5101:5185" ph="..." />
-                <marker date="1487079401000" expanded="true" signature="5267:5326" ph="..." />
-                <marker date="1487079401000" expanded="true" signature="5524:11241" ph="..." />
-                <marker date="1487079401000" expanded="true" signature="5558:5957" ph="..." />
-                <marker date="1487079401000" expanded="true" signature="5988:6374" ph="..." />
-                <marker date="1487079401000" expanded="true" signature="6400:11217" ph="..." />
+                <marker date="1487079658000" expanded="true" signature="1674:11560" ph="..." />
+                <marker date="1487079658000" expanded="true" signature="1674:11574" ph="..." />
+                <marker date="1487079658000" expanded="true" signature="2179:2385" ph="..." />
+                <marker date="1487079658000" expanded="true" signature="2201:2263" ph="..." />
+                <marker date="1487079658000" expanded="true" signature="2292:2363" ph="..." />
+                <marker date="1487079658000" expanded="true" signature="2530:5644" ph="..." />
+                <marker date="1487079658000" expanded="true" signature="2556:5536" ph="..." />
+                <marker date="1487079658000" expanded="true" signature="2798:4712" ph="..." />
+                <marker date="1487079658000" expanded="true" signature="2830:4439" ph="..." />
+                <marker date="1487079658000" expanded="true" signature="2901:3054" ph="..." />
+                <marker date="1487079658000" expanded="true" signature="2935:3021" ph="..." />
+                <marker date="1487079658000" expanded="true" signature="3224:3657" ph="..." />
+                <marker date="1487079658000" expanded="true" signature="3265:3348" ph="..." />
+                <marker date="1487079658000" expanded="true" signature="3382:3468" ph="..." />
+                <marker date="1487079658000" expanded="true" signature="3509:3618" ph="..." />
+                <marker date="1487079658000" expanded="true" signature="3875:4034" ph="..." />
+                <marker date="1487079658000" expanded="true" signature="3909:3995" ph="..." />
+                <marker date="1487079658000" expanded="true" signature="4247:4406" ph="..." />
+                <marker date="1487079658000" expanded="true" signature="4281:4367" ph="..." />
+                <marker date="1487079658000" expanded="true" signature="4479:4567" ph="..." />
+                <marker date="1487079658000" expanded="true" signature="4602:4686" ph="..." />
+                <marker date="1487079658000" expanded="true" signature="4883:5509" ph="..." />
+                <marker date="1487079658000" expanded="true" signature="4915:5364" ph="..." />
+                <marker date="1487079658000" expanded="true" signature="5012:5331" ph="..." />
+                <marker date="1487079658000" expanded="true" signature="5058:5158" ph="..." />
+                <marker date="1487079658000" expanded="true" signature="5192:5298" ph="..." />
+                <marker date="1487079658000" expanded="true" signature="5399:5483" ph="..." />
+                <marker date="1487079658000" expanded="true" signature="5565:5624" ph="..." />
+                <marker date="1487079658000" expanded="true" signature="5822:11539" ph="..." />
+                <marker date="1487079658000" expanded="true" signature="5856:6255" ph="..." />
+                <marker date="1487079658000" expanded="true" signature="6286:6672" ph="..." />
+                <marker date="1487079658000" expanded="true" signature="6698:11515" ph="..." />
               </folding>
             </state>
           </provider>
@@ -94,7 +94,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HarmonicIntervalRecognition.fxml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HarmonicIntervalRecognition.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/HarmonicIntervalRecognition.fxml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
@@ -1103,40 +1103,40 @@
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/MelodicIntervalRecognition.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
-          <caret line="14" column="21" lean-forward="true" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+          <caret line="14" column="21" lean-forward="false" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
           <folding>
-            <marker date="1487079401000" expanded="true" signature="1674:11262" ph="..." />
-            <marker date="1487079401000" expanded="true" signature="1674:11276" ph="..." />
-            <marker date="1487079401000" expanded="true" signature="1881:2087" ph="..." />
-            <marker date="1487079401000" expanded="true" signature="1903:1965" ph="..." />
-            <marker date="1487079401000" expanded="true" signature="1994:2065" ph="..." />
-            <marker date="1487079401000" expanded="true" signature="2232:5346" ph="..." />
-            <marker date="1487079401000" expanded="true" signature="2258:5238" ph="..." />
-            <marker date="1487079401000" expanded="true" signature="2500:4414" ph="..." />
-            <marker date="1487079401000" expanded="true" signature="2532:4141" ph="..." />
-            <marker date="1487079401000" expanded="true" signature="2603:2756" ph="..." />
-            <marker date="1487079401000" expanded="true" signature="2637:2723" ph="..." />
-            <marker date="1487079401000" expanded="true" signature="2926:3359" ph="..." />
-            <marker date="1487079401000" expanded="true" signature="2967:3050" ph="..." />
-            <marker date="1487079401000" expanded="true" signature="3084:3170" ph="..." />
-            <marker date="1487079401000" expanded="true" signature="3211:3320" ph="..." />
-            <marker date="1487079401000" expanded="true" signature="3577:3736" ph="..." />
-            <marker date="1487079401000" expanded="true" signature="3611:3697" ph="..." />
-            <marker date="1487079401000" expanded="true" signature="3949:4108" ph="..." />
-            <marker date="1487079401000" expanded="true" signature="3983:4069" ph="..." />
-            <marker date="1487079401000" expanded="true" signature="4181:4269" ph="..." />
-            <marker date="1487079401000" expanded="true" signature="4304:4388" ph="..." />
-            <marker date="1487079401000" expanded="true" signature="4585:5211" ph="..." />
-            <marker date="1487079401000" expanded="true" signature="4617:5066" ph="..." />
-            <marker date="1487079401000" expanded="true" signature="4714:5033" ph="..." />
-            <marker date="1487079401000" expanded="true" signature="4760:4860" ph="..." />
-            <marker date="1487079401000" expanded="true" signature="4894:5000" ph="..." />
-            <marker date="1487079401000" expanded="true" signature="5101:5185" ph="..." />
-            <marker date="1487079401000" expanded="true" signature="5267:5326" ph="..." />
-            <marker date="1487079401000" expanded="true" signature="5524:11241" ph="..." />
-            <marker date="1487079401000" expanded="true" signature="5558:5957" ph="..." />
-            <marker date="1487079401000" expanded="true" signature="5988:6374" ph="..." />
-            <marker date="1487079401000" expanded="true" signature="6400:11217" ph="..." />
+            <marker date="1487079658000" expanded="true" signature="1674:11560" ph="..." />
+            <marker date="1487079658000" expanded="true" signature="1674:11574" ph="..." />
+            <marker date="1487079658000" expanded="true" signature="2179:2385" ph="..." />
+            <marker date="1487079658000" expanded="true" signature="2201:2263" ph="..." />
+            <marker date="1487079658000" expanded="true" signature="2292:2363" ph="..." />
+            <marker date="1487079658000" expanded="true" signature="2530:5644" ph="..." />
+            <marker date="1487079658000" expanded="true" signature="2556:5536" ph="..." />
+            <marker date="1487079658000" expanded="true" signature="2798:4712" ph="..." />
+            <marker date="1487079658000" expanded="true" signature="2830:4439" ph="..." />
+            <marker date="1487079658000" expanded="true" signature="2901:3054" ph="..." />
+            <marker date="1487079658000" expanded="true" signature="2935:3021" ph="..." />
+            <marker date="1487079658000" expanded="true" signature="3224:3657" ph="..." />
+            <marker date="1487079658000" expanded="true" signature="3265:3348" ph="..." />
+            <marker date="1487079658000" expanded="true" signature="3382:3468" ph="..." />
+            <marker date="1487079658000" expanded="true" signature="3509:3618" ph="..." />
+            <marker date="1487079658000" expanded="true" signature="3875:4034" ph="..." />
+            <marker date="1487079658000" expanded="true" signature="3909:3995" ph="..." />
+            <marker date="1487079658000" expanded="true" signature="4247:4406" ph="..." />
+            <marker date="1487079658000" expanded="true" signature="4281:4367" ph="..." />
+            <marker date="1487079658000" expanded="true" signature="4479:4567" ph="..." />
+            <marker date="1487079658000" expanded="true" signature="4602:4686" ph="..." />
+            <marker date="1487079658000" expanded="true" signature="4883:5509" ph="..." />
+            <marker date="1487079658000" expanded="true" signature="4915:5364" ph="..." />
+            <marker date="1487079658000" expanded="true" signature="5012:5331" ph="..." />
+            <marker date="1487079658000" expanded="true" signature="5058:5158" ph="..." />
+            <marker date="1487079658000" expanded="true" signature="5192:5298" ph="..." />
+            <marker date="1487079658000" expanded="true" signature="5399:5483" ph="..." />
+            <marker date="1487079658000" expanded="true" signature="5565:5624" ph="..." />
+            <marker date="1487079658000" expanded="true" signature="5822:11539" ph="..." />
+            <marker date="1487079658000" expanded="true" signature="5856:6255" ph="..." />
+            <marker date="1487079658000" expanded="true" signature="6286:6672" ph="..." />
+            <marker date="1487079658000" expanded="true" signature="6698:11515" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1154,16 +1154,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/MelodicIntervalRecognitionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="88" column="5" lean-forward="false" selection-start-line="88" selection-start-column="5" selection-end-line="88" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/HarmonicIntervalRecognition.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -1173,6 +1163,16 @@
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/MelodicIntervalRecognitionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="86" column="0" lean-forward="true" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>

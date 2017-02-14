@@ -39,8 +39,11 @@ public class MelodicIntervalRecognitionController {
     @FXML private Button majorSeventhButton;
 
     @FXML private Label timerLabel;
+    @FXML private Label questionLabel;
 
     @FXML private Button startButton;
+
+    int questionNumber;
 
 
     @FXML
@@ -91,6 +94,7 @@ public class MelodicIntervalRecognitionController {
     @FXML
     private void StartButtonClicked(ActionEvent event) throws IOException {
         startTimer();
+        questionLabel.setVisible(true);
         startButton.setDisable(true);
         radioButtonsGroup.setDisable(true);
     }
