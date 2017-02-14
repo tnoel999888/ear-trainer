@@ -1,14 +1,16 @@
 package EarTrainer.Controllers;
 
-import javafx.beans.value.ChangeListener;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.Toggle;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
@@ -17,6 +19,7 @@ public class MelodicIntervalRecognitionController {
     @FXML private StackPane stackPane;
 
     @FXML private ToggleGroup radioButtons;
+    @FXML private HBox radioButtonsGroup;
     @FXML private RadioButton easyRadioButton;
     @FXML private RadioButton mediumRadioButton;
     @FXML private RadioButton hardRadioButton;
@@ -34,6 +37,10 @@ public class MelodicIntervalRecognitionController {
     @FXML private Button majorSixthButton;
     @FXML private Button minorSeventhButton;
     @FXML private Button majorSeventhButton;
+
+    @FXML private Label timerLabel;
+
+    @FXML private Button startButton;
 
 
     @FXML
@@ -80,4 +87,42 @@ public class MelodicIntervalRecognitionController {
         Stage stage = (Stage) stackPane.getScene().getWindow();
         stage.hide();
     }
+
+    @FXML
+    private void StartButtonClicked(ActionEvent event) throws IOException {
+        startTimer();
+        startButton.setDisable(true);
+        radioButtonsGroup.setDisable(true);
+    }
+
+    private void startTimer() {
+        Timeline timeline = new Timeline(
+                new KeyFrame(Duration.seconds(0),
+                        new EventHandler<ActionEvent>() {
+                            int secs = 0;
+                            @Override public void handle(ActionEvent actionEvent) {
+                                secs++;
+                                String strSecs = Integer.toString(secs % 60);
+                                String strMins = Integer.toString(secs/60);
+
+                                if (strSecs.length() == 1){
+                                    strSecs = "0" + strSecs;
+                                }
+
+                                if (strMins.length() == 1){
+                                    strMins = "0" + strMins;
+                                }
+
+                                timerLabel.setText(strMins + ":" + strSecs);
+                            }
+                        }
+                ),
+                new KeyFrame(Duration.seconds(1))
+        );
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
+    }
 }
+
+
+

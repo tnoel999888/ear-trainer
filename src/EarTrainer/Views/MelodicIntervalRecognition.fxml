@@ -60,38 +60,71 @@
             <Button fx:id="tritoneButton" disable="true" layoutX="23.0" layoutY="120.0" maxHeight="50.0" maxWidth="130.0" minHeight="50.0" minWidth="130.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="Tritone" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
          </children>
       </GridPane>
-      <HBox alignment="CENTER" maxHeight="50.0" maxWidth="414.0" minHeight="50.0" minWidth="100.0" prefHeight="50.0" prefWidth="414.0" spacing="20.0" StackPane.alignment="TOP_CENTER">
+      <VBox maxHeight="259.0" maxWidth="673.0" minHeight="200.0" minWidth="300.0" prefHeight="259.0" prefWidth="673.0">
          <children>
-            <Label text="Difficulty:">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </Label>
-            <RadioButton fx:id="easyRadioButton" mnemonicParsing="false" onAction="#easyRadioButtonSelected" selected="true" text="Easy">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-               <font>
-                  <Font size="11.0" />
-               </font>
-               <toggleGroup>
-                  <ToggleGroup fx:id="radioButtons" />
-               </toggleGroup>
-            </RadioButton>
-            <RadioButton fx:id="mediumRadioButton" layoutX="10.0" layoutY="26.0" mnemonicParsing="false" onAction="#mediumRadioButtonSelected" text="Medium" toggleGroup="$radioButtons">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </RadioButton>
-            <RadioButton fx:id="hardRadioButton" layoutX="217.0" layoutY="26.0" mnemonicParsing="false" onAction="#hardRadioButtonSelected" text="Hard" toggleGroup="$radioButtons">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </RadioButton>
+            <HBox fx:id="radioButtonsGroup" alignment="CENTER" maxHeight="50.0" maxWidth="414.0" minHeight="50.0" minWidth="100.0" prefHeight="50.0" prefWidth="414.0" spacing="20.0" StackPane.alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label text="Difficulty:" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <RadioButton fx:id="easyRadioButton" mnemonicParsing="false" onAction="#easyRadioButtonSelected" selected="true" text="Easy" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="radioButtons" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="mediumRadioButton" layoutX="10.0" layoutY="26.0" mnemonicParsing="false" onAction="#mediumRadioButtonSelected" text="Medium" toggleGroup="$radioButtons" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton fx:id="hardRadioButton" layoutX="217.0" layoutY="26.0" mnemonicParsing="false" onAction="#hardRadioButtonSelected" text="Hard" toggleGroup="$radioButtons" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </RadioButton>
+               </children>
+               <StackPane.margin>
+                  <Insets top="300.0" />
+               </StackPane.margin>
+               <VBox.margin>
+                  <Insets left="130.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="TOP_CENTER" maxHeight="38.0" maxWidth="200.0" minHeight="20.0" minWidth="50.0" prefHeight="38.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="timerLabel" text="00:00" StackPane.alignment="TOP_CENTER">
+                     <StackPane.margin>
+                        <Insets top="275.0" />
+                     </StackPane.margin>
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets left="230.0" />
+               </VBox.margin>
+            </HBox>
          </children>
          <StackPane.margin>
-            <Insets top="300.0" />
+            <Insets bottom="310.0" />
          </StackPane.margin>
-      </HBox>
+      </VBox>
+      <Button fx:id="startButton" mnemonicParsing="false" onAction="#StartButtonClicked" prefHeight="57.0" prefWidth="303.0" text="Start" StackPane.alignment="TOP_CENTER">
+         <StackPane.margin>
+            <Insets top="175.0" />
+         </StackPane.margin>
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Button>
    </children>
 </StackPane>
