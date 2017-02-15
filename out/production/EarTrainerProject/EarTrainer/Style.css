@@ -15,3 +15,11 @@
     -fx-text-fill: #242d35;
     -fx-font-size: 26px;
 }
+
+
+.modal-dialog-glass {
+  -fx-effect: dropshadow(three-pass-box, derive(GREY, -10%), 10, 0, 4, 4);
+  -fx-background-color: derive(cadetblue, -10%);
+  -fx-background-insets: 12;
+  -fx-background-radius: 0;
+}

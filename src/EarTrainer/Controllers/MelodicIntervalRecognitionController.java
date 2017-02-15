@@ -14,6 +14,8 @@ import javafx.scene.effect.ColorAdjust;
 import javafx.scene.effect.GaussianBlur;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
@@ -121,9 +123,10 @@ public class MelodicIntervalRecognitionController {
             questionLabel.setVisible(false);
 
             ColorAdjust adj = new ColorAdjust(0, 0, -0.2, 0);
-            GaussianBlur blur = new GaussianBlur(10); // 55 is just to show edge effect more clearly.
+            GaussianBlur blur = new GaussianBlur(10);
             adj.setInput(blur);
             stackPane.setEffect(adj);
+            stackPane.setDisable(true);
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/PopupScore.fxml"));
             Parent root = (Parent)loader.load();
@@ -132,7 +135,13 @@ public class MelodicIntervalRecognitionController {
             controller.setNumberOfCorrectAnswers(numberOfCorrectAnswers);
             controller.setStackPane(stackPane);
 
-            Stage stage = (Stage) stackPane.getScene().getWindow();
+            if(numberOfCorrectAnswers >= 0 && numberOfCorrectAnswers <= 3){
+                controller.setImageToUse("../Images/ScoreRed.png");
+            } else if(numberOfCorrectAnswers > 3 && numberOfCorrectAnswers <= 6) {
+                controller.setImageToUse("../Images/ScoreAmber.png");
+            } else {
+                controller.setImageToUse("../Images/ScoreGreen.png");
+            }
 
             Stage newStage = new Stage();
             newStage.initStyle(StageStyle.UNDECORATED);
