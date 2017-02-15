@@ -14,14 +14,11 @@ import javafx.scene.effect.ColorAdjust;
 import javafx.scene.effect.GaussianBlur;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
-
 import java.io.IOException;
-import java.io.InterruptedIOException;
+
 
 public class MelodicIntervalRecognitionController {
 
@@ -47,13 +44,19 @@ public class MelodicIntervalRecognitionController {
     @FXML private Button minorSeventhButton;
     @FXML private Button majorSeventhButton;
 
+    @FXML private Button correctButton = new Button();
+
     @FXML private Label timerLabel;
     @FXML private Label questionLabel;
 
     @FXML private Button startButton;
+    @FXML private Button nextQuestionButton;
 
     int questionNumber;
     int numberOfCorrectAnswers = 0;
+
+    String correctAnswer = "unison";
+    private boolean questionAnswered;
 
 
     @FXML
@@ -109,10 +112,13 @@ public class MelodicIntervalRecognitionController {
         startButton.setDisable(true);
         radioButtonsGroup.setDisable(true);
         questionLabel.setText("Question 1");
+
+        //temporary
+        correctButton = unisonButton;
     }
 
     @FXML
-    private void AnswerButtonClicked(ActionEvent event) throws IOException {
+    private void NextQuestionButtonClicked(ActionEvent event) throws IOException {
         if (questionNumber != 10) {
             questionNumber++;
             questionLabel.setText("Question " + Integer.toString(questionNumber));
@@ -149,6 +155,155 @@ public class MelodicIntervalRecognitionController {
             newStage.setScene(scene);
             newStage.show();
         }
+
+        questionAnswered = false;
+        nextQuestionButton.setDisable(true);
+        resetButtonColours();
+        //Generate new question
+    }
+
+    private void resetButtonColours() {
+        unisonButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
+        minorSecondButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
+        majorSecondButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
+        perfectFourthButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
+        tritoneButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
+        minorThirdButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
+        majorThirdButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
+        perfectFifthButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
+        octaveButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
+        minorSixthButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
+        majorSixthButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
+        minorSeventhButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
+        majorSeventhButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
+    }
+
+    @FXML
+    private void unisonButtonClicked(ActionEvent event) throws IOException {
+        if(!questionAnswered) {
+            AnswerButtonClicked();
+            checkAnswer("unison", unisonButton);
+        }
+    }
+
+    @FXML
+    private void minorSecondButtonClicked(ActionEvent event) throws IOException {
+        if(!questionAnswered) {
+            AnswerButtonClicked();
+            checkAnswer("minor second", minorSecondButton);
+        }
+    }
+
+    @FXML
+    private void majorSecondButtonClicked(ActionEvent event) throws IOException {
+        if(!questionAnswered) {
+            AnswerButtonClicked();
+            checkAnswer("major second", majorSecondButton);
+        }
+    }
+
+    @FXML
+    private void perfectFourthButtonClicked(ActionEvent event) throws IOException {
+        if(!questionAnswered) {
+            AnswerButtonClicked();
+            checkAnswer("perfect fourth", perfectFourthButton);
+        }
+    }
+
+    @FXML
+    private void tritoneButtonClicked(ActionEvent event) throws IOException {
+        if(!questionAnswered) {
+            AnswerButtonClicked();
+            checkAnswer("tritone", tritoneButton);
+        }
+    }
+
+    @FXML
+    private void minorThirdButtonClicked(ActionEvent event) throws IOException {
+        if(!questionAnswered) {
+            AnswerButtonClicked();
+            checkAnswer("minor third", minorThirdButton);
+        }
+    }
+
+    @FXML
+    private void majorThirdButtonClicked(ActionEvent event) throws IOException {
+        if(!questionAnswered) {
+            AnswerButtonClicked();
+            checkAnswer("major third", majorThirdButton);
+        }
+    }
+
+    @FXML
+    private void perfectFifthButtonClicked(ActionEvent event) throws IOException {
+        if(!questionAnswered) {
+            AnswerButtonClicked();
+            checkAnswer("perfect fifth", perfectFifthButton);
+        }
+    }
+
+    @FXML
+    private void octaveButtonClicked(ActionEvent event) throws IOException {
+        if(!questionAnswered) {
+            AnswerButtonClicked();
+            checkAnswer("octave", octaveButton);
+        }
+    }
+
+    @FXML
+    private void minorSixthButtonClicked(ActionEvent event) throws IOException {
+        if(!questionAnswered) {
+            AnswerButtonClicked();
+            checkAnswer("minor sixth", minorSixthButton);
+        }
+    }
+
+    @FXML
+    private void majorSixthButtonClicked(ActionEvent event) throws IOException {
+        if(!questionAnswered) {
+            AnswerButtonClicked();
+            checkAnswer("major sixth", majorSixthButton);
+        }
+    }
+
+    @FXML
+    private void minorSeventhButtonClicked(ActionEvent event) throws IOException {
+        if(!questionAnswered) {
+            AnswerButtonClicked();
+            checkAnswer("minor seventh", minorSeventhButton);
+        }
+    }
+
+    @FXML
+    private void majorSeventhButtonClicked(ActionEvent event) throws IOException {
+        if(!questionAnswered) {
+            AnswerButtonClicked();
+            checkAnswer("major seventh", majorSeventhButton);
+        }
+    }
+
+    @FXML
+    private void AnswerButtonClicked() throws IOException {
+        questionAnswered = true;
+        nextQuestionButton.setDisable(false);
+    }
+
+    private void checkAnswer(String answer, Button button) {
+        if(answer != correctAnswer){
+            makeButtonRed(button);
+        }
+
+        makeButtonGreen(correctButton);
+    }
+
+    private void makeButtonRed(Button button) {
+        System.out.println("red");
+        button.setStyle("-fx-base: #ffb3b3;");
+    }
+
+    private void makeButtonGreen(Button correctButton) {
+        System.out.println("green");
+        correctButton.setStyle("-fx-base: #adebad;");
     }
 
     private void startTimer() {
