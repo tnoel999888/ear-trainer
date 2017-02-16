@@ -2,7 +2,6 @@ package EarTrainer.Controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.effect.GaussianBlur;
@@ -10,11 +9,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-//import java.awt.*;
-
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
+
 
 
 /**
@@ -27,8 +23,6 @@ public class PopupScoreController {
     @FXML private Label scoreLabel;
     @FXML private ImageView scoreImage;
     @FXML private Image image;
-
-    int numberOfCorrectAnswers;
 
     @FXML
     private void OKButtonClicked(ActionEvent event) throws IOException {
@@ -43,8 +37,7 @@ public class PopupScoreController {
     }
 
     public void setNumberOfCorrectAnswers(int numberOfCorrectAnswers) {
-        this.numberOfCorrectAnswers = numberOfCorrectAnswers;
-        scoreLabel.setText(Integer.toString(this.numberOfCorrectAnswers) + "/10");
+        scoreLabel.setText(Integer.toString(numberOfCorrectAnswers) + "/10");
     }
 
     public void setStackPane(StackPane prevPageStackPane) {

@@ -57,6 +57,8 @@ public class MelodicIntervalRecognitionController {
 
     String correctAnswer = "unison";
     private boolean questionAnswered;
+    private Timeline timeline;
+    private boolean startClicked = false;
 
 
     @FXML
@@ -106,10 +108,12 @@ public class MelodicIntervalRecognitionController {
 
     @FXML
     private void StartButtonClicked(ActionEvent event) throws IOException {
+        startClicked = true;
         questionNumber = 1;
         startTimer();
         questionLabel.setVisible(true);
         startButton.setDisable(true);
+        timerLabel.setVisible(true);
         radioButtonsGroup.setDisable(true);
         questionLabel.setText("Question 1");
 
@@ -123,43 +127,54 @@ public class MelodicIntervalRecognitionController {
             questionNumber++;
             questionLabel.setText("Question " + Integer.toString(questionNumber));
         } else {
-            startButton.setDisable(false);
-            radioButtonsGroup.setDisable(false);
-            timerLabel.setVisible(false);
+            //nextQuestionButton.setText("Score");
             questionLabel.setVisible(false);
-
-            ColorAdjust adj = new ColorAdjust(0, 0, -0.2, 0);
-            GaussianBlur blur = new GaussianBlur(10);
-            adj.setInput(blur);
-            stackPane.setEffect(adj);
-            stackPane.setDisable(true);
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/PopupScore.fxml"));
-            Parent root = (Parent)loader.load();
-
-            PopupScoreController controller = loader.<PopupScoreController>getController();
-            controller.setNumberOfCorrectAnswers(numberOfCorrectAnswers);
-            controller.setStackPane(stackPane);
-
-            if(numberOfCorrectAnswers >= 0 && numberOfCorrectAnswers <= 3){
-                controller.setImageToUse("../Images/ScoreRed.png");
-            } else if(numberOfCorrectAnswers > 3 && numberOfCorrectAnswers <= 6) {
-                controller.setImageToUse("../Images/ScoreAmber.png");
-            } else {
-                controller.setImageToUse("../Images/ScoreGreen.png");
-            }
-
-            Stage newStage = new Stage();
-            newStage.initStyle(StageStyle.UNDECORATED);
-            Scene scene = new Scene(root);
-            newStage.setScene(scene);
-            newStage.show();
+            nextQuestionButton.setDisable(true);
+            stopTimer();
+            loadScore();
         }
 
         questionAnswered = false;
         nextQuestionButton.setDisable(true);
         resetButtonColours();
         //Generate new question
+    }
+
+    private void loadScore() {
+        ColorAdjust adj = new ColorAdjust(0, 0, -0.2, 0);
+        GaussianBlur blur = new GaussianBlur(10);
+        adj.setInput(blur);
+        stackPane.setEffect(adj);
+        stackPane.setDisable(true);
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/PopupScore.fxml"));
+        Parent root = null;
+        try {
+            root = (Parent)loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        startButton.setDisable(false);
+        radioButtonsGroup.setDisable(false);
+
+        PopupScoreController controller = loader.<PopupScoreController>getController();
+        controller.setNumberOfCorrectAnswers(numberOfCorrectAnswers);
+        controller.setStackPane(stackPane);
+
+        if(numberOfCorrectAnswers >= 0 && numberOfCorrectAnswers <= 3){
+            controller.setImageToUse("../Images/ScoreRed.png");
+        } else if(numberOfCorrectAnswers > 3 && numberOfCorrectAnswers <= 6) {
+            controller.setImageToUse("../Images/ScoreAmber.png");
+        } else {
+            controller.setImageToUse("../Images/ScoreGreen.png");
+        }
+
+        Stage newStage = new Stage();
+        newStage.initStyle(StageStyle.UNDECORATED);
+        Scene scene = new Scene(root);
+        newStage.setScene(scene);
+        newStage.show();
     }
 
     private void resetButtonColours() {
@@ -180,7 +195,7 @@ public class MelodicIntervalRecognitionController {
 
     @FXML
     private void unisonButtonClicked(ActionEvent event) throws IOException {
-        if(!questionAnswered) {
+        if(!questionAnswered && startClicked) {
             AnswerButtonClicked();
             checkAnswer("unison", unisonButton);
         }
@@ -188,7 +203,7 @@ public class MelodicIntervalRecognitionController {
 
     @FXML
     private void minorSecondButtonClicked(ActionEvent event) throws IOException {
-        if(!questionAnswered) {
+        if(!questionAnswered && startClicked) {
             AnswerButtonClicked();
             checkAnswer("minor second", minorSecondButton);
         }
@@ -196,7 +211,7 @@ public class MelodicIntervalRecognitionController {
 
     @FXML
     private void majorSecondButtonClicked(ActionEvent event) throws IOException {
-        if(!questionAnswered) {
+        if(!questionAnswered && startClicked) {
             AnswerButtonClicked();
             checkAnswer("major second", majorSecondButton);
         }
@@ -204,7 +219,7 @@ public class MelodicIntervalRecognitionController {
 
     @FXML
     private void perfectFourthButtonClicked(ActionEvent event) throws IOException {
-        if(!questionAnswered) {
+        if(!questionAnswered && startClicked) {
             AnswerButtonClicked();
             checkAnswer("perfect fourth", perfectFourthButton);
         }
@@ -212,7 +227,7 @@ public class MelodicIntervalRecognitionController {
 
     @FXML
     private void tritoneButtonClicked(ActionEvent event) throws IOException {
-        if(!questionAnswered) {
+        if(!questionAnswered && startClicked) {
             AnswerButtonClicked();
             checkAnswer("tritone", tritoneButton);
         }
@@ -220,7 +235,7 @@ public class MelodicIntervalRecognitionController {
 
     @FXML
     private void minorThirdButtonClicked(ActionEvent event) throws IOException {
-        if(!questionAnswered) {
+        if(!questionAnswered && startClicked) {
             AnswerButtonClicked();
             checkAnswer("minor third", minorThirdButton);
         }
@@ -228,7 +243,7 @@ public class MelodicIntervalRecognitionController {
 
     @FXML
     private void majorThirdButtonClicked(ActionEvent event) throws IOException {
-        if(!questionAnswered) {
+        if(!questionAnswered && startClicked) {
             AnswerButtonClicked();
             checkAnswer("major third", majorThirdButton);
         }
@@ -236,7 +251,7 @@ public class MelodicIntervalRecognitionController {
 
     @FXML
     private void perfectFifthButtonClicked(ActionEvent event) throws IOException {
-        if(!questionAnswered) {
+        if(!questionAnswered && startClicked) {
             AnswerButtonClicked();
             checkAnswer("perfect fifth", perfectFifthButton);
         }
@@ -244,7 +259,7 @@ public class MelodicIntervalRecognitionController {
 
     @FXML
     private void octaveButtonClicked(ActionEvent event) throws IOException {
-        if(!questionAnswered) {
+        if(!questionAnswered && startClicked) {
             AnswerButtonClicked();
             checkAnswer("octave", octaveButton);
         }
@@ -252,7 +267,7 @@ public class MelodicIntervalRecognitionController {
 
     @FXML
     private void minorSixthButtonClicked(ActionEvent event) throws IOException {
-        if(!questionAnswered) {
+        if(!questionAnswered && startClicked) {
             AnswerButtonClicked();
             checkAnswer("minor sixth", minorSixthButton);
         }
@@ -260,7 +275,7 @@ public class MelodicIntervalRecognitionController {
 
     @FXML
     private void majorSixthButtonClicked(ActionEvent event) throws IOException {
-        if(!questionAnswered) {
+        if(!questionAnswered && startClicked) {
             AnswerButtonClicked();
             checkAnswer("major sixth", majorSixthButton);
         }
@@ -268,7 +283,7 @@ public class MelodicIntervalRecognitionController {
 
     @FXML
     private void minorSeventhButtonClicked(ActionEvent event) throws IOException {
-        if(!questionAnswered) {
+        if(!questionAnswered && startClicked) {
             AnswerButtonClicked();
             checkAnswer("minor seventh", minorSeventhButton);
         }
@@ -276,7 +291,7 @@ public class MelodicIntervalRecognitionController {
 
     @FXML
     private void majorSeventhButtonClicked(ActionEvent event) throws IOException {
-        if(!questionAnswered) {
+        if(!questionAnswered && startClicked) {
             AnswerButtonClicked();
             checkAnswer("major seventh", majorSeventhButton);
         }
@@ -291,18 +306,22 @@ public class MelodicIntervalRecognitionController {
     private void checkAnswer(String answer, Button button) {
         if(answer != correctAnswer){
             makeButtonRed(button);
+        } else {
+            numberOfCorrectAnswers++;
         }
 
         makeButtonGreen(correctButton);
+
+        if(questionNumber == 10){
+
+        }
     }
 
     private void makeButtonRed(Button button) {
-        System.out.println("red");
         button.setStyle("-fx-base: #ffb3b3;");
     }
 
     private void makeButtonGreen(Button correctButton) {
-        System.out.println("green");
         correctButton.setStyle("-fx-base: #adebad;");
     }
 
@@ -330,9 +349,72 @@ public class MelodicIntervalRecognitionController {
                 ),
                 new KeyFrame(Duration.seconds(1))
         );
+        
+        this.timeline = timeline;
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
     }
+    
+    private void stopTimer() {
+        timerLabel.setVisible(false);
+        timeline.stop();
+    }
+
+//    private void runScoreboard() {
+//        ScoreBoard scoreBoard = new ScoreBoard();
+//        scoreBoard.run();
+//    }
+
+//    class ScoreBoard extends Thread{
+//        @Override
+//        public void run() {
+//            try {
+//                Thread.sleep(1000);
+//
+//                Platform.runLater(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        ColorAdjust adj = new ColorAdjust(0, 0, -0.2, 0);
+//                        GaussianBlur blur = new GaussianBlur(10);
+//                        adj.setInput(blur);
+//                        stackPane.setEffect(adj);
+//                        stackPane.setDisable(true);
+//
+//                        FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/PopupScore.fxml"));
+//                        Parent root = null;
+//                        try {
+//                            root = (Parent)loader.load();
+//                        } catch (IOException e) {
+//                            e.printStackTrace();
+//                        }
+//
+//                        startButton.setDisable(false);
+//                        radioButtonsGroup.setDisable(false);
+//
+//                        PopupScoreController controller = loader.<PopupScoreController>getController();
+//                        controller.setNumberOfCorrectAnswers(numberOfCorrectAnswers);
+//                        controller.setStackPane(stackPane);
+//
+//                        if(numberOfCorrectAnswers >= 0 && numberOfCorrectAnswers <= 3){
+//                            controller.setImageToUse("../Images/ScoreRed.png");
+//                        } else if(numberOfCorrectAnswers > 3 && numberOfCorrectAnswers <= 6) {
+//                            controller.setImageToUse("../Images/ScoreAmber.png");
+//                        } else {
+//                            controller.setImageToUse("../Images/ScoreGreen.png");
+//                        }
+//
+//                        Stage newStage = new Stage();
+//                        newStage.initStyle(StageStyle.UNDECORATED);
+//                        Scene scene = new Scene(root);
+//                        newStage.setScene(scene);
+//                        newStage.show();
+//                    }
+//                });
+//            } catch (InterruptedException ex) {
+//                Logger.getLogger(SplashScreenController.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
+//    }
 }
 
 
