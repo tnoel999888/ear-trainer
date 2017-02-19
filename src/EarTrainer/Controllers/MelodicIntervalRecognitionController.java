@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
 
 public class MelodicIntervalRecognitionController {
@@ -51,6 +52,10 @@ public class MelodicIntervalRecognitionController {
 
     @FXML private Button startButton;
     @FXML private Button nextQuestionButton;
+
+    @FXML HBox mediaBar;
+
+
 
     int questionNumber;
     int numberOfCorrectAnswers = 0;
@@ -119,6 +124,8 @@ public class MelodicIntervalRecognitionController {
 
         //temporary
         correctButton = unisonButton;
+
+        playSound();
     }
 
     @FXML
@@ -137,6 +144,9 @@ public class MelodicIntervalRecognitionController {
         questionAnswered = false;
         nextQuestionButton.setDisable(true);
         resetButtonColours();
+
+        mediaBar.getChildren().clear();
+        playSound();
         //Generate new question
     }
 
@@ -360,62 +370,15 @@ public class MelodicIntervalRecognitionController {
         timeline.stop();
     }
 
-//    private void runScoreboard() {
-//        ScoreBoard scoreBoard = new ScoreBoard();
-//        scoreBoard.run();
-//    }
+    @FXML
+    private void playSound() throws UnsupportedEncodingException {
+        Stage stage = (Stage) stackPane.getScene().getWindow();
 
-//    class ScoreBoard extends Thread{
-//        @Override
-//        public void run() {
-//            try {
-//                Thread.sleep(1000);
-//
-//                Platform.runLater(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        ColorAdjust adj = new ColorAdjust(0, 0, -0.2, 0);
-//                        GaussianBlur blur = new GaussianBlur(10);
-//                        adj.setInput(blur);
-//                        stackPane.setEffect(adj);
-//                        stackPane.setDisable(true);
-//
-//                        FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/PopupScore.fxml"));
-//                        Parent root = null;
-//                        try {
-//                            root = (Parent)loader.load();
-//                        } catch (IOException e) {
-//                            e.printStackTrace();
-//                        }
-//
-//                        startButton.setDisable(false);
-//                        radioButtonsGroup.setDisable(false);
-//
-//                        PopupScoreController controller = loader.<PopupScoreController>getController();
-//                        controller.setNumberOfCorrectAnswers(numberOfCorrectAnswers);
-//                        controller.setStackPane(stackPane);
-//
-//                        if(numberOfCorrectAnswers >= 0 && numberOfCorrectAnswers <= 3){
-//                            controller.setImageToUse("../Images/ScoreRed.png");
-//                        } else if(numberOfCorrectAnswers > 3 && numberOfCorrectAnswers <= 6) {
-//                            controller.setImageToUse("../Images/ScoreAmber.png");
-//                        } else {
-//                            controller.setImageToUse("../Images/ScoreGreen.png");
-//                        }
-//
-//                        Stage newStage = new Stage();
-//                        newStage.initStyle(StageStyle.UNDECORATED);
-//                        Scene scene = new Scene(root);
-//                        newStage.setScene(scene);
-//                        newStage.show();
-//                    }
-//                });
-//            } catch (InterruptedException ex) {
-//                Logger.getLogger(SplashScreenController.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
-//    }
+        EmbeddedMediaPlayer emp = new EmbeddedMediaPlayer(this, stackPane);
+        emp.start(stage);
+    }
 }
+
 
 
 

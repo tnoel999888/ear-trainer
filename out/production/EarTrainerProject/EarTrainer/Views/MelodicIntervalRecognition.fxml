@@ -44,6 +44,7 @@
                </VBox.margin>
             </Label>
             <ImageView fitHeight="315.0" fitWidth="457.0" pickOnBounds="true" preserveRatio="true" />
+            <HBox fx:id="mediaBar" alignment="CENTER" maxHeight="50.0" maxWidth="600.0" prefHeight="50.0" prefWidth="600.0" VBox.vgrow="ALWAYS" />
             <VBox maxHeight="80.0" maxWidth="673.0" minHeight="80.0" minWidth="300.0" prefHeight="80.0" prefWidth="673.0" VBox.vgrow="ALWAYS">
                <children>
                   <HBox alignment="TOP_CENTER" maxHeight="38.0" maxWidth="200.0" minHeight="20.0" minWidth="50.0" prefHeight="38.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
