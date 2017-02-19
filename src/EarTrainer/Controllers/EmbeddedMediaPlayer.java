@@ -3,6 +3,7 @@ package EarTrainer.Controllers;
 /**
  * Created by timannoel on 19/02/2017.
  */
+
 /*
  * Copyright (c) 2012 Oracle and/or its affiliates.
  * All rights reserved. Use is subject to license terms.
@@ -37,39 +38,25 @@ package EarTrainer.Controllers;
 
     import javafx.application.Application;
     import javafx.fxml.FXML;
-    import javafx.scene.Group;
-    import javafx.scene.Scene;
     import javafx.scene.layout.StackPane;
-    import javafx.scene.media.Media;
     import javafx.scene.media.MediaPlayer;
-    import javafx.scene.media.MediaView;
     import javafx.stage.Stage;
-
-    import java.io.File;
-    import java.io.UnsupportedEncodingException;
-    import java.net.URLEncoder;
 
 public class EmbeddedMediaPlayer extends Application {
 
-    @FXML
-    private StackPane stackPane;
+    @FXML private StackPane stackPane;
+    private final MediaPlayer mediaPlayer;
     private MelodicIntervalRecognitionController mirPage;
 
-    private static final String MEDIA_URL = "/Users/timannoel/Music/Music/Event Horizon/Event Horizon - Fatter.mp3";
 
-    public EmbeddedMediaPlayer(MelodicIntervalRecognitionController mirPage, StackPane stackPane) {
+    public EmbeddedMediaPlayer(MelodicIntervalRecognitionController mirPage, StackPane stackPane, MediaPlayer mediaPlayer) {
         this.mirPage = mirPage;
         this.stackPane = stackPane;
+        this.mediaPlayer = mediaPlayer;
     }
 
     @Override
-    public void start(Stage primaryStage) throws UnsupportedEncodingException {
-        primaryStage.setTitle("Embedded Media Player");
-
-        // create media player
-        Media media = new Media(new File(MEDIA_URL).toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(media);
-        mediaPlayer.setAutoPlay(true);
+    public void start(Stage primaryStage) {
         MediaControl mediaControl = new MediaControl(mediaPlayer, mirPage, stackPane);
     }
 

@@ -14,9 +14,13 @@ import javafx.scene.effect.ColorAdjust;
 import javafx.scene.effect.GaussianBlur;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
+
+import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
@@ -54,7 +58,7 @@ public class MelodicIntervalRecognitionController {
     @FXML private Button nextQuestionButton;
 
     @FXML HBox mediaBar;
-
+    MediaPlayer mediaPlayer;
 
 
     int questionNumber;
@@ -146,6 +150,7 @@ public class MelodicIntervalRecognitionController {
         resetButtonColours();
 
         mediaBar.getChildren().clear();
+        mediaPlayer.stop();
         playSound();
         //Generate new question
     }
@@ -374,7 +379,13 @@ public class MelodicIntervalRecognitionController {
     private void playSound() throws UnsupportedEncodingException {
         Stage stage = (Stage) stackPane.getScene().getWindow();
 
-        EmbeddedMediaPlayer emp = new EmbeddedMediaPlayer(this, stackPane);
+        final String MEDIA_URL = "/Users/timannoel/Music/Music/Event Horizon/Event Horizon - Fatter.mp3";
+
+        Media media = new Media(new File(MEDIA_URL).toURI().toString());
+        mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setAutoPlay(true);
+
+        EmbeddedMediaPlayer emp = new EmbeddedMediaPlayer(this, stackPane, mediaPlayer);
         emp.start(stage);
     }
 }
