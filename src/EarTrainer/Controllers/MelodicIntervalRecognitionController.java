@@ -385,8 +385,7 @@ public class MelodicIntervalRecognitionController {
         mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
 
-        EmbeddedMediaPlayer emp = new EmbeddedMediaPlayer(this, stackPane, mediaPlayer);
-        emp.start(stage);
+        MediaControl mediaControl = new MediaControl(mediaPlayer, this, stackPane);
     }
 }
 
