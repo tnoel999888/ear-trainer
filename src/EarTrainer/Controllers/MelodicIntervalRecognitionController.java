@@ -20,9 +20,18 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
+
+
+import jm.music.data.*;
+import jm.JMC;
+import jm.audio.*;
+import jm.util.*;
+
+import javax.sound.midi.InvalidMidiDataException;
+import javax.sound.midi.MidiSystem;
+import javax.sound.midi.MidiUnavailableException;
+import javax.sound.midi.Sequencer;
 
 
 public class MelodicIntervalRecognitionController {
@@ -116,7 +125,7 @@ public class MelodicIntervalRecognitionController {
     }
 
     @FXML
-    private void StartButtonClicked(ActionEvent event) throws IOException {
+    private void StartButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException {
         startClicked = true;
         questionNumber = 1;
         startTimer();
@@ -127,13 +136,13 @@ public class MelodicIntervalRecognitionController {
         questionLabel.setText("Question 1");
 
         //temporary
-        correctButton = unisonButton;
+        //correctButton = unisonButton;
 
         playSound();
     }
 
     @FXML
-    private void NextQuestionButtonClicked(ActionEvent event) throws IOException {
+    private void NextQuestionButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException {
         if (questionNumber != 10) {
             questionNumber++;
             questionLabel.setText("Question " + Integer.toString(questionNumber));
@@ -149,10 +158,10 @@ public class MelodicIntervalRecognitionController {
         nextQuestionButton.setDisable(true);
         resetButtonColours();
 
-        mediaBar.getChildren().clear();
-        mediaPlayer.stop();
+//        mediaBar.getChildren().clear();
+//        mediaPlayer.stop();
+
         playSound();
-        //Generate new question
     }
 
     private void loadScore() {
@@ -375,18 +384,52 @@ public class MelodicIntervalRecognitionController {
         timeline.stop();
     }
 
+    private Button getCorrectButton(String correctAnswer) {
+        switch(correctAnswer){
+            case "unison": return unisonButton;
+            case "minor second": return minorSecondButton;
+            case "major second": return majorSecondButton;
+            case "minor third": return minorThirdButton;
+            case "major third": return majorThirdButton;
+            case "perfect fourth": return perfectFourthButton;
+            case "tritone": return tritoneButton;
+            case "perfect fifth": return perfectFifthButton;
+            case "minor sixth": return minorSixthButton;
+            case "major sixth": return majorSixthButton;
+            case "minor seventh": return minorSeventhButton;
+            case "major seventh": return majorSeventhButton;
+            case "octave": return octaveButton;
+            default: return unisonButton;
+        }
+    }
+
     @FXML
-    private void playSound() throws UnsupportedEncodingException {
+    private void playSound() throws IOException, MidiUnavailableException, InvalidMidiDataException {
         Stage stage = (Stage) stackPane.getScene().getWindow();
 
-        final String MEDIA_URL = "/Users/timannoel/Music/Music/Event Horizon/Event Horizon - Fatter.mp3";
+        JMMusicCreator musicCreator = new JMMusicCreator();
+        correctAnswer = musicCreator.makeMIDI();
+        correctButton = getCorrectButton(correctAnswer);
 
-        Media media = new Media(new File(MEDIA_URL).toURI().toString());
-        mediaPlayer = new MediaPlayer(media);
-        mediaPlayer.setAutoPlay(true);
+        //final String MEDIA_URL = "/Users/timannoel/Music/Music/Event Horizon/Event Horizon - Fatter.mp3";
+        final String MEDIA_URL = "/Users/timannoel/ChromaticScale.mid";
 
-        MediaControl mediaControl = new MediaControl(mediaPlayer, this, stackPane);
+        Sequencer sequencer = MidiSystem.getSequencer();
+        sequencer.open();
+        InputStream is = new BufferedInputStream(new FileInputStream(new File(MEDIA_URL)));
+        sequencer.setSequence(is);
+        sequencer.start();
+
+
+//        Media media = new Media(new File(MEDIA_URL).toURI().toString());
+//        mediaPlayer = new MediaPlayer(media);
+//        mediaPlayer.setAutoPlay(true);
+
+//        MediaControl mediaControl = new MediaControl(mediaPlayer, this, stackPane);
     }
+
+
+
 }
 
 

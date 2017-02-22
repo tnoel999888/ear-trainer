@@ -30,5 +30,40 @@
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/jMusic/jMusic1.6.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$USER_HOME$/jMusic/inst" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$USER_HOME$/jMusic/inst" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$USER_HOME$/jMusic" />
+          <root url="file://$USER_HOME$/jMusic" />
+        </CLASSES>
+        <JAVADOC>
+          <root url="file://$USER_HOME$/jMusic/jm/CVS" />
+        </JAVADOC>
+        <SOURCES>
+          <root url="file://$USER_HOME$/jMusic" />
+        </SOURCES>
+        <jarDirectory url="file://$USER_HOME$/jMusic" recursive="false" />
+      </library>
+    </orderEntry>
   </component>
 </module>
