@@ -85,7 +85,6 @@ public class MelodicIntervalRecognitionController {
         majorSecondButton.setDisable(true);
         perfectFourthButton.setDisable(true);
         tritoneButton.setDisable(true);
-        octaveButton.setDisable(true);
         minorSixthButton.setDisable(true);
         majorSixthButton.setDisable(true);
         minorSeventhButton.setDisable(true);
@@ -408,7 +407,15 @@ public class MelodicIntervalRecognitionController {
         Stage stage = (Stage) stackPane.getScene().getWindow();
 
         JMMusicCreator musicCreator = new JMMusicCreator();
-        correctAnswer = musicCreator.makeMIDI();
+
+        if(easyRadioButton.isSelected()){
+            correctAnswer = musicCreator.makeMIDIEasy();
+        } else if(mediumRadioButton.isSelected()){
+            correctAnswer = musicCreator.makeMIDIMedium();
+        } else if(hardRadioButton.isSelected()){
+            correctAnswer = musicCreator.makeMIDIHard();
+        }
+
         correctButton = getCorrectButton(correctAnswer);
 
         //final String MEDIA_URL = "/Users/timannoel/Music/Music/Event Horizon/Event Horizon - Fatter.mp3";

@@ -14,54 +14,154 @@ import java.util.Random;
  */
 public final class JMMusicCreator implements JMC{
 
+
     private String getInterval(int i) {
         switch(i){
             case 0: return "unison";
+
+            case -1:
             case 1: return "minor second";
+
+            case -2:
             case 2: return "major second";
+
+            case -3:
             case 3: return "minor third";
+
+            case -4:
             case 4: return "major third";
+
+            case -5:
             case 5: return "perfect fourth";
+
+            case -6:
             case 6: return "tritone";
+
+            case -7:
             case 7: return "perfect fifth";
+
+            case -8:
             case 8: return "minor sixth";
+
+            case -9:
             case 9: return "major sixth";
+
+            case -10:
             case 10: return "minor seventh";
+
+            case -11:
             case 11: return "major seventh";
+
+            case -12:
             case 12: return "octave";
             default: return "";
         }
     }
 
-    public String makeMIDI(){
+
+    public String makeMIDIEasy(){
         Score s = new Score("JMDemo - Scale");
         Part p = new Part(0);
         Phrase phr = new Phrase("Chromatic scale", 0.0);
 
-        // create the scale notes and
-        // add them to a phrase
         Note n1 = new Note(C4, C);
         phr.addNote(n1);
 
         Random rn = new Random();
-        int i = rn.nextInt(12) + 1;
+        int i = rn.nextInt(5);
+        int[] array = {0, 3, 4, 7, 12};
+        int interval = array[i];
 
-        //System.out.println(i);
+        System.out.println(i);
 
-        Note n2 = new Note(C4+i, C);
+        Note n2 = new Note(C4+interval, C);
         phr.addNote(n2);
 
-        // add the phrase to a part
         p.addPhrase(phr);
-        // add the part to the score
         s.addPart(p);
 
-        //write a MIDI file to disk of the score
         Write.midi(s, "/Users/timannoel/ChromaticScale.mid");
 
-        String answer = getInterval(i);
+        return getInterval(interval);
+    }
 
-        return answer;
+
+    public String makeMIDIMedium(){
+        Score s = new Score("JMDemo - Scale");
+        Part p = new Part(0);
+        Phrase phr = new Phrase("Chromatic scale", 0.0);
+
+//        Random rn = new Random();
+//        int i = rn.nextInt(13);
+
+        Random rn = new Random();
+        int i = rn.nextInt(7);
+        int[] array = {0, 1, 2, 3, 4, 7, 12};
+        int interval = array[i];
+
+        System.out.println(interval);
+
+        Random r2n = new Random();
+        int i2 = r2n.nextInt(7);
+        int[] roots = {C3,
+                        D3,
+                        E3,
+                        F3,
+                        G3,
+                        A3,
+                        B3,};
+
+        int chosenRoot = roots[i2];
+
+        Note n1 = new Note(chosenRoot, C);
+        phr.addNote(n1);
+
+        Note n2 = new Note(chosenRoot+interval, C);
+        phr.addNote(n2);
+
+        p.addPhrase(phr);
+        s.addPart(p);
+
+        Write.midi(s, "/Users/timannoel/ChromaticScale.mid");
+
+        return getInterval(interval);
+    }
+
+
+    public String makeMIDIHard(){
+        Score s = new Score("JMDemo - Scale");
+        Part p = new Part(0);
+        Phrase phr = new Phrase("Chromatic scale", 0.0);
+
+        Random rn = new Random();
+        int i = rn.nextInt(25) -12;
+
+        System.out.println(i);
+
+        Random r2n = new Random();
+        int i2 = r2n.nextInt(21);
+        int[] roots = {C3, C4, C5,
+                       D3, D4, D5,
+                       E3, E4, E5,
+                       F3, F4, F5,
+                       G3, G4, G5,
+                       A3, A4, A5,
+                       B3, B4, B5};
+
+        int chosenRoot = roots[i2];
+
+        Note n1 = new Note(chosenRoot, C);
+        phr.addNote(n1);
+
+        Note n2 = new Note(chosenRoot+i, C);
+        phr.addNote(n2);
+
+        p.addPhrase(phr);
+        s.addPart(p);
+
+        Write.midi(s, "/Users/timannoel/ChromaticScale.mid");
+
+        return getInterval(i);
     }
 
 }
