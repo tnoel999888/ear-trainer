@@ -62,6 +62,7 @@ public class MelodicIntervalRecognitionController {
 
     @FXML private Label timerLabel;
     @FXML private Label questionLabel;
+    @FXML private Label difficultyDescriptionLabel;
 
     @FXML private Button startButton;
     @FXML private Button nextQuestionButton;
@@ -89,6 +90,8 @@ public class MelodicIntervalRecognitionController {
         majorSixthButton.setDisable(true);
         minorSeventhButton.setDisable(true);
         majorSeventhButton.setDisable(true);
+
+        difficultyDescriptionLabel.setText("Middle C as root note. Only Unisons, Thirds, Perfect Fifths and Octaves. Only 1 Octave.");
     }
 
     @FXML
@@ -102,6 +105,8 @@ public class MelodicIntervalRecognitionController {
         majorSixthButton.setDisable(true);
         minorSeventhButton.setDisable(true);
         majorSeventhButton.setDisable(true);
+
+        difficultyDescriptionLabel.setText("Middle C, D, E, F, G, A, B as root notes. Only Unisons, Seconds, Thirds, Perfect Fifths and Octaves. Only 1 Octave.");
     }
 
     @FXML
@@ -115,6 +120,8 @@ public class MelodicIntervalRecognitionController {
         majorSixthButton.setDisable(false);
         minorSeventhButton.setDisable(false);
         majorSeventhButton.setDisable(false);
+
+        difficultyDescriptionLabel.setText("All notes as root notes. All intervals. 3 Octaves.");
     }
 
     @FXML

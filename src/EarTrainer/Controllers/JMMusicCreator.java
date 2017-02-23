@@ -103,13 +103,13 @@ public final class JMMusicCreator implements JMC{
 
         Random r2n = new Random();
         int i2 = r2n.nextInt(7);
-        int[] roots = {C3,
-                        D3,
-                        E3,
-                        F3,
-                        G3,
-                        A3,
-                        B3,};
+        int[] roots = {C4,
+                        D4,
+                        E4,
+                        F4,
+                        G4,
+                        A4,
+                        B4,};
 
         int chosenRoot = roots[i2];
 
@@ -141,11 +141,16 @@ public final class JMMusicCreator implements JMC{
         Random r2n = new Random();
         int i2 = r2n.nextInt(21);
         int[] roots = {C3, C4, C5,
+                       CS3, CS4, CS5,
                        D3, D4, D5,
+                       DS3, DS4, DS5,
                        E3, E4, E5,
                        F3, F4, F5,
+                       FS3, FS4, FS5,
                        G3, G4, G5,
+                       GS3, GS4, GS5,
                        A3, A4, A5,
+                       AS3, AS4, AS5,
                        B3, B4, B5};
 
         int chosenRoot = roots[i2];
