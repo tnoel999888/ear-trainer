@@ -10,11 +10,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.effect.GaussianBlur;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
-import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -22,11 +24,6 @@ import javafx.util.Duration;
 
 import java.io.*;
 
-
-import jm.music.data.*;
-import jm.JMC;
-import jm.audio.*;
-import jm.util.*;
 
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiSystem;
@@ -66,6 +63,9 @@ public class MelodicIntervalRecognitionController {
 
     @FXML private Button startButton;
     @FXML private Button nextQuestionButton;
+    @FXML private Button replayButton;
+
+    @FXML private ImageView scoreImage;
 
     @FXML HBox mediaBar;
     MediaPlayer mediaPlayer;
@@ -124,16 +124,19 @@ public class MelodicIntervalRecognitionController {
         difficultyDescriptionLabel.setText("All notes as root notes. All intervals. 3 Octaves.");
     }
 
+
     @FXML
     private void BackButtonClicked(ActionEvent event) throws IOException {
         Stage stage = (Stage) stackPane.getScene().getWindow();
         stage.hide();
     }
 
+
     @FXML
     private void StartButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException {
         startClicked = true;
         questionNumber = 1;
+        numberOfCorrectAnswers = 0;
         startTimer();
         questionLabel.setVisible(true);
         startButton.setDisable(true);
@@ -141,11 +144,9 @@ public class MelodicIntervalRecognitionController {
         radioButtonsGroup.setDisable(true);
         questionLabel.setText("Question 1");
 
-        //temporary
-        //correctButton = unisonButton;
-
-        playSound();
+        generateQuestion();
     }
+
 
     @FXML
     private void NextQuestionButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException {
@@ -167,7 +168,7 @@ public class MelodicIntervalRecognitionController {
 //        mediaBar.getChildren().clear();
 //        mediaPlayer.stop();
 
-        playSound();
+        generateQuestion();
     }
 
     private void loadScore() {
@@ -409,8 +410,9 @@ public class MelodicIntervalRecognitionController {
         }
     }
 
+
     @FXML
-    private void playSound() throws IOException, MidiUnavailableException, InvalidMidiDataException {
+    private void generateQuestion() throws IOException, MidiUnavailableException, InvalidMidiDataException {
         Stage stage = (Stage) stackPane.getScene().getWindow();
 
         JMMusicCreator musicCreator = new JMMusicCreator();
@@ -425,15 +427,7 @@ public class MelodicIntervalRecognitionController {
 
         correctButton = getCorrectButton(correctAnswer);
 
-        //final String MEDIA_URL = "/Users/timannoel/Music/Music/Event Horizon/Event Horizon - Fatter.mp3";
-        final String MEDIA_URL = "/Users/timannoel/ChromaticScale.mid";
-
-        Sequencer sequencer = MidiSystem.getSequencer();
-        sequencer.open();
-        InputStream is = new BufferedInputStream(new FileInputStream(new File(MEDIA_URL)));
-        sequencer.setSequence(is);
-        sequencer.start();
-
+        playSound();
 
 //        Media media = new Media(new File(MEDIA_URL).toURI().toString());
 //        mediaPlayer = new MediaPlayer(media);
@@ -442,6 +436,21 @@ public class MelodicIntervalRecognitionController {
 //        MediaControl mediaControl = new MediaControl(mediaPlayer, this, stackPane);
     }
 
+
+    @FXML
+    private void replayButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException {
+        playSound();
+    }
+
+    private void playSound() throws MidiUnavailableException, IOException, InvalidMidiDataException {
+        final String MEDIA_URL = "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/MelodicInterval.mid";
+
+        Sequencer sequencer = MidiSystem.getSequencer();
+        sequencer.open();
+        InputStream is = new BufferedInputStream(new FileInputStream(new File(MEDIA_URL)));
+        sequencer.setSequence(is);
+        sequencer.start();
+    }
 
 
 }

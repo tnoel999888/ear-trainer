@@ -12,7 +12,7 @@ import java.util.Random;
  * and writes to a standard MIDI file called ChromaticScale.mid
  * @author Andrew Sorensen and Andrew Brown
  */
-public final class JMMusicCreator implements JMC{
+public final class JMMusicCreator implements JMC {
 
 
     private String getInterval(int i) {
@@ -80,7 +80,11 @@ public final class JMMusicCreator implements JMC{
         p.addPhrase(phr);
         s.addPart(p);
 
-        Write.midi(s, "/Users/timannoel/ChromaticScale.mid");
+//        Write.midi(s, "/Users/timannoel/ChromaticScale.mid");
+        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/MelodicInterval.mid");
+
+//        ScoreWithoutScoreFrame scoreJMSL = new ScoreWithoutScoreFrame();
+//        scoreJMSL.create();
 
         return getInterval(interval);
     }
@@ -122,7 +126,8 @@ public final class JMMusicCreator implements JMC{
         p.addPhrase(phr);
         s.addPart(p);
 
-        Write.midi(s, "/Users/timannoel/ChromaticScale.mid");
+//        Write.midi(s, "/Users/timannoel/ChromaticScale.mid");
+        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/MelodicInterval.mid");
 
         return getInterval(interval);
     }
@@ -164,7 +169,8 @@ public final class JMMusicCreator implements JMC{
         p.addPhrase(phr);
         s.addPart(p);
 
-        Write.midi(s, "/Users/timannoel/ChromaticScale.mid");
+//        Write.midi(s, "/Users/timannoel/ChromaticScale.mid");
+        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/MelodicInterval.mid");
 
         return getInterval(i);
     }
