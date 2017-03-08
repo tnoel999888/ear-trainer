@@ -1,5 +1,7 @@
 package EarTrainer.Controllers;
 
+import com.didkovsky.portview.swing.ViewFactorySwing;
+import com.softsynth.jmsl.JMSL;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -21,8 +23,11 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
+import jm.music.data.Phrase;
+import jm.util.View;
 
 import java.io.*;
+import java.util.Timer;
 
 
 import javax.sound.midi.InvalidMidiDataException;
@@ -33,6 +38,7 @@ import javax.sound.midi.Sequencer;
 
 public class MelodicIntervalRecognitionController {
 
+    public static final int TOTAL_QUESTIONS = 10;
     @FXML private StackPane stackPane;
 
     @FXML private ToggleGroup radioButtons;
@@ -69,7 +75,10 @@ public class MelodicIntervalRecognitionController {
 
     @FXML HBox mediaBar;
     MediaPlayer mediaPlayer;
+    JMMusicCreator musicCreator;
 
+
+    Sequencer sequencer;
 
     int questionNumber;
     int numberOfCorrectAnswers = 0;
@@ -169,6 +178,38 @@ public class MelodicIntervalRecognitionController {
 //        mediaPlayer.stop();
 
         generateQuestion();
+
+//        if (questionNumber < TOTAL_QUESTIONS) {
+//            questionNumber++;
+//            questionLabel.setText("Question " + Integer.toString(questionNumber));
+//            generateQuestion();
+//
+//        }
+//
+//        if (questionNumber == TOTAL_QUESTIONS){
+//            questionNumber++;
+//            questionLabel.setText("Question " + Integer.toString(questionNumber));
+//            generateQuestion();
+//            nextQuestionButton.setText("Score");
+//            questionLabel.setVisible(false);
+//            stopTimer();
+//        }
+//
+//        if (questionNumber == TOTAL_QUESTIONS + 1) {
+//            nextQuestionButton.setDisable(true);
+//            loadScore();
+//        }
+//
+//
+//
+//        questionAnswered = false;
+//        nextQuestionButton.setDisable(true);
+//        resetButtonColours();
+
+//        mediaBar.getChildren().clear();
+//        mediaPlayer.stop();
+
+//        generateQuestion();
     }
 
     private void loadScore() {
@@ -332,6 +373,9 @@ public class MelodicIntervalRecognitionController {
     private void AnswerButtonClicked() throws IOException {
         questionAnswered = true;
         nextQuestionButton.setDisable(false);
+
+        Phrase phrase = musicCreator.getPhrase();
+        View.notate(phrase, 20, 100);
     }
 
     private void checkAnswer(String answer, Button button) {
@@ -387,6 +431,7 @@ public class MelodicIntervalRecognitionController {
     }
     
     private void stopTimer() {
+//        gen = false;
         timerLabel.setVisible(false);
         timeline.stop();
     }
@@ -415,7 +460,7 @@ public class MelodicIntervalRecognitionController {
     private void generateQuestion() throws IOException, MidiUnavailableException, InvalidMidiDataException {
         Stage stage = (Stage) stackPane.getScene().getWindow();
 
-        JMMusicCreator musicCreator = new JMMusicCreator();
+        musicCreator = new JMMusicCreator();
 
         if(easyRadioButton.isSelected()){
             correctAnswer = musicCreator.makeMIDIEasy();
@@ -445,11 +490,17 @@ public class MelodicIntervalRecognitionController {
     private void playSound() throws MidiUnavailableException, IOException, InvalidMidiDataException {
         final String MEDIA_URL = "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/MelodicInterval.mid";
 
-        Sequencer sequencer = MidiSystem.getSequencer();
+        sequencer = MidiSystem.getSequencer();
         sequencer.open();
         InputStream is = new BufferedInputStream(new FileInputStream(new File(MEDIA_URL)));
         sequencer.setSequence(is);
         sequencer.start();
+
+//        JMSL.setViewFactory(new ViewFactorySwing());
+//        ScoreWithoutScoreFrame test = new ScoreWithoutScoreFrame();
+//        test.buildScore();
+//        test.getScore().getScoreCanvas().getComponent();
+//        stackPane.getChildren().add(test.getScore().getScoreCanvas().getComponent());
     }
 
 

@@ -14,6 +14,12 @@ import java.util.Random;
  */
 public final class JMMusicCreator implements JMC {
 
+    Phrase phr2 = new Phrase("Chromatic scale", 0.0);
+
+    public Phrase getPhrase() {
+        return phr2;
+    }
+
 
     private String getInterval(int i) {
         switch(i){
@@ -62,10 +68,12 @@ public final class JMMusicCreator implements JMC {
     public String makeMIDIEasy(){
         Score s = new Score("JMDemo - Scale");
         Part p = new Part(0);
-        Phrase phr = new Phrase("Chromatic scale", 0.0);
+        Phrase phr1 = new Phrase("Chromatic scale", 0.0);
 
         Note n1 = new Note(C4, C);
-        phr.addNote(n1);
+        phr1.addNote(n1);
+
+        View.notate(phr1, 20, 100);
 
         Random rn = new Random();
         int i = rn.nextInt(5);
@@ -75,16 +83,14 @@ public final class JMMusicCreator implements JMC {
         System.out.println(i);
 
         Note n2 = new Note(C4+interval, C);
-        phr.addNote(n2);
 
-        p.addPhrase(phr);
+        phr2.addNote(n1);
+        phr2.addNote(n2);
+
+        p.addPhrase(phr2);
         s.addPart(p);
 
-//        Write.midi(s, "/Users/timannoel/ChromaticScale.mid");
         Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/MelodicInterval.mid");
-
-//        ScoreWithoutScoreFrame scoreJMSL = new ScoreWithoutScoreFrame();
-//        scoreJMSL.create();
 
         return getInterval(interval);
     }
@@ -93,10 +99,7 @@ public final class JMMusicCreator implements JMC {
     public String makeMIDIMedium(){
         Score s = new Score("JMDemo - Scale");
         Part p = new Part(0);
-        Phrase phr = new Phrase("Chromatic scale", 0.0);
-
-//        Random rn = new Random();
-//        int i = rn.nextInt(13);
+        Phrase phr1 = new Phrase("Chromatic scale", 0.0);
 
         Random rn = new Random();
         int i = rn.nextInt(7);
@@ -118,15 +121,18 @@ public final class JMMusicCreator implements JMC {
         int chosenRoot = roots[i2];
 
         Note n1 = new Note(chosenRoot, C);
-        phr.addNote(n1);
+        phr1.addNote(n1);
+
+        View.notate(phr1, 20, 100);
 
         Note n2 = new Note(chosenRoot+interval, C);
-        phr.addNote(n2);
 
-        p.addPhrase(phr);
+        phr2.addNote(n1);
+        phr2.addNote(n2);
+
+        p.addPhrase(phr2);
         s.addPart(p);
 
-//        Write.midi(s, "/Users/timannoel/ChromaticScale.mid");
         Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/MelodicInterval.mid");
 
         return getInterval(interval);
@@ -164,12 +170,13 @@ public final class JMMusicCreator implements JMC {
         phr.addNote(n1);
 
         Note n2 = new Note(chosenRoot+i, C);
-        phr.addNote(n2);
+        
+        phr2.addNote(n1);
+        phr2.addNote(n2);
 
-        p.addPhrase(phr);
+        p.addPhrase(phr2);
         s.addPart(p);
 
-//        Write.midi(s, "/Users/timannoel/ChromaticScale.mid");
         Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/MelodicInterval.mid");
 
         return getInterval(i);

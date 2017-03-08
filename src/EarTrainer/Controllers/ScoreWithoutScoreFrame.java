@@ -5,7 +5,9 @@ package EarTrainer.Controllers;
  */
 import javax.swing.JFrame;
 
+import com.didkovsky.portview.swing.ViewFactorySwing;
 import com.softsynth.jmsl.JMSL;
+import com.softsynth.jmsl.score.NoteFactory;
 import com.softsynth.jmsl.score.Score;
 
 /**
@@ -22,8 +24,10 @@ public class ScoreWithoutScoreFrame {
     void buildScore() {
         score = new Score(2, 800, 600);
         score.addMeasure();
-        score.addNote(2, 60, 0.5, 0.8);
-        score.addNote(2, 72, 0.5, 0.8);
+//        score.addNote(2, 60, 0.5, 0.8);
+//        score.addNote(2, 72, 0.5, 0.8);
+        score.addNote(2, NoteFactory.MIDDLE_C, 0.5, 0.8);
+        score.addNote(2, NoteFactory.MIDDLE_C + 1, 0.5, 0.8);
     }
 
     /**
@@ -49,6 +53,7 @@ public class ScoreWithoutScoreFrame {
             }
         });
 
+        JMSL.setViewFactory(new ViewFactorySwing());
         ScoreWithoutScoreFrame test = new ScoreWithoutScoreFrame();
         test.buildScore();
         f.add(test.getScore().getScoreCanvas().getComponent());
