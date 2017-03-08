@@ -1,7 +1,5 @@
 package EarTrainer.Controllers;
 
-import com.didkovsky.portview.swing.ViewFactorySwing;
-import com.softsynth.jmsl.JMSL;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -27,7 +25,6 @@ import jm.music.data.Phrase;
 import jm.util.View;
 
 import java.io.*;
-import java.util.Timer;
 
 
 import javax.sound.midi.InvalidMidiDataException;
@@ -463,11 +460,11 @@ public class MelodicIntervalRecognitionController {
         musicCreator = new JMMusicCreator();
 
         if(easyRadioButton.isSelected()){
-            correctAnswer = musicCreator.makeMIDIEasy();
+            correctAnswer = musicCreator.makeMIDIEasyMelodic();
         } else if(mediumRadioButton.isSelected()){
-            correctAnswer = musicCreator.makeMIDIMedium();
+            correctAnswer = musicCreator.makeMIDIMediumMelodic();
         } else if(hardRadioButton.isSelected()){
-            correctAnswer = musicCreator.makeMIDIHard();
+            correctAnswer = musicCreator.makeMIDIHardMelodic();
         }
 
         correctButton = getCorrectButton(correctAnswer);
