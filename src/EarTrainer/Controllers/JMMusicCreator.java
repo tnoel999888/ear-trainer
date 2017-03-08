@@ -1,6 +1,8 @@
 package EarTrainer.Controllers;
 
 import jm.JMC;
+import jm.gui.cpn.BassStave;
+import jm.gui.cpn.Stave;
 import jm.gui.show.ShowScore;
 import jm.music.data.*;
 import jm.util.*;
@@ -14,6 +16,9 @@ import java.util.Random;
  */
 public final class JMMusicCreator implements JMC {
 
+    Score s = new Score("JMDemo - Scale");
+    Part p = new Part(0);
+    Phrase phr1 = new Phrase("Chromatic scale", 0.0);
     Phrase phr2 = new Phrase("Melodic Interval", 0.0);
     CPhrase cphr2 = new CPhrase("Harmonic Interval", 0.0);
 
@@ -64,20 +69,75 @@ public final class JMMusicCreator implements JMC {
 
             case -12:
             case 12: return "octave";
+
             default: return "";
         }
     }
 
 
+    private String getNote(Note n2) {
+        switch(n2.getPitch()){
+            case C3:
+            case C5:
+            case C4: return "c";
+
+            case CS3:
+            case CS5:
+            case CS4: return "c sharp";
+
+            case D3:
+            case D5:
+            case D4: return "d";
+
+            case DS3:
+            case DS5:
+            case DS4: return "d sharp";
+
+            case E3:
+            case E5:
+            case E4: return "e";
+
+            case F3:
+            case F5:
+            case F4: return "f";
+
+            case FS3:
+            case FS5:
+            case FS4: return "f sharp";
+
+            case G3:
+            case G5:
+            case G4: return "g";
+
+            case GS3:
+            case GS5:
+            case GS4: return "g sharp";
+
+            case A3:
+            case A5:
+            case A4: return "a";
+
+            case AS3:
+            case AS5:
+            case AS4: return "a sharp";
+
+            case B3:
+            case B5:
+            case B4: return "b";
+
+            default: return "";
+        }
+    }
+
     public String makeMIDIEasyMelodic(){
-        Score s = new Score("JMDemo - Scale");
-        Part p = new Part(0);
-        Phrase phr1 = new Phrase("Chromatic scale", 0.0);
 
         Note n1 = new Note(C4, C);
         phr1.addNote(n1);
 
-        View.notate(phr1, 20, 100);
+        View.notate(phr1, 700, 200);
+
+//        Stave stave = new BassStave(phr1);
+//        stave.setVisible(true);
 
         Random rn = new Random();
         int i = rn.nextInt(5);
@@ -105,10 +165,6 @@ public final class JMMusicCreator implements JMC {
 
 
     public String makeMIDIMediumMelodic(){
-        Score s = new Score("JMDemo - Scale");
-        Part p = new Part(0);
-        Phrase phr1 = new Phrase("Chromatic scale", 0.0);
-
         Random rn = new Random();
         int i = rn.nextInt(7);
         int[] array = {0, 1, 2, 3, 4, 7, 12};
@@ -131,7 +187,7 @@ public final class JMMusicCreator implements JMC {
         Note n1 = new Note(chosenRoot, C);
         phr1.addNote(n1);
 
-        View.notate(phr1, 20, 100);
+        View.notate(phr1, 700, 200);
 
         Note n2 = new Note(chosenRoot+interval, C);
 
@@ -148,10 +204,6 @@ public final class JMMusicCreator implements JMC {
 
 
     public String makeMIDIHardMelodic(){
-        Score s = new Score("JMDemo - Scale");
-        Part p = new Part(0);
-        Phrase phr = new Phrase("Chromatic scale", 0.0);
-
         Random rn = new Random();
         int i = rn.nextInt(25) -12;
 
@@ -175,9 +227,9 @@ public final class JMMusicCreator implements JMC {
         int chosenRoot = roots[i2];
 
         Note n1 = new Note(chosenRoot, C);
-        phr.addNote(n1);
+        phr1.addNote(n1);
 
-        View.notate(phr, 20, 100);
+        View.notate(phr1, 700, 200);
 
         Note n2 = new Note(chosenRoot+i, C);
 
@@ -194,14 +246,10 @@ public final class JMMusicCreator implements JMC {
 
 
     public String makeMIDIEasyHarmonic(){
-        Score s = new Score("JMDemo - Scale");
-        Part p = new Part(0);
-        Phrase phr1 = new Phrase("Chromatic scale", 0.0);
-
         Note n1 = new Note(C4, C);
         phr1.addNote(n1);
 
-        View.notate(phr1, 20, 100);
+        View.notate(phr1, 700, 200);
 
         Random rn = new Random();
         int i = rn.nextInt(5);
@@ -225,10 +273,6 @@ public final class JMMusicCreator implements JMC {
 
 
     public String makeMIDIMediumHarmonic(){
-        Score s = new Score("JMDemo - Scale");
-        Part p = new Part(0);
-        Phrase phr1 = new Phrase("Chromatic scale", 0.0);
-
         Random rn = new Random();
         int i = rn.nextInt(7);
         int[] array = {0, 1, 2, 3, 4, 7, 12};
@@ -251,7 +295,7 @@ public final class JMMusicCreator implements JMC {
         Note n1 = new Note(chosenRoot, C);
         phr1.addNote(n1);
 
-        View.notate(phr1, 20, 100);
+        View.notate(phr1, 700, 200);
 
         Note n2 = new Note(chosenRoot+interval, C);
 
@@ -268,10 +312,6 @@ public final class JMMusicCreator implements JMC {
 
 
     public String makeMIDIHardHarmonic(){
-        Score s = new Score("JMDemo - Scale");
-        Part p = new Part(0);
-        Phrase phr = new Phrase("Chromatic scale", 0.0);
-
         Random rn = new Random();
         int i = rn.nextInt(25) -12;
 
@@ -295,9 +335,9 @@ public final class JMMusicCreator implements JMC {
         int chosenRoot = roots[i2];
 
         Note n1 = new Note(chosenRoot, C);
-        phr.addNote(n1);
+        phr1.addNote(n1);
 
-        View.notate(phr, 20, 100);
+        View.notate(phr1, 700, 200);
 
         Note n2 = new Note(chosenRoot+i, C);
 
@@ -310,5 +350,72 @@ public final class JMMusicCreator implements JMC {
         Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/HarmonicInterval.mid");
 
         return getInterval(i);
+    }
+
+
+    public String makeMIDIEasyPitch(){
+        Random rn = new Random();
+        int i = rn.nextInt(7);
+        int[] array = {0, 2, 4, 5, 7, 9, 11};
+        int interval = array[i];
+
+        Note n2 = new Note(C4+interval, C);
+
+        phr2.addNote(n2);
+
+        p.addPhrase(phr2);
+        s.addPart(p);
+
+        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Pitch.mid");
+
+        return getNote(n2);
+    }
+
+
+    public String makeMIDIMediumPitch(){
+        Random rn = new Random();
+        int i = rn.nextInt(12);
+        int[] array = new int[12];
+
+        for(int j = 0; j < 12; j++){
+            array[j] = j;
+        }
+
+        int interval = array[i];
+
+        Note n2 = new Note(C4+interval, C);
+
+        phr2.addNote(n2);
+
+        p.addPhrase(phr2);
+        s.addPart(p);
+
+        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Pitch.mid");
+
+        return getNote(n2);
+    }
+
+
+    public String makeMIDIHardPitch(){
+        Random rn = new Random();
+        int i = rn.nextInt(36);
+        int[] array = new int[36];
+
+        for(int j = 0; j < 36; j++){
+            array[j] = j;
+        }
+
+        int interval = array[i];
+
+        Note n2 = new Note(C3+interval, C);
+
+        phr2.addNote(n2);
+
+        p.addPhrase(phr2);
+        s.addPart(p);
+
+        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Pitch.mid");
+
+        return getNote(n2);
     }
 }
