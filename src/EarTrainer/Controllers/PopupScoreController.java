@@ -21,6 +21,7 @@ public class PopupScoreController {
     @FXML private StackPane stackPane;
     @FXML private StackPane prevPageStackPane;
     @FXML private Label scoreLabel;
+    @FXML private Label timeLabel;
     @FXML private ImageView scoreImage;
     @FXML private Image image;
 
@@ -38,6 +39,10 @@ public class PopupScoreController {
 
     public void setNumberOfCorrectAnswers(int numberOfCorrectAnswers) {
         scoreLabel.setText(Integer.toString(numberOfCorrectAnswers) + "/10");
+    }
+
+    public void setTime(String mins, String secs) {
+        timeLabel.setText(mins + ":" + secs);
     }
 
     public void setStackPane(StackPane prevPageStackPane) {

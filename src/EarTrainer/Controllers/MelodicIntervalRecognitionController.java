@@ -23,6 +23,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import jm.gui.cpn.BassStave;
+import jm.gui.cpn.JGrandStave;
 import jm.gui.cpn.Stave;
 import jm.music.data.Phrase;
 import jm.util.View;
@@ -78,7 +79,10 @@ public class MelodicIntervalRecognitionController {
     @FXML HBox mediaBar;
     MediaPlayer mediaPlayer;
     JMMusicCreator musicCreator;
+    String strSecs;
+    String strMins;
 
+    Stave stave = new BassStave();
 
     Sequencer sequencer;
 
@@ -172,6 +176,7 @@ public class MelodicIntervalRecognitionController {
             loadScore();
         }
 
+        stave.setVisible(false);
         questionAnswered = false;
         nextQuestionButton.setDisable(true);
         resetButtonColours();
@@ -234,6 +239,7 @@ public class MelodicIntervalRecognitionController {
 
         PopupScoreController controller = loader.<PopupScoreController>getController();
         controller.setNumberOfCorrectAnswers(numberOfCorrectAnswers);
+        controller.setTime(strMins, strSecs);
         controller.setStackPane(stackPane);
 
         if(numberOfCorrectAnswers >= 0 && numberOfCorrectAnswers <= 3){
@@ -378,16 +384,17 @@ public class MelodicIntervalRecognitionController {
 
         Phrase phrase = musicCreator.getPhrase();
         View.notate(phrase, 700, 200);
-//        Stave stave = new BassStave(phrase);
-//        stave.setVisible(true);
 
-//        final SwingNode swingNode = new SwingNode();
-//        stackPane.getChildren().add(swingNode);
-//        swingNode.setContent(new JButton("Click me!"));
-//        swingNode.setContent(stave.getComponent(1));
-
+//        stave.setPhrase(phrase);
+//
+//        JGrandStave jpanel = new JGrandStave(phrase);
+//
+//        SwingNode swingNode = new SwingNode();
+//        swingNode.setContent(jpanel);
+//
 //        stackPane.getChildren().add(swingNode);
     }
+
 
     private void checkAnswer(String answer, Button button) {
         if(answer != correctAnswer){
@@ -399,7 +406,7 @@ public class MelodicIntervalRecognitionController {
         makeButtonGreen(correctButton);
 
         if(questionNumber == 10){
-
+            nextQuestionButton.setText("Score");
         }
     }
 
@@ -418,8 +425,8 @@ public class MelodicIntervalRecognitionController {
                             int secs = 0;
                             @Override public void handle(ActionEvent actionEvent) {
                                 secs++;
-                                String strSecs = Integer.toString(secs % 60);
-                                String strMins = Integer.toString(secs/60);
+                                strSecs = Integer.toString(secs % 60);
+                                strMins = Integer.toString(secs/60);
 
                                 if (strSecs.length() == 1){
                                     strSecs = "0" + strSecs;

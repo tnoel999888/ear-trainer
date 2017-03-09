@@ -77,6 +77,8 @@ public class PitchRecognitionController {
     @FXML HBox mediaBar;
     MediaPlayer mediaPlayer;
     JMMusicCreator musicCreator;
+    String strSecs;
+    String strMins;
 
 
     Sequencer sequencer;
@@ -190,6 +192,7 @@ public class PitchRecognitionController {
 
         PopupScoreController controller = loader.<PopupScoreController>getController();
         controller.setNumberOfCorrectAnswers(numberOfCorrectAnswers);
+        controller.setTime(strMins, strSecs);
         controller.setStackPane(stackPane);
 
         if(numberOfCorrectAnswers >= 0 && numberOfCorrectAnswers <= 3){
@@ -346,7 +349,7 @@ public class PitchRecognitionController {
         makeButtonGreen(correctButton);
 
         if(questionNumber == 10){
-
+            nextQuestionButton.setText("Score");
         }
     }
 
@@ -365,8 +368,8 @@ public class PitchRecognitionController {
                             int secs = 0;
                             @Override public void handle(ActionEvent actionEvent) {
                                 secs++;
-                                String strSecs = Integer.toString(secs % 60);
-                                String strMins = Integer.toString(secs/60);
+                                strSecs = Integer.toString(secs % 60);
+                                strMins = Integer.toString(secs/60);
 
                                 if (strSecs.length() == 1){
                                     strSecs = "0" + strSecs;
@@ -452,12 +455,6 @@ public class PitchRecognitionController {
         InputStream is = new BufferedInputStream(new FileInputStream(new File(MEDIA_URL)));
         sequencer.setSequence(is);
         sequencer.start();
-
-//        JMSL.setViewFactory(new ViewFactorySwing());
-//        ScoreWithoutScoreFrame test = new ScoreWithoutScoreFrame();
-//        test.buildScore();
-//        test.getScore().getScoreCanvas().getComponent();
-//        stackPane.getChildren().add(test.getScore().getScoreCanvas().getComponent());
     }
 
 
