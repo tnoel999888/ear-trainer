@@ -328,6 +328,7 @@ public class PitchRecognitionController {
 
         Phrase phrase = musicCreator.getPhrase();
         View.notate(phrase, 700, 200);
+
 //        Stave stave = new BassStave(phrase);
 //        stave.setVisible(true);
 

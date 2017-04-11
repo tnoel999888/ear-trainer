@@ -22,6 +22,8 @@ public final class JMMusicCreator implements JMC {
     Phrase phr2 = new Phrase("Melodic Interval", 0.0);
     CPhrase cphr2 = new CPhrase("Harmonic Interval", 0.0);
 
+    MelodicIntervalRecognitionController melodicIntervalRecognitionController = new MelodicIntervalRecognitionController();
+
     public Phrase getPhrase() {
         return phr2;
     }
@@ -134,7 +136,7 @@ public final class JMMusicCreator implements JMC {
         Note n1 = new Note(C4, C);
         phr1.addNote(n1);
 
-        View.notate(phr1, 700, 200);
+        melodicIntervalRecognitionController.setScore(phr1);
 
 //        Stave stave = new BassStave(phr1);
 //        stave.setVisible(true);
