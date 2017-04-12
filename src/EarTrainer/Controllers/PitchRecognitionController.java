@@ -17,6 +17,7 @@ import javafx.scene.effect.ColorAdjust;
 import javafx.scene.effect.GaussianBlur;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
@@ -71,29 +72,43 @@ public class PitchRecognitionController {
 
     @FXML private Button startButton;
     @FXML private Button nextQuestionButton;
-    @FXML private Button replayButton;
 
-    @FXML private ImageView scoreImage;
+    @FXML private Pane scorePane;
 
     @FXML HBox mediaBar;
 
     private JGrandStave jScore = new JGrandStave();
+    private Phrase phrase = new Phrase();
 
-    MediaPlayer mediaPlayer;
-    JMMusicCreator musicCreator;
-    String strSecs;
-    String strMins;
+    //MediaPlayer mediaPlayer;
+    private JMMusicCreator musicCreator;
+    private String strSecs;
+    private String strMins;
 
+    private int questionNumber;
+    private int numberOfCorrectAnswers = 0;
 
-    Sequencer sequencer;
-
-    int questionNumber;
-    int numberOfCorrectAnswers = 0;
-
-    String correctAnswer = "c";
+    private String correctAnswer = "unison";
     private boolean questionAnswered;
     private Timeline timeline;
     private boolean startClicked = false;
+
+
+    @FXML
+    public void initialize() {
+        Dimension d = new Dimension();
+        d.setSize(600,300);
+        jScore.setPreferredSize(d);
+        jScore.setMaximumSize(d);
+
+        jScore.removeTitle();
+        jScore.setEditable(false);
+
+        SwingNode swingNode = new SwingNode();
+        swingNode.setContent(jScore);
+
+        scorePane.getChildren().add(swingNode);
+    }
 
 
     @FXML
@@ -107,6 +122,7 @@ public class PitchRecognitionController {
         difficultyDescriptionLabel.setText("C, D, E, F, G, A and B. No Sharps or Flats. 1 Octave.");
     }
 
+
     @FXML
     private void mediumRadioButtonSelected(ActionEvent event) throws IOException {
         cSharpButton.setDisable(false);
@@ -117,6 +133,7 @@ public class PitchRecognitionController {
 
         difficultyDescriptionLabel.setText("All notes. 1 Octave.");
     }
+
 
     @FXML
     private void hardRadioButtonSelected(ActionEvent event) throws IOException {
@@ -159,7 +176,7 @@ public class PitchRecognitionController {
             questionNumber++;
             questionLabel.setText("Question " + Integer.toString(questionNumber));
         } else {
-            //nextQuestionButton.setText("Score");
+            nextQuestionButton.setText("Next Question");
             questionLabel.setVisible(false);
             nextQuestionButton.setDisable(true);
             stopTimer();
@@ -170,11 +187,10 @@ public class PitchRecognitionController {
         nextQuestionButton.setDisable(true);
         resetButtonColours();
 
-//        mediaBar.getChildren().clear();
-//        mediaPlayer.stop();
-
+        setScore(phrase);
         generateQuestion();
     }
+
 
     private void loadScore() {
         ColorAdjust adj = new ColorAdjust(0, 0, -0.2, 0);
@@ -214,6 +230,7 @@ public class PitchRecognitionController {
         newStage.show();
     }
 
+
     private void resetButtonColours() {
         cButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
         cSharpButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
@@ -229,6 +246,7 @@ public class PitchRecognitionController {
         bButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
     }
 
+
     @FXML
     private void cButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
@@ -236,6 +254,7 @@ public class PitchRecognitionController {
             checkAnswer("c", cButton);
         }
     }
+
 
     @FXML
     private void cSharpButtonClicked(ActionEvent event) throws IOException {
@@ -245,6 +264,7 @@ public class PitchRecognitionController {
         }
     }
 
+
     @FXML
     private void dButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
@@ -252,6 +272,7 @@ public class PitchRecognitionController {
             checkAnswer("d", dButton);
         }
     }
+
 
     @FXML
     private void dSharpButtonClicked(ActionEvent event) throws IOException {
@@ -261,6 +282,7 @@ public class PitchRecognitionController {
         }
     }
 
+
     @FXML
     private void eButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
@@ -268,6 +290,7 @@ public class PitchRecognitionController {
             checkAnswer("e", eButton);
         }
     }
+
 
     @FXML
     private void fButtonClicked(ActionEvent event) throws IOException {
@@ -277,6 +300,7 @@ public class PitchRecognitionController {
         }
     }
 
+
     @FXML
     private void fSharpButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
@@ -284,6 +308,7 @@ public class PitchRecognitionController {
             checkAnswer("f sharp", fSharpButton);
         }
     }
+
 
     @FXML
     private void gButtonClicked(ActionEvent event) throws IOException {
@@ -293,6 +318,7 @@ public class PitchRecognitionController {
         }
     }
 
+
     @FXML
     private void gSharpButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
@@ -300,6 +326,7 @@ public class PitchRecognitionController {
             checkAnswer("g sharp", gSharpButton);
         }
     }
+
 
     @FXML
     private void aButtonClicked(ActionEvent event) throws IOException {
@@ -309,6 +336,7 @@ public class PitchRecognitionController {
         }
     }
 
+
     @FXML
     private void aSharpButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
@@ -316,6 +344,7 @@ public class PitchRecognitionController {
             checkAnswer("a sharp", aSharpButton);
         }
     }
+
 
     @FXML
     private void bButtonClicked(ActionEvent event) throws IOException {
@@ -325,24 +354,16 @@ public class PitchRecognitionController {
         }
     }
 
+
     @FXML
     private void AnswerButtonClicked() throws IOException {
         questionAnswered = true;
         nextQuestionButton.setDisable(false);
 
         Phrase phrase = musicCreator.getPhrase();
-        View.notate(phrase, 700, 200);
-
-//        Stave stave = new BassStave(phrase);
-//        stave.setVisible(true);
-
-//        final SwingNode swingNode = new SwingNode();
-//        stackPane.getChildren().add(swingNode);
-//        swingNode.setContent(new JButton("Click me!"));
-//        swingNode.setContent(stave.getComponent(1));
-
-//        stackPane.getChildren().add(swingNode);
+        setScore(phrase);
     }
+
 
     private void checkAnswer(String answer, Button button) {
         if(answer != correctAnswer){
@@ -358,13 +379,16 @@ public class PitchRecognitionController {
         }
     }
 
+
     private void makeButtonRed(Button button) {
         button.setStyle("-fx-base: #ffb3b3;");
     }
 
+
     private void makeButtonGreen(Button correctButton) {
         correctButton.setStyle("-fx-base: #adebad;");
     }
+
 
     private void startTimer() {
         Timeline timeline = new Timeline(
@@ -404,19 +428,32 @@ public class PitchRecognitionController {
 
     private Button getCorrectButton(String correctAnswer) {
         switch(correctAnswer){
-            case "c": return cButton;
-            case "c sharp": return cSharpButton;
-            case "d": return dButton;
-            case "d sharp": return dSharpButton;
-            case "e": return eButton;
-            case "f": return fButton;
-            case "f sharp": return fSharpButton;
-            case "g": return gButton;
-            case "g sharp": return gSharpButton;
-            case "a": return aButton;
-            case "a sharp": return aSharpButton;
-            case "b": return bButton;
-            default: return cButton;
+            case "c":
+                return cButton;
+            case "c sharp":
+                return cSharpButton;
+            case "d":
+                return dButton;
+            case "d sharp":
+                return dSharpButton;
+            case "e":
+                return eButton;
+            case "f":
+                return fButton;
+            case "f sharp":
+                return fSharpButton;
+            case "g":
+                return gButton;
+            case "g sharp":
+                return gSharpButton;
+            case "a":
+                return aButton;
+            case "a sharp":
+                return aSharpButton;
+            case "b":
+                return bButton;
+            default:
+                return cButton;
         }
     }
 
@@ -438,12 +475,6 @@ public class PitchRecognitionController {
         correctButton = getCorrectButton(correctAnswer);
 
         playSound();
-
-//        Media media = new Media(new File(MEDIA_URL).toURI().toString());
-//        mediaPlayer = new MediaPlayer(media);
-//        mediaPlayer.setAutoPlay(true);
-
-//        MediaControl mediaControl = new MediaControl(mediaPlayer, this, stackPane);
     }
 
 
@@ -455,7 +486,7 @@ public class PitchRecognitionController {
     private void playSound() throws MidiUnavailableException, IOException, InvalidMidiDataException {
         final String MEDIA_URL = "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Pitch.mid";
 
-        sequencer = MidiSystem.getSequencer();
+        Sequencer sequencer = MidiSystem.getSequencer();
         sequencer.open();
         InputStream is = new BufferedInputStream(new FileInputStream(new File(MEDIA_URL)));
         sequencer.setSequence(is);
@@ -463,6 +494,17 @@ public class PitchRecognitionController {
     }
 
 
+    public void setScore(Phrase phr) {
+        jScore.setPhrase(phr);
+
+        Dimension d = new Dimension();
+        d.setSize(600,300);
+        jScore.setPreferredSize(d);
+        jScore.setMaximumSize(d);
+
+        jScore.removeTitle();
+        jScore.setEditable(false);
+    }
 }
 
 

@@ -43,7 +43,20 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Label>
-            <ImageView fx:id="scoreImage" fitHeight="315.0" fitWidth="457.0" pickOnBounds="true" preserveRatio="true" />
+            <HBox>
+               <children>
+                  <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                  <Pane fx:id="scorePane" maxHeight="300.0" maxWidth="600.0" minHeight="300.0" minWidth="600.0" pickOnBounds="false" prefHeight="300.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Pane>
+                  <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
             <HBox fx:id="mediaBar" alignment="CENTER" maxHeight="50.0" maxWidth="600.0" prefHeight="50.0" prefWidth="600.0" VBox.vgrow="ALWAYS" />
             <Button fx:id="replayButton" mnemonicParsing="false" onAction="#replayButtonClicked" text="Replay" />
             <VBox maxHeight="70.0" maxWidth="673.0" minHeight="70.0" minWidth="300.0" prefHeight="70.0" prefWidth="673.0" VBox.vgrow="ALWAYS">
@@ -104,10 +117,13 @@
                   <Insets />
                </VBox.margin>
             </VBox>
-            <Label fx:id="difficultyDescriptionLabel" text="C, D, E, F, G, A and B. No Sharps or Flats. 1 Octave." VBox.vgrow="ALWAYS" />
-            <HBox alignment="CENTER" fillHeight="false" maxHeight="65.0" minHeight="65.0" prefHeight="65.0" spacing="20.0" VBox.vgrow="ALWAYS">
+            <Label fx:id="difficultyDescriptionLabel" text="C, D, E, F, G, A and B. No Sharps or Flats. 1 Octave." VBox.vgrow="ALWAYS">
+               <padding>
+                  <Insets bottom="10.0" top="5.0" />
+               </padding></Label>
+            <HBox alignment="CENTER" fillHeight="false" maxHeight="65.0" minHeight="65.0" prefHeight="65.0" spacing="45.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Button id="lion-default" fx:id="startButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#StartButtonClicked" prefHeight="64.0" prefWidth="281.0" text="Start" VBox.vgrow="ALWAYS">
+                  <Button id="lion-default" fx:id="startButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#StartButtonClicked" prefHeight="64.0" prefWidth="302.0" text="Start" VBox.vgrow="ALWAYS">
                      <font>
                         <Font size="29.0" />
                      </font>
@@ -115,14 +131,14 @@
                         <Insets top="250.0" />
                      </VBox.margin>
                   </Button>
-                  <Button id="lion-default" fx:id="nextQuestionButton" contentDisplay="CENTER" disable="true" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#NextQuestionButtonClicked" prefHeight="64.0" prefWidth="281.0" text="Next Question">
+                  <Button id="lion-default" fx:id="nextQuestionButton" contentDisplay="CENTER" disable="true" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#NextQuestionButtonClicked" prefHeight="64.0" prefWidth="302.0" text="Next Question">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </Button>
                </children>
             </HBox>
-            <GridPane alignment="BOTTOM_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="367.0" prefWidth="604.0" StackPane.alignment="CENTER" VBox.vgrow="ALWAYS">
+            <GridPane alignment="BOTTOM_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="367.0" prefWidth="692.0" StackPane.alignment="CENTER" VBox.vgrow="ALWAYS">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

@@ -380,6 +380,8 @@ public final class JMMusicCreator implements JMC {
         int[] array = {0, 2, 4, 5, 7, 9, 11};
         int interval = array[i];
 
+        setScore(phr2);
+
         Note n2 = new Note(C4+interval, C);
 
         phr2.addNote(n2);
@@ -404,6 +406,8 @@ public final class JMMusicCreator implements JMC {
 
         int interval = array[i];
 
+        setScore(phr2);
+
         Note n2 = new Note(C4+interval, C);
 
         phr2.addNote(n2);
@@ -427,6 +431,8 @@ public final class JMMusicCreator implements JMC {
         }
 
         int interval = array[i];
+
+        setScore(phr2);
 
         Note n2 = new Note(C3+interval, C);
 
