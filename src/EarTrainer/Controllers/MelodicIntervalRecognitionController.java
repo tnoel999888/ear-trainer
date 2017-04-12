@@ -15,11 +15,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.effect.GaussianBlur;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
@@ -27,7 +25,9 @@ import jm.gui.cpn.BassStave;
 import jm.gui.cpn.JGrandStave;
 import jm.gui.cpn.Stave;
 import jm.music.data.Phrase;
+import jm.util.View;
 
+import java.awt.*;
 import java.io.*;
 
 
@@ -71,29 +71,44 @@ public class MelodicIntervalRecognitionController {
     @FXML private Button startButton;
     @FXML private Button nextQuestionButton;
 
-    @FXML private ImageView scoreImage;
     @FXML private Pane scorePane;
 
     @FXML HBox mediaBar;
 
-    JGrandStave jScore = new JGrandStave();
+    private JGrandStave jScore = new JGrandStave();
+    private Phrase phrase = new Phrase();
 
-    MediaPlayer mediaPlayer;
-    JMMusicCreator musicCreator;
-    String strSecs;
-    String strMins;
+//    MediaPlayer mediaPlayer;
+    private JMMusicCreator musicCreator;
+    private String strSecs;
+    private String strMins;
 
-    Stave stave = new BassStave();
+    private Stave stave = new BassStave();
 
-    Sequencer sequencer;
+    private int questionNumber;
+    private int numberOfCorrectAnswers = 0;
 
-    int questionNumber;
-    int numberOfCorrectAnswers = 0;
-
-    String correctAnswer = "unison";
+    private String correctAnswer = "unison";
     private boolean questionAnswered;
     private Timeline timeline;
     private boolean startClicked = false;
+
+
+    @FXML
+    public void initialize() {
+        Dimension d = new Dimension();
+        d.setSize(600,300);
+        jScore.setPreferredSize(d);
+        jScore.setMaximumSize(d);
+
+        jScore.removeTitle();
+        jScore.setEditable(false);
+
+        SwingNode swingNode = new SwingNode();
+        swingNode.setContent(jScore);
+
+        scorePane.getChildren().add(swingNode);
+    }
 
 
     @FXML
@@ -160,16 +175,6 @@ public class MelodicIntervalRecognitionController {
         radioButtonsGroup.setDisable(true);
         questionLabel.setText("Question 1");
 
-
-        jScore.setBounds(0,0,600,300);
-        jScore.removeTitle();
-        jScore.setEditable(false);
-        SwingNode swingNode = new SwingNode();
-        swingNode.resize(600,300);
-        swingNode.setContent(jScore);
-
-        scorePane.getChildren().add(swingNode);
-
         generateQuestion();
     }
 
@@ -192,7 +197,6 @@ public class MelodicIntervalRecognitionController {
         nextQuestionButton.setDisable(true);
         resetButtonColours();
 
-        Phrase phrase = new Phrase();
         setScore(phrase);
 
         generateQuestion();
@@ -466,8 +470,6 @@ public class MelodicIntervalRecognitionController {
 
     @FXML
     private void generateQuestion() throws IOException, MidiUnavailableException, InvalidMidiDataException {
-        Stage stage = (Stage) stackPane.getScene().getWindow();
-
         musicCreator = new JMMusicCreator();
 
         if(easyRadioButton.isSelected()){
@@ -489,10 +491,11 @@ public class MelodicIntervalRecognitionController {
         playSound();
     }
 
+
     private void playSound() throws MidiUnavailableException, IOException, InvalidMidiDataException {
         final String MEDIA_URL = "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/MelodicInterval.mid";
 
-        sequencer = MidiSystem.getSequencer();
+        Sequencer sequencer = MidiSystem.getSequencer();
         sequencer.open();
         InputStream is = new BufferedInputStream(new FileInputStream(new File(MEDIA_URL)));
         sequencer.setSequence(is);
@@ -500,9 +503,14 @@ public class MelodicIntervalRecognitionController {
     }
 
 
-    public void setScore(Phrase phrase) {
-        jScore.setPhrase(phrase);
-        jScore.setBounds(0,0,600,300);
+    public void setScore(Phrase phr) {
+        jScore.setPhrase(phr);
+
+        Dimension d = new Dimension();
+        d.setSize(600,300);
+        jScore.setPreferredSize(d);
+        jScore.setMaximumSize(d);
+
         jScore.removeTitle();
         jScore.setEditable(false);
     }

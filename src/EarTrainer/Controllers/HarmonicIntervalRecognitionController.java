@@ -393,11 +393,12 @@ public class HarmonicIntervalRecognitionController {
         timeline.play();
     }
 
+
     private void stopTimer() {
-//        gen = false;
         timerLabel.setVisible(false);
         timeline.stop();
     }
+
 
     private Button getCorrectButton(String correctAnswer) {
         switch(correctAnswer){

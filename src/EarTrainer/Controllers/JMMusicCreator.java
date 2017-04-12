@@ -132,14 +132,10 @@ public final class JMMusicCreator implements JMC {
     }
 
     public String makeMIDIEasyMelodic(){
-
         Note n1 = new Note(C4, C);
         phr1.addNote(n1);
 
         melodicIntervalRecognitionController.setScore(phr1);
-
-//        Stave stave = new BassStave(phr1);
-//        stave.setVisible(true);
 
         Random rn = new Random();
         int i = rn.nextInt(5);
@@ -189,7 +185,7 @@ public final class JMMusicCreator implements JMC {
         Note n1 = new Note(chosenRoot, C);
         phr1.addNote(n1);
 
-        View.notate(phr1, 700, 200);
+        melodicIntervalRecognitionController.setScore(phr1);
 
         Note n2 = new Note(chosenRoot+interval, C);
 
@@ -231,7 +227,7 @@ public final class JMMusicCreator implements JMC {
         Note n1 = new Note(chosenRoot, C);
         phr1.addNote(n1);
 
-        View.notate(phr1, 700, 200);
+        melodicIntervalRecognitionController.setScore(phr1);
 
         Note n2 = new Note(chosenRoot+i, C);
 

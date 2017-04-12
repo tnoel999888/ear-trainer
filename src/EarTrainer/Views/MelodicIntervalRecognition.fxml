@@ -46,10 +46,13 @@
             <HBox>
                <children>
                   <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                  <Pane fx:id="scorePane" maxHeight="300.0" maxWidth="600.0" minHeight="300.0" minWidth="600.0" prefHeight="300.0" prefWidth="600.0" HBox.hgrow="NEVER" VBox.vgrow="ALWAYS">
+                  <Pane fx:id="scorePane" maxHeight="300.0" maxWidth="600.0" minHeight="300.0" minWidth="600.0" pickOnBounds="false" prefHeight="300.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
                   </Pane>
                   <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
                </children>
@@ -163,6 +166,9 @@
                   <Button fx:id="majorSeventhButton" disable="true" layoutX="373.0" layoutY="210.0" maxHeight="50.0" maxWidth="130.0" minHeight="50.0" minWidth="130.0" mnemonicParsing="false" onAction="#majorSeventhButtonClicked" prefHeight="50.0" prefWidth="130.0" text="Major Seventh" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
                   <Button fx:id="tritoneButton" disable="true" layoutX="23.0" layoutY="120.0" maxHeight="50.0" maxWidth="130.0" minHeight="50.0" minWidth="130.0" mnemonicParsing="false" onAction="#tritoneButtonClicked" prefHeight="50.0" prefWidth="130.0" text="Tritone" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
                </children>
+               <VBox.margin>
+                  <Insets bottom="35.0" />
+               </VBox.margin>
             </GridPane>
          </children>
          <StackPane.margin>
