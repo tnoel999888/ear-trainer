@@ -23,6 +23,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import jm.gui.cpn.BassStave;
+import jm.gui.cpn.JGrandStave;
 import jm.gui.cpn.Stave;
 import jm.music.data.Phrase;
 import jm.util.View;
@@ -75,6 +76,9 @@ public class PitchRecognitionController {
     @FXML private ImageView scoreImage;
 
     @FXML HBox mediaBar;
+
+    private JGrandStave jScore = new JGrandStave();
+
     MediaPlayer mediaPlayer;
     JMMusicCreator musicCreator;
     String strSecs;
@@ -421,7 +425,7 @@ public class PitchRecognitionController {
     private void generateQuestion() throws IOException, MidiUnavailableException, InvalidMidiDataException {
         Stage stage = (Stage) stackPane.getScene().getWindow();
 
-        musicCreator = new JMMusicCreator();
+        musicCreator = new JMMusicCreator(jScore);
 
         if(easyRadioButton.isSelected()){
             correctAnswer = musicCreator.makeMIDIEasyPitch();

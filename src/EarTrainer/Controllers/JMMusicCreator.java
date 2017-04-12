@@ -1,12 +1,11 @@
 package EarTrainer.Controllers;
 
 import jm.JMC;
-import jm.gui.cpn.BassStave;
-import jm.gui.cpn.Stave;
-import jm.gui.show.ShowScore;
+import jm.gui.cpn.JGrandStave;
 import jm.music.data.*;
 import jm.util.*;
 
+import java.awt.*;
 import java.util.Random;
 
 /**
@@ -16,21 +15,28 @@ import java.util.Random;
  */
 public final class JMMusicCreator implements JMC {
 
-    Score s = new Score("JMDemo - Scale");
-    Part p = new Part(0);
-    Phrase phr1 = new Phrase("Chromatic scale", 0.0);
-    Phrase phr2 = new Phrase("Melodic Interval", 0.0);
-    CPhrase cphr2 = new CPhrase("Harmonic Interval", 0.0);
+    private Score s = new Score("JMDemo - Scale");
+    private Part p = new Part(0);
+    private Phrase phr1 = new Phrase("Melodic Interval", 0.0);
+    private Phrase phr2 = new Phrase("Melodic Interval", 0.0);
+    private CPhrase cphr1 = new CPhrase("Harmonic Interval", 0.0);
+    private JGrandStave jScore;
 
-    MelodicIntervalRecognitionController melodicIntervalRecognitionController = new MelodicIntervalRecognitionController();
+
+    public JMMusicCreator(JGrandStave jScore) {
+        this.jScore = jScore;
+    }
+
 
     public Phrase getPhrase() {
         return phr2;
     }
 
+
     public CPhrase getCPhrase() {
-        return cphr2;
+        return cphr1;
     }
+
 
     private String getInterval(int i) {
         switch(i){
@@ -131,11 +137,25 @@ public final class JMMusicCreator implements JMC {
         }
     }
 
+
+    private void setScore(Phrase phr1) {
+        jScore.setPhrase(this.phr1);
+
+        Dimension d = new Dimension();
+        d.setSize(600,300);
+        jScore.setPreferredSize(d);
+        jScore.setMaximumSize(d);
+
+        jScore.removeTitle();
+        jScore.setEditable(false);
+    }
+
+
     public String makeMIDIEasyMelodic(){
         Note n1 = new Note(C4, C);
         phr1.addNote(n1);
 
-        melodicIntervalRecognitionController.setScore(phr1);
+        setScore(phr1);
 
         Random rn = new Random();
         int i = rn.nextInt(5);
@@ -185,7 +205,7 @@ public final class JMMusicCreator implements JMC {
         Note n1 = new Note(chosenRoot, C);
         phr1.addNote(n1);
 
-        melodicIntervalRecognitionController.setScore(phr1);
+        setScore(phr1);
 
         Note n2 = new Note(chosenRoot+interval, C);
 
@@ -227,7 +247,7 @@ public final class JMMusicCreator implements JMC {
         Note n1 = new Note(chosenRoot, C);
         phr1.addNote(n1);
 
-        melodicIntervalRecognitionController.setScore(phr1);
+        setScore(phr1);
 
         Note n2 = new Note(chosenRoot+i, C);
 
@@ -247,7 +267,7 @@ public final class JMMusicCreator implements JMC {
         Note n1 = new Note(C4, C);
         phr1.addNote(n1);
 
-        View.notate(phr1, 700, 200);
+        setScore(phr1);
 
         Random rn = new Random();
         int i = rn.nextInt(5);
@@ -259,9 +279,9 @@ public final class JMMusicCreator implements JMC {
         Note n2 = new Note(C4+interval, C);
 
         Note[] notes = {n1, n2};
-        cphr2.addChord(notes);
+        cphr1.addChord(notes);
 
-        p.addCPhrase(cphr2);
+        p.addCPhrase(cphr1);
         s.addPart(p);
 
         Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/HarmonicInterval.mid");
@@ -293,14 +313,14 @@ public final class JMMusicCreator implements JMC {
         Note n1 = new Note(chosenRoot, C);
         phr1.addNote(n1);
 
-        View.notate(phr1, 700, 200);
+        setScore(phr1);
 
         Note n2 = new Note(chosenRoot+interval, C);
 
         Note[] notes = {n1, n2};
-        cphr2.addChord(notes);
+        cphr1.addChord(notes);
 
-        p.addCPhrase(cphr2);
+        p.addCPhrase(cphr1);
         s.addPart(p);
 
         Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/HarmonicInterval.mid");
@@ -335,14 +355,14 @@ public final class JMMusicCreator implements JMC {
         Note n1 = new Note(chosenRoot, C);
         phr1.addNote(n1);
 
-        View.notate(phr1, 700, 200);
+        setScore(phr1);
 
         Note n2 = new Note(chosenRoot+i, C);
 
         Note[] notes = {n1, n2};
-        cphr2.addChord(notes);
+        cphr1.addChord(notes);
 
-        p.addCPhrase(cphr2);
+        p.addCPhrase(cphr1);
         s.addPart(p);
 
         Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/HarmonicInterval.mid");

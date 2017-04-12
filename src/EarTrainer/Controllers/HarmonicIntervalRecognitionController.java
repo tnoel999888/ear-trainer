@@ -22,6 +22,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
+import jm.gui.cpn.JGrandStave;
 import jm.music.data.CPhrase;
 
 import javax.sound.midi.InvalidMidiDataException;
@@ -69,6 +70,9 @@ public class HarmonicIntervalRecognitionController {
     @FXML private ImageView scoreImage;
 
     @FXML HBox mediaBar;
+
+    private JGrandStave jScore = new JGrandStave();
+
     MediaPlayer mediaPlayer;
     JMMusicCreator musicCreator;
     String strSecs;
@@ -424,7 +428,7 @@ public class HarmonicIntervalRecognitionController {
     private void generateQuestion() throws IOException, MidiUnavailableException, InvalidMidiDataException {
         Stage stage = (Stage) stackPane.getScene().getWindow();
 
-        musicCreator = new JMMusicCreator();
+        musicCreator = new JMMusicCreator(jScore);
 
         if(easyRadioButton.isSelected()){
             correctAnswer = musicCreator.makeMIDIEasyHarmonic();

@@ -21,11 +21,8 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
-import jm.gui.cpn.BassStave;
 import jm.gui.cpn.JGrandStave;
-import jm.gui.cpn.Stave;
 import jm.music.data.Phrase;
-import jm.util.View;
 
 import java.awt.*;
 import java.io.*;
@@ -78,12 +75,10 @@ public class MelodicIntervalRecognitionController {
     private JGrandStave jScore = new JGrandStave();
     private Phrase phrase = new Phrase();
 
-//    MediaPlayer mediaPlayer;
+    //MediaPlayer mediaPlayer;
     private JMMusicCreator musicCreator;
     private String strSecs;
     private String strMins;
-
-    private Stave stave = new BassStave();
 
     private int questionNumber;
     private int numberOfCorrectAnswers = 0;
@@ -192,13 +187,11 @@ public class MelodicIntervalRecognitionController {
             loadScore();
         }
 
-        stave.setVisible(false);
         questionAnswered = false;
         nextQuestionButton.setDisable(true);
         resetButtonColours();
 
         setScore(phrase);
-
         generateQuestion();
     }
 
@@ -450,27 +443,41 @@ public class MelodicIntervalRecognitionController {
 
     private Button getCorrectButton(String correctAnswer) {
         switch(correctAnswer){
-            case "unison": return unisonButton;
-            case "minor second": return minorSecondButton;
-            case "major second": return majorSecondButton;
-            case "minor third": return minorThirdButton;
-            case "major third": return majorThirdButton;
-            case "perfect fourth": return perfectFourthButton;
-            case "tritone": return tritoneButton;
-            case "perfect fifth": return perfectFifthButton;
-            case "minor sixth": return minorSixthButton;
-            case "major sixth": return majorSixthButton;
-            case "minor seventh": return minorSeventhButton;
-            case "major seventh": return majorSeventhButton;
-            case "octave": return octaveButton;
-            default: return unisonButton;
+            case "unison":
+                return unisonButton;
+            case "minor second":
+                return minorSecondButton;
+            case "major second":
+                return majorSecondButton;
+            case "minor third":
+                return minorThirdButton;
+            case "major third":
+                return majorThirdButton;
+            case "perfect fourth":
+                return perfectFourthButton;
+            case "tritone":
+                return tritoneButton;
+            case "perfect fifth":
+                return perfectFifthButton;
+            case "minor sixth":
+                return minorSixthButton;
+            case "major sixth":
+                return majorSixthButton;
+            case "minor seventh":
+                return minorSeventhButton;
+            case "major seventh":
+                return majorSeventhButton;
+            case "octave":
+                return octaveButton;
+            default:
+                return unisonButton;
         }
     }
 
 
     @FXML
     private void generateQuestion() throws IOException, MidiUnavailableException, InvalidMidiDataException {
-        musicCreator = new JMMusicCreator();
+        musicCreator = new JMMusicCreator(jScore);
 
         if(easyRadioButton.isSelected()){
             correctAnswer = musicCreator.makeMIDIEasyMelodic();
