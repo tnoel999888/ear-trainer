@@ -3,6 +3,7 @@ package EarTrainer.Controllers;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.embed.swing.SwingNode;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -15,20 +16,20 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.effect.GaussianBlur;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import jm.gui.cpn.JGrandStave;
-import jm.music.data.CPhrase;
+import jm.music.data.Phrase;
 
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.MidiUnavailableException;
 import javax.sound.midi.Sequencer;
+import java.awt.*;
 import java.io.*;
 
 
@@ -65,29 +66,43 @@ public class HarmonicIntervalRecognitionController {
 
     @FXML private Button startButton;
     @FXML private Button nextQuestionButton;
-    @FXML private Button replayButton;
 
-    @FXML private ImageView scoreImage;
+    @FXML private Pane scorePane;
 
     @FXML HBox mediaBar;
 
     private JGrandStave jScore = new JGrandStave();
+    private Phrase phrase = new Phrase();
 
-    MediaPlayer mediaPlayer;
-    JMMusicCreator musicCreator;
-    String strSecs;
-    String strMins;
+    //MediaPlayer mediaPlayer;
+    private JMMusicCreator musicCreator;
+    private String strSecs;
+    private String strMins;
 
+    private int questionNumber;
+    private int numberOfCorrectAnswers = 0;
 
-    Sequencer sequencer;
-
-    int questionNumber;
-    int numberOfCorrectAnswers = 0;
-
-    String correctAnswer = "unison";
+    private String correctAnswer = "unison";
     private boolean questionAnswered;
     private Timeline timeline;
     private boolean startClicked = false;
+
+
+    @FXML
+    public void initialize() {
+        Dimension d = new Dimension();
+        d.setSize(600,300);
+        jScore.setPreferredSize(d);
+        jScore.setMaximumSize(d);
+
+        jScore.removeTitle();
+        jScore.setEditable(false);
+
+        SwingNode swingNode = new SwingNode();
+        swingNode.setContent(jScore);
+
+        scorePane.getChildren().add(swingNode);
+    }
 
 
     @FXML
@@ -160,11 +175,11 @@ public class HarmonicIntervalRecognitionController {
 
     @FXML
     private void NextQuestionButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException {
-        if (questionNumber != 10) {
+        if (questionNumber != TOTAL_QUESTIONS) {
             questionNumber++;
             questionLabel.setText("Question " + Integer.toString(questionNumber));
         } else {
-            //nextQuestionButton.setText("Score");
+            nextQuestionButton.setText("Next Question");
             questionLabel.setVisible(false);
             nextQuestionButton.setDisable(true);
             stopTimer();
@@ -175,6 +190,7 @@ public class HarmonicIntervalRecognitionController {
         nextQuestionButton.setDisable(true);
         resetButtonColours();
 
+        setScore(phrase);
         generateQuestion();
     }
 
@@ -341,8 +357,8 @@ public class HarmonicIntervalRecognitionController {
         questionAnswered = true;
         nextQuestionButton.setDisable(false);
 
-        CPhrase phrase = musicCreator.getCPhrase();
-//        View.notate(phrase, 20, 100);
+        Phrase phrase = musicCreator.getPhrase();
+        setScore(phrase);
     }
 
     private void checkAnswer(String answer, Button button) {
@@ -406,20 +422,34 @@ public class HarmonicIntervalRecognitionController {
 
     private Button getCorrectButton(String correctAnswer) {
         switch(correctAnswer){
-            case "unison": return unisonButton;
-            case "minor second": return minorSecondButton;
-            case "major second": return majorSecondButton;
-            case "minor third": return minorThirdButton;
-            case "major third": return majorThirdButton;
-            case "perfect fourth": return perfectFourthButton;
-            case "tritone": return tritoneButton;
-            case "perfect fifth": return perfectFifthButton;
-            case "minor sixth": return minorSixthButton;
-            case "major sixth": return majorSixthButton;
-            case "minor seventh": return minorSeventhButton;
-            case "major seventh": return majorSeventhButton;
-            case "octave": return octaveButton;
-            default: return unisonButton;
+            case "unison":
+                return unisonButton;
+            case "minor second":
+                return minorSecondButton;
+            case "major second":
+                return majorSecondButton;
+            case "minor third":
+                return minorThirdButton;
+            case "major third":
+                return majorThirdButton;
+            case "perfect fourth":
+                return perfectFourthButton;
+            case "tritone":
+                return tritoneButton;
+            case "perfect fifth":
+                return perfectFifthButton;
+            case "minor sixth":
+                return minorSixthButton;
+            case "major sixth":
+                return majorSixthButton;
+            case "minor seventh":
+                return minorSeventhButton;
+            case "major seventh":
+                return majorSeventhButton;
+            case "octave":
+                return octaveButton;
+            default:
+                return unisonButton;
         }
     }
 
@@ -441,12 +471,6 @@ public class HarmonicIntervalRecognitionController {
         correctButton = getCorrectButton(correctAnswer);
 
         playSound();
-
-//        Media media = new Media(new File(MEDIA_URL).toURI().toString());
-//        mediaPlayer = new MediaPlayer(media);
-//        mediaPlayer.setAutoPlay(true);
-
-//        MediaControl mediaControl = new MediaControl(mediaPlayer, this, stackPane);
     }
 
 
@@ -458,7 +482,7 @@ public class HarmonicIntervalRecognitionController {
     private void playSound() throws MidiUnavailableException, IOException, InvalidMidiDataException {
         final String MEDIA_URL = "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/HarmonicInterval.mid";
 
-        sequencer = MidiSystem.getSequencer();
+        Sequencer sequencer = MidiSystem.getSequencer();
         sequencer.open();
         InputStream is = new BufferedInputStream(new FileInputStream(new File(MEDIA_URL)));
         sequencer.setSequence(is);
@@ -466,6 +490,17 @@ public class HarmonicIntervalRecognitionController {
     }
 
 
+    public void setScore(Phrase phr) {
+        jScore.setPhrase(phr);
+
+        Dimension d = new Dimension();
+        d.setSize(600,300);
+        jScore.setPreferredSize(d);
+        jScore.setMaximumSize(d);
+
+        jScore.removeTitle();
+        jScore.setEditable(false);
+    }
 }
 
 

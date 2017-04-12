@@ -2,15 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="49021a73-ff27-48b5-96a0-9e054912d8d1" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/HarmonicIntervalRecognitionController$1.class" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/HarmonicIntervalRecognitionController$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/HarmonicIntervalRecognitionController.class" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/HarmonicIntervalRecognitionController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/JMMusicCreator.class" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/JMMusicCreator.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/MelodicIntervalRecognitionController$1.class" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/MelodicIntervalRecognitionController$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/MelodicIntervalRecognitionController.class" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/MelodicIntervalRecognitionController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Music/HarmonicInterval.mid" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Music/HarmonicInterval.mid" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Music/MelodicInterval.mid" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Music/MelodicInterval.mid" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Music/HarmonicInterval.mid" afterPath="$PROJECT_DIR$/src/EarTrainer/Music/HarmonicInterval.mid" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Music/MelodicInterval.mid" afterPath="$PROJECT_DIR$/src/EarTrainer/Music/MelodicInterval.mid" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Views/HarmonicIntervalRecognition.fxml" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Views/HarmonicIntervalRecognition.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/HarmonicIntervalRecognitionController.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/HarmonicIntervalRecognitionController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/JMMusicCreator.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/JMMusicCreator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/MelodicIntervalRecognitionController.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/MelodicIntervalRecognitionController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/PitchRecognitionController.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/PitchRecognitionController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Views/HarmonicIntervalRecognition.fxml" afterPath="$PROJECT_DIR$/src/EarTrainer/Views/HarmonicIntervalRecognition.fxml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,41 +37,24 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MelodicIntervalRecognitionController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MelodicIntervalRecognitionController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/MelodicIntervalRecognitionController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7635">
-              <caret line="513" column="30" lean-forward="false" selection-start-line="513" selection-start-column="30" selection-end-line="513" selection-end-column="30" />
+            <state relative-caret-position="470">
+              <caret line="182" column="12" lean-forward="true" selection-start-line="182" selection-start-column="12" selection-end-line="182" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#6935#6957#0" expanded="true" />
+                <element signature="e#6954#6976#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JMMusicCreator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/JMMusicCreator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="141" column="36" lean-forward="false" selection-start-line="141" selection-start-column="36" selection-end-line="141" selection-end-column="36" />
-              <folding>
-                <element signature="e#759#760#0" expanded="true" />
-                <element signature="e#795#796#0" expanded="true" />
-                <element signature="e#829#830#0" expanded="true" />
-                <element signature="e#856#857#0" expanded="true" />
-                <element signature="e#892#893#0" expanded="true" />
-                <element signature="e#920#921#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HarmonicIntervalRecognitionController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="HarmonicIntervalRecognitionController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/HarmonicIntervalRecognitionController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="73" column="4" lean-forward="false" selection-start-line="73" selection-start-column="4" selection-end-line="73" selection-end-column="51" />
+            <state relative-caret-position="248">
+              <caret line="181" column="56" lean-forward="false" selection-start-line="181" selection-start-column="56" selection-end-line="181" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -94,14 +83,11 @@
       <file leaf-file-name="PopupScoreController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/PopupScoreController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
+            <state relative-caret-position="434">
               <caret line="44" column="37" lean-forward="false" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
               <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#1337#1338#0" expanded="false" />
-                <element signature="e#1389#1390#0" expanded="false" />
-                <element signature="e#1450#1451#0" expanded="false" />
-                <element signature="e#1508#1509#0" expanded="false" />
+                <element signature="e#1337#1338#0" expanded="true" />
+                <element signature="e#1389#1390#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -132,11 +118,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>mvPane</find>
-      <find>media</find>
-      <find>mediaBar</find>
-      <find>showscore</find>
-      <find>shows</find>
       <find>show</find>
       <find>mp</find>
       <find>stop</find>
@@ -161,7 +142,12 @@
       <find>stave</find>
       <find>musiccreator</find>
       <find>music</find>
+      <find>sequencer</find>
+      <find>scorePane</find>
+      <find>answerbutton</find>
       <find>setscore</find>
+      <find>score</find>
+      <find>nextQuestionButton.setText(&quot;Score&quot;);</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -200,15 +186,15 @@
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/MediaControl.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/MidiSystem.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/ScoreWithoutScoreFrame.java" />
-        <option value="$PROJECT_DIR$/src/EarTrainer/Views/HarmonicIntervalRecognition.fxml" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Views/PitchRecognition.fxml" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/PopupScoreController.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Views/PopupScore.fxml" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Views/MelodicIntervalRecognition.fxml" />
-        <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/HarmonicIntervalRecognitionController.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/PitchRecognitionController.java" />
+        <option value="$PROJECT_DIR$/src/EarTrainer/Views/HarmonicIntervalRecognition.fxml" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/JMMusicCreator.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/MelodicIntervalRecognitionController.java" />
+        <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/HarmonicIntervalRecognitionController.java" />
       </list>
     </option>
   </component>
@@ -932,31 +918,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/PopupScoreController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="44" column="37" lean-forward="false" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1337#1338#0" expanded="false" />
-            <element signature="e#1389#1390#0" expanded="false" />
-            <element signature="e#1450#1451#0" expanded="false" />
-            <element signature="e#1508#1509#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/HarmonicIntervalRecognition.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="250" lean-forward="false" selection-start-line="9" selection-start-column="250" selection-end-line="9" selection-end-column="250" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/CadenceRecognition.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -1005,10 +966,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/PitchRecognitionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="427" column="48" lean-forward="false" selection-start-line="427" selection-start-column="48" selection-end-line="427" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/MelodicIntervalRecognition.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="28" lean-forward="false" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+        <state relative-caret-position="225">
+          <caret line="43" column="29" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="58" selection-end-column="19" />
           <folding>
             <marker date="1491929863000" expanded="true" signature="14311:14312" ph="..." />
           </folding>
@@ -1018,45 +987,57 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/HarmonicIntervalRecognitionController.java">
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/HarmonicIntervalRecognition.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="73" column="4" lean-forward="false" selection-start-line="73" selection-start-column="4" selection-end-line="73" selection-end-column="51" />
+        <state relative-caret-position="195">
+          <caret line="35" column="29" lean-forward="false" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
           <folding />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/PitchRecognitionController.java">
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/PopupScoreController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="427" column="48" lean-forward="false" selection-start-line="427" selection-start-column="48" selection-end-line="427" selection-end-column="48" />
-          <folding />
+        <state relative-caret-position="434">
+          <caret line="44" column="37" lean-forward="false" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
+          <folding>
+            <element signature="e#1337#1338#0" expanded="true" />
+            <element signature="e#1389#1390#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/JMMusicCreator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="141" column="36" lean-forward="false" selection-start-line="141" selection-start-column="36" selection-end-line="141" selection-end-column="36" />
+        <state relative-caret-position="390">
+          <caret line="36" column="12" lean-forward="false" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
           <folding>
-            <element signature="e#759#760#0" expanded="true" />
-            <element signature="e#795#796#0" expanded="true" />
-            <element signature="e#829#830#0" expanded="true" />
-            <element signature="e#856#857#0" expanded="true" />
             <element signature="e#892#893#0" expanded="true" />
             <element signature="e#920#921#0" expanded="true" />
+            <element signature="e#951#952#0" expanded="true" />
+            <element signature="e#975#976#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/MelodicIntervalRecognitionController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7635">
-          <caret line="513" column="30" lean-forward="false" selection-start-line="513" selection-start-column="30" selection-end-line="513" selection-end-column="30" />
+        <state relative-caret-position="470">
+          <caret line="182" column="12" lean-forward="true" selection-start-line="182" selection-start-column="12" selection-end-line="182" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6935#6957#0" expanded="true" />
+            <element signature="e#6954#6976#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/HarmonicIntervalRecognitionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="181" column="56" lean-forward="false" selection-start-line="181" selection-start-column="56" selection-end-line="181" selection-end-column="56" />
+          <folding />
         </state>
       </provider>
     </entry>

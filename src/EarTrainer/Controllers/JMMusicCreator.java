@@ -37,6 +37,9 @@ public final class JMMusicCreator implements JMC {
         return cphr1;
     }
 
+    public Score getScore() {
+        return s;
+    }
 
     private String getInterval(int i) {
         switch(i){

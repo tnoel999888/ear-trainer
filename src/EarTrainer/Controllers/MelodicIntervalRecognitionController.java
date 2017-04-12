@@ -176,11 +176,11 @@ public class MelodicIntervalRecognitionController {
 
     @FXML
     private void NextQuestionButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException {
-        if (questionNumber != 10) {
+        if (questionNumber != TOTAL_QUESTIONS) {
             questionNumber++;
             questionLabel.setText("Question " + Integer.toString(questionNumber));
         } else {
-            //nextQuestionButton.setText("Score");
+            nextQuestionButton.setText("Next Question");
             questionLabel.setVisible(false);
             nextQuestionButton.setDisable(true);
             stopTimer();
