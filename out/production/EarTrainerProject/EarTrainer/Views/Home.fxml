@@ -25,6 +25,7 @@
           <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="ALWAYS" />
           <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="ALWAYS" />
           <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="ALWAYS" />
+            <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="ALWAYS" />
         </rowConstraints>
          <children>
             <Button mnemonicParsing="false" onAction="#PitchRecognitionButtonClicked" prefHeight="69.0" prefWidth="428.0" text="Pitch Recognition&#10;" textAlignment="CENTER">
@@ -105,6 +106,7 @@
                   <Insets left="15.0" />
                </GridPane.margin>
             </ImageView>
+            <Button mnemonicParsing="false" onAction="#VoiceTunerButtonClicked" prefHeight="57.0" prefWidth="815.0" text="Voice Tuner" GridPane.columnSpan="2" GridPane.rowIndex="3" />
          </children>
       </GridPane>
    </children>

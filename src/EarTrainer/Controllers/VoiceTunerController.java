@@ -1,8 +1,18 @@
 package EarTrainer.Controllers;
 
+import be.tarsos.dsp.AudioDispatcher;
+import be.tarsos.dsp.AudioEvent;
+import be.tarsos.dsp.io.jvm.JVMAudioInputStream;
+import be.tarsos.dsp.pitch.PitchDetectionHandler;
+import be.tarsos.dsp.pitch.PitchDetectionResult;
+import be.tarsos.dsp.pitch.PitchProcessor;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingNode;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -13,34 +23,37 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.effect.GaussianBlur;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
-import jm.gui.cpn.BassStave;
 import jm.gui.cpn.JGrandStave;
-import jm.gui.cpn.Stave;
 import jm.music.data.Phrase;
-import jm.util.View;
 
 import java.awt.*;
+import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.io.*;
+import java.util.*;
+import java.util.List;
 
 
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.MidiUnavailableException;
 import javax.sound.midi.Sequencer;
+import javax.sound.sampled.*;
 import javax.swing.*;
 
 
-public class PitchRecognitionController {
+public class VoiceTunerController implements PitchDetectionHandler {
 
     public static final int TOTAL_QUESTIONS = 10;
     @FXML private StackPane stackPane;
@@ -51,36 +64,30 @@ public class PitchRecognitionController {
     @FXML private RadioButton mediumRadioButton;
     @FXML private RadioButton hardRadioButton;
 
-    @FXML private Button cButton;
-    @FXML private Button cSharpButton;
-    @FXML private Button dButton;
-    @FXML private Button dSharpButton;
-    @FXML private Button eButton;
-    @FXML private Button fButton;
-    @FXML private Button fSharpButton;
-    @FXML private Button gButton;
-    @FXML private Button gSharpButton;
-    @FXML private Button aButton;
-    @FXML private Button aSharpButton;
-    @FXML private Button bButton;
-
     @FXML private Button correctButton = new Button();
 
     @FXML private Label timerLabel;
     @FXML private Label questionLabel;
     @FXML private Label difficultyDescriptionLabel;
+    @FXML private Label noteLabel;
 
     @FXML private Button startButton;
     @FXML private Button nextQuestionButton;
 
     @FXML private Pane scorePane;
+    @FXML private Pane inputPane;
+    @FXML private Pane algoPane;
+    @FXML private ScrollPane outputPane;
+    //@FXML private TextArea textArea;
 
     @FXML HBox mediaBar;
+
+    @FXML ChoiceBox dropDownBox;
+
 
     private JGrandStave jScore = new JGrandStave();
     private Phrase phrase = new Phrase();
 
-    //MediaPlayer mediaPlayer;
     private JMMusicCreator musicCreator;
     private String strSecs;
     private String strMins;
@@ -92,6 +99,32 @@ public class PitchRecognitionController {
     private boolean questionAnswered;
     private Timeline timeline;
     private boolean startClicked = false;
+
+
+    private static final long serialVersionUID = 3501426880288136245L;
+
+    private final JTextArea textArea = new JTextArea();
+
+    private AudioDispatcher dispatcher;
+    private Mixer currentMixer;
+
+    private PitchProcessor.PitchEstimationAlgorithm algo;
+
+
+    private ActionListener algoChangeListener = new ActionListener(){
+        @Override
+        public void actionPerformed(final java.awt.event.ActionEvent e) {
+            String name = e.getActionCommand();
+            PitchProcessor.PitchEstimationAlgorithm newAlgo = PitchProcessor.PitchEstimationAlgorithm.valueOf(name);
+            algo = newAlgo;
+            try {
+                setNewMixer(currentMixer);
+            } catch (LineUnavailableException e1) {
+                e1.printStackTrace();
+            } catch (UnsupportedAudioFileException e1) {
+                e1.printStackTrace();
+            }
+        }};
 
 
     @FXML
@@ -108,42 +141,77 @@ public class PitchRecognitionController {
         swingNode.setContent(jScore);
 
         scorePane.getChildren().add(swingNode);
+
+        for(Mixer.Info info : Shared.getMixerInfo(false, true)){
+            List<String> list = Arrays.asList(Shared.toLocalString(info).split(","));
+            dropDownBox.getItems().add(list.get(0));
+        }
+
+        dropDownBox.getSelectionModel().selectFirst();
+//
+//        dropDownBox.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+//            @Override
+//            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+//        });
+
+
+        JPanel inputPanel = new InputPanel();
+
+        SwingNode swingNode2 = new SwingNode();
+        swingNode2.setContent(inputPanel);
+
+        inputPane.getChildren().add(swingNode2);
+
+        inputPanel.addPropertyChangeListener("mixer",
+                new PropertyChangeListener() {
+                    @Override
+                    public void propertyChange(PropertyChangeEvent arg0) {
+                        try {
+                            setNewMixer((Mixer) arg0.getNewValue());
+                        } catch (LineUnavailableException e) {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                        } catch (UnsupportedAudioFileException e) {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                        }
+                    }
+                });
+
+        algo = PitchProcessor.PitchEstimationAlgorithm.YIN;
+
+        JPanel pitchDetectionPanel = new PitchDetectionPanel(algoChangeListener);
+
+        SwingNode swingNode3 = new SwingNode();
+        swingNode3.setContent(pitchDetectionPanel);
+
+        algoPane.getChildren().add(swingNode3);
+
+
+        textArea.setEditable(false);
+
+        SwingNode swingNode4 = new SwingNode();
+        swingNode4.setContent(textArea);
+
+        outputPane.setContent(swingNode4);
     }
 
 
     @FXML
     private void easyRadioButtonSelected(ActionEvent event) throws IOException {
-        cSharpButton.setDisable(true);
-        dSharpButton.setDisable(true);
-        fSharpButton.setDisable(true);
-        gSharpButton.setDisable(true);
-        aSharpButton.setDisable(true);
-
-        difficultyDescriptionLabel.setText("White notes only. 1 Octave.");
+        difficultyDescriptionLabel.setText("White notes only. One octave.");
     }
 
 
     @FXML
     private void mediumRadioButtonSelected(ActionEvent event) throws IOException {
-        cSharpButton.setDisable(false);
-        dSharpButton.setDisable(false);
-        fSharpButton.setDisable(false);
-        gSharpButton.setDisable(false);
-        aSharpButton.setDisable(false);
-
-        difficultyDescriptionLabel.setText("All notes. 1 Octave.");
+        difficultyDescriptionLabel.setText("All notes. One octave.");
     }
 
 
     @FXML
     private void hardRadioButtonSelected(ActionEvent event) throws IOException {
-        cSharpButton.setDisable(false);
-        dSharpButton.setDisable(false);
-        fSharpButton.setDisable(false);
-        gSharpButton.setDisable(false);
-        aSharpButton.setDisable(false);
-
-        difficultyDescriptionLabel.setText("All notes. 3 Octaves.");
+        difficultyDescriptionLabel.setText("All notes. Three octaves.");
     }
 
 
@@ -172,7 +240,7 @@ public class PitchRecognitionController {
 
     @FXML
     private void NextQuestionButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException {
-        if (questionNumber != 10) {
+        if (questionNumber != TOTAL_QUESTIONS) {
             questionNumber++;
             questionLabel.setText("Question " + Integer.toString(questionNumber));
         } else {
@@ -232,161 +300,10 @@ public class PitchRecognitionController {
 
 
     private void resetButtonColours() {
-        cButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
-        cSharpButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
-        dButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
-        dSharpButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
-        eButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
-        fButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
-        fSharpButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
-        gButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
-        gSharpButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
-        aButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
-        aSharpButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
-        bButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
-    }
-
-
-    @FXML
-    private void cButtonClicked(ActionEvent event) throws IOException {
-        if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
-            checkAnswer("c", cButton);
-        }
-    }
-
-
-    @FXML
-    private void cSharpButtonClicked(ActionEvent event) throws IOException {
-        if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
-            checkAnswer("c sharp", cSharpButton);
-        }
-    }
-
-
-    @FXML
-    private void dButtonClicked(ActionEvent event) throws IOException {
-        if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
-            checkAnswer("d", dButton);
-        }
-    }
-
-
-    @FXML
-    private void dSharpButtonClicked(ActionEvent event) throws IOException {
-        if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
-            checkAnswer("d sharp", dSharpButton);
-        }
-    }
-
-
-    @FXML
-    private void eButtonClicked(ActionEvent event) throws IOException {
-        if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
-            checkAnswer("e", eButton);
-        }
-    }
-
-
-    @FXML
-    private void fButtonClicked(ActionEvent event) throws IOException {
-        if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
-            checkAnswer("f", fButton);
-        }
-    }
-
-
-    @FXML
-    private void fSharpButtonClicked(ActionEvent event) throws IOException {
-        if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
-            checkAnswer("f sharp", fSharpButton);
-        }
-    }
-
-
-    @FXML
-    private void gButtonClicked(ActionEvent event) throws IOException {
-        if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
-            checkAnswer("g", gButton);
-        }
-    }
-
-
-    @FXML
-    private void gSharpButtonClicked(ActionEvent event) throws IOException {
-        if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
-            checkAnswer("g sharp", gSharpButton);
-        }
-    }
-
-
-    @FXML
-    private void aButtonClicked(ActionEvent event) throws IOException {
-        if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
-            checkAnswer("a", aButton);
-        }
-    }
-
-
-    @FXML
-    private void aSharpButtonClicked(ActionEvent event) throws IOException {
-        if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
-            checkAnswer("a sharp", aSharpButton);
-        }
-    }
-
-
-    @FXML
-    private void bButtonClicked(ActionEvent event) throws IOException {
-        if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
-            checkAnswer("b", bButton);
-        }
-    }
-
-
-    @FXML
-    private void AnswerButtonClicked() throws IOException {
-        questionAnswered = true;
-        nextQuestionButton.setDisable(false);
-
-        Phrase phrase = musicCreator.getPhrase();
-        setScore(phrase);
     }
 
 
     private void checkAnswer(String answer, Button button) {
-        if(answer != correctAnswer){
-            makeButtonRed(button);
-        } else {
-            numberOfCorrectAnswers++;
-        }
-
-        makeButtonGreen(correctButton);
-
-        if(questionNumber == 10){
-            nextQuestionButton.setText("Score");
-        }
-    }
-
-
-    private void makeButtonRed(Button button) {
-        button.setStyle("-fx-base: #ffb3b3;");
-    }
-
-
-    private void makeButtonGreen(Button correctButton) {
-        correctButton.setStyle("-fx-base: #adebad;");
     }
 
 
@@ -420,48 +337,15 @@ public class PitchRecognitionController {
         timeline.play();
     }
 
+
     private void stopTimer() {
-//        gen = false;
         timerLabel.setVisible(false);
         timeline.stop();
-    }
-
-    private Button getCorrectButton(String correctAnswer) {
-        switch(correctAnswer){
-            case "c":
-                return cButton;
-            case "c sharp":
-                return cSharpButton;
-            case "d":
-                return dButton;
-            case "d sharp":
-                return dSharpButton;
-            case "e":
-                return eButton;
-            case "f":
-                return fButton;
-            case "f sharp":
-                return fSharpButton;
-            case "g":
-                return gButton;
-            case "g sharp":
-                return gSharpButton;
-            case "a":
-                return aButton;
-            case "a sharp":
-                return aSharpButton;
-            case "b":
-                return bButton;
-            default:
-                return cButton;
-        }
     }
 
 
     @FXML
     private void generateQuestion() throws IOException, MidiUnavailableException, InvalidMidiDataException {
-        Stage stage = (Stage) stackPane.getScene().getWindow();
-
         musicCreator = new JMMusicCreator(jScore);
 
         if(easyRadioButton.isSelected()){
@@ -472,7 +356,7 @@ public class PitchRecognitionController {
             correctAnswer = musicCreator.makeMIDIHardPitch();
         }
 
-        correctButton = getCorrectButton(correctAnswer);
+        //correctButton = getCorrectButton(correctAnswer);
 
         playSound();
     }
@@ -482,6 +366,7 @@ public class PitchRecognitionController {
     private void replayButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException {
         playSound();
     }
+
 
     private void playSound() throws MidiUnavailableException, IOException, InvalidMidiDataException {
         final String MEDIA_URL = "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Pitch.mid";
@@ -504,6 +389,65 @@ public class PitchRecognitionController {
 
         jScore.removeTitle();
         jScore.setEditable(false);
+    }
+
+
+
+
+
+
+
+
+    private void setNewMixer(Mixer mixer) throws LineUnavailableException,
+            UnsupportedAudioFileException {
+
+        if(dispatcher!= null){
+            dispatcher.stop();
+        }
+        currentMixer = mixer;
+
+        float sampleRate = 44100;
+        int bufferSize = 1024;
+        int overlap = 0;
+
+        textArea.append("Started listening with " + Shared.toLocalString(mixer.getMixerInfo().getName()) + "\n");
+
+        final AudioFormat format = new AudioFormat(sampleRate, 16, 1, true,
+                true);
+        final DataLine.Info dataLineInfo = new DataLine.Info(
+                TargetDataLine.class, format);
+        TargetDataLine line;
+        line = (TargetDataLine) mixer.getLine(dataLineInfo);
+        final int numberOfSamples = bufferSize;
+        line.open(format, numberOfSamples);
+        line.start();
+        final AudioInputStream stream = new AudioInputStream(line);
+
+        JVMAudioInputStream audioStream = new JVMAudioInputStream(stream);
+        // create a new dispatcher
+        dispatcher = new AudioDispatcher(audioStream, bufferSize,
+                overlap);
+
+        // add a processor
+        dispatcher.addAudioProcessor(new PitchProcessor(algo, sampleRate, bufferSize, this));
+
+        new Thread(dispatcher,"Audio dispatching").start();
+    }
+
+
+    @Override
+    public void handlePitch(PitchDetectionResult pitchDetectionResult, AudioEvent audioEvent) {
+        if (pitchDetectionResult.getPitch() != -1) {
+            double timeStamp = audioEvent.getTimeStamp();
+            float pitch = pitchDetectionResult.getPitch();
+            float probability = pitchDetectionResult.getProbability();
+            double rms = audioEvent.getRMS() * 100;
+            String message = String.format("Pitch detected at %.2fs: %.2fHz ( %.2f probability, RMS: %.5f )\n", timeStamp, pitch, probability, rms);
+            //noteLabel.setText(message);
+            System.out.println(message);
+            textArea.append(message);
+            textArea.setCaretPosition(textArea.getDocument().getLength());
+        }
     }
 }
 

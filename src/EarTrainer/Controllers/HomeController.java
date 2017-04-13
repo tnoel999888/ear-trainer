@@ -43,6 +43,11 @@ public class HomeController {
         ButtonClicked(event, "../Views/ModulationRecognition.fxml");
     }
 
+    @FXML
+    private void VoiceTunerButtonClicked(ActionEvent event) throws IOException {
+        ButtonClicked(event, "../Views/VoiceTuner.fxml");
+    }
+
     public void ButtonClicked(ActionEvent e, String name) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(name));
         Parent root = (Parent)loader.load();

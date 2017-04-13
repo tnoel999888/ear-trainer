@@ -117,7 +117,7 @@
                   <Insets />
                </VBox.margin>
             </VBox>
-            <Label fx:id="difficultyDescriptionLabel" text="C, D, E, F, G, A and B. No Sharps or Flats. 1 Octave." VBox.vgrow="ALWAYS">
+            <Label fx:id="difficultyDescriptionLabel" text="White notes only. 1 Octave." VBox.vgrow="ALWAYS">
                <padding>
                   <Insets bottom="10.0" top="5.0" />
                </padding></Label>
