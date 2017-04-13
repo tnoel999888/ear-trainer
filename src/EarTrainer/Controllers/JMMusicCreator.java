@@ -266,6 +266,10 @@ public final class JMMusicCreator implements JMC {
     }
 
 
+
+
+
+
     public String makeMIDIEasyHarmonic(){
         Note n1 = new Note(C4, C);
         phr1.addNote(n1);
@@ -374,6 +378,10 @@ public final class JMMusicCreator implements JMC {
     }
 
 
+
+
+
+
     public String makeMIDIEasyPitch(){
         Random rn = new Random();
         int i = rn.nextInt(7);
@@ -382,16 +390,16 @@ public final class JMMusicCreator implements JMC {
 
         setScore(phr2);
 
-        Note n2 = new Note(C4+interval, C);
+        Note n = new Note(C4+interval, C);
 
-        phr2.addNote(n2);
+        phr2.addNote(n);
 
         p.addPhrase(phr2);
         s.addPart(p);
 
         Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Pitch.mid");
 
-        return getNote(n2);
+        return getNote(n);
     }
 
 
@@ -408,16 +416,16 @@ public final class JMMusicCreator implements JMC {
 
         setScore(phr2);
 
-        Note n2 = new Note(C4+interval, C);
+        Note n = new Note(C4+interval, C);
 
-        phr2.addNote(n2);
+        phr2.addNote(n);
 
         p.addPhrase(phr2);
         s.addPart(p);
 
         Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Pitch.mid");
 
-        return getNote(n2);
+        return getNote(n);
     }
 
 
@@ -434,15 +442,92 @@ public final class JMMusicCreator implements JMC {
 
         setScore(phr2);
 
-        Note n2 = new Note(C3+interval, C);
+        Note n = new Note(C3+interval, C);
 
-        phr2.addNote(n2);
+        phr2.addNote(n);
 
         p.addPhrase(phr2);
         s.addPart(p);
 
         Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Pitch.mid");
 
-        return getNote(n2);
+        return getNote(n);
+    }
+
+
+
+
+
+
+    public String makeMIDIEasySharpFlat(){
+        Random rn = new Random();
+        int i = rn.nextInt(7);
+        int[] array = {0, 2, 4, 5, 7, 9, 11};
+        int interval = array[i];
+
+        setScore(phr2);
+
+        Note n = new Note(C4+interval, C);
+
+        phr2.addNote(n);
+
+        p.addPhrase(phr2);
+        s.addPart(p);
+
+        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/SharpFlat.mid");
+
+        return getNote(n);
+    }
+
+
+    public String makeMIDIMediumSharpFlat(){
+        Random rn = new Random();
+        int i = rn.nextInt(12);
+        int[] array = new int[12];
+
+        for(int j = 0; j < 12; j++){
+            array[j] = j;
+        }
+
+        int interval = array[i];
+
+        setScore(phr2);
+
+        Note n = new Note(C4+interval, C);
+
+        phr2.addNote(n);
+
+        p.addPhrase(phr2);
+        s.addPart(p);
+
+        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/SharpFlat.mid");
+
+        return getNote(n);
+    }
+
+
+    public String makeMIDIHardSharpFlat(){
+        Random rn = new Random();
+        int i = rn.nextInt(36);
+        int[] array = new int[36];
+
+        for(int j = 0; j < 36; j++){
+            array[j] = j;
+        }
+
+        int interval = array[i];
+
+        setScore(phr2);
+
+        Note n = new Note(C3+interval, C);
+
+        phr2.addNote(n);
+
+        p.addPhrase(phr2);
+        s.addPart(p);
+
+        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/SharpFlat.mid");
+
+        return getNote(n);
     }
 }
