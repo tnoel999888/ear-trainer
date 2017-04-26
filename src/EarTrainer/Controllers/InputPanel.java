@@ -47,7 +47,7 @@ public class InputPanel extends JPanel {
 
     public InputPanel(){
         super(new BorderLayout());
-        this.setBorder(new TitledBorder("1. Choose a microphone input"));
+        this.setBorder(new TitledBorder("Choose a microphone input"));
         JPanel buttonPanel = new JPanel(new GridLayout(0,1));
         ButtonGroup group = new ButtonGroup();
         for(Mixer.Info info : Shared.getMixerInfo(false, true)){
@@ -58,6 +58,7 @@ public class InputPanel extends JPanel {
             button.setActionCommand(info.toString());
             button.addActionListener(setInput);
         }
+
         this.add(new JScrollPane(buttonPanel,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER),BorderLayout.CENTER);
         this.setMaximumSize(new Dimension(300,150));
         this.setPreferredSize(new Dimension(300,150));

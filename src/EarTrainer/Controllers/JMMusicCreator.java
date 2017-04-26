@@ -1,12 +1,17 @@
 package EarTrainer.Controllers;
 
+import be.tarsos.dsp.PitchShifter;
 import jm.JMC;
 import jm.gui.cpn.JGrandStave;
 import jm.music.data.*;
+import jm.music.tools.Mod;
 import jm.util.*;
 
+import javax.sound.midi.InvalidMidiDataException;
+import javax.sound.midi.ShortMessage;
 import java.awt.*;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * A short example which generates a one octave c chromatic scale
@@ -37,9 +42,11 @@ public final class JMMusicCreator implements JMC {
         return cphr1;
     }
 
+
     public Score getScore() {
         return s;
     }
+
 
     private String getInterval(int i) {
         switch(i){
@@ -465,13 +472,31 @@ public final class JMMusicCreator implements JMC {
         int[] array = {0, 2, 4, 5, 7, 9, 11};
         int interval = array[i];
 
-        setScore(phr2);
+        //setScore(phr2);
 
         Note n = new Note(C4+interval, C);
 
         phr2.addNote(n);
+        phr1.addNote(n);
 
-        p.addPhrase(phr2);
+//        double twentyFiveCentsRatio = 1.014545;
+//        double fiftyCentsRatio = 1.029302;
+//        //double hundredCentsRatio = 1.059463;
+//        double random = ThreadLocalRandom.current().nextDouble(twentyFiveCentsRatio, fiftyCentsRatio);
+//
+//        System.out.println(n.getFrequency());
+//        double freq1 = n.getFrequency() * random;
+//        double freq2 = n.getFrequency() / random;
+//        double[] freqs = {freq1, freq2};
+//        int i3 = rn.nextInt(2);
+//        double freq = freqs[i3];
+//        System.out.println(freq);
+
+        Note n2 = new Note(C4, C);
+
+        phr1.addNote(n2);
+
+        p.addPhrase(phr1);
         s.addPart(p);
 
         Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/SharpFlat.mid");

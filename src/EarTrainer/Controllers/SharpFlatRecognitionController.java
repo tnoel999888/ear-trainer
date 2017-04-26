@@ -28,10 +28,7 @@ import java.awt.*;
 import java.io.*;
 
 
-import javax.sound.midi.InvalidMidiDataException;
-import javax.sound.midi.MidiSystem;
-import javax.sound.midi.MidiUnavailableException;
-import javax.sound.midi.Sequencer;
+import javax.sound.midi.*;
 
 
 public class SharpFlatRecognitionController {
@@ -152,7 +149,7 @@ public class SharpFlatRecognitionController {
         nextQuestionButton.setDisable(true);
         resetButtonColours();
 
-        setScore(phrase);
+        //setScore(phrase);
         generateQuestion();
     }
 
@@ -226,7 +223,7 @@ public class SharpFlatRecognitionController {
         nextQuestionButton.setDisable(false);
 
         Phrase phrase = musicCreator.getPhrase();
-        setScore(phrase);
+        //setScore(phrase);
     }
 
 
@@ -339,17 +336,17 @@ public class SharpFlatRecognitionController {
     }
 
 
-    public void setScore(Phrase phr) {
-        jScore.setPhrase(phr);
-
-        Dimension d = new Dimension();
-        d.setSize(600,300);
-        jScore.setPreferredSize(d);
-        jScore.setMaximumSize(d);
-
-        jScore.removeTitle();
-        jScore.setEditable(false);
-    }
+//    public void setScore(Phrase phr) {
+//        jScore.setPhrase(phr);
+//
+//        Dimension d = new Dimension();
+//        d.setSize(600,300);
+//        jScore.setPreferredSize(d);
+//        jScore.setMaximumSize(d);
+//
+//        jScore.removeTitle();
+//        jScore.setEditable(false);
+//    }
 }
 
 

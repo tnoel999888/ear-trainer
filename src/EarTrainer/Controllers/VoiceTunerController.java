@@ -9,6 +9,7 @@ import be.tarsos.dsp.pitch.PitchProcessor;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -68,8 +69,18 @@ public class VoiceTunerController implements PitchDetectionHandler {
 
     @FXML private Label timerLabel;
     @FXML private Label questionLabel;
+    @FXML private Label questionNoteLabel;
     @FXML private Label difficultyDescriptionLabel;
+
     @FXML private Label noteLabel;
+    @FXML private Label noteLabelm1;
+    @FXML private Label noteLabelm2;
+    @FXML private Label noteLabelm3;
+    @FXML private Label noteLabelm4;
+    @FXML private Label noteLabelp1;
+    @FXML private Label noteLabelp2;
+    @FXML private Label noteLabelp3;
+    @FXML private Label noteLabelp4;
 
     @FXML private Button startButton;
     @FXML private Button nextQuestionButton;
@@ -77,8 +88,6 @@ public class VoiceTunerController implements PitchDetectionHandler {
     @FXML private Pane scorePane;
     @FXML private Pane inputPane;
     @FXML private Pane algoPane;
-    @FXML private ScrollPane outputPane;
-    //@FXML private TextArea textArea;
 
     @FXML HBox mediaBar;
 
@@ -101,46 +110,30 @@ public class VoiceTunerController implements PitchDetectionHandler {
     private boolean startClicked = false;
 
 
-    private static final long serialVersionUID = 3501426880288136245L;
-
-    private final JTextArea textArea = new JTextArea();
-
     private AudioDispatcher dispatcher;
     private Mixer currentMixer;
 
     private PitchProcessor.PitchEstimationAlgorithm algo;
 
 
-    private ActionListener algoChangeListener = new ActionListener(){
-        @Override
-        public void actionPerformed(final java.awt.event.ActionEvent e) {
-            String name = e.getActionCommand();
-            PitchProcessor.PitchEstimationAlgorithm newAlgo = PitchProcessor.PitchEstimationAlgorithm.valueOf(name);
-            algo = newAlgo;
-            try {
-                setNewMixer(currentMixer);
-            } catch (LineUnavailableException e1) {
-                e1.printStackTrace();
-            } catch (UnsupportedAudioFileException e1) {
-                e1.printStackTrace();
-            }
-        }};
+//    private ActionListener algoChangeListener = new ActionListener(){
+//        @Override
+//        public void actionPerformed(final java.awt.event.ActionEvent e) {
+//            String name = e.getActionCommand();
+//            PitchProcessor.PitchEstimationAlgorithm newAlgo = PitchProcessor.PitchEstimationAlgorithm.valueOf(name);
+//            algo = newAlgo;
+//            try {
+//                setNewMixer(currentMixer);
+//            } catch (LineUnavailableException e1) {
+//                e1.printStackTrace();
+//            } catch (UnsupportedAudioFileException e1) {
+//                e1.printStackTrace();
+//            }
+//        }};
 
 
     @FXML
     public void initialize() {
-        Dimension d = new Dimension();
-        d.setSize(600,300);
-        jScore.setPreferredSize(d);
-        jScore.setMaximumSize(d);
-
-        jScore.removeTitle();
-        jScore.setEditable(false);
-
-        SwingNode swingNode = new SwingNode();
-        swingNode.setContent(jScore);
-
-        scorePane.getChildren().add(swingNode);
 
         for(Mixer.Info info : Shared.getMixerInfo(false, true)){
             List<String> list = Arrays.asList(Shared.toLocalString(info).split(","));
@@ -179,21 +172,13 @@ public class VoiceTunerController implements PitchDetectionHandler {
                 });
 
         algo = PitchProcessor.PitchEstimationAlgorithm.YIN;
-
-        JPanel pitchDetectionPanel = new PitchDetectionPanel(algoChangeListener);
-
-        SwingNode swingNode3 = new SwingNode();
-        swingNode3.setContent(pitchDetectionPanel);
-
-        algoPane.getChildren().add(swingNode3);
-
-
-        textArea.setEditable(false);
-
-        SwingNode swingNode4 = new SwingNode();
-        swingNode4.setContent(textArea);
-
-        outputPane.setContent(swingNode4);
+//
+//        JPanel pitchDetectionPanel = new PitchDetectionPanel(algoChangeListener);
+//
+//        SwingNode swingNode3 = new SwingNode();
+//        swingNode3.setContent(pitchDetectionPanel);
+//
+//        algoPane.getChildren().add(swingNode3);
     }
 
 
@@ -229,10 +214,18 @@ public class VoiceTunerController implements PitchDetectionHandler {
         numberOfCorrectAnswers = 0;
         startTimer();
         questionLabel.setVisible(true);
+        questionNoteLabel.setVisible(true);
+
+        noteLabel.setVisible(true);
+        noteLabelm1.setVisible(true);
+        noteLabelp1.setVisible(true);
+
+
         startButton.setDisable(true);
         timerLabel.setVisible(true);
         radioButtonsGroup.setDisable(true);
         questionLabel.setText("Question 1");
+//        questionNoteLabel.setText("Sing: ");
 
         generateQuestion();
     }
@@ -356,6 +349,7 @@ public class VoiceTunerController implements PitchDetectionHandler {
             correctAnswer = musicCreator.makeMIDIHardPitch();
         }
 
+        questionNoteLabel.setText("Sing: " + correctAnswer);
         //correctButton = getCorrectButton(correctAnswer);
 
         playSound();
@@ -392,12 +386,6 @@ public class VoiceTunerController implements PitchDetectionHandler {
     }
 
 
-
-
-
-
-
-
     private void setNewMixer(Mixer mixer) throws LineUnavailableException,
             UnsupportedAudioFileException {
 
@@ -410,7 +398,6 @@ public class VoiceTunerController implements PitchDetectionHandler {
         int bufferSize = 1024;
         int overlap = 0;
 
-        textArea.append("Started listening with " + Shared.toLocalString(mixer.getMixerInfo().getName()) + "\n");
 
         final AudioFormat format = new AudioFormat(sampleRate, 16, 1, true,
                 true);
@@ -438,15 +425,105 @@ public class VoiceTunerController implements PitchDetectionHandler {
     @Override
     public void handlePitch(PitchDetectionResult pitchDetectionResult, AudioEvent audioEvent) {
         if (pitchDetectionResult.getPitch() != -1) {
-            double timeStamp = audioEvent.getTimeStamp();
+            //double timeStamp = audioEvent.getTimeStamp();
             float pitch = pitchDetectionResult.getPitch();
-            float probability = pitchDetectionResult.getProbability();
-            double rms = audioEvent.getRMS() * 100;
-            String message = String.format("Pitch detected at %.2fs: %.2fHz ( %.2f probability, RMS: %.5f )\n", timeStamp, pitch, probability, rms);
-            //noteLabel.setText(message);
-            System.out.println(message);
-            textArea.append(message);
-            textArea.setCaretPosition(textArea.getDocument().getLength());
+            float concertPitchA = 440;
+            float ratio = pitch/concertPitchA;
+            double a = Math.pow(2, 1.0/12);
+            double n = Math.log(ratio)/Math.log(a);
+
+            int n2 = (int) Math.round(n);
+            n2 = n2 % 12;
+
+            if(n2 < 0){
+                n2 += 12;
+            }
+
+            String[] notes = {"A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"};
+            String note = notes[n2];
+
+            String notem1;
+            String notem2;
+            String notem3;
+            String notem4;
+
+            String notep1;
+            String notep2;
+            String notep3;
+            String notep4;
+
+
+
+            if(n2 != 0) {
+                notem1 = notes[n2 - 1];
+            } else {
+                notem1 = notes[11];
+            }
+
+            if(n2 > 1) {
+                notem2 = notes[n2 - 2];
+            } else {
+                notem2 = notes[10];
+            }
+
+            if(n2 > 2) {
+                notem3 = notes[n2 - 3];
+            } else {
+                notem3 = notes[9];
+            }
+
+            if(n2 > 3) {
+                notem4 = notes[n2 - 4];
+            } else {
+                notem4 = notes[8];
+            }
+
+
+
+
+
+            if(n2 != 11) {
+                notep1 = notes[n2 + 1];
+            } else {
+                notep1 = notes[0];
+            }
+
+            if(n2 < 10) {
+                notep2 = notes[n2 + 2];
+            } else {
+                notep2 = notes[1];
+            }
+
+            if(n2 < 9) {
+                notep3 = notes[n2 + 3];
+            } else {
+                notep3 = notes[2];
+            }
+
+            if(n2 < 8) {
+                notep4 = notes[n2 + 4];
+            } else {
+                notep4 = notes[3];
+            }
+
+
+//            String message = String.format("%.2fHz\n", pitch);
+            String message = Double.toString(n);
+
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    noteLabelm4.setText(notem4);
+                    noteLabelm3.setText(notem3);
+                    noteLabelm2.setText(notem2);
+                    noteLabelm1.setText(notem1);
+                    noteLabel.setText(note);
+                    noteLabelp1.setText(notep1);
+                    noteLabelp2.setText(notep2);
+                    noteLabelp3.setText(notep3);
+                    noteLabelp4.setText(notep4);
+                }
+            });
         }
     }
 }
