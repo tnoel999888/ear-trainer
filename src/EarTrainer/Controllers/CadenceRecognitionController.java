@@ -213,34 +213,34 @@ public class CadenceRecognitionController {
     }
 
     @FXML
-    private void unisonButtonClicked(ActionEvent event) throws IOException {
+    private void perfectButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
             AnswerButtonClicked();
-            checkAnswer("unison", perfectButton);
+            checkAnswer("perfect", perfectButton);
         }
     }
 
     @FXML
-    private void minorSecondButtonClicked(ActionEvent event) throws IOException {
+    private void interruptiveButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
             AnswerButtonClicked();
-            checkAnswer("minor second", interruptiveButton);
+            checkAnswer("interruptive", interruptiveButton);
         }
     }
 
     @FXML
-    private void majorSecondButtonClicked(ActionEvent event) throws IOException {
+    private void imperfectButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
             AnswerButtonClicked();
-            checkAnswer("major second", imperfectButton);
+            checkAnswer("imperfect", imperfectButton);
         }
     }
 
     @FXML
-    private void perfectFourthButtonClicked(ActionEvent event) throws IOException {
+    private void plagalButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
             AnswerButtonClicked();
-            checkAnswer("perfect fourth", plagalButton);
+            checkAnswer("plagal", plagalButton);
         }
     }
 
@@ -322,7 +322,7 @@ public class CadenceRecognitionController {
                 return interruptiveButton;
             case "imperfect":
                 return imperfectButton;
-            case "plagal ":
+            case "plagal":
                 return plagalButton;
             default:
                 return perfectButton;
