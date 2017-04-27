@@ -24,6 +24,7 @@ import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import jm.gui.cpn.JGrandStave;
 import jm.music.data.Phrase;
+import jm.music.data.Score;
 
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiSystem;
@@ -315,13 +316,13 @@ public class CadenceRecognitionController {
 
     private Button getCorrectButton(String correctAnswer) {
         switch(correctAnswer){
-            case "unison":
+            case "perfect":
                 return perfectButton;
-            case "minor second":
+            case "interruptive":
                 return interruptiveButton;
-            case "major second":
+            case "imperfect":
                 return imperfectButton;
-            case "perfect fourth":
+            case "plagal ":
                 return plagalButton;
             default:
                 return perfectButton;
@@ -336,7 +337,7 @@ public class CadenceRecognitionController {
         musicCreator = new JMMusicCreator(jScore);
 
         if(easyRadioButton.isSelected()){
-            correctAnswer = musicCreator.makeMIDIEasyHarmonic();
+            correctAnswer = musicCreator.makeMIDIEasyCadence();
         } else if(mediumRadioButton.isSelected()){
             correctAnswer = musicCreator.makeMIDIMediumHarmonic();
         } else if(hardRadioButton.isSelected()){
@@ -355,7 +356,7 @@ public class CadenceRecognitionController {
     }
 
     private void playSound() throws MidiUnavailableException, IOException, InvalidMidiDataException {
-        final String MEDIA_URL = "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/HarmonicInterval.mid";
+        final String MEDIA_URL = "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Cadence.mid";
 
         Sequencer sequencer = MidiSystem.getSequencer();
         sequencer.open();
