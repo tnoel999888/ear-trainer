@@ -508,7 +508,6 @@ public class VoiceTunerController implements PitchDetectionHandler {
 
 
 //            String message = String.format("%.2fHz\n", pitch);
-            String message = Double.toString(n);
 
             Platform.runLater(new Runnable() {
                 @Override

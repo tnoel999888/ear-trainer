@@ -9,26 +9,156 @@
 
 <StackPane fx:id="stackPane" maxHeight="1080.0" maxWidth="1920.0" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EarTrainer.Controllers.CadenceRecognitionController">
    <children>
-      <ToolBar prefHeight="40.0" prefWidth="200.0" StackPane.alignment="TOP_CENTER">
-         <items>
-            <Button mnemonicParsing="false" onAction="#BackButtonClicked" prefHeight="27.0" prefWidth="62.0" text="Back" />
-            <Pane HBox.hgrow="ALWAYS" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cadence Recognition" />
-            <ImageView fitHeight="46.0" fitWidth="43.0">
-               <image>
-                  <Image url="@../Images/Cadence-Icon.png" />
-               </image>
-            </ImageView>
-            <Pane layoutX="73.0" layoutY="10.0" HBox.hgrow="ALWAYS" />
-            <ImageView fitHeight="31.0" fitWidth="104.0">
-               <image>
-                  <Image url="@../Images/EarTrainerLogo.png" />
-               </image>
-            </ImageView>
-         </items>
-         <padding>
-            <Insets left="15.0" />
-         </padding>
-      </ToolBar>
+      <VBox alignment="TOP_CENTER" maxHeight="1080.0" maxWidth="1920.0" prefHeight="1080.0" prefWidth="1920.0" spacing="5.0" StackPane.alignment="CENTER">
+         <children>
+            <ToolBar prefHeight="40.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+               <items>
+                  <Button mnemonicParsing="false" onAction="#BackButtonClicked" prefHeight="27.0" prefWidth="62.0" text="Back" />
+                  <Pane HBox.hgrow="ALWAYS" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cadence Recognition" />
+                  <ImageView fitHeight="46.0" fitWidth="43.0">
+                     <image>
+                        <Image url="@../Images/Cadence-Icon.png" />
+                     </image>
+                  </ImageView>
+                  <Pane layoutX="73.0" layoutY="10.0" HBox.hgrow="ALWAYS" />
+                  <ImageView fitHeight="31.0" fitWidth="104.0">
+                     <image>
+                        <Image url="@../Images/EarTrainerLogo.png" />
+                     </image>
+                  </ImageView>
+               </items>
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </ToolBar>
+            <Label fx:id="questionLabel" alignment="CENTER" contentDisplay="CENTER" visible="false" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font name="Courier New Bold" size="31.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+            <HBox>
+               <children>
+                  <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                  <Pane fx:id="scorePane" maxHeight="300.0" maxWidth="600.0" minHeight="300.0" minWidth="600.0" pickOnBounds="false" prefHeight="300.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Pane>
+                  <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox fx:id="mediaBar" alignment="CENTER" maxHeight="50.0" maxWidth="600.0" prefHeight="50.0" prefWidth="600.0" VBox.vgrow="ALWAYS" />
+            <Button fx:id="replayButton" mnemonicParsing="false" onAction="#replayButtonClicked" text="Replay" />
+            <VBox maxHeight="70.0" maxWidth="673.0" minHeight="70.0" minWidth="300.0" prefHeight="70.0" prefWidth="673.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <HBox alignment="TOP_CENTER" maxHeight="38.0" maxWidth="200.0" minHeight="20.0" minWidth="50.0" prefHeight="38.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="timerLabel" alignment="CENTER" text="00:00" HBox.hgrow="ALWAYS" StackPane.alignment="TOP_CENTER">
+                           <StackPane.margin>
+                              <Insets top="275.0" />
+                           </StackPane.margin>
+                           <font>
+                              <Font name="Courier Bold" size="35.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="230.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox fx:id="radioButtonsGroup" alignment="CENTER" maxHeight="30.0" maxWidth="414.0" minHeight="30.0" minWidth="100.0" prefHeight="30.0" prefWidth="414.0" spacing="20.0" StackPane.alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label text="Difficulty:" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                        <RadioButton fx:id="easyRadioButton" mnemonicParsing="false" onAction="#easyRadioButtonSelected" selected="true" text="Easy" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="radioButtons" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="mediumRadioButton" layoutX="10.0" layoutY="26.0" mnemonicParsing="false" onAction="#mediumRadioButtonSelected" text="Medium" toggleGroup="$radioButtons" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton fx:id="hardRadioButton" layoutX="217.0" layoutY="26.0" mnemonicParsing="false" onAction="#hardRadioButtonSelected" text="Hard" toggleGroup="$radioButtons" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </RadioButton>
+                     </children>
+                     <StackPane.margin>
+                        <Insets top="300.0" />
+                     </StackPane.margin>
+                     <VBox.margin>
+                        <Insets left="130.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </VBox>
+            <Label fx:id="difficultyDescriptionLabel" text="Only Perfect/Authentic and Interruptive/Deceptive Cadences" VBox.vgrow="ALWAYS">
+               <padding>
+                  <Insets bottom="10.0" top="5.0" />
+               </padding></Label>
+            <HBox alignment="CENTER" fillHeight="false" maxHeight="65.0" minHeight="65.0" prefHeight="65.0" spacing="45.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Button id="lion-default" fx:id="startButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#StartButtonClicked" prefHeight="64.0" prefWidth="302.0" text="Start" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font size="29.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="250.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button id="lion-default" fx:id="nextQuestionButton" contentDisplay="CENTER" disable="true" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#NextQuestionButtonClicked" prefHeight="64.0" prefWidth="302.0" text="Next Question">
+                     <font>
+                        <Font size="29.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <GridPane alignment="BOTTOM_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="125.0" prefWidth="692.0" StackPane.alignment="CENTER" VBox.vgrow="ALWAYS">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="173.0" minWidth="10.0" prefWidth="173.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="173.0" minWidth="10.0" prefWidth="173.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Button fx:id="perfectButton" maxHeight="50.0" maxWidth="130.0" minHeight="50.0" minWidth="130.0" mnemonicParsing="false" onAction="#unisonButtonClicked" prefHeight="50.0" prefWidth="130.0" text="Perfect/Authentic&#10;(V-I)&#10;" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <Button fx:id="interruptiveButton" maxHeight="50.0" maxWidth="130.0" minHeight="50.0" minWidth="130.0" mnemonicParsing="false" onAction="#minorSecondButtonClicked" prefHeight="50.0" prefWidth="130.0" text="Interruptive/Deceptive&#10;(V-VI)" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <Button fx:id="imperfectButton" disable="true" layoutX="145.0" layoutY="30.0" maxHeight="50.0" maxWidth="130.0" minHeight="50.0" minWidth="130.0" mnemonicParsing="false" onAction="#majorSecondButtonClicked" prefHeight="50.0" prefWidth="130.0" text="Imperfect/Half&#10;(?-V)" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <Button fx:id="plagalButton" disable="true" layoutX="257.0" layoutY="30.0" maxHeight="50.0" maxWidth="130.0" minHeight="50.0" minWidth="130.0" mnemonicParsing="false" onAction="#perfectFourthButtonClicked" prefHeight="50.0" prefWidth="130.0" text="Plagal&#10;(IV-I)" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+               </children>
+            </GridPane>
+         </children>
+         <StackPane.margin>
+            <Insets />
+         </StackPane.margin>
+      </VBox>
    </children>
 </StackPane>
