@@ -19,6 +19,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * @author Andrew Sorensen and Andrew Brown
  */
 public final class JMMusicCreator implements JMC {
+    private Random rn = new Random();
 
     private Score s = new Score("JMDemo - Scale");
     private Part p = new Part(0);
@@ -31,6 +32,19 @@ public final class JMMusicCreator implements JMC {
     private CPhrase cphr2 = new CPhrase();
     private CPhrase cphr3 = new CPhrase();
     private CPhrase cphr4 = new CPhrase();
+
+    private Note[] scaleChord1;
+    private Note[] scaleChord2;
+    private Note[] scaleChord3;
+    private Note[] scaleChord4;
+    private Note[] scaleChord5;
+    private Note[] scaleChord6;
+    private Note[] scaleChord7;
+    private Note[] scaleChord8;
+    private Note[][] scaleChords = {scaleChord1, scaleChord2, scaleChord3, scaleChord4, scaleChord5, scaleChord6, scaleChord7, scaleChord8};
+    private Note[][] scaleChords1And6 = {scaleChord1, scaleChord6};
+    private Note[][] randomAnd5 = {scaleChord1, scaleChord5};
+    private Note[][] randomAnd5And4 = {scaleChord1, scaleChord5, scaleChord4};
 
 
     public JMMusicCreator(JGrandStave jScore) {
@@ -566,10 +580,10 @@ public final class JMMusicCreator implements JMC {
 
 
 
-    public String makeMIDIEasyCadence(){
+    public void makeScaleAndChords(){
         int[] notes = {A4, AS4, B4, C4, CS4, D4, DS4, E4, F4, FS4, G4, GS4};
 
-        Random rn = new Random();
+
         int i = rn.nextInt(12);
 
         //Minor scale
@@ -583,24 +597,29 @@ public final class JMMusicCreator implements JMC {
         minorScale[6] = notes[(i + 10) % 12];
         minorScale[7] = notes[(i + 12) % 12];
 
-        Note[] scaleChord1 = { new Note(minorScale[0], C), new Note(minorScale[2], C), new Note(minorScale[4], C)};
-        Note[] scaleChord2 = { new Note(minorScale[1], C), new Note(minorScale[3], C), new Note(minorScale[5], C)};
-        Note[] scaleChord3 = { new Note(minorScale[2], C), new Note(minorScale[4], C), new Note(minorScale[6], C)};
-        Note[] scaleChord4 = { new Note(minorScale[3], C), new Note(minorScale[5], C), new Note(minorScale[7], C)};
-        Note[] scaleChord5 = { new Note(minorScale[4], C), new Note(minorScale[6], C), new Note(minorScale[0], C)};
-        Note[] scaleChord6 = { new Note(minorScale[5], C), new Note(minorScale[7], C), new Note(minorScale[1], C)};
-        Note[] scaleChord7 = { new Note(minorScale[6], C), new Note(minorScale[0], C), new Note(minorScale[2], C)};
-        Note[] scaleChord8 = { new Note(minorScale[7], C), new Note(minorScale[1], C), new Note(minorScale[3], C)};
+        scaleChord1 = new Note[] { new Note(minorScale[0], C), new Note(minorScale[2], C), new Note(minorScale[4], C)};
+        scaleChord2 = new Note[] { new Note(minorScale[1], C), new Note(minorScale[3], C), new Note(minorScale[5], C)};
+        scaleChord3 = new Note[] { new Note(minorScale[2], C), new Note(minorScale[4], C), new Note(minorScale[6], C)};
+        scaleChord4 = new Note[] { new Note(minorScale[3], C), new Note(minorScale[5], C), new Note(minorScale[7], C)};
+        scaleChord5 = new Note[] { new Note(minorScale[4], C), new Note(minorScale[6], C), new Note(minorScale[0], C)};
+        scaleChord6 = new Note[] { new Note(minorScale[5], C), new Note(minorScale[7], C), new Note(minorScale[1], C)};
+        scaleChord7 = new Note[] { new Note(minorScale[6], C), new Note(minorScale[0], C), new Note(minorScale[2], C)};
+        scaleChord8 = new Note[] { new Note(minorScale[7], C), new Note(minorScale[1], C), new Note(minorScale[3], C)};
 
-        Note[][] scaleChords = {scaleChord1, scaleChord2, scaleChord3, scaleChord4, scaleChord5, scaleChord6, scaleChord7, scaleChord8};
-        Note[][] scaleChords1And6 = {scaleChord1, scaleChord6};
+        scaleChords = new Note[][]{scaleChord1, scaleChord2, scaleChord3, scaleChord4, scaleChord5, scaleChord6, scaleChord7, scaleChord8};
+        scaleChords1And6 = new Note[][] {scaleChord1, scaleChord6};
+    }
+
+
+    public String makeMIDIEasyCadence(){
+        makeScaleAndChords();
 
         int i2 = rn.nextInt(8);
         int i3 = rn.nextInt(8);
 
         cphr1.addChord(scaleChords[i2]);
         cphr2.addChord(scaleChords[i3]);
-        cphr3.addChord(scaleChords[4]);
+        cphr3.addChord(scaleChord5);
 
         int i4 = rn.nextInt(2);
         cphr4.addChord(scaleChords1And6[i4]);
@@ -618,6 +637,92 @@ public final class JMMusicCreator implements JMC {
             return "perfect";
         } else {
             return "interruptive";
+        }
+    }
+
+
+    public String makeMIDIMediumCadence(){
+        makeScaleAndChords();
+
+        int i2 = rn.nextInt(8);
+        int i3 = rn.nextInt(8);
+        int i4 = rn.nextInt(8);
+
+        cphr1.addChord(scaleChords[i2]);
+        cphr2.addChord(scaleChords[i3]);
+
+        randomAnd5 = new Note[][]{scaleChords[i4], scaleChords[4]};
+        int i5 = rn.nextInt(2);
+        cphr3.addChord(randomAnd5[i5]);
+        int i6 = -1;
+
+        if(i5 == 0){
+            cphr4.addChord(scaleChord5);
+        } else {
+            i6 = rn.nextInt(2);
+            cphr4.addChord(scaleChords1And6[i6]);
+        }
+
+        p.addCPhrase(cphr1);
+        p.addCPhrase(cphr2);
+        p.addCPhrase(cphr3);
+        p.addCPhrase(cphr4);
+
+        s.addPart(p);
+
+        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Cadence.mid");
+
+        if(i6 == 0){
+            return "perfect";
+        } else if(i6 == 1){
+            return "interruptive";
+        } else{
+            return "imperfect";
+        }
+    }
+
+
+    public String makeMIDIHardCadence(){
+        makeScaleAndChords();
+
+        int i2 = rn.nextInt(8);
+        int i3 = rn.nextInt(8);
+        int i4 = rn.nextInt(8);
+
+        cphr1.addChord(scaleChords[i2]);
+        cphr2.addChord(scaleChords[i3]);
+
+        randomAnd5And4 = new Note[][]{scaleChords[i4], scaleChords[4], scaleChords[3]};
+        int i5 = rn.nextInt(3);
+        cphr3.addChord(randomAnd5And4[i5]);
+        int i6 = -1;
+
+        if(i5 == 0){
+            cphr4.addChord(scaleChord5);
+        } else if(i5 == 1){
+            i6 = rn.nextInt(2);
+            cphr4.addChord(scaleChords1And6[i6]);
+        } else {
+            cphr4.addChord(scaleChord1);
+        }
+
+        p.addCPhrase(cphr1);
+        p.addCPhrase(cphr2);
+        p.addCPhrase(cphr3);
+        p.addCPhrase(cphr4);
+
+        s.addPart(p);
+
+        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Cadence.mid");
+
+        if(i5 == 1 && i6 == 0){
+            return "perfect";
+        } else if(i5 == 2 && i6 == 0){
+            return "plagal";
+        } else if(i5 == 1 && i6 == 1){
+            return "interruptive";
+        } else{
+            return "imperfect";
         }
     }
 }

@@ -339,9 +339,9 @@ public class CadenceRecognitionController {
         if(easyRadioButton.isSelected()){
             correctAnswer = musicCreator.makeMIDIEasyCadence();
         } else if(mediumRadioButton.isSelected()){
-            correctAnswer = musicCreator.makeMIDIMediumHarmonic();
+            correctAnswer = musicCreator.makeMIDIMediumCadence();
         } else if(hardRadioButton.isSelected()){
-            correctAnswer = musicCreator.makeMIDIHardHarmonic();
+            correctAnswer = musicCreator.makeMIDIHardCadence();
         }
 
         correctButton = getCorrectButton(correctAnswer);
