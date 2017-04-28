@@ -651,12 +651,12 @@ public final class JMMusicCreator implements JMC {
         cphr1.addChord(scaleChords[i2]);
         cphr2.addChord(scaleChords[i3]);
 
-        randomAnd5 = new Note[][]{scaleChords[i4], scaleChords[4]};
+        randomAnd5 = new Note[][]{scaleChords[i4], scaleChord5};
         int i5 = rn.nextInt(2);
         cphr3.addChord(randomAnd5[i5]);
         int i6 = -1;
 
-        if(i5 == 0){
+        if(i5 == 0) {
             cphr4.addChord(scaleChord5);
         } else {
             i6 = rn.nextInt(2);
@@ -672,11 +672,11 @@ public final class JMMusicCreator implements JMC {
 
         Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Cadence.mid");
 
-        if(i6 == 0){
+        if(i6 == 0) {
             return "perfect";
-        } else if(i6 == 1){
+        } else if(i6 == 1) {
             return "interruptive";
-        } else{
+        } else {
             return "imperfect";
         }
     }
@@ -692,7 +692,7 @@ public final class JMMusicCreator implements JMC {
         cphr1.addChord(scaleChords[i2]);
         cphr2.addChord(scaleChords[i3]);
 
-        randomAnd5And4 = new Note[][]{scaleChords[i4], scaleChords[4], scaleChords[3]};
+        randomAnd5And4 = new Note[][]{scaleChords[i4], scaleChord5, scaleChord4};
         int i5 = rn.nextInt(3);
         cphr3.addChord(randomAnd5And4[i5]);
         int i6 = -1;
@@ -715,13 +715,13 @@ public final class JMMusicCreator implements JMC {
 
         Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Cadence.mid");
 
-        if(i5 == 1 && i6 == 0){
+        if(i5 == 1 && i6 == 0) {
             return "perfect";
-        } else if(i5 == 2 && i6 == 0){
-            return "plagal";
-        } else if(i5 == 1 && i6 == 1){
+        } else if(i5 == 1 && i6 == 1) {
             return "interruptive";
-        } else{
+        } else if(i5 == 2) {
+            return "plagal";
+        } else {
             return "imperfect";
         }
     }
