@@ -725,4 +725,22 @@ public final class JMMusicCreator implements JMC {
             return "imperfect";
         }
     }
+
+
+
+
+
+
+
+    public String makeMIDIEasyModulation(){
+        return "";
+    }
+
+    public String makeMIDIMediumModulation(){
+        return "";
+    }
+
+    public String makeMIDIHardModulation(){
+        return "";
+    }
 }
