@@ -801,15 +801,13 @@ public final class JMMusicCreator implements JMC {
     }
 
     public ArrayList findCommonChords(Note[][] origKeyChords, Note[][] newKeyChords){
-//        Note[][] commonChords = new Note[][]{};
         ArrayList commonChords = new ArrayList<Note[][]>();
-        //int index = 0;
 
         for(int i = 0; i < origKeyChords.length; i++){
             for(int j = 0; j < newKeyChords.length; j++) {
-                if (Arrays.equals(origKeyChords[i], newKeyChords[j])) {
-                    //index++;
-                    //commonChords[index] = origKeyChords[j];
+                if((origKeyChords[i][0].equals(newKeyChords[j][0])) &&
+                   (origKeyChords[i][1].equals(newKeyChords[j][1])) &&
+                   (origKeyChords[i][2].equals(newKeyChords[j][2]))){
                     System.out.println("here");
                     commonChords.add(origKeyChords[j]);
                 }
@@ -827,6 +825,7 @@ public final class JMMusicCreator implements JMC {
         int i = rn.nextInt(12);
         int root = circleOfFifths[i];
         makeMajorScale(root);
+
         Note[][] rootKeyChords = scaleChords;
 
         int index = (i-1) % 12;
@@ -860,7 +859,8 @@ public final class JMMusicCreator implements JMC {
         }
 
         Note[][] newKeyChords = scaleChords;
-        ArrayList commonChords = findCommonChords(rootKeyChords, newKeyChords);
+
+        ArrayList commonChords = findCommonChords(rootKeyChords,newKeyChords);
 
         System.out.println(commonChords.size());
 
@@ -871,8 +871,9 @@ public final class JMMusicCreator implements JMC {
             System.out.println("4");
             cphr3.addChord(scaleChords[3]);
         } else {
-//            int i4 = rn.nextInt(commonChords.size());
-//            cphr3.addChord((Note[])commonChords.get(i4));
+            System.out.println("Random");
+            int i4 = rn.nextInt(commonChords.size());
+            cphr3.addChord((Note[])commonChords.get(i4));
         }
 
         cphr4.addChord(scaleChords[4]);

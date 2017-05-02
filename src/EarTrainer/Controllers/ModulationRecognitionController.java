@@ -103,7 +103,7 @@ public class ModulationRecognitionController {
         imperfectButton.setDisable(true);
         plagalButton.setDisable(true);
 
-        difficultyDescriptionLabel.setText("Only Perfect/Authentic and Interruptive/Deceptive Cadences.");
+        difficultyDescriptionLabel.setText("");
     }
 
     @FXML
@@ -111,7 +111,7 @@ public class ModulationRecognitionController {
         imperfectButton.setDisable(false);
         plagalButton.setDisable(true);
 
-        difficultyDescriptionLabel.setText("Perfect/Authentic, Interruptive/Deceptive and Imperfect/Half Cadences.");
+        difficultyDescriptionLabel.setText("");
     }
 
     @FXML
@@ -119,7 +119,7 @@ public class ModulationRecognitionController {
         imperfectButton.setDisable(false);
         plagalButton.setDisable(false);
 
-        difficultyDescriptionLabel.setText("All 4 Cadences.");
+        difficultyDescriptionLabel.setText("");
     }
 
 
