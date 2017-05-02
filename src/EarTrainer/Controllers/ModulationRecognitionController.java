@@ -332,8 +332,6 @@ public class ModulationRecognitionController {
 
     @FXML
     private void generateQuestion() throws IOException, MidiUnavailableException, InvalidMidiDataException {
-        Stage stage = (Stage) stackPane.getScene().getWindow();
-
         musicCreator = new JMMusicCreator(jScore);
 
         if(easyRadioButton.isSelected()){
