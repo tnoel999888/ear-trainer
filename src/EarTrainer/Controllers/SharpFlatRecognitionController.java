@@ -1,5 +1,6 @@
 package EarTrainer.Controllers;
 
+import com.sun.media.sound.SimpleInstrument;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -22,7 +23,9 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import jm.gui.cpn.JGrandStave;
+import jm.gui.cpn.PianoStave;
 import jm.music.data.Phrase;
+import jm.util.Write;
 
 import java.awt.*;
 import java.io.*;
@@ -331,7 +334,18 @@ public class SharpFlatRecognitionController {
         Sequencer sequencer = MidiSystem.getSequencer();
         sequencer.open();
         InputStream is = new BufferedInputStream(new FileInputStream(new File(MEDIA_URL)));
-        sequencer.setSequence(is);
+
+
+        ShortMessage myMsg = new ShortMessage();
+        myMsg.setMessage(ShortMessage.PITCH_BEND, 3, 2, 100);
+        MidiEvent pitchBend = new MidiEvent(myMsg, 1);
+        
+        Sequence sequence = MidiSystem.getSequence(is);
+        Track track = sequence.createTrack();
+        track.add(pitchBend);
+
+
+        sequencer.setSequence(sequence);
         sequencer.start();
     }
 

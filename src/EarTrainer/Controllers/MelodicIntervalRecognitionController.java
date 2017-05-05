@@ -97,7 +97,7 @@ public class MelodicIntervalRecognitionController {
         jScore.setMaximumSize(d);
 
         jScore.removeTitle();
-        jScore.setEditable(false);
+        jScore.setEditable(true);
 
         SwingNode swingNode = new SwingNode();
         swingNode.setContent(jScore);
@@ -519,7 +519,7 @@ public class MelodicIntervalRecognitionController {
         jScore.setMaximumSize(d);
 
         jScore.removeTitle();
-        jScore.setEditable(false);
+        jScore.setEditable(true);
     }
 }
 
