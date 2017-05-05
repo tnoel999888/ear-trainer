@@ -48,6 +48,11 @@ public class HomeController {
         ButtonClicked(event, "../Views/VoiceTuner.fxml");
     }
 
+    @FXML
+    private void WrongNoteIdentificationButtonClicked(ActionEvent event) throws IOException {
+        ButtonClicked(event, "../Views/WrongNoteIdentification.fxml");
+    }
+
     public void ButtonClicked(ActionEvent e, String name) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(name));
         Parent root = (Parent)loader.load();

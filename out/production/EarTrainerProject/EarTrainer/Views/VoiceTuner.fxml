@@ -18,7 +18,7 @@
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Voice Tuner" />
                   <ImageView fitHeight="46.0" fitWidth="43.0">
                      <image>
-                        <Image url="@../Images/Pitch-Icon.png" />
+                        <Image url="@../Images/Voice-Tuner-Icon.png" />
                      </image>
                   </ImageView>
                   <Pane layoutX="73.0" layoutY="10.0" HBox.hgrow="ALWAYS" />

@@ -21,7 +21,10 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
+import jm.gui.cpn.BassStave;
 import jm.gui.cpn.JGrandStave;
+import jm.gui.cpn.PianoStave;
+import jm.gui.cpn.Stave;
 import jm.music.data.Phrase;
 
 import java.awt.*;
