@@ -763,11 +763,9 @@ public final class JMMusicCreator implements JMC {
         //1st Chord. Add I chord
         cphr1.addChord(scaleChord1);
 
-
         randomAnd5 = new Note[][]{scaleChords[i4], scaleChord5};
         int i5 = rn.nextInt(2);
         int i6 = -1;
-
 
         //4th Chord. Add I, V or VI chord
         if(i5 == 0) {
@@ -777,16 +775,16 @@ public final class JMMusicCreator implements JMC {
             cphr4.addChord(scaleChords1And6[i6]);
         }
 
-
         //3rd Chord. Add V or random
         if(i6 == 0 && minor) {
             cphr3.addChord(scaleChord5MelodicMinor);
+        } else if(i6 == 0 && major) {
+            cphr3.addChord(scaleChord5);
         } else if(i6 == 1) {
             cphr3.addChord(randomAnd5[1]);
         } else {
             cphr3.addChord(randomAnd5[0]);
         }
-
 
         //2nd Chord. Add random chord or II/IV chord if 3rd chord is V
         if(i6 == -1) {
@@ -800,7 +798,6 @@ public final class JMMusicCreator implements JMC {
             }
         }
 
-
         p.addCPhrase(cphr1);
         p.addCPhrase(cphr2);
         p.addCPhrase(cphr3);
@@ -811,6 +808,7 @@ public final class JMMusicCreator implements JMC {
         Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Cadence.mid");
 
         minor = false;
+        major = false;
 
         if(i6 == 0) {
             return "perfect";
@@ -824,28 +822,60 @@ public final class JMMusicCreator implements JMC {
 
     public String makeMIDIHardCadence(){
         int i = rn.nextInt(12);
-        minor = true;
-        makeMinorScale(notes[i]);
+        int rootNote = notes[i];
+        int minorOrMajor = rn.nextInt(2);
 
-        int i2 = rn.nextInt(7);
+        if(minorOrMajor == 0) {
+            minor = true;
+            makeMinorScale(rootNote);
+        } else {
+            major = true;
+            makeMajorScale(rootNote);
+        }
+
         int i3 = rn.nextInt(7);
         int i4 = rn.nextInt(7);
 
-        cphr1.addChord(scaleChords[i2]);
-        cphr2.addChord(scaleChords[i3]);
+        //1st Chord. Add I chord
+        cphr1.addChord(scaleChord1);
 
-        randomAnd5And4 = new Note[][]{scaleChords[i4], scaleChord5, scaleChord4};
         int i5 = rn.nextInt(3);
-        cphr3.addChord(randomAnd5And4[i5]);
         int i6 = -1;
 
-        if(i5 == 0){
+        //4th Chord. Add I, V or VI chord
+        if(i5 == 0) {
             cphr4.addChord(scaleChord5);
-        } else if(i5 == 1){
+        } else if(i5 == 1) {
             i6 = rn.nextInt(2);
             cphr4.addChord(scaleChords1And6[i6]);
         } else {
             cphr4.addChord(scaleChord1);
+        }
+
+        //3rd Chord. Add IV, V or random
+        randomAnd5And4 = new Note[][]{scaleChords[i4], scaleChord5, scaleChord4};
+        if(i6 == 0 && minor) {
+            cphr3.addChord(scaleChord5MelodicMinor);
+        } else if(i6 == 0 && major) {
+            cphr3.addChord(scaleChord5);
+        } else if(i6 == 1) {
+            cphr3.addChord(randomAnd5And4[1]);
+        } else if(i5 == 0) {
+            cphr3.addChord(randomAnd5And4[0]);
+        } else {
+            cphr3.addChord(randomAnd5And4[2]);
+        }
+
+        //2nd Chord. Add random chord or II/IV chord if 3rd chord is V
+        if(i6 == -1) {
+            cphr2.addChord(scaleChords[i3]);
+        } else {
+            int IIOrIVChord = rn.nextInt(2);
+            if(IIOrIVChord == 0) {
+                cphr2.addChord(scaleChord2);
+            } else {
+                cphr2.addChord(scaleChord4);
+            }
         }
 
         p.addCPhrase(cphr1);
@@ -858,6 +888,7 @@ public final class JMMusicCreator implements JMC {
         Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Cadence.mid");
 
         minor = false;
+        major = false;
 
         if(i5 == 1 && i6 == 0) {
             return "perfect";
