@@ -58,7 +58,14 @@
                </children>
             </HBox>
             <HBox fx:id="mediaBar" alignment="CENTER" maxHeight="50.0" maxWidth="600.0" prefHeight="50.0" prefWidth="600.0" VBox.vgrow="ALWAYS" />
-            <Button fx:id="replayButton" mnemonicParsing="false" onAction="#replayButtonClicked" text="Replay" />
+            <HBox spacing="20.0">
+               <children>
+                  <Region prefHeight="20.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="replayButton" mnemonicParsing="false" onAction="#replayButtonClicked" text="Replay Original" />
+                  <Button fx:id="playChangedButton" mnemonicParsing="false" onAction="#playChangedButtonClicked" text="Play Changed" />
+                  <Region prefHeight="20.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
             <VBox maxHeight="70.0" maxWidth="673.0" minHeight="70.0" minWidth="300.0" prefHeight="70.0" prefWidth="673.0" VBox.vgrow="ALWAYS">
                <children>
                   <HBox alignment="TOP_CENTER" maxHeight="38.0" maxWidth="200.0" minHeight="20.0" minWidth="50.0" prefHeight="38.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
@@ -117,7 +124,7 @@
                   <Insets />
                </VBox.margin>
             </VBox>
-            <Label fx:id="difficultyDescriptionLabel" VBox.vgrow="ALWAYS">
+            <Label fx:id="difficultyDescriptionLabel" text="Identify the note which is out of key and drag it into a position which is in key." VBox.vgrow="ALWAYS">
                <padding>
                   <Insets bottom="10.0" top="5.0" />
                </padding></Label>

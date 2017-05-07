@@ -46,7 +46,12 @@ public final class JMMusicCreator implements JMC {
                             QUARTER_NOTE,DOTTED_QUARTER_NOTE,
                             HALF_NOTE};
 
-    private Note[] theirMelodyAnswer = {};
+    List noteLengthsList = new LinkedList(Arrays.asList(SIXTEENTH_NOTE, DOTTED_SIXTEENTH_NOTE,
+                                                        EIGHTH_NOTE,DOTTED_EIGHTH_NOTE,
+                                                        QUARTER_NOTE,DOTTED_QUARTER_NOTE,
+                                                        HALF_NOTE));
+
+    private Note[] theirMelodyAnswer;
 
     private Note[] scaleChord1 = {};
     private Note[] scaleChord2 = {};
@@ -80,6 +85,7 @@ public final class JMMusicCreator implements JMC {
     public Note[] getTheirMelodyAnswer() {
         return theirMelodyAnswer;
     }
+
 
     public int[] getScaleNotes() {
         return scaleNotes;
@@ -1081,6 +1087,8 @@ public final class JMMusicCreator implements JMC {
         int i = rn.nextInt(12);
         int rootNote = notes[i];
 
+
+        //Make major or minor scale
         int minorOrMajor = rn.nextInt(2);
 
         if(minorOrMajor == 0) {
@@ -1091,25 +1099,36 @@ public final class JMMusicCreator implements JMC {
             makeMajorScale(rootNote);
         }
 
-
-        List melody = new LinkedList<Note>();
-
+        //Set scale notes
         if(minor) {
             scaleNotes = minorScale;
         } else {
             scaleNotes = majorScale;
         }
 
-
+        //Make melody
+        List melody = new LinkedList<Note>();
         double lengthSoFar = 0.0;
 
         while(lengthSoFar != 4.0){
-            int pitch = scaleNotes[rn.nextInt(15)];
-            double duration = noteLengths[rn.nextInt(7)];
+            int p = rn.nextInt(15);
+            int pitch = scaleNotes[p];
+
+//            int d = rn.nextInt(7);
+//            double duration = noteLengths[d];
+            if(noteLengthsList.size() == 0){
+                break;
+            }
+
+            int d = rn.nextInt(noteLengthsList.size());
+            double duration = (double)noteLengthsList.get(d);
+
 
             if(duration + lengthSoFar <= 4.0){
                 melody.add(new Note(pitch, duration));
                 lengthSoFar += duration;
+            } else {
+                noteLengthsList.remove(d);
             }
         }
 
@@ -1140,7 +1159,7 @@ public final class JMMusicCreator implements JMC {
 
         //Add melody array to phrase
         phr2.addNoteList(melodyArray);
-
+        theirMelodyAnswer = melodyArray;
         setScoreEditable(phr2);
 
         p.add(phr2);
@@ -1151,12 +1170,95 @@ public final class JMMusicCreator implements JMC {
         return i2;
     }
 
-    public String makeMIDIMediumWrongNote(){
-        return "";
+
+    public int makeMIDIMediumWrongNote(){
+        return 0;
     }
 
-    public String makeMIDIHardWrongNote(){
-        return "";
+
+    public int makeMIDIHardWrongNote(){
+        int i = rn.nextInt(12);
+        int rootNote = notes[i];
+
+
+        //Make major or minor scale
+        int minorOrMajor = rn.nextInt(2);
+
+        if(minorOrMajor == 0) {
+            minor = true;
+            makeMinorScale(rootNote);
+        } else {
+            major = true;
+            makeMajorScale(rootNote);
+        }
+
+
+        //Set scale notes
+        if(minor) {
+            scaleNotes = minorScale;
+        } else {
+            scaleNotes = majorScale;
+        }
+
+
+        //Made melody
+        List melody = new LinkedList<Note>();
+        double lengthSoFar = 0.0;
+
+        while(lengthSoFar != 4.0){
+            int p = rn.nextInt(15);
+            int pitch = scaleNotes[p];
+
+            if(noteLengthsList.size() == 0){
+                break;
+            }
+
+            int d = rn.nextInt(noteLengthsList.size());
+            double duration = (double)noteLengthsList.get(d);
+
+
+            if(duration + lengthSoFar <= 4.0){
+                melody.add(new Note(pitch, duration));
+                lengthSoFar += duration;
+            } else {
+                noteLengthsList.remove(d);
+            }
+        }
+
+        Note[] melodyArray = new Note[melody.size()];
+        melody.toArray(melodyArray);
+
+        //Add melody array to phrase
+        phr2.addNoteList(melodyArray);
+
+
+        //Find random note in melody to change
+        int i2 = rn.nextInt(melodyArray.length);
+        int i3 = rn.nextInt(2);
+
+        double duration = melodyArray[i2].getDuration();
+        int pitch = melodyArray[i2].getPitch();
+
+        int[] upOrDown = {-1,1};
+        int newPitch = pitch + upOrDown[i3];
+
+        System.out.println("Up or down: " + i3);
+
+        melodyArray[i2] = new Note(newPitch, duration);
+
+        phr1.addNoteList(melodyArray);
+
+        System.out.println("Wrong note: " + i2);
+
+
+        setScoreEditable(phr1);
+
+        p.add(phr2);
+        s.addPart(p);
+
+        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/WrongNote.mid");
+
+        return i2;
     }
 
 

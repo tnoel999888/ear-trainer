@@ -39,7 +39,6 @@ public class CadenceRecognitionController {
     public static final int TOTAL_QUESTIONS = 10;
     @FXML private StackPane stackPane;
 
-    @FXML private ToggleGroup radioButtons;
     @FXML private HBox radioButtonsGroup;
     @FXML private RadioButton easyRadioButton;
     @FXML private RadioButton mediumRadioButton;
@@ -49,7 +48,6 @@ public class CadenceRecognitionController {
     @FXML private Button interruptiveButton;
     @FXML private Button imperfectButton;
     @FXML private Button plagalButton;
-
 
     @FXML private Button correctButton = new Button();
 

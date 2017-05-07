@@ -1,15 +1,8 @@
 package EarTrainer.Controllers;
 
-import be.tarsos.dsp.AudioDispatcher;
-import be.tarsos.dsp.AudioEvent;
-import be.tarsos.dsp.io.jvm.JVMAudioInputStream;
-import be.tarsos.dsp.pitch.PitchDetectionHandler;
-import be.tarsos.dsp.pitch.PitchDetectionResult;
-import be.tarsos.dsp.pitch.PitchProcessor;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.application.Platform;
 import javafx.embed.swing.SwingNode;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -30,20 +23,16 @@ import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import jm.gui.cpn.JGrandStave;
 import jm.music.data.Note;
+import jm.music.data.Part;
 import jm.music.data.Phrase;
-
+import jm.music.data.Score;
+import jm.util.Write;
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.MidiUnavailableException;
 import javax.sound.midi.Sequencer;
-import javax.sound.sampled.*;
-import javax.swing.*;
 import java.awt.*;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 import java.io.*;
-import java.util.Arrays;
-import java.util.List;
 
 
 public class WrongNoteIdentificationController {
@@ -56,13 +45,11 @@ public class WrongNoteIdentificationController {
     @FXML private RadioButton mediumRadioButton;
     @FXML private RadioButton hardRadioButton;
 
-    @FXML private Button correctButton = new Button();
     @FXML private Button submitButton = new Button();
 
     @FXML private Label timerLabel;
     @FXML private Label questionLabel;
     @FXML private Label difficultyDescriptionLabel;
-
 
     @FXML private Button startButton;
     @FXML private Button nextQuestionButton;
@@ -82,10 +69,11 @@ public class WrongNoteIdentificationController {
 
     private int indexOfChangedNote = 0;
 
-    private String correctAnswer = "unison";
     private boolean questionAnswered;
     private Timeline timeline;
     private boolean startClicked = false;
+
+    private String filePath = "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/WrongNote.mid";
 
 
 
@@ -108,19 +96,19 @@ public class WrongNoteIdentificationController {
 
     @FXML
     private void easyRadioButtonSelected(ActionEvent event) throws IOException {
-        difficultyDescriptionLabel.setText("");
+        difficultyDescriptionLabel.setText("Identify the note which is out of key and drag it into a position which is in key.");
     }
 
 
     @FXML
     private void mediumRadioButtonSelected(ActionEvent event) throws IOException {
-        difficultyDescriptionLabel.setText("");
+        difficultyDescriptionLabel.setText("Identify the note on the stave that does not correspond to the respective note that was played. Drag the note to match the note that was played. The note will be off by up to 3 semitones.");
     }
 
 
     @FXML
     private void hardRadioButtonSelected(ActionEvent event) throws IOException {
-        difficultyDescriptionLabel.setText("");
+        difficultyDescriptionLabel.setText("Identify the note on the stave that does not correspond to the respective note that was played. Drag the note to match the note that was played. The note will be off by 1 semitone.");
     }
 
 
@@ -139,14 +127,16 @@ public class WrongNoteIdentificationController {
         }
     }
 
+
     @FXML
     private void AnswerButtonClicked() throws IOException {
         questionAnswered = true;
         nextQuestionButton.setDisable(false);
 
-        Phrase phrase = musicCreator.getPhrase();
+        phrase = musicCreator.getPhrase();
         setScore(phrase);
     }
+
 
     @FXML
     private void StartButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException {
@@ -243,6 +233,9 @@ public class WrongNoteIdentificationController {
 
 
     private void checkAnswer(Note[] theirMelodyAnswer, Note[] correctMelody) {
+        System.out.println("their melody: " + theirMelodyAnswer.length);
+        System.out.println("correct melody: " +correctMelody.length);
+
         for(int i = 0; i < theirMelodyAnswer.length; i++){
             if(i != indexOfChangedNote) {
                 if (theirMelodyAnswer[i] != correctMelody[i]) {
@@ -264,13 +257,16 @@ public class WrongNoteIdentificationController {
         }
     }
 
+
     private void makeButtonRed(Button button) {
         button.setStyle("-fx-base: #ffb3b3;");
     }
 
+
     private void makeButtonGreen(Button correctButton) {
         correctButton.setStyle("-fx-base: #adebad;");
     }
+
 
     private void startTimer() {
         Timeline timeline = new Timeline(
@@ -312,33 +308,48 @@ public class WrongNoteIdentificationController {
     @FXML
     private void generateQuestion() throws IOException, MidiUnavailableException, InvalidMidiDataException {
         musicCreator = new JMMusicCreator(jScore);
+        musicCreator.initialize();
 
         if(easyRadioButton.isSelected()){
             indexOfChangedNote = musicCreator.makeMIDIEasyWrongNote();
         } else if(mediumRadioButton.isSelected()){
-            correctAnswer = musicCreator.makeMIDIMediumWrongNote();
+            indexOfChangedNote = musicCreator.makeMIDIMediumWrongNote();
         } else if(hardRadioButton.isSelected()){
-            correctAnswer = musicCreator.makeMIDIHardWrongNote();
+            indexOfChangedNote = musicCreator.makeMIDIHardWrongNote();
         }
 
-        //correctButton = getCorrectButton(correctAnswer);
-
-        playSound();
+        playSound(filePath);
     }
 
 
     @FXML
     private void replayButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException {
-        playSound();
+        playSound(filePath);
     }
 
 
-    private void playSound() throws MidiUnavailableException, IOException, InvalidMidiDataException {
-        final String MEDIA_URL = "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/WrongNote.mid";
+    @FXML
+    private void playChangedButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException {
+        phrase = jScore.getPhrase();
 
+        Part p = new Part();
+        p.add(phrase);
+
+        Score s = new Score();
+        s.addPart(p);
+
+        String newFilePath = "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/WrongNoteNew.mid";
+
+        Write.midi(s, newFilePath);
+
+        playSound(newFilePath);
+    }
+
+
+    private void playSound(String filePath) throws MidiUnavailableException, IOException, InvalidMidiDataException {
         Sequencer sequencer = MidiSystem.getSequencer();
         sequencer.open();
-        InputStream is = new BufferedInputStream(new FileInputStream(new File(MEDIA_URL)));
+        InputStream is = new BufferedInputStream(new FileInputStream(new File(filePath)));
         sequencer.setSequence(is);
         sequencer.start();
     }
