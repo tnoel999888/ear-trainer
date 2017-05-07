@@ -42,7 +42,6 @@ public class MelodicIntervalRecognitionController {
     public static final int TOTAL_QUESTIONS = 10;
     @FXML private StackPane stackPane;
 
-    @FXML private ToggleGroup radioButtons;
     @FXML private HBox radioButtonsGroup;
     @FXML private RadioButton easyRadioButton;
     @FXML private RadioButton mediumRadioButton;
@@ -78,7 +77,6 @@ public class MelodicIntervalRecognitionController {
     private JGrandStave jScore = new JGrandStave();
     private Phrase phrase = new Phrase();
 
-    //MediaPlayer mediaPlayer;
     private JMMusicCreator musicCreator;
     private String strSecs;
     private String strMins;

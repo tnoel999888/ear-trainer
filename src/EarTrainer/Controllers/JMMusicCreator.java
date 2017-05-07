@@ -1,8 +1,8 @@
 package EarTrainer.Controllers;
 
-import com.sun.media.sound.SimpleInstrument;
+import javafx.embed.swing.SwingNode;
+import javafx.fxml.FXML;
 import jm.JMC;
-
 import jm.audio.*;
 
 import jm.gui.cpn.JGrandStave;
@@ -10,10 +10,10 @@ import jm.music.data.*;
 import jm.util.*;
 
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.*;
+import java.util.List;
 
 /**
  * A short example which generates a one octave c chromatic scale
@@ -29,7 +29,7 @@ public final class JMMusicCreator implements JMC {
 
     private Phrase phr1 = new Phrase("Melodic Interval", 0.0);
     private Phrase phr2 = new Phrase("Melodic Interval", 0.0);
-//    private CPhrase cphr1 = new CPhrase("Harmonic Interval", 0.0);
+
     private CPhrase cphr1 = new CPhrase();
     private CPhrase cphr2 = new CPhrase();
     private CPhrase cphr3 = new CPhrase();
@@ -37,6 +37,16 @@ public final class JMMusicCreator implements JMC {
     private CPhrase cphr5 = new CPhrase();
 
     int[] notes = {A4, AS4, B4, C4, CS4, D4, DS4, E4, F4, FS4, G4, GS4, A5, AS5, B5, C5, CS5, D5, DS5, E5, F5, FS5, G5, GS5};
+    int[] minorScale = new int[15];
+    int[] majorScale = new int[15];
+    int[] scaleNotes = new int[15];
+
+    double[] noteLengths = {SIXTEENTH_NOTE, DOTTED_SIXTEENTH_NOTE,
+                            EIGHTH_NOTE,DOTTED_EIGHTH_NOTE,
+                            QUARTER_NOTE,DOTTED_QUARTER_NOTE,
+                            HALF_NOTE};
+
+    private Note[] theirMelodyAnswer = {};
 
     private Note[] scaleChord1 = {};
     private Note[] scaleChord2 = {};
@@ -67,13 +77,43 @@ public final class JMMusicCreator implements JMC {
     }
 
 
-    public CPhrase getCPhrase() {
-        return cphr1;
+    public Note[] getTheirMelodyAnswer() {
+        return theirMelodyAnswer;
+    }
+
+    public int[] getScaleNotes() {
+        return scaleNotes;
     }
 
 
-    public Score getScore() {
-        return s;
+    @FXML
+    public void initialize() {
+        jScore.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                theirMelodyAnswer = jScore.getPhrase().getNoteArray();
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
     }
 
 
@@ -177,8 +217,8 @@ public final class JMMusicCreator implements JMC {
     }
 
 
-    private void setScore(Phrase phr1) {
-        jScore.setPhrase(this.phr1);
+    private void setScore(Phrase phr) {
+        jScore.setPhrase(phr);
 
         Dimension d = new Dimension();
         d.setSize(600,300);
@@ -187,6 +227,19 @@ public final class JMMusicCreator implements JMC {
 
         jScore.removeTitle();
         jScore.setEditable(false);
+    }
+
+
+    private void setScoreEditable(Phrase phr) {
+        jScore.setPhrase(phr);
+
+        Dimension d = new Dimension();
+        d.setSize(600,300);
+        jScore.setPreferredSize(d);
+        jScore.setMaximumSize(d);
+
+        jScore.removeTitle();
+        jScore.setEditable(true);
     }
 
 
@@ -210,10 +263,6 @@ public final class JMMusicCreator implements JMC {
 
         p.addPhrase(phr2);
         s.addPart(p);
-
-        CPhrase chord = new CPhrase();
-        Note[] notes = {n1, n2};
-        chord.addChord(notes);
 
         Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/MelodicInterval.mid");
 
@@ -424,7 +473,7 @@ public final class JMMusicCreator implements JMC {
         int[] array = {0, 2, 4, 5, 7, 9, 11};
         int interval = array[i];
 
-        setScore(phr2);
+        setScore(phr1);
 
         Note n = new Note(C4+interval, C);
 
@@ -450,7 +499,7 @@ public final class JMMusicCreator implements JMC {
 
         int interval = array[i];
 
-        setScore(phr2);
+        setScore(phr1);
 
         Note n = new Note(C4+interval, C);
 
@@ -476,7 +525,7 @@ public final class JMMusicCreator implements JMC {
 
         int interval = array[i];
 
-        setScore(phr2);
+        setScore(phr1);
 
         Note n = new Note(C3+interval, C);
 
@@ -627,7 +676,6 @@ public final class JMMusicCreator implements JMC {
 
 
     public void makeMinorScale(int root){
-        int[] minorScale = new int[15];
 
         for(int i = 0; i < notes.length; i++) {
             if(notes[i] == root) {
@@ -659,7 +707,6 @@ public final class JMMusicCreator implements JMC {
 
 
     public void makeMajorScale(int root){
-        int[] majorScale = new int[15];
 
         for(int i = 0; i < notes.length; i++) {
             if (notes[i] == root) {
@@ -1023,4 +1070,94 @@ public final class JMMusicCreator implements JMC {
     public String makeMIDIHardModulation(){
         return "";
     }
+
+
+
+
+
+
+
+    public int makeMIDIEasyWrongNote(){
+        int i = rn.nextInt(12);
+        int rootNote = notes[i];
+
+        int minorOrMajor = rn.nextInt(2);
+
+        if(minorOrMajor == 0) {
+            minor = true;
+            makeMinorScale(rootNote);
+        } else {
+            major = true;
+            makeMajorScale(rootNote);
+        }
+
+
+        List melody = new LinkedList<Note>();
+
+        if(minor) {
+            scaleNotes = minorScale;
+        } else {
+            scaleNotes = majorScale;
+        }
+
+
+        double lengthSoFar = 0.0;
+
+        while(lengthSoFar != 4.0){
+            int pitch = scaleNotes[rn.nextInt(15)];
+            double duration = noteLengths[rn.nextInt(7)];
+
+            if(duration + lengthSoFar <= 4.0){
+                melody.add(new Note(pitch, duration));
+                lengthSoFar += duration;
+            }
+        }
+
+        Note[] melodyArray = new Note[melody.size()];
+        melody.toArray(melodyArray);
+
+
+        //Find notes which do not belong to this scale
+        List nonScaleNotes = new ArrayList();
+
+        for(int n : notes){
+            if(!Arrays.asList(scaleNotes).contains(n)){
+                nonScaleNotes.add(n);
+            }
+        }
+
+
+        //Find random note in melody to change
+        int i2 = rn.nextInt(melody.size());
+        int i3 = rn.nextInt(nonScaleNotes.size());
+
+        double duration = melodyArray[i2].getDuration();
+        int pitch = (int)nonScaleNotes.get(i3);
+        melodyArray[i2] = new Note(pitch, duration);
+
+        System.out.println(i2);
+
+
+        //Add melody array to phrase
+        phr2.addNoteList(melodyArray);
+
+        setScoreEditable(phr2);
+
+        p.add(phr2);
+        s.addPart(p);
+
+        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/WrongNote.mid");
+
+        return i2;
+    }
+
+    public String makeMIDIMediumWrongNote(){
+        return "";
+    }
+
+    public String makeMIDIHardWrongNote(){
+        return "";
+    }
+
+
 }

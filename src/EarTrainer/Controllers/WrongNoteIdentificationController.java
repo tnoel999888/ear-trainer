@@ -29,6 +29,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import jm.gui.cpn.JGrandStave;
+import jm.music.data.Note;
 import jm.music.data.Phrase;
 
 import javax.sound.midi.InvalidMidiDataException;
@@ -50,17 +51,16 @@ public class WrongNoteIdentificationController {
     public static final int TOTAL_QUESTIONS = 10;
     @FXML private StackPane stackPane;
 
-    @FXML private ToggleGroup radioButtons;
     @FXML private HBox radioButtonsGroup;
     @FXML private RadioButton easyRadioButton;
     @FXML private RadioButton mediumRadioButton;
     @FXML private RadioButton hardRadioButton;
 
     @FXML private Button correctButton = new Button();
+    @FXML private Button submitButton = new Button();
 
     @FXML private Label timerLabel;
     @FXML private Label questionLabel;
-    @FXML private Label questionNoteLabel;
     @FXML private Label difficultyDescriptionLabel;
 
 
@@ -80,14 +80,12 @@ public class WrongNoteIdentificationController {
     private int questionNumber;
     private int numberOfCorrectAnswers = 0;
 
+    private int indexOfChangedNote = 0;
+
     private String correctAnswer = "unison";
     private boolean questionAnswered;
     private Timeline timeline;
     private boolean startClicked = false;
-
-
-    private AudioDispatcher dispatcher;
-
 
 
 
@@ -135,10 +133,20 @@ public class WrongNoteIdentificationController {
 
     @FXML
     private void SubmitButtonClicked(ActionEvent event) throws IOException {
-        Stage stage = (Stage) stackPane.getScene().getWindow();
-        stage.hide();
+        if(!questionAnswered && startClicked) {
+            AnswerButtonClicked();
+            checkAnswer(musicCreator.getTheirMelodyAnswer(), phrase.getNoteArray());
+        }
     }
 
+    @FXML
+    private void AnswerButtonClicked() throws IOException {
+        questionAnswered = true;
+        nextQuestionButton.setDisable(false);
+
+        Phrase phrase = musicCreator.getPhrase();
+        setScore(phrase);
+    }
 
     @FXML
     private void StartButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException {
@@ -147,14 +155,11 @@ public class WrongNoteIdentificationController {
         numberOfCorrectAnswers = 0;
         startTimer();
         questionLabel.setVisible(true);
-        questionNoteLabel.setVisible(true);
-
 
         startButton.setDisable(true);
         timerLabel.setVisible(true);
         radioButtonsGroup.setDisable(true);
         questionLabel.setText("Question 1");
-//        questionNoteLabel.setText("Sing: ");
 
         generateQuestion();
     }
@@ -222,12 +227,50 @@ public class WrongNoteIdentificationController {
 
 
     private void resetButtonColours() {
+        submitButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
     }
 
 
-    private void checkAnswer(String answer, Button button) {
+    private boolean contains(int[] melody, int note){
+        for(int n : melody){
+            if(n == note){
+                return true;
+            }
+        }
+
+        return false;
     }
 
+
+    private void checkAnswer(Note[] theirMelodyAnswer, Note[] correctMelody) {
+        for(int i = 0; i < theirMelodyAnswer.length; i++){
+            if(i != indexOfChangedNote) {
+                if (theirMelodyAnswer[i] != correctMelody[i]) {
+                    makeButtonRed(submitButton);
+                }
+            } else {
+                if(contains(musicCreator.getScaleNotes(), theirMelodyAnswer[i].getPitch())){
+                    makeButtonGreen(submitButton);
+                    numberOfCorrectAnswers++;
+                } else {
+                    makeButtonRed(submitButton);
+                }
+            }
+        }
+
+
+        if(questionNumber == 10){
+            nextQuestionButton.setText("Score");
+        }
+    }
+
+    private void makeButtonRed(Button button) {
+        button.setStyle("-fx-base: #ffb3b3;");
+    }
+
+    private void makeButtonGreen(Button correctButton) {
+        correctButton.setStyle("-fx-base: #adebad;");
+    }
 
     private void startTimer() {
         Timeline timeline = new Timeline(
@@ -271,14 +314,13 @@ public class WrongNoteIdentificationController {
         musicCreator = new JMMusicCreator(jScore);
 
         if(easyRadioButton.isSelected()){
-            correctAnswer = musicCreator.makeMIDIEasyPitch();
+            indexOfChangedNote = musicCreator.makeMIDIEasyWrongNote();
         } else if(mediumRadioButton.isSelected()){
-            correctAnswer = musicCreator.makeMIDIMediumPitch();
+            correctAnswer = musicCreator.makeMIDIMediumWrongNote();
         } else if(hardRadioButton.isSelected()){
-            correctAnswer = musicCreator.makeMIDIHardPitch();
+            correctAnswer = musicCreator.makeMIDIHardWrongNote();
         }
 
-        questionNoteLabel.setText("Sing: " + correctAnswer);
         //correctButton = getCorrectButton(correctAnswer);
 
         playSound();
@@ -292,7 +334,7 @@ public class WrongNoteIdentificationController {
 
 
     private void playSound() throws MidiUnavailableException, IOException, InvalidMidiDataException {
-        final String MEDIA_URL = "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Pitch.mid";
+        final String MEDIA_URL = "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/WrongNote.mid";
 
         Sequencer sequencer = MidiSystem.getSequencer();
         sequencer.open();
@@ -311,7 +353,7 @@ public class WrongNoteIdentificationController {
         jScore.setMaximumSize(d);
 
         jScore.removeTitle();
-        jScore.setEditable(false);
+        jScore.setEditable(true);
     }
 }
 
