@@ -1,5 +1,7 @@
 package EarTrainer.Controllers;
 
+import jm.JMC;
+
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -13,7 +15,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.effect.GaussianBlur;
 import javafx.scene.layout.HBox;
@@ -23,8 +24,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import jm.gui.cpn.JGrandStave;
-import jm.music.data.Phrase;
-import jm.music.data.Score;
+import jm.music.data.*;
 
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiSystem;
@@ -39,19 +39,19 @@ public class ModulationRecognitionController {
     public static final int TOTAL_QUESTIONS = 10;
     @FXML private StackPane stackPane;
 
-    @FXML private ToggleGroup radioButtons;
     @FXML private HBox radioButtonsGroup;
     @FXML private RadioButton easyRadioButton;
     @FXML private RadioButton mediumRadioButton;
     @FXML private RadioButton hardRadioButton;
 
-    @FXML private Button perfectButton;
-    @FXML private Button interruptiveButton;
-    @FXML private Button imperfectButton;
-    @FXML private Button plagalButton;
+    @FXML private Button similarKey0Button;
+    @FXML private Button similarKey1Button;
+    @FXML private Button similarKey2Button;
+    @FXML private Button similarKey3Button;
+    @FXML private Button similarKey4Button;
 
 
-    @FXML private Button correctButton = new Button();
+    @FXML private Button correctButton;
 
     @FXML private Label timerLabel;
     @FXML private Label questionLabel;
@@ -75,10 +75,12 @@ public class ModulationRecognitionController {
     private int questionNumber;
     private int numberOfCorrectAnswers = 0;
 
-    private String correctAnswer = "perfect";
+    private String correctAnswer = "a";
     private boolean questionAnswered;
     private Timeline timeline;
     private boolean startClicked = false;
+
+    int[] similarKeys = new int[5];
 
 
     @FXML
@@ -100,25 +102,16 @@ public class ModulationRecognitionController {
 
     @FXML
     private void easyRadioButtonSelected(ActionEvent event) throws IOException {
-        imperfectButton.setDisable(true);
-        plagalButton.setDisable(true);
-
         difficultyDescriptionLabel.setText("");
     }
 
     @FXML
     private void mediumRadioButtonSelected(ActionEvent event) throws IOException {
-        imperfectButton.setDisable(false);
-        plagalButton.setDisable(true);
-
         difficultyDescriptionLabel.setText("");
     }
 
     @FXML
     private void hardRadioButtonSelected(ActionEvent event) throws IOException {
-        imperfectButton.setDisable(false);
-        plagalButton.setDisable(false);
-
         difficultyDescriptionLabel.setText("");
     }
 
@@ -167,6 +160,7 @@ public class ModulationRecognitionController {
         generateQuestion();
     }
 
+
     private void loadScore() {
         ColorAdjust adj = new ColorAdjust(0, 0, -0.2, 0);
         GaussianBlur blur = new GaussianBlur(10);
@@ -205,45 +199,59 @@ public class ModulationRecognitionController {
         newStage.show();
     }
 
+
     private void resetButtonColours() {
-        perfectButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
-        interruptiveButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
-        imperfectButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
-        plagalButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
+        similarKey0Button.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
+        similarKey1Button.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
+        similarKey2Button.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
+        similarKey3Button.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
+        similarKey4Button.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
     }
 
+
     @FXML
-    private void perfectButtonClicked(ActionEvent event) throws IOException {
+    private void similarKey0ButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
             AnswerButtonClicked();
-            checkAnswer("perfect", perfectButton);
+            checkAnswer(similarKey0Button.getText(), similarKey0Button);
         }
     }
 
+
     @FXML
-    private void interruptiveButtonClicked(ActionEvent event) throws IOException {
+    private void similarKey1ButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
             AnswerButtonClicked();
-            checkAnswer("interruptive", interruptiveButton);
+            checkAnswer(similarKey1Button.getText(), similarKey1Button);
         }
     }
 
+
     @FXML
-    private void imperfectButtonClicked(ActionEvent event) throws IOException {
+    private void similarKey2ButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
             AnswerButtonClicked();
-            checkAnswer("imperfect", imperfectButton);
+            checkAnswer(similarKey2Button.getText(), similarKey2Button);
         }
     }
 
+
     @FXML
-    private void plagalButtonClicked(ActionEvent event) throws IOException {
+    private void similarKey3ButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
             AnswerButtonClicked();
-            checkAnswer("plagal", plagalButton);
+            checkAnswer(similarKey3Button.getText(), similarKey3Button);
         }
     }
 
+
+    @FXML
+    private void similarKey4ButtonClicked(ActionEvent event) throws IOException {
+        if(!questionAnswered && startClicked) {
+            AnswerButtonClicked();
+            checkAnswer(similarKey4Button.getText(), similarKey4Button);
+        }
+    }
 
 
     @FXML
@@ -255,8 +263,9 @@ public class ModulationRecognitionController {
         setScore(phrase);
     }
 
+
     private void checkAnswer(String answer, Button button) {
-        if(answer != correctAnswer){
+        if(!answer.equals(correctAnswer)){
             makeButtonRed(button);
         } else {
             numberOfCorrectAnswers++;
@@ -269,13 +278,16 @@ public class ModulationRecognitionController {
         }
     }
 
+
     private void makeButtonRed(Button button) {
         button.setStyle("-fx-base: #ffb3b3;");
     }
 
+
     private void makeButtonGreen(Button correctButton) {
         correctButton.setStyle("-fx-base: #adebad;");
     }
+
 
     private void startTimer() {
         Timeline timeline = new Timeline(
@@ -315,18 +327,15 @@ public class ModulationRecognitionController {
 
 
     private Button getCorrectButton(String correctAnswer) {
-        switch(correctAnswer){
-            case "perfect":
-                return perfectButton;
-            case "interruptive":
-                return interruptiveButton;
-            case "imperfect":
-                return imperfectButton;
-            case "plagal":
-                return plagalButton;
-            default:
-                return perfectButton;
+        Button[] buttons = {similarKey0Button, similarKey1Button, similarKey2Button, similarKey3Button, similarKey4Button};
+
+        for(Button b : buttons){
+            if(b.getText().equals(correctAnswer)){
+                return b;
+            }
         }
+
+        return similarKey0Button;
     }
 
 
@@ -342,6 +351,20 @@ public class ModulationRecognitionController {
             correctAnswer = musicCreator.makeMIDIHardModulation();
         }
 
+        similarKeys = musicCreator.getSimilarKeys();
+
+        String similarKey0Text = musicCreator.getNote(new Note(similarKeys[0], 1.0)) + " minor";
+        String similarKey1Text = musicCreator.getNote(new Note(similarKeys[1], 1.0));
+        String similarKey2Text = musicCreator.getNote(new Note(similarKeys[2], 1.0)) + " minor";
+        String similarKey3Text = musicCreator.getNote(new Note(similarKeys[3], 1.0));
+        String similarKey4Text = musicCreator.getNote(new Note(similarKeys[4], 1.0)) + " minor";
+
+        similarKey0Button.setText(similarKey0Text);
+        similarKey1Button.setText(similarKey1Text);
+        similarKey2Button.setText(similarKey2Text);
+        similarKey3Button.setText(similarKey3Text);
+        similarKey4Button.setText(similarKey4Text);
+
         correctButton = getCorrectButton(correctAnswer);
 
         playSound();
@@ -352,6 +375,7 @@ public class ModulationRecognitionController {
     private void replayButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException {
         playSound();
     }
+
 
     private void playSound() throws MidiUnavailableException, IOException, InvalidMidiDataException {
         final String MEDIA_URL = "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Modulation.mid";

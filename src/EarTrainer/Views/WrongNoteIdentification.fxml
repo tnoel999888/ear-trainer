@@ -57,6 +57,11 @@
                   <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
+            <Label fx:id="correctIncorrectText" textAlignment="CENTER" textFill="#da4343">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
             <HBox fx:id="mediaBar" alignment="CENTER" maxHeight="50.0" maxWidth="600.0" prefHeight="50.0" prefWidth="600.0" VBox.vgrow="ALWAYS" />
             <HBox spacing="20.0">
                <children>

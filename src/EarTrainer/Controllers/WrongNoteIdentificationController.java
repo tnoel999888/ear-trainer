@@ -33,6 +33,7 @@ import javax.sound.midi.MidiUnavailableException;
 import javax.sound.midi.Sequencer;
 import java.awt.*;
 import java.io.*;
+import javafx.scene.paint.Color;
 
 
 public class WrongNoteIdentificationController {
@@ -51,6 +52,7 @@ public class WrongNoteIdentificationController {
     @FXML private Label timerLabel;
     @FXML private Label questionLabel;
     @FXML private Label difficultyDescriptionLabel;
+    @FXML private Label correctIncorrectText;
 
     @FXML private Button startButton;
     @FXML private Button nextQuestionButton;
@@ -122,21 +124,21 @@ public class WrongNoteIdentificationController {
 
 
     @FXML
-    private void SubmitButtonClicked(ActionEvent event) throws IOException {
-        if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
-            checkAnswer(musicCreator.getTheirMelodyAnswer(), phrase.getNoteArray());
-        }
-    }
-
-
-    @FXML
     private void AnswerButtonClicked() throws IOException {
         questionAnswered = true;
         nextQuestionButton.setDisable(false);
 
-        phrase = musicCreator.getPhrase();
+        phrase = musicCreator.getOriginalPhrase();
         setScore(phrase);
+    }
+
+
+    @FXML
+    private void SubmitButtonClicked(ActionEvent event) throws IOException {
+        if(!questionAnswered && startClicked) {
+            AnswerButtonClicked();
+            checkAnswer(musicCreator.getTheirMelodyAnswer(), musicCreator.getOriginalPhrase().getNoteArray());
+        }
     }
 
 
@@ -173,6 +175,7 @@ public class WrongNoteIdentificationController {
         questionAnswered = false;
         nextQuestionButton.setDisable(true);
         resetButtonColours();
+        correctIncorrectText.setText("");
 
         setScore(phrase);
         generateQuestion();
@@ -223,8 +226,8 @@ public class WrongNoteIdentificationController {
     }
 
 
-    private boolean contains(int[] melody, int note){
-        for(int n : melody){
+    private boolean contains(int[] scale, int note){
+        for(int n : scale){
             if(n == note){
                 return true;
             }
@@ -235,20 +238,31 @@ public class WrongNoteIdentificationController {
 
 
     private void checkAnswer(Note[] theirMelodyAnswer, Note[] correctMelody) {
-        System.out.println("their melody: " + theirMelodyAnswer.length);
-        System.out.println("correct melody: " +correctMelody.length);
+        for(int j = 0; j < theirMelodyAnswer.length; j++){
+            System.out.println(theirMelodyAnswer[j].getPitch());
+            System.out.println(correctMelody[j].getPitch());
+            System.out.println("");
+        }
 
         for(int i = 0; i < theirMelodyAnswer.length; i++){
             if(i != indexOfChangedNote) {
-                if (theirMelodyAnswer[i] != correctMelody[i]) {
+                if (theirMelodyAnswer[i].getPitch() != correctMelody[i].getPitch()) {
                     makeButtonRed(submitButton);
+                    correctIncorrectText.setTextFill(Color.web("#da4343"));
+                    correctIncorrectText.setText("Incorrect. The wrong note was at position " + indexOfChangedNote+1 + ". Here's an example of a correct answer.");
+                    break;
                 }
             } else {
                 if(contains(musicCreator.getScaleNotes(), theirMelodyAnswer[i].getPitch())){
                     makeButtonGreen(submitButton);
                     numberOfCorrectAnswers++;
+                    correctIncorrectText.setTextFill(Color.web("#3abf4c"));
+                    correctIncorrectText.setText("Correct!");
                 } else {
                     makeButtonRed(submitButton);
+                    correctIncorrectText.setTextFill(Color.web("#da4343"));
+                    correctIncorrectText.setText("Incorrect. You identified the correct note, but you did not put it in key! Here's an example of a correct answer.");
+                    break;
                 }
             }
         }
@@ -310,7 +324,7 @@ public class WrongNoteIdentificationController {
     @FXML
     private void generateQuestion() throws IOException, MidiUnavailableException, InvalidMidiDataException {
         musicCreator = new JMMusicCreator(jScore);
-        musicCreator.initialize();
+        phrase = musicCreator.getOriginalPhrase();
 
         if(easyRadioButton.isSelected()){
             indexOfChangedNote = musicCreator.makeMIDIEasyWrongNote();

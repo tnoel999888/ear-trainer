@@ -2,16 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="49021a73-ff27-48b5-96a0-9e054912d8d1" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/JMMusicCreator$1.class" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/JMMusicCreator$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/JMMusicCreator.class" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/JMMusicCreator.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/WrongNoteIdentificationController$1.class" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/WrongNoteIdentificationController$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/WrongNoteIdentificationController.class" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/WrongNoteIdentificationController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Music/WrongNote.mid" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Music/WrongNote.mid" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Music/WrongNoteNew.mid" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Music/WrongNoteNew.mid" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Music/Modulation.mid" afterPath="$PROJECT_DIR$/src/EarTrainer/Music/Modulation.mid" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Music/WrongNote.mid" afterPath="$PROJECT_DIR$/src/EarTrainer/Music/WrongNote.mid" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Music/WrongNoteNew.mid" afterPath="$PROJECT_DIR$/src/EarTrainer/Music/WrongNoteNew.mid" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Views/WrongNoteIdentification.fxml" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Views/WrongNoteIdentification.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/CadenceRecognitionController.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/CadenceRecognitionController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/JMMusicCreator.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/JMMusicCreator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/ModulationRecognitionController.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/ModulationRecognitionController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/WrongNoteIdentificationController.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/WrongNoteIdentificationController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Views/ModulationRecognition.fxml" afterPath="$PROJECT_DIR$/src/EarTrainer/Views/ModulationRecognition.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Views/WrongNoteIdentification.fxml" afterPath="$PROJECT_DIR$/src/EarTrainer/Views/WrongNoteIdentification.fxml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -36,47 +41,91 @@
       <file leaf-file-name="JMMusicCreator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/JMMusicCreator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="632">
-              <caret line="1168" column="58" lean-forward="false" selection-start-line="1168" selection-start-column="58" selection-end-line="1168" selection-end-column="58" />
+            <state relative-caret-position="204">
+              <caret line="1103" column="41" lean-forward="false" selection-start-line="1103" selection-start-column="41" selection-end-line="1103" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#JMMusicCreator#0;class#JMMusicCreator#0" expanded="false" />
+                <element signature="method#mouseClicked#0;class#2899:3450" expanded="false" />
+                <element signature="method#mousePressed#0;class#2899:3450" expanded="false" />
+                <element signature="e#3173#3174#0" expanded="true" />
+                <element signature="e#3258#3259#0" expanded="true" />
+                <element signature="method#mouseEntered#0;class#2899:3450" expanded="false" />
+                <element signature="method#mouseExited#0;class#2899:3450" expanded="false" />
+                <element signature="method#getInterval#0;class#JMMusicCreator#0" expanded="false" />
+                <element signature="method#getNote#0;class#JMMusicCreator#0" expanded="false" />
+                <element signature="method#setScore#0;class#JMMusicCreator#0" expanded="false" />
+                <element signature="method#setScoreEditable#0;class#JMMusicCreator#0" expanded="false" />
+                <element signature="method#makeMIDIEasyMelodic#0;class#JMMusicCreator#0" expanded="false" />
+                <element signature="method#makeMIDIMediumMelodic#0;class#JMMusicCreator#0" expanded="false" />
+                <element signature="method#makeMIDIHardMelodic#0;class#JMMusicCreator#0" expanded="false" />
+                <element signature="method#makeMIDIEasyHarmonic#0;class#JMMusicCreator#0" expanded="false" />
+                <element signature="method#makeMIDIMediumHarmonic#0;class#JMMusicCreator#0" expanded="false" />
+                <element signature="method#makeMIDIHardHarmonic#0;class#JMMusicCreator#0" expanded="false" />
+                <element signature="method#makeMIDIEasyPitch#0;class#JMMusicCreator#0" expanded="false" />
+                <element signature="method#makeMIDIMediumPitch#0;class#JMMusicCreator#0" expanded="false" />
+                <element signature="method#makeMIDIHardPitch#0;class#JMMusicCreator#0" expanded="false" />
+                <element signature="method#makeMIDIEasySharpFlat#0;class#JMMusicCreator#0" expanded="false" />
+                <element signature="method#makeMIDIMediumSharpFlat#0;class#JMMusicCreator#0" expanded="false" />
+                <element signature="method#makeMIDIHardSharpFlat#0;class#JMMusicCreator#0" expanded="false" />
+                <element signature="method#sharpen#0;class#JMMusicCreator#0" expanded="false" />
+                <element signature="method#makeChords#0;class#JMMusicCreator#0" expanded="false" />
+                <element signature="method#makeMinorScale#0;class#JMMusicCreator#0" expanded="false" />
+                <element signature="method#makeMajorScale#0;class#JMMusicCreator#0" expanded="false" />
+                <element signature="method#makeMIDIEasyCadence#0;class#JMMusicCreator#0" expanded="false" />
+                <element signature="method#makeMIDIMediumCadence#0;class#JMMusicCreator#0" expanded="false" />
+                <element signature="method#makeMIDIHardCadence#0;class#JMMusicCreator#0" expanded="false" />
+                <element signature="method#getRelativeMinor#0;class#JMMusicCreator#0" expanded="false" />
+                <element signature="method#getRelativeMajor#0;class#JMMusicCreator#0" expanded="false" />
+                <element signature="method#findCommonChords#0;class#JMMusicCreator#0" expanded="false" />
+                <element signature="method#makeMIDIEasyWrongNote#0;class#JMMusicCreator#0" expanded="false" />
+                <element signature="method#makeMIDIHardWrongNote#0;class#JMMusicCreator#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WrongNoteIdentificationController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/WrongNoteIdentificationController.java">
+      <file leaf-file-name="ModulationRecognitionController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/ModulationRecognitionController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-942">
-              <caret line="120" column="5" lean-forward="false" selection-start-line="120" selection-start-column="5" selection-end-line="120" selection-end-column="5" />
+            <state relative-caret-position="649">
+              <caret line="366" column="0" lean-forward="true" selection-start-line="366" selection-start-column="0" selection-end-line="366" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#6163#6185#0" expanded="true" />
+                <element signature="method#initialize#0;class#ModulationRecognitionController#0" expanded="false" />
+                <element signature="method#easyRadioButtonSelected#0;class#ModulationRecognitionController#0" expanded="false" />
+                <element signature="method#mediumRadioButtonSelected#0;class#ModulationRecognitionController#0" expanded="false" />
+                <element signature="method#hardRadioButtonSelected#0;class#ModulationRecognitionController#0" expanded="false" />
+                <element signature="method#BackButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
+                <element signature="method#StartButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
+                <element signature="method#NextQuestionButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
+                <element signature="method#loadScore#0;class#ModulationRecognitionController#0" expanded="false" />
+                <element signature="method#resetButtonColours#0;class#ModulationRecognitionController#0" expanded="false" />
+                <element signature="method#similarKey0ButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
+                <element signature="method#similarKey1ButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
+                <element signature="method#similarKey2ButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
+                <element signature="method#similarKey3ButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
+                <element signature="method#similarKey4ButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
+                <element signature="method#AnswerButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
+                <element signature="method#startTimer#0;class#ModulationRecognitionController#0" expanded="false" />
+                <element signature="method#stopTimer#0;class#ModulationRecognitionController#0" expanded="false" />
+                <element signature="method#replayButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
+                <element signature="method#playSound#0;class#ModulationRecognitionController#0" expanded="false" />
+                <element signature="method#setScore#0;class#ModulationRecognitionController#0" expanded="false" />
               </folding>
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WrongNoteIdentification.fxml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/WrongNoteIdentification.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="153" column="32" lean-forward="true" selection-start-line="153" selection-start-column="32" selection-end-line="153" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="MelodicIntervalRecognitionController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/MelodicIntervalRecognitionController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="705">
-              <caret line="81" column="27" lean-forward="false" selection-start-line="81" selection-start-column="27" selection-end-line="81" selection-end-column="27" />
-              <folding />
+            <state relative-caret-position="154">
+              <caret line="444" column="58" lean-forward="true" selection-start-line="444" selection-start-column="58" selection-end-line="444" selection-end-column="58" />
+              <folding>
+                <element signature="method#startTimer#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
+                <element signature="method#stopTimer#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -92,8 +141,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>handlepitch</find>
-      <find>add</find>
       <find>makeMi</find>
       <find>textArea</find>
       <find>mixer</find>
@@ -117,11 +164,13 @@
       <find>jScore.setPhrase</find>
       <find>mediaBar</find>
       <find>nextQuestion</find>
-      <find>setScore</find>
       <find>.toArray(</find>
       <find>theirMelodyAnswer</find>
       <find>phrase</find>
       <find>hardRadioButton</find>
+      <find>jScore</find>
+      <find>setScore</find>
+      <find>correctButton</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -167,16 +216,16 @@
         <option value="$PROJECT_DIR$/src/EarTrainer/Views/VoiceTuner.fxml" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/VoiceTunerController.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Views/CadenceRecognition.fxml" />
-        <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/ModulationRecognitionController.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/SharpFlatRecognitionController.java" />
-        <option value="$PROJECT_DIR$/src/EarTrainer/Views/ModulationRecognition.fxml" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/HomeController.java" />
-        <option value="$PROJECT_DIR$/src/EarTrainer/Views/WrongNoteIdentification.fxml" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/MelodicIntervalRecognitionController.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/ScoreWithoutScoreFrame.java" />
-        <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/CadenceRecognitionController.java" />
+        <option value="$PROJECT_DIR$/src/EarTrainer/Views/WrongNoteIdentification.fxml" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/WrongNoteIdentificationController.java" />
+        <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/CadenceRecognitionController.java" />
+        <option value="$PROJECT_DIR$/src/EarTrainer/Views/ModulationRecognition.fxml" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/JMMusicCreator.java" />
+        <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/ModulationRecognitionController.java" />
       </list>
     </option>
   </component>
@@ -199,8 +248,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -277,6 +324,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -557,7 +606,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -568,13 +617,13 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20396039" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19702971" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23162939" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20447284" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -595,7 +644,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -619,23 +668,23 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/SplashScreen.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="29" lean-forward="true" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/Home.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/Home.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="61" lean-forward="false" selection-start-line="11" selection-start-column="61" selection-end-line="11" selection-end-column="61" />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Images/EarTrainerLogo.png">
@@ -687,24 +736,24 @@
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/EmbeddedMediaPlayer.java" />
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/MidiSystem.java" />
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/SplashScreen.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/PopupScore.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/PopupScore.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="20" lean-forward="false" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
@@ -729,25 +778,25 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/SharpFlatRecognition.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="22" column="30" lean-forward="false" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/PitchRecognition.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/PitchRecognition.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="26" column="40" lean-forward="false" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/PitchRecognitionController.java">
@@ -759,14 +808,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/Home.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="38" column="33" lean-forward="false" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="jar://$USER_HOME$/Downloads/TarsosDSP-latest.jar!/be/tarsos/dsp/pitch/PitchDetectionHandler.java">
@@ -840,14 +889,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/VoiceTuner.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
           <caret line="31" column="40" lean-forward="false" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/InputPanel.java">
@@ -858,14 +907,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/HarmonicIntervalRecognition.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
           <caret line="33" column="28" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/HarmonicIntervalRecognitionController.java">
@@ -877,38 +926,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/CadenceRecognition.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="116" column="28" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/ModulationRecognition.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="66" lean-forward="false" selection-start-line="20" selection-start-column="66" selection-end-line="20" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/MelodicIntervalRecognition.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="54" column="35" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
-          <folding>
-            <marker date="1491929863000" expanded="true" signature="14311:14312" ph="..." />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/VoiceTunerController.java">
@@ -923,6 +948,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="870">
           <caret line="71" column="27" lean-forward="false" selection-start-line="71" selection-start-column="27" selection-end-line="71" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -941,30 +967,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/ModulationRecognitionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1875">
-          <caret line="208" column="0" lean-forward="false" selection-start-line="208" selection-start-column="0" selection-end-line="211" selection-end-column="135" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/CadenceRecognitionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="41" column="41" lean-forward="true" selection-start-line="41" selection-start-column="41" selection-end-line="41" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/MelodicIntervalRecognitionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="81" column="27" lean-forward="false" selection-start-line="81" selection-start-column="27" selection-end-line="81" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/HomeController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="727">
@@ -973,36 +975,150 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/JMMusicCreator.java">
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/WrongNoteIdentification.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="632">
-          <caret line="1168" column="58" lean-forward="false" selection-start-line="1168" selection-start-column="58" selection-end-line="1168" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="495">
+          <caret line="158" column="30" lean-forward="false" selection-start-line="158" selection-start-column="30" selection-end-line="158" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/WrongNoteIdentificationController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-942">
-          <caret line="120" column="5" lean-forward="false" selection-start-line="120" selection-start-column="5" selection-end-line="120" selection-end-column="5" />
+        <state relative-caret-position="-1249">
+          <caret line="126" column="32" lean-forward="false" selection-start-line="126" selection-start-column="32" selection-end-line="126" selection-end-column="32" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#6163#6185#0" expanded="true" />
+            <element signature="method#loadScore#0;class#WrongNoteIdentificationController#0" expanded="false" />
+            <element signature="e#6318#6340#0" expanded="true" />
+            <element signature="method#resetButtonColours#0;class#WrongNoteIdentificationController#0" expanded="false" />
+            <element signature="method#startTimer#0;class#WrongNoteIdentificationController#0" expanded="false" />
+            <element signature="method#stopTimer#0;class#WrongNoteIdentificationController#0" expanded="false" />
+            <element signature="method#replayButtonClicked#0;class#WrongNoteIdentificationController#0" expanded="false" />
+            <element signature="method#playChangedButtonClicked#0;class#WrongNoteIdentificationController#0" expanded="false" />
+            <element signature="method#playSound#0;class#WrongNoteIdentificationController#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/WrongNoteIdentification.fxml">
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/CadenceRecognitionController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="153" column="32" lean-forward="true" selection-start-line="153" selection-start-column="32" selection-end-line="153" selection-end-column="32" />
+        <state relative-caret-position="189">
+          <caret line="332" column="0" lean-forward="false" selection-start-line="332" selection-start-column="0" selection-end-line="332" selection-end-column="0" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/MelodicIntervalRecognition.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="54" column="35" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
+          <folding>
+            <marker date="1491929863000" expanded="true" signature="14311:14312" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/ModulationRecognition.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="22" lean-forward="false" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/JMMusicCreator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="1103" column="41" lean-forward="false" selection-start-line="1103" selection-start-column="41" selection-end-line="1103" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#JMMusicCreator#0;class#JMMusicCreator#0" expanded="false" />
+            <element signature="method#mouseClicked#0;class#2899:3450" expanded="false" />
+            <element signature="method#mousePressed#0;class#2899:3450" expanded="false" />
+            <element signature="e#3173#3174#0" expanded="true" />
+            <element signature="e#3258#3259#0" expanded="true" />
+            <element signature="method#mouseEntered#0;class#2899:3450" expanded="false" />
+            <element signature="method#mouseExited#0;class#2899:3450" expanded="false" />
+            <element signature="method#getInterval#0;class#JMMusicCreator#0" expanded="false" />
+            <element signature="method#getNote#0;class#JMMusicCreator#0" expanded="false" />
+            <element signature="method#setScore#0;class#JMMusicCreator#0" expanded="false" />
+            <element signature="method#setScoreEditable#0;class#JMMusicCreator#0" expanded="false" />
+            <element signature="method#makeMIDIEasyMelodic#0;class#JMMusicCreator#0" expanded="false" />
+            <element signature="method#makeMIDIMediumMelodic#0;class#JMMusicCreator#0" expanded="false" />
+            <element signature="method#makeMIDIHardMelodic#0;class#JMMusicCreator#0" expanded="false" />
+            <element signature="method#makeMIDIEasyHarmonic#0;class#JMMusicCreator#0" expanded="false" />
+            <element signature="method#makeMIDIMediumHarmonic#0;class#JMMusicCreator#0" expanded="false" />
+            <element signature="method#makeMIDIHardHarmonic#0;class#JMMusicCreator#0" expanded="false" />
+            <element signature="method#makeMIDIEasyPitch#0;class#JMMusicCreator#0" expanded="false" />
+            <element signature="method#makeMIDIMediumPitch#0;class#JMMusicCreator#0" expanded="false" />
+            <element signature="method#makeMIDIHardPitch#0;class#JMMusicCreator#0" expanded="false" />
+            <element signature="method#makeMIDIEasySharpFlat#0;class#JMMusicCreator#0" expanded="false" />
+            <element signature="method#makeMIDIMediumSharpFlat#0;class#JMMusicCreator#0" expanded="false" />
+            <element signature="method#makeMIDIHardSharpFlat#0;class#JMMusicCreator#0" expanded="false" />
+            <element signature="method#sharpen#0;class#JMMusicCreator#0" expanded="false" />
+            <element signature="method#makeChords#0;class#JMMusicCreator#0" expanded="false" />
+            <element signature="method#makeMinorScale#0;class#JMMusicCreator#0" expanded="false" />
+            <element signature="method#makeMajorScale#0;class#JMMusicCreator#0" expanded="false" />
+            <element signature="method#makeMIDIEasyCadence#0;class#JMMusicCreator#0" expanded="false" />
+            <element signature="method#makeMIDIMediumCadence#0;class#JMMusicCreator#0" expanded="false" />
+            <element signature="method#makeMIDIHardCadence#0;class#JMMusicCreator#0" expanded="false" />
+            <element signature="method#getRelativeMinor#0;class#JMMusicCreator#0" expanded="false" />
+            <element signature="method#getRelativeMajor#0;class#JMMusicCreator#0" expanded="false" />
+            <element signature="method#findCommonChords#0;class#JMMusicCreator#0" expanded="false" />
+            <element signature="method#makeMIDIEasyWrongNote#0;class#JMMusicCreator#0" expanded="false" />
+            <element signature="method#makeMIDIHardWrongNote#0;class#JMMusicCreator#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/MelodicIntervalRecognitionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="444" column="58" lean-forward="true" selection-start-line="444" selection-start-column="58" selection-end-line="444" selection-end-column="58" />
+          <folding>
+            <element signature="method#startTimer#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#stopTimer#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/ModulationRecognitionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="649">
+          <caret line="366" column="0" lean-forward="true" selection-start-line="366" selection-start-column="0" selection-end-line="366" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#initialize#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#easyRadioButtonSelected#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#mediumRadioButtonSelected#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#hardRadioButtonSelected#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#BackButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#StartButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#NextQuestionButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#loadScore#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#resetButtonColours#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#similarKey0ButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#similarKey1ButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#similarKey2ButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#similarKey3ButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#similarKey4ButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#AnswerButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#startTimer#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#stopTimer#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#replayButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#playSound#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#setScore#0;class#ModulationRecognitionController#0" expanded="false" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>
