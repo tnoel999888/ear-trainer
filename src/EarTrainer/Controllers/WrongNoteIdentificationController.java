@@ -45,7 +45,8 @@ public class WrongNoteIdentificationController {
     @FXML private RadioButton mediumRadioButton;
     @FXML private RadioButton hardRadioButton;
 
-    @FXML private Button submitButton = new Button();
+    @FXML private Button submitButton;
+    @FXML private Button playChangedButton;
 
     @FXML private Label timerLabel;
     @FXML private Label questionLabel;
@@ -109,6 +110,7 @@ public class WrongNoteIdentificationController {
     @FXML
     private void hardRadioButtonSelected(ActionEvent event) throws IOException {
         difficultyDescriptionLabel.setText("Identify the note on the stave that does not correspond to the respective note that was played. Drag the note to match the note that was played. The note will be off by 1 semitone.");
+        playChangedButton.setDisable(true);
     }
 
 

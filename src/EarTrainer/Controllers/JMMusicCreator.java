@@ -8,6 +8,7 @@ import jm.audio.*;
 import jm.gui.cpn.JGrandStave;
 import jm.music.data.*;
 import jm.util.*;
+import org.apache.commons.lang3.ArrayUtils;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -41,10 +42,10 @@ public final class JMMusicCreator implements JMC {
     int[] majorScale = new int[15];
     int[] scaleNotes = new int[15];
 
-    double[] noteLengths = {SIXTEENTH_NOTE, DOTTED_SIXTEENTH_NOTE,
-                            EIGHTH_NOTE,DOTTED_EIGHTH_NOTE,
-                            QUARTER_NOTE,DOTTED_QUARTER_NOTE,
-                            HALF_NOTE};
+//    double[] noteLengths = {SIXTEENTH_NOTE, DOTTED_SIXTEENTH_NOTE,
+//                            EIGHTH_NOTE,DOTTED_EIGHTH_NOTE,
+//                            QUARTER_NOTE,DOTTED_QUARTER_NOTE,
+//                            HALF_NOTE};
 
     List noteLengthsList = new LinkedList(Arrays.asList(SIXTEENTH_NOTE, DOTTED_SIXTEENTH_NOTE,
                                                         EIGHTH_NOTE,DOTTED_EIGHTH_NOTE,
@@ -1099,12 +1100,14 @@ public final class JMMusicCreator implements JMC {
             makeMajorScale(rootNote);
         }
 
+
         //Set scale notes
         if(minor) {
             scaleNotes = minorScale;
         } else {
             scaleNotes = majorScale;
         }
+
 
         //Make melody
         List melody = new LinkedList<Note>();
@@ -1123,7 +1126,6 @@ public final class JMMusicCreator implements JMC {
             int d = rn.nextInt(noteLengthsList.size());
             double duration = (double)noteLengthsList.get(d);
 
-
             if(duration + lengthSoFar <= 4.0){
                 melody.add(new Note(pitch, duration));
                 lengthSoFar += duration;
@@ -1135,12 +1137,15 @@ public final class JMMusicCreator implements JMC {
         Note[] melodyArray = new Note[melody.size()];
         melody.toArray(melodyArray);
 
+        //Add melody array to phrase
+        phr2.addNoteList(melodyArray);
+
 
         //Find notes which do not belong to this scale
-        List nonScaleNotes = new ArrayList();
+        List nonScaleNotes = new LinkedList();
 
         for(int n : notes){
-            if(!Arrays.asList(scaleNotes).contains(n)){
+            if(!ArrayUtils.contains(scaleNotes,n)){
                 nonScaleNotes.add(n);
             }
         }
@@ -1152,17 +1157,28 @@ public final class JMMusicCreator implements JMC {
 
         double duration = melodyArray[i2].getDuration();
         int pitch = (int)nonScaleNotes.get(i3);
+        int originalPitch = melodyArray[i2].getPitch();
+
+        //Ensure new note is maximum of 3 semitones from original so it's not too obvious
+        while(Math.abs(originalPitch - pitch) > 3){
+            System.out.println("here");
+            i3 = rn.nextInt(nonScaleNotes.size());
+            pitch = (int)nonScaleNotes.get(i3);
+        }
+
+        System.out.println(Math.abs(originalPitch - pitch));
+
         melodyArray[i2] = new Note(pitch, duration);
 
-        System.out.println(i2);
+        System.out.println("Incorrect note index: " + i2);
 
 
         //Add melody array to phrase
-        phr2.addNoteList(melodyArray);
+        phr1.addNoteList(melodyArray);
         theirMelodyAnswer = melodyArray;
-        setScoreEditable(phr2);
+        setScoreEditable(phr1);
 
-        p.add(phr2);
+        p.add(phr1);
         s.addPart(p);
 
         Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/WrongNote.mid");
