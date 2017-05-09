@@ -25,6 +25,8 @@ import javafx.scene.effect.GaussianBlur;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.*;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
@@ -57,12 +59,11 @@ public class VoiceTunerController implements PitchDetectionHandler {
     @FXML private RadioButton mediumRadioButton;
     @FXML private RadioButton hardRadioButton;
 
-    @FXML private Button correctButton = new Button();
-
     @FXML private Label timerLabel;
     @FXML private Label questionLabel;
     @FXML private Label questionNoteLabel;
     @FXML private Label difficultyDescriptionLabel;
+    @FXML private Label correctIncorrectLabel;
 
     @FXML private Label noteLabel;
     @FXML private Label noteLabelm1;
@@ -76,10 +77,9 @@ public class VoiceTunerController implements PitchDetectionHandler {
 
     @FXML private Button startButton;
     @FXML private Button nextQuestionButton;
+    @FXML private Button recordButton;
 
-    @FXML private Pane scorePane;
     @FXML private Pane inputPane;
-    @FXML private Pane algoPane;
 
     @FXML HBox mediaBar;
 
@@ -99,7 +99,9 @@ public class VoiceTunerController implements PitchDetectionHandler {
     private String correctAnswer = "";
     private boolean questionAnswered;
     private Timeline timeline;
+    private Timeline questionTimeline;
     private boolean startClicked = false;
+    private boolean recording = false;
 
 
     private AudioDispatcher dispatcher;
@@ -109,25 +111,15 @@ public class VoiceTunerController implements PitchDetectionHandler {
 
     private Sequencer sequencer;
 
+    private List pitches;
+    private String[] notes = {"A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"};
 
-//    private ActionListener algoChangeListener = new ActionListener(){
-//        @Override
-//        public void actionPerformed(final java.awt.event.ActionEvent e) {
-//            String name = e.getActionCommand();
-//            PitchProcessor.PitchEstimationAlgorithm newAlgo = PitchProcessor.PitchEstimationAlgorithm.valueOf(name);
-//            algo = newAlgo;
-//            try {
-//                setNewMixer(currentMixer);
-//            } catch (LineUnavailableException e1) {
-//                e1.printStackTrace();
-//            } catch (UnsupportedAudioFileException e1) {
-//                e1.printStackTrace();
-//            }
-//        }};
+
 
 
     @FXML
     public void initialize() {
+        pitches = new LinkedList();
 
         for(Mixer.Info info : Shared.getMixerInfo(false, true)){
             List<String> list = Arrays.asList(Shared.toLocalString(info).split(","));
@@ -214,12 +206,10 @@ public class VoiceTunerController implements PitchDetectionHandler {
         noteLabelm1.setVisible(true);
         noteLabelp1.setVisible(true);
 
-
         startButton.setDisable(true);
         timerLabel.setVisible(true);
         radioButtonsGroup.setDisable(true);
         questionLabel.setText("Question 1");
-//        questionNoteLabel.setText("Sing: ");
 
         generateQuestion();
     }
@@ -229,6 +219,12 @@ public class VoiceTunerController implements PitchDetectionHandler {
     private void NextQuestionButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException {
         sequencer.stop();
         sequencer.close();
+
+        pitches.clear();
+        recordButton.setText("Record");
+        recordButton.setDisable(false);
+        questionTimeline.stop();
+        correctIncorrectLabel.setText("");
 
         if (questionNumber != TOTAL_QUESTIONS) {
             questionNumber++;
@@ -247,6 +243,35 @@ public class VoiceTunerController implements PitchDetectionHandler {
 
         setScore(phrase);
         generateQuestion();
+    }
+
+
+    @FXML
+    private void RecordButtonClicked(ActionEvent event) throws IOException {
+        recordButton.setText("Recording");
+        recordButton.setDisable(true);
+
+        questionTimeline = new Timeline(
+                new KeyFrame(Duration.seconds(0),
+                        new EventHandler<ActionEvent>() {
+                            int secs = 0;
+                            @Override public void handle(ActionEvent actionEvent) {
+                                if(secs < 1) {
+                                    recording = true;
+                                    secs++;
+                                } else {
+                                    recordButton.setText("Recorded");
+                                    recording = false;
+                                    checkAnswer();
+                                }
+                            }
+                        }
+                ),
+                new KeyFrame(Duration.seconds(1))
+        );
+
+        questionTimeline.setCycleCount(Animation.INDEFINITE);
+        questionTimeline.play();
     }
 
 
@@ -289,11 +314,48 @@ public class VoiceTunerController implements PitchDetectionHandler {
     }
 
 
-    private void resetButtonColours() {
+    private void checkAnswer() {
+        float totalPitch = 0;
+
+        for(int i = 0; i < pitches.size(); i++){
+            totalPitch += (float)pitches.get(i);
+        }
+
+        float avgPitch = totalPitch/pitches.size();
+        int noOfSemitonesFromMiddleA = calculateNoteFromPitch(avgPitch);
+        String note = notes[noOfSemitonesFromMiddleA];
+
+        if(note.equals(correctAnswer)){
+            makeButtonGreen(recordButton);
+            numberOfCorrectAnswers++;
+            correctIncorrectLabel.setTextFill(Color.web("#3abf4c"));
+            correctIncorrectLabel.setText("Correct!");
+        } else {
+            makeButtonRed(recordButton);
+            correctIncorrectLabel.setTextFill(javafx.scene.paint.Color.web("#da4343"));
+            correctIncorrectLabel.setText("Incorrect. You sang on average: " + note);
+        }
+
+        nextQuestionButton.setDisable(false);
+
+        if(questionNumber == 10){
+            nextQuestionButton.setText("Score");
+        }
     }
 
 
-    private void checkAnswer(String answer, Button button) {
+    private void resetButtonColours() {
+        recordButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
+    }
+
+
+    private void makeButtonRed(Button button) {
+        button.setStyle("-fx-base: #ffb3b3;");
+    }
+
+
+    private void makeButtonGreen(Button correctButton) {
+        correctButton.setStyle("-fx-base: #adebad;");
     }
 
 
@@ -347,7 +409,6 @@ public class VoiceTunerController implements PitchDetectionHandler {
         }
 
         questionNoteLabel.setText("Sing: " + correctAnswer);
-        //correctButton = getCorrectButton(correctAnswer);
 
         playSound();
     }
@@ -419,25 +480,33 @@ public class VoiceTunerController implements PitchDetectionHandler {
     }
 
 
+    private int calculateNoteFromPitch(float pitch){
+        float concertPitchA = 440;
+        float ratio = pitch/concertPitchA;
+        double a = Math.pow(2, 1.0/12);
+        double n = Math.log(ratio)/Math.log(a);
+
+        int noOfSemitonesFromMiddleA = (int) Math.round(n);
+        noOfSemitonesFromMiddleA = noOfSemitonesFromMiddleA % 12;
+
+        if(noOfSemitonesFromMiddleA < 0){
+            noOfSemitonesFromMiddleA += 12;
+        }
+
+        return noOfSemitonesFromMiddleA;
+    }
+
     @Override
     public void handlePitch(PitchDetectionResult pitchDetectionResult, AudioEvent audioEvent) {
         if (pitchDetectionResult.getPitch() != -1) {
             //double timeStamp = audioEvent.getTimeStamp();
             float pitch = pitchDetectionResult.getPitch();
-            float concertPitchA = 440;
-            float ratio = pitch/concertPitchA;
-            double a = Math.pow(2, 1.0/12);
-            double n = Math.log(ratio)/Math.log(a);
 
-            int n2 = (int) Math.round(n);
-            n2 = n2 % 12;
-
-            if(n2 < 0){
-                n2 += 12;
+            if(recording) {
+                pitches.add(pitch);
             }
 
-            String[] notes = {"A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"};
-            String note = notes[n2];
+            int n2 = calculateNoteFromPitch(pitch);
 
             String notem1;
             String notem2;
@@ -450,6 +519,7 @@ public class VoiceTunerController implements PitchDetectionHandler {
             String notep4;
 
 
+            String note = notes[n2];
 
             if(n2 != 0) {
                 notem1 = notes[n2 - 1];
