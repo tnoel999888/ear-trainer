@@ -10,10 +10,6 @@ import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingNode;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -24,8 +20,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextArea;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.effect.GaussianBlur;
 import javafx.scene.layout.HBox;
@@ -38,7 +32,6 @@ import jm.gui.cpn.JGrandStave;
 import jm.music.data.Phrase;
 
 import java.awt.*;
-import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.*;
@@ -59,7 +52,6 @@ public class VoiceTunerController implements PitchDetectionHandler {
     public static final int TOTAL_QUESTIONS = 10;
     @FXML private StackPane stackPane;
 
-    @FXML private ToggleGroup radioButtons;
     @FXML private HBox radioButtonsGroup;
     @FXML private RadioButton easyRadioButton;
     @FXML private RadioButton mediumRadioButton;
@@ -104,7 +96,7 @@ public class VoiceTunerController implements PitchDetectionHandler {
     private int questionNumber;
     private int numberOfCorrectAnswers = 0;
 
-    private String correctAnswer = "unison";
+    private String correctAnswer = "";
     private boolean questionAnswered;
     private Timeline timeline;
     private boolean startClicked = false;
@@ -114,6 +106,8 @@ public class VoiceTunerController implements PitchDetectionHandler {
     private Mixer currentMixer;
 
     private PitchProcessor.PitchEstimationAlgorithm algo;
+
+    private Sequencer sequencer;
 
 
 //    private ActionListener algoChangeListener = new ActionListener(){
@@ -233,6 +227,9 @@ public class VoiceTunerController implements PitchDetectionHandler {
 
     @FXML
     private void NextQuestionButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException {
+        sequencer.stop();
+        sequencer.close();
+
         if (questionNumber != TOTAL_QUESTIONS) {
             questionNumber++;
             questionLabel.setText("Question " + Integer.toString(questionNumber));
@@ -365,7 +362,7 @@ public class VoiceTunerController implements PitchDetectionHandler {
     private void playSound() throws MidiUnavailableException, IOException, InvalidMidiDataException {
         final String MEDIA_URL = "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Pitch.mid";
 
-        Sequencer sequencer = MidiSystem.getSequencer();
+        sequencer = MidiSystem.getSequencer();
         sequencer.open();
         InputStream is = new BufferedInputStream(new FileInputStream(new File(MEDIA_URL)));
         sequencer.setSequence(is);

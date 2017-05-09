@@ -67,7 +67,7 @@
                <children>
                   <Region prefHeight="20.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
                   <Button fx:id="replayButton" mnemonicParsing="false" onAction="#replayButtonClicked" text="Replay Original" />
-                  <Button fx:id="playChangedButton" mnemonicParsing="false" onAction="#playChangedButtonClicked" text="Play Changed" />
+                  <Button fx:id="playChangedButton" mnemonicParsing="false" onAction="#playChangedButtonClicked" text="Play Modified" />
                   <Region prefHeight="20.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>

@@ -89,6 +89,9 @@ public class MelodicIntervalRecognitionController {
     private Timeline timeline;
     private boolean startClicked = false;
 
+    private Sequencer sequencer;
+
+
 
     @FXML
     public void initialize() {
@@ -121,6 +124,7 @@ public class MelodicIntervalRecognitionController {
         difficultyDescriptionLabel.setText("Middle C as root note. Only Unisons, Thirds, Perfect Fifths and Octaves. Only 1 Octave.");
     }
 
+
     @FXML
     private void mediumRadioButtonSelected(ActionEvent event) throws IOException {
         minorSecondButton.setDisable(false);
@@ -135,6 +139,7 @@ public class MelodicIntervalRecognitionController {
 
         difficultyDescriptionLabel.setText("Middle C, D, E, F, G, A, B as root notes. Only Unisons, Seconds, Thirds, Perfect Fifths and Octaves. Only 1 Octave.");
     }
+
 
     @FXML
     private void hardRadioButtonSelected(ActionEvent event) throws IOException {
@@ -177,6 +182,9 @@ public class MelodicIntervalRecognitionController {
 
     @FXML
     private void NextQuestionButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException {
+        sequencer.stop();
+        sequencer.close();
+
         if (questionNumber != TOTAL_QUESTIONS) {
             questionNumber++;
             questionLabel.setText("Question " + Integer.toString(questionNumber));
@@ -503,7 +511,7 @@ public class MelodicIntervalRecognitionController {
     private void playSound() throws MidiUnavailableException, IOException, InvalidMidiDataException {
         final String MEDIA_URL = "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/MelodicInterval.mid";
 
-        Sequencer sequencer = MidiSystem.getSequencer();
+        sequencer = MidiSystem.getSequencer();
         sequencer.open();
         InputStream is = new BufferedInputStream(new FileInputStream(new File(MEDIA_URL)));
         sequencer.setSequence(is);

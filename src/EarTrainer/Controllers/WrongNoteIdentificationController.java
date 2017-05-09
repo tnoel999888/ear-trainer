@@ -78,6 +78,8 @@ public class WrongNoteIdentificationController {
 
     private String filePath = "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/WrongNote.mid";
 
+    private Sequencer sequencer;
+
 
 
     @FXML
@@ -161,6 +163,9 @@ public class WrongNoteIdentificationController {
 
     @FXML
     private void NextQuestionButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException {
+        sequencer.stop();
+        sequencer.close();
+
         if (questionNumber != TOTAL_QUESTIONS) {
             questionNumber++;
             questionLabel.setText("Question " + Integer.toString(questionNumber));
@@ -387,7 +392,7 @@ public class WrongNoteIdentificationController {
 
 
     private void playSound(String filePath) throws MidiUnavailableException, IOException, InvalidMidiDataException {
-        Sequencer sequencer = MidiSystem.getSequencer();
+        sequencer = MidiSystem.getSequencer();
         sequencer.open();
         InputStream is = new BufferedInputStream(new FileInputStream(new File(filePath)));
         sequencer.setSequence(is);

@@ -12,27 +12,26 @@ import java.awt.event.*;
 import java.util.*;
 import java.util.List;
 
-/**
- * A short example which generates a one octave c chromatic scale
- * and writes to a standard MIDI file called ChromaticScale.mid
- * @author Andrew Sorensen and Andrew Brown
- */
+
 public final class JMMusicCreator implements JMC {
     private Random rn = new Random();
 
-    private Score s = new Score("JMDemo - Scale");
+    private Score s = new Score();
     private Part p = new Part(0);
     private JGrandStave jScore = new JGrandStave();
 
-    private Phrase phr1 = new Phrase("Melodic Interval", 0.0);
-    private Phrase phr2 = new Phrase("Melodic Interval", 0.0);
-    private Phrase originalPhr2 = new Phrase("Melodic Interval", 0.0);
+    private Phrase phr1 = new Phrase(0.0);
+    private Phrase phr2 = new Phrase(0.0);
+    private Phrase originalPhr2 = new Phrase( 0.0);
 
     private CPhrase cphr1 = new CPhrase();
     private CPhrase cphr2 = new CPhrase();
     private CPhrase cphr3 = new CPhrase();
     private CPhrase cphr4 = new CPhrase();
     private CPhrase cphr5 = new CPhrase();
+    private CPhrase cphr6 = new CPhrase();
+    private CPhrase cphr7 = new CPhrase();
+    private CPhrase cphr8 = new CPhrase();
 
     private int[] notes = {A4, AS4, B4, C4, CS4, D4, DS4, E4, F4, FS4, G4, GS4, A5, AS5, B5, C5, CS5, D5, DS5, E5, F5, FS5, G5, GS5};
     private int[] circleOfFifthsMajor = {C4, G4, D4, A4, E4, B4, FS4, DF4, AF4, EF4, BF4, F4};
@@ -42,11 +41,6 @@ public final class JMMusicCreator implements JMC {
     private int[] minorScale = new int[15];
     private int[] majorScale = new int[15];
     private int[] scaleNotes = new int[15];
-
-//    double[] noteLengths = {SIXTEENTH_NOTE, DOTTED_SIXTEENTH_NOTE,
-//                            EIGHTH_NOTE,DOTTED_EIGHTH_NOTE,
-//                            QUARTER_NOTE,DOTTED_QUARTER_NOTE,
-//                            HALF_NOTE};
 
     private List noteLengthsList = new LinkedList(Arrays.asList(SIXTEENTH_NOTE, DOTTED_SIXTEENTH_NOTE,
             EIGHTH_NOTE, DOTTED_EIGHTH_NOTE,
@@ -330,8 +324,7 @@ public final class JMMusicCreator implements JMC {
 
         System.out.println(interval);
 
-        Random r2n = new Random();
-        int i2 = r2n.nextInt(7);
+        int i2 = rn.nextInt(7);
         int[] roots = {C4,
                 D4,
                 E4,
@@ -1108,18 +1101,22 @@ public final class JMMusicCreator implements JMC {
             index += 12;
         }
 
+        //Populate similarKeys array
         similarKeys[0] = getRelativeMinor(root);
         similarKeys[1] = circleOfFifthsMajor[index];
         similarKeys[2] = getRelativeMinor(circleOfFifthsMajor[index]);
         similarKeys[3] = circleOfFifthsMajor[(i + 1) % 12];
         similarKeys[4] = getRelativeMinor(circleOfFifthsMajor[(i + 1) % 12]);
 
+
         //Add tonic of original key
-        cphr1.addChord(scaleChords[0]);
+        cphr1.addChord(scaleChord1);
+
 
         //Add random chord of original key
         int i2 = rn.nextInt(7);
         cphr2.addChord(scaleChords[i2]);
+
 
         //Find key to modulate to from similar keys
         int i3 = rn.nextInt(5);
@@ -1127,14 +1124,16 @@ public final class JMMusicCreator implements JMC {
         String newKeyString = getNote(new Note(newKey, C));
 
 
+        //Make the scale and chords of the new key
         if (i3 == 0 || i3 == 2 || i3 == 4) {
             makeMinorScale(newKey);
         } else {
             makeMajorScale(newKey);
         }
 
-        Note[][] newKeyChords = scaleChords;
 
+        //Add a common chord to begin the modulation
+        Note[][] newKeyChords = scaleChords;
         ArrayList commonChords = findCommonChords(rootKeyChords, newKeyChords);
 
         if (commonChords.contains(rootKeyChords[1])) {
@@ -1146,8 +1145,14 @@ public final class JMMusicCreator implements JMC {
             cphr3.addChord((Note[]) commonChords.get(i4));
         }
 
+
+        //Add the dominant of the new key
         cphr4.addChord(scaleChord5);
+
+
+        //Add the tonic of the new key
         cphr5.addChord(scaleChord1);
+
 
         p.addCPhrase(cphr1);
         p.addCPhrase(cphr2);
@@ -1160,8 +1165,8 @@ public final class JMMusicCreator implements JMC {
         Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Modulation.mid");
 
         if(i3 == 0 || i3 == 2 || i3 == 4){
-            System.out.println(newKeyString + " minor");
-            return newKeyString + " minor";
+            System.out.println(newKeyString + "m");
+            return newKeyString + "m";
         } else {
             System.out.println(newKeyString);
             return newKeyString;
@@ -1176,20 +1181,85 @@ public final class JMMusicCreator implements JMC {
             index += 12;
         }
 
+        //Populate similarKeys array
         similarKeys[0] = getRelativeMajor(root);
         similarKeys[1] = circleOfFifthsMinor[index];
         similarKeys[2] = getRelativeMajor(circleOfFifthsMinor[index]);
         similarKeys[3] = circleOfFifthsMinor[(i + 1) % 12];
-        similarKeys[4] = getRelativeMinor(circleOfFifthsMinor[(i + 1) % 12]);
+        similarKeys[4] = getRelativeMajor(circleOfFifthsMinor[(i + 1) % 12]);
+
 
         //Add tonic of original key
-        cphr1.addChord(scaleChords[0]);
+        cphr1.addChord(scaleChord1);
+
+
+        //Add IV or VI of original key
+        int i2 = rn.nextInt(2);
+        if(i2 == 0){
+            cphr2.addChord(scaleChord4);
+        } else {
+            cphr2.addChord(scaleChord6);
+        }
+
+
+        //Add II of original key
+        cphr3.addChord(scaleChord2);
+
+
+        //Add V of original key
+        cphr4.addChord(scaleChord5);
+
+
+        //Add tonic of original key as common key
+        cphr5.addChord(scaleChord1);
+
+
+        //Add tonic of original key as common key
+        cphr6.addChord(scaleChord1);
+
+
+        //Find key to modulate to from similar keys
+        int i3 = rn.nextInt(5);
+        int newKey = similarKeys[i3];
+        String newKeyString = getNote(new Note(newKey, C));
+
+
+        //Make the scale and chords of the new key
+        if (i3 == 1 || i3 == 3) {
+            makeMinorScale(newKey);
+        } else {
+            makeMajorScale(newKey);
+        }
+
+
+        //Add the dominant of the new key
+        cphr7.addChord(scaleChord5);
+
+
+        //Add the tonic of the new key
+        cphr8.addChord(scaleChord1);
+
+
+        p.addCPhrase(cphr1);
+        p.addCPhrase(cphr2);
+        p.addCPhrase(cphr3);
+        p.addCPhrase(cphr4);
+        p.addCPhrase(cphr5);
+        p.addCPhrase(cphr6);
+        p.addCPhrase(cphr7);
+        p.addCPhrase(cphr8);
 
         s.addPart(p);
 
         Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Modulation.mid");
 
-        return "";
+        if(i3 == 1 || i3 == 3){
+            System.out.println(newKeyString + "m");
+            return newKeyString + "m";
+        } else {
+            System.out.println(newKeyString);
+            return newKeyString;
+        }
     }
 
 
@@ -1198,16 +1268,18 @@ public final class JMMusicCreator implements JMC {
         int root = circleOfFifthsMajor[i];
 
         int minorOrMajor = rn.nextInt(2);
-//
-//        if(minorOrMajor == 0) {
-//            minor = true;
-//            makeMinorScale(root);
-//            return modulateFromMinor(i, root);
-//        } else {
+
+        if(minorOrMajor == 0) {
+            minor = true;
+            makeMinorScale(root);
+            System.out.println("Minor");
+            return modulateFromMinor(i, root);
+        } else {
             major = true;
             makeMajorScale(root);
+            System.out.println("Major");
             return modulateFromMajor(i, root);
-//        }
+        }
     }
 
 
@@ -1267,8 +1339,6 @@ public final class JMMusicCreator implements JMC {
             int p = rn.nextInt(15);
             int pitch = scaleNotes[p];
 
-//            int d = rn.nextInt(7);
-//            double duration = noteLengths[d];
             if(noteLengthsList.size() == 0){
                 break;
             }
@@ -1387,9 +1457,11 @@ public final class JMMusicCreator implements JMC {
         Note[] melodyArray = new Note[melody.size()];
         melody.toArray(melodyArray);
 
+
         //Add melody array to phrase
         phr2.addNoteList(melodyArray);
         originalPhr2.addNoteList(melodyArray);
+
 
         //Find random note in melody to change
         int i2 = rn.nextInt(melodyArray.length);
@@ -1471,9 +1543,11 @@ public final class JMMusicCreator implements JMC {
         Note[] melodyArray = new Note[melody.size()];
         melody.toArray(melodyArray);
 
+
         //Add melody array to phrase
         phr2.addNoteList(melodyArray);
         originalPhr2.addNoteList(melodyArray);
+
 
         //Find random note in melody to change
         int i2 = rn.nextInt(melodyArray.length);

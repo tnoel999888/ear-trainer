@@ -88,10 +88,12 @@ public class PitchRecognitionController {
     private int questionNumber;
     private int numberOfCorrectAnswers = 0;
 
-    private String correctAnswer = "unison";
+    private String correctAnswer = "a";
     private boolean questionAnswered;
     private Timeline timeline;
     private boolean startClicked = false;
+
+    private Sequencer sequencer;
 
 
     @FXML
@@ -172,6 +174,9 @@ public class PitchRecognitionController {
 
     @FXML
     private void NextQuestionButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException {
+        sequencer.stop();
+        sequencer.close();
+
         if (questionNumber != 10) {
             questionNumber++;
             questionLabel.setText("Question " + Integer.toString(questionNumber));
@@ -420,11 +425,12 @@ public class PitchRecognitionController {
         timeline.play();
     }
 
+
     private void stopTimer() {
-//        gen = false;
         timerLabel.setVisible(false);
         timeline.stop();
     }
+
 
     private Button getCorrectButton(String correctAnswer) {
         switch(correctAnswer){
@@ -460,8 +466,6 @@ public class PitchRecognitionController {
 
     @FXML
     private void generateQuestion() throws IOException, MidiUnavailableException, InvalidMidiDataException {
-        Stage stage = (Stage) stackPane.getScene().getWindow();
-
         musicCreator = new JMMusicCreator(jScore);
 
         if(easyRadioButton.isSelected()){
@@ -483,10 +487,11 @@ public class PitchRecognitionController {
         playSound();
     }
 
+
     private void playSound() throws MidiUnavailableException, IOException, InvalidMidiDataException {
         final String MEDIA_URL = "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Pitch.mid";
 
-        Sequencer sequencer = MidiSystem.getSequencer();
+        sequencer = MidiSystem.getSequencer();
         sequencer.open();
         InputStream is = new BufferedInputStream(new FileInputStream(new File(MEDIA_URL)));
         sequencer.setSequence(is);

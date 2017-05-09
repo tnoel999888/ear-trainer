@@ -23,9 +23,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import jm.gui.cpn.JGrandStave;
-import jm.gui.cpn.PianoStave;
 import jm.music.data.Phrase;
-import jm.util.Write;
 
 import java.awt.*;
 import java.io.*;
@@ -39,7 +37,6 @@ public class SharpFlatRecognitionController {
     public static final int TOTAL_QUESTIONS = 10;
     @FXML private StackPane stackPane;
 
-    @FXML private ToggleGroup radioButtons;
     @FXML private HBox radioButtonsGroup;
     @FXML private RadioButton easyRadioButton;
     @FXML private RadioButton mediumRadioButton;
@@ -78,6 +75,8 @@ public class SharpFlatRecognitionController {
     private Timeline timeline;
     private boolean startClicked = false;
 
+    private Sequencer sequencer;
+
 
     @FXML
     public void initialize() {
@@ -101,10 +100,12 @@ public class SharpFlatRecognitionController {
         difficultyDescriptionLabel.setText("Middle C only. +/- 10-25 Cents");
     }
 
+
     @FXML
     private void mediumRadioButtonSelected(ActionEvent event) throws IOException {
         difficultyDescriptionLabel.setText("White notes only. 1 Octave. +/- 5-10 Cents");
     }
+
 
     @FXML
     private void hardRadioButtonSelected(ActionEvent event) throws IOException {
@@ -137,6 +138,9 @@ public class SharpFlatRecognitionController {
 
     @FXML
     private void NextQuestionButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException {
+        sequencer.stop();
+        sequencer.close();
+
         if (questionNumber != TOTAL_QUESTIONS) {
             questionNumber++;
             questionLabel.setText("Question " + Integer.toString(questionNumber));
@@ -331,7 +335,7 @@ public class SharpFlatRecognitionController {
     private void playSound() throws MidiUnavailableException, IOException, InvalidMidiDataException {
         final String MEDIA_URL = "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/SharpFlat.mid";
 
-        Sequencer sequencer = MidiSystem.getSequencer();
+        sequencer = MidiSystem.getSequencer();
         sequencer.open();
         InputStream is = new BufferedInputStream(new FileInputStream(new File(MEDIA_URL)));
 

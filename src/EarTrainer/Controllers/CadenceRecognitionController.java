@@ -78,6 +78,8 @@ public class CadenceRecognitionController {
     private Timeline timeline;
     private boolean startClicked = false;
 
+    Sequencer sequencer;
+
 
     @FXML
     public void initialize() {
@@ -146,6 +148,9 @@ public class CadenceRecognitionController {
 
     @FXML
     private void NextQuestionButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException {
+        sequencer.stop();
+        sequencer.close();
+
         if (questionNumber != TOTAL_QUESTIONS) {
             questionNumber++;
             questionLabel.setText("Question " + Integer.toString(questionNumber));
@@ -210,6 +215,7 @@ public class CadenceRecognitionController {
         plagalButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
     }
 
+
     @FXML
     private void perfectButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
@@ -217,6 +223,7 @@ public class CadenceRecognitionController {
             checkAnswer("perfect", perfectButton);
         }
     }
+
 
     @FXML
     private void interruptiveButtonClicked(ActionEvent event) throws IOException {
@@ -226,6 +233,7 @@ public class CadenceRecognitionController {
         }
     }
 
+
     @FXML
     private void imperfectButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
@@ -233,6 +241,7 @@ public class CadenceRecognitionController {
             checkAnswer("imperfect", imperfectButton);
         }
     }
+
 
     @FXML
     private void plagalButtonClicked(ActionEvent event) throws IOException {
@@ -243,7 +252,6 @@ public class CadenceRecognitionController {
     }
 
 
-
     @FXML
     private void AnswerButtonClicked() throws IOException {
         questionAnswered = true;
@@ -252,6 +260,7 @@ public class CadenceRecognitionController {
         Phrase phrase = musicCreator.getPhrase();
         setScore(phrase);
     }
+
 
     private void checkAnswer(String answer, Button button) {
         if(answer != correctAnswer){
@@ -267,13 +276,16 @@ public class CadenceRecognitionController {
         }
     }
 
+
     private void makeButtonRed(Button button) {
         button.setStyle("-fx-base: #ffb3b3;");
     }
 
+
     private void makeButtonGreen(Button correctButton) {
         correctButton.setStyle("-fx-base: #adebad;");
     }
+
 
     private void startTimer() {
         Timeline timeline = new Timeline(
@@ -351,10 +363,11 @@ public class CadenceRecognitionController {
         playSound();
     }
 
+
     private void playSound() throws MidiUnavailableException, IOException, InvalidMidiDataException {
         final String MEDIA_URL = "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Cadence.mid";
 
-        Sequencer sequencer = MidiSystem.getSequencer();
+        sequencer = MidiSystem.getSequencer();
         sequencer.open();
         InputStream is = new BufferedInputStream(new FileInputStream(new File(MEDIA_URL)));
         sequencer.setSequence(is);

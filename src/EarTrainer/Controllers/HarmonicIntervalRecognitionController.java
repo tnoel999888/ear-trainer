@@ -38,7 +38,6 @@ public class HarmonicIntervalRecognitionController {
     public static final int TOTAL_QUESTIONS = 10;
     @FXML private StackPane stackPane;
 
-    @FXML private ToggleGroup radioButtons;
     @FXML private HBox radioButtonsGroup;
     @FXML private RadioButton easyRadioButton;
     @FXML private RadioButton mediumRadioButton;
@@ -87,6 +86,9 @@ public class HarmonicIntervalRecognitionController {
     private Timeline timeline;
     private boolean startClicked = false;
 
+    private Sequencer sequencer;
+
+
 
     @FXML
     public void initialize() {
@@ -119,6 +121,7 @@ public class HarmonicIntervalRecognitionController {
         difficultyDescriptionLabel.setText("Middle C as root note. Only Unisons, Thirds, Perfect Fifths and Octaves. Only 1 Octave.");
     }
 
+
     @FXML
     private void mediumRadioButtonSelected(ActionEvent event) throws IOException {
         minorSecondButton.setDisable(false);
@@ -133,6 +136,7 @@ public class HarmonicIntervalRecognitionController {
 
         difficultyDescriptionLabel.setText("Middle C, D, E, F, G, A, B as root notes. Only Unisons, Seconds, Thirds, Perfect Fifths and Octaves. Only 1 Octave.");
     }
+
 
     @FXML
     private void hardRadioButtonSelected(ActionEvent event) throws IOException {
@@ -175,6 +179,9 @@ public class HarmonicIntervalRecognitionController {
 
     @FXML
     private void NextQuestionButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException {
+        sequencer.stop();
+        sequencer.close();
+
         if (questionNumber != TOTAL_QUESTIONS) {
             questionNumber++;
             questionLabel.setText("Question " + Integer.toString(questionNumber));
@@ -193,6 +200,7 @@ public class HarmonicIntervalRecognitionController {
         setScore(phrase);
         generateQuestion();
     }
+
 
     private void loadScore() {
         ColorAdjust adj = new ColorAdjust(0, 0, -0.2, 0);
@@ -232,6 +240,7 @@ public class HarmonicIntervalRecognitionController {
         newStage.show();
     }
 
+
     private void resetButtonColours() {
         unisonButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
         minorSecondButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
@@ -248,6 +257,7 @@ public class HarmonicIntervalRecognitionController {
         majorSeventhButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
     }
 
+
     @FXML
     private void unisonButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
@@ -255,6 +265,7 @@ public class HarmonicIntervalRecognitionController {
             checkAnswer("unison", unisonButton);
         }
     }
+
 
     @FXML
     private void minorSecondButtonClicked(ActionEvent event) throws IOException {
@@ -264,6 +275,7 @@ public class HarmonicIntervalRecognitionController {
         }
     }
 
+
     @FXML
     private void majorSecondButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
@@ -271,6 +283,7 @@ public class HarmonicIntervalRecognitionController {
             checkAnswer("major second", majorSecondButton);
         }
     }
+
 
     @FXML
     private void perfectFourthButtonClicked(ActionEvent event) throws IOException {
@@ -280,6 +293,7 @@ public class HarmonicIntervalRecognitionController {
         }
     }
 
+
     @FXML
     private void tritoneButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
@@ -287,6 +301,7 @@ public class HarmonicIntervalRecognitionController {
             checkAnswer("tritone", tritoneButton);
         }
     }
+
 
     @FXML
     private void minorThirdButtonClicked(ActionEvent event) throws IOException {
@@ -296,6 +311,7 @@ public class HarmonicIntervalRecognitionController {
         }
     }
 
+
     @FXML
     private void majorThirdButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
@@ -303,6 +319,7 @@ public class HarmonicIntervalRecognitionController {
             checkAnswer("major third", majorThirdButton);
         }
     }
+
 
     @FXML
     private void perfectFifthButtonClicked(ActionEvent event) throws IOException {
@@ -312,6 +329,7 @@ public class HarmonicIntervalRecognitionController {
         }
     }
 
+
     @FXML
     private void octaveButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
@@ -319,6 +337,7 @@ public class HarmonicIntervalRecognitionController {
             checkAnswer("octave", octaveButton);
         }
     }
+
 
     @FXML
     private void minorSixthButtonClicked(ActionEvent event) throws IOException {
@@ -328,6 +347,7 @@ public class HarmonicIntervalRecognitionController {
         }
     }
 
+
     @FXML
     private void majorSixthButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
@@ -335,6 +355,7 @@ public class HarmonicIntervalRecognitionController {
             checkAnswer("major sixth", majorSixthButton);
         }
     }
+
 
     @FXML
     private void minorSeventhButtonClicked(ActionEvent event) throws IOException {
@@ -344,6 +365,7 @@ public class HarmonicIntervalRecognitionController {
         }
     }
 
+
     @FXML
     private void majorSeventhButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
@@ -351,6 +373,7 @@ public class HarmonicIntervalRecognitionController {
             checkAnswer("major seventh", majorSeventhButton);
         }
     }
+
 
     @FXML
     private void AnswerButtonClicked() throws IOException {
@@ -360,6 +383,7 @@ public class HarmonicIntervalRecognitionController {
         Phrase phrase = musicCreator.getPhrase();
         setScore(phrase);
     }
+
 
     private void checkAnswer(String answer, Button button) {
         if(answer != correctAnswer){
@@ -375,13 +399,16 @@ public class HarmonicIntervalRecognitionController {
         }
     }
 
+
     private void makeButtonRed(Button button) {
         button.setStyle("-fx-base: #ffb3b3;");
     }
 
+
     private void makeButtonGreen(Button correctButton) {
         correctButton.setStyle("-fx-base: #adebad;");
     }
+
 
     private void startTimer() {
         Timeline timeline = new Timeline(
@@ -456,8 +483,6 @@ public class HarmonicIntervalRecognitionController {
 
     @FXML
     private void generateQuestion() throws IOException, MidiUnavailableException, InvalidMidiDataException {
-        Stage stage = (Stage) stackPane.getScene().getWindow();
-
         musicCreator = new JMMusicCreator(jScore);
 
         if(easyRadioButton.isSelected()){
@@ -479,10 +504,11 @@ public class HarmonicIntervalRecognitionController {
         playSound();
     }
 
+
     private void playSound() throws MidiUnavailableException, IOException, InvalidMidiDataException {
         final String MEDIA_URL = "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/HarmonicInterval.mid";
 
-        Sequencer sequencer = MidiSystem.getSequencer();
+        sequencer = MidiSystem.getSequencer();
         sequencer.open();
         InputStream is = new BufferedInputStream(new FileInputStream(new File(MEDIA_URL)));
         sequencer.setSequence(is);

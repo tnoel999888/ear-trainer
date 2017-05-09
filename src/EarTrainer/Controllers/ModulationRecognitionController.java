@@ -1,7 +1,5 @@
 package EarTrainer.Controllers;
 
-import jm.JMC;
-
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -80,7 +78,9 @@ public class ModulationRecognitionController {
     private Timeline timeline;
     private boolean startClicked = false;
 
-    int[] similarKeys = new int[5];
+    private int[] similarKeys = new int[5];
+
+    private Sequencer sequencer;
 
 
     @FXML
@@ -102,17 +102,19 @@ public class ModulationRecognitionController {
 
     @FXML
     private void easyRadioButtonSelected(ActionEvent event) throws IOException {
-        difficultyDescriptionLabel.setText("");
+        difficultyDescriptionLabel.setText("Identify the final key.");
     }
+
 
     @FXML
     private void mediumRadioButtonSelected(ActionEvent event) throws IOException {
         difficultyDescriptionLabel.setText("");
     }
 
+
     @FXML
     private void hardRadioButtonSelected(ActionEvent event) throws IOException {
-        difficultyDescriptionLabel.setText("");
+        difficultyDescriptionLabel.setText("Identify both the starting key and the final key.");
     }
 
 
@@ -141,6 +143,9 @@ public class ModulationRecognitionController {
 
     @FXML
     private void NextQuestionButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException {
+        sequencer.stop();
+        sequencer.close();
+
         if (questionNumber != TOTAL_QUESTIONS) {
             questionNumber++;
             questionLabel.setText("Question " + Integer.toString(questionNumber));
@@ -380,7 +385,7 @@ public class ModulationRecognitionController {
     private void playSound() throws MidiUnavailableException, IOException, InvalidMidiDataException {
         final String MEDIA_URL = "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Modulation.mid";
 
-        Sequencer sequencer = MidiSystem.getSequencer();
+        sequencer = MidiSystem.getSequencer();
         sequencer.open();
         InputStream is = new BufferedInputStream(new FileInputStream(new File(MEDIA_URL)));
         sequencer.setSequence(is);
