@@ -251,7 +251,7 @@ public class PitchRecognitionController {
     private void cButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
             AnswerButtonClicked();
-            checkAnswer("c", cButton);
+            checkAnswer("C", cButton);
         }
     }
 
@@ -260,7 +260,7 @@ public class PitchRecognitionController {
     private void cSharpButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
             AnswerButtonClicked();
-            checkAnswer("c sharp", cSharpButton);
+            checkAnswer("C#", cSharpButton);
         }
     }
 
@@ -269,7 +269,7 @@ public class PitchRecognitionController {
     private void dButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
             AnswerButtonClicked();
-            checkAnswer("d", dButton);
+            checkAnswer("D", dButton);
         }
     }
 
@@ -278,7 +278,7 @@ public class PitchRecognitionController {
     private void dSharpButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
             AnswerButtonClicked();
-            checkAnswer("d sharp", dSharpButton);
+            checkAnswer("D#", dSharpButton);
         }
     }
 
@@ -287,7 +287,7 @@ public class PitchRecognitionController {
     private void eButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
             AnswerButtonClicked();
-            checkAnswer("e", eButton);
+            checkAnswer("E", eButton);
         }
     }
 
@@ -296,7 +296,7 @@ public class PitchRecognitionController {
     private void fButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
             AnswerButtonClicked();
-            checkAnswer("f", fButton);
+            checkAnswer("F", fButton);
         }
     }
 
@@ -305,7 +305,7 @@ public class PitchRecognitionController {
     private void fSharpButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
             AnswerButtonClicked();
-            checkAnswer("f sharp", fSharpButton);
+            checkAnswer("F#", fSharpButton);
         }
     }
 
@@ -314,7 +314,7 @@ public class PitchRecognitionController {
     private void gButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
             AnswerButtonClicked();
-            checkAnswer("g", gButton);
+            checkAnswer("G", gButton);
         }
     }
 
@@ -323,7 +323,7 @@ public class PitchRecognitionController {
     private void gSharpButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
             AnswerButtonClicked();
-            checkAnswer("g sharp", gSharpButton);
+            checkAnswer("G#", gSharpButton);
         }
     }
 
@@ -332,7 +332,7 @@ public class PitchRecognitionController {
     private void aButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
             AnswerButtonClicked();
-            checkAnswer("a", aButton);
+            checkAnswer("A", aButton);
         }
     }
 
@@ -341,7 +341,7 @@ public class PitchRecognitionController {
     private void aSharpButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
             AnswerButtonClicked();
-            checkAnswer("a sharp", aSharpButton);
+            checkAnswer("A#", aSharpButton);
         }
     }
 
@@ -350,7 +350,7 @@ public class PitchRecognitionController {
     private void bButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
             AnswerButtonClicked();
-            checkAnswer("b", bButton);
+            checkAnswer("B", bButton);
         }
     }
 

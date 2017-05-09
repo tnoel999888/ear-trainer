@@ -105,13 +105,13 @@ public class WrongNoteIdentificationController {
 
     @FXML
     private void mediumRadioButtonSelected(ActionEvent event) throws IOException {
-        difficultyDescriptionLabel.setText("Identify the note on the stave that does not correspond to the respective note that was played. Drag the note to match the note that was played. The note will be off by up to 3 semitones.");
+        difficultyDescriptionLabel.setText("Identify the note on the stave that does not correspond to the respective note that was played. Drag the note to match the note that was played. +/- 3 semitones.");
     }
 
 
     @FXML
     private void hardRadioButtonSelected(ActionEvent event) throws IOException {
-        difficultyDescriptionLabel.setText("Identify the note on the stave that does not correspond to the respective note that was played. Drag the note to match the note that was played. The note will be off by 1 semitone.");
+        difficultyDescriptionLabel.setText("Identify the note on the stave that does not correspond to the respective note that was played. Drag the note to match the note that was played. +/- 1 semitone.");
         playChangedButton.setDisable(true);
     }
 
@@ -244,29 +244,53 @@ public class WrongNoteIdentificationController {
             System.out.println("");
         }
 
-        for(int i = 0; i < theirMelodyAnswer.length; i++){
-            if(i != indexOfChangedNote) {
-                if (theirMelodyAnswer[i].getPitch() != correctMelody[i].getPitch()) {
-                    makeButtonRed(submitButton);
-                    correctIncorrectText.setTextFill(Color.web("#da4343"));
-                    correctIncorrectText.setText("Incorrect. The wrong note was at position " + indexOfChangedNote+1 + ". Here's an example of a correct answer.");
-                    break;
-                }
-            } else {
-                if(contains(musicCreator.getScaleNotes(), theirMelodyAnswer[i].getPitch())){
-                    makeButtonGreen(submitButton);
-                    numberOfCorrectAnswers++;
-                    correctIncorrectText.setTextFill(Color.web("#3abf4c"));
-                    correctIncorrectText.setText("Correct!");
+        if(easyRadioButton.isSelected()) {
+            for (int i = 0; i < theirMelodyAnswer.length; i++) {
+                if (i != indexOfChangedNote) {
+                    if (theirMelodyAnswer[i].getPitch() != correctMelody[i].getPitch()) {
+                        makeButtonRed(submitButton);
+                        correctIncorrectText.setTextFill(Color.web("#da4343"));
+                        correctIncorrectText.setText("Incorrect. The wrong note was at position " + indexOfChangedNote + 1 + ". Here's an example of a correct answer.");
+                        break;
+                    }
                 } else {
-                    makeButtonRed(submitButton);
-                    correctIncorrectText.setTextFill(Color.web("#da4343"));
-                    correctIncorrectText.setText("Incorrect. You identified the correct note, but you did not put it in key! Here's an example of a correct answer.");
-                    break;
+                    if (contains(musicCreator.getScaleNotes(), theirMelodyAnswer[i].getPitch())) {
+                        makeButtonGreen(submitButton);
+                        numberOfCorrectAnswers++;
+                        correctIncorrectText.setTextFill(Color.web("#3abf4c"));
+                        correctIncorrectText.setText("Correct!");
+                    } else {
+                        makeButtonRed(submitButton);
+                        correctIncorrectText.setTextFill(Color.web("#da4343"));
+                        correctIncorrectText.setText("Incorrect. You identified the correct note, but you did not put it in key! Here's an example of a correct answer.");
+                        break;
+                    }
+                }
+            }
+        } else if((mediumRadioButton.isSelected()) || (hardRadioButton.isSelected())) {
+            for (int i = 0; i < theirMelodyAnswer.length; i++) {
+                if (i != indexOfChangedNote) {
+                    if (theirMelodyAnswer[i].getPitch() != correctMelody[i].getPitch()) {
+                        makeButtonRed(submitButton);
+                        correctIncorrectText.setTextFill(Color.web("#da4343"));
+                        correctIncorrectText.setText("Incorrect. The wrong note was at position " + indexOfChangedNote + 1 + ". Here's an example of a correct answer.");
+                        break;
+                    }
+                } else {
+                    if (theirMelodyAnswer[i].getPitch() == correctMelody[i].getPitch()) {
+                        makeButtonGreen(submitButton);
+                        numberOfCorrectAnswers++;
+                        correctIncorrectText.setTextFill(Color.web("#3abf4c"));
+                        correctIncorrectText.setText("Correct!");
+                    } else {
+                        makeButtonRed(submitButton);
+                        correctIncorrectText.setTextFill(Color.web("#da4343"));
+                        correctIncorrectText.setText("Incorrect. You identified the correct note, but you did not move it to the correct position.");
+                        break;
+                    }
                 }
             }
         }
-
 
         if(questionNumber == 10){
             nextQuestionButton.setText("Score");

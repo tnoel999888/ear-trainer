@@ -353,11 +353,11 @@ public class ModulationRecognitionController {
 
         similarKeys = musicCreator.getSimilarKeys();
 
-        String similarKey0Text = musicCreator.getNote(new Note(similarKeys[0], 1.0)) + " minor";
+        String similarKey0Text = musicCreator.getNote(new Note(similarKeys[0], 1.0)) + "m";
         String similarKey1Text = musicCreator.getNote(new Note(similarKeys[1], 1.0));
-        String similarKey2Text = musicCreator.getNote(new Note(similarKeys[2], 1.0)) + " minor";
+        String similarKey2Text = musicCreator.getNote(new Note(similarKeys[2], 1.0)) + "m";
         String similarKey3Text = musicCreator.getNote(new Note(similarKeys[3], 1.0));
-        String similarKey4Text = musicCreator.getNote(new Note(similarKeys[4], 1.0)) + " minor";
+        String similarKey4Text = musicCreator.getNote(new Note(similarKeys[4], 1.0)) + "m";
 
         similarKey0Button.setText(similarKey0Text);
         similarKey1Button.setText(similarKey1Text);

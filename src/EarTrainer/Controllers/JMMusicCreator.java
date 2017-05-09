@@ -195,62 +195,62 @@ public final class JMMusicCreator implements JMC {
             case C3:
             case C5:
             case C4:
-                return "c";
+                return "C";
 
             case CS3:
             case CS5:
             case CS4:
-                return "c sharp";
+                return "C#";
 
             case D3:
             case D5:
             case D4:
-                return "d";
+                return "D";
 
             case DS3:
             case DS5:
             case DS4:
-                return "d sharp";
+                return "D#";
 
             case E3:
             case E5:
             case E4:
-                return "e";
+                return "E";
 
             case F3:
             case F5:
             case F4:
-                return "f";
+                return "F";
 
             case FS3:
             case FS5:
             case FS4:
-                return "f sharp";
+                return "F#";
 
             case G3:
             case G5:
             case G4:
-                return "g";
+                return "G";
 
             case GS3:
             case GS5:
             case GS4:
-                return "g sharp";
+                return "G#";
 
             case A3:
             case A5:
             case A4:
-                return "a";
+                return "A";
 
             case AS3:
             case AS5:
             case AS4:
-                return "a sharp";
+                return "A#";
 
             case B3:
             case B5:
             case B4:
-                return "b";
+                return "B";
 
             default:
                 return "";
@@ -286,7 +286,14 @@ public final class JMMusicCreator implements JMC {
 
 
 
-
+//****************************************************************************
+//   __  __      _           _ _        _____       _                       _
+//  |  \/  |    | |         | (_)      |_   _|     | |                     | |
+//  | \  / | ___| | ___   __| |_  ___    | |  _ __ | |_ ___ _ ____   ____ _| |
+//  | |\/| |/ _ \ |/ _ \ / _` | |/ __|   | | | '_ \| __/ _ \ '__\ \ / / _` | |
+//  | |  | |  __/ | (_) | (_| | | (__   _| |_| | | | ||  __/ |   \ V / (_| | |
+//  |_|  |_|\___|_|\___/ \__,_|_|\___| |_____|_| |_|\__\___|_|    \_/ \__,_|_|
+// ****************************************************************************
 
     public String makeMIDIEasyMelodic() {
         Note n1 = new Note(C4, C);
@@ -397,8 +404,14 @@ public final class JMMusicCreator implements JMC {
 
 
 
-
-
+//******************************************************************************************
+//   _    _                                  _        _____       _                       _
+//  | |  | |                                (_)      |_   _|     | |                     | |
+//  | |__| | __ _ _ __ _ __ ___   ___  _ __  _  ___    | |  _ __ | |_ ___ _ ____   ____ _| |
+//  |  __  |/ _` | '__| '_ ` _ \ / _ \| '_ \| |/ __|   | | | '_ \| __/ _ \ '__\ \ / / _` | |
+//  | |  | | (_| | |  | | | | | | (_) | | | | | (__   _| |_| | | | ||  __/ |   \ V / (_| | |
+//  |_|  |_|\__,_|_|  |_| |_| |_|\___/|_| |_|_|\___| |_____|_| |_|\__\___|_|    \_/ \__,_|_|
+//******************************************************************************************
 
     public String makeMIDIEasyHarmonic() {
         Note n1 = new Note(C4, C);
@@ -510,7 +523,14 @@ public final class JMMusicCreator implements JMC {
 
 
 
-
+//************************************
+//   _____    _   _            _
+//  |  __ \  (_) | |          | |
+//  | |__) |  _  | |_    ___  | |__
+//  |  ___/  | | | __|  / __| | '_ \
+//  | |      | | | |_  | (__  | | | |
+//  |_|      |_|  \__|  \___| |_| |_|
+//************************************
 
     public String makeMIDIEasyPitch() {
         Random rn = new Random();
@@ -587,7 +607,16 @@ public final class JMMusicCreator implements JMC {
 
 
 
-
+//********************************************************
+//   _____ _                         ________ _       _
+//  / ____| |                       / /  ____| |     | |
+// | (___ | |__   __ _ _ __ _ __   / /| |__  | | __ _| |_
+//  \___ \| '_ \ / _` | '__| '_ \ / / |  __| | |/ _` | __|
+//  ____) | | | | (_| | |  | |_) / /  | |    | | (_| | |_
+// |_____/|_| |_|\__,_|_|  | .__/_/   |_|    |_|\__,_|\__|
+//                         | |
+//                         |_|
+//********************************************************
 
     public String makeMIDIEasySharpFlat() {
         Random rn = new Random();
@@ -684,8 +713,14 @@ public final class JMMusicCreator implements JMC {
 
 
 
-
-
+//*****************************************
+//   _____          _
+//  / ____|        | |
+// | |     __ _  __| | ___ _ __   ___ ___
+// | |    / _` |/ _` |/ _ \ '_ \ / __/ _ \
+// | |___| (_| | (_| |  __/ | | | (_|  __/
+//  \_____\__,_|\__,_|\___|_| |_|\___\___|
+//*****************************************
 
     public int sharpen(int note) {
         for (int i = 0; i < notes.length; i++) {
@@ -998,8 +1033,14 @@ public final class JMMusicCreator implements JMC {
 
 
 
-
-
+//*****************************************************
+//  __  __           _       _       _   _
+// |  \/  |         | |     | |     | | (_)
+// | \  / | ___   __| |_   _| | __ _| |_ _  ___  _ __
+// | |\/| |/ _ \ / _` | | | | |/ _` | __| |/ _ \| '_ \
+// | |  | | (_) | (_| | |_| | | (_| | |_| | (_) | | | |
+// |_|  |_|\___/ \__,_|\__,_|_|\__,_|\__|_|\___/|_| |_|
+//*****************************************************
 
     public int getRelativeMinor(int note) {
         int relativeMinor = 0;
@@ -1182,8 +1223,16 @@ public final class JMMusicCreator implements JMC {
 
 
 
-
-
+//*********************************************************
+// __          __                      _   _       _
+// \ \        / /                     | \ | |     | |
+//  \ \  /\  / / __ ___  _ __   __ _  |  \| | ___ | |_ ___
+//   \ \/  \/ / '__/ _ \| '_ \ / _` | | . ` |/ _ \| __/ _ \
+//    \  /\  /| | | (_) | | | | (_| | | |\  | (_) | ||  __/
+//     \/  \/ |_|  \___/|_| |_|\__, | |_| \_|\___/ \__\___|
+//                              __/ |
+//                             |___/
+//*********************************************************
 
     public int makeMIDIEasyWrongNote(){
         int i = rn.nextInt(12);
@@ -1287,7 +1336,86 @@ public final class JMMusicCreator implements JMC {
 
 
     public int makeMIDIMediumWrongNote(){
-        return 0;
+        int i = rn.nextInt(12);
+        int rootNote = notes[i];
+
+
+        //Make major or minor scale
+        int minorOrMajor = rn.nextInt(2);
+
+        if(minorOrMajor == 0) {
+            minor = true;
+            makeMinorScale(rootNote);
+        } else {
+            major = true;
+            makeMajorScale(rootNote);
+        }
+
+
+        //Set scale notes
+        if(minor) {
+            scaleNotes = minorScale;
+        } else {
+            scaleNotes = majorScale;
+        }
+
+
+        //Made melody
+        List melody = new LinkedList<Note>();
+        double lengthSoFar = 0.0;
+
+        while(lengthSoFar != 4.0){
+            int p = rn.nextInt(15);
+            int pitch = scaleNotes[p];
+
+            if(noteLengthsList.size() == 0){
+                break;
+            }
+
+            int d = rn.nextInt(noteLengthsList.size());
+            double duration = (double)noteLengthsList.get(d);
+
+
+            if(duration + lengthSoFar <= 4.0){
+                melody.add(new Note(pitch, duration));
+                lengthSoFar += duration;
+            } else {
+                noteLengthsList.remove(d);
+            }
+        }
+
+        Note[] melodyArray = new Note[melody.size()];
+        melody.toArray(melodyArray);
+
+        //Add melody array to phrase
+        phr2.addNoteList(melodyArray);
+        originalPhr2.addNoteList(melodyArray);
+
+        //Find random note in melody to change
+        int i2 = rn.nextInt(melodyArray.length);
+        int i3 = rn.nextInt(2);
+
+        double duration = melodyArray[i2].getDuration();
+        int pitch = melodyArray[i2].getPitch();
+
+        int[] upOrDown = {-3,3};
+        int newPitch = pitch + upOrDown[i3];
+
+        System.out.println("Up or down: " + i3);
+        System.out.println("Wrong note: " + i2);
+
+        melodyArray[i2] = new Note(newPitch, duration);
+        phr1.addNoteList(melodyArray);
+
+        setScoreEditable(phr1);
+
+
+        p.add(phr2);
+        s.addPart(p);
+
+        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/WrongNote.mid");
+
+        return i2;
     }
 
 
@@ -1345,7 +1473,7 @@ public final class JMMusicCreator implements JMC {
 
         //Add melody array to phrase
         phr2.addNoteList(melodyArray);
-
+        originalPhr2.addNoteList(melodyArray);
 
         //Find random note in melody to change
         int i2 = rn.nextInt(melodyArray.length);
@@ -1358,15 +1486,13 @@ public final class JMMusicCreator implements JMC {
         int newPitch = pitch + upOrDown[i3];
 
         System.out.println("Up or down: " + i3);
-
-        melodyArray[i2] = new Note(newPitch, duration);
-
-        phr1.addNoteList(melodyArray);
-
         System.out.println("Wrong note: " + i2);
 
+        melodyArray[i2] = new Note(newPitch, duration);
+        phr1.addNoteList(melodyArray);
 
         setScoreEditable(phr1);
+
 
         p.add(phr2);
         s.addPart(p);
@@ -1375,6 +1501,5 @@ public final class JMMusicCreator implements JMC {
 
         return i2;
     }
-
 
 }
