@@ -34,6 +34,7 @@ public final class JMMusicCreator implements JMC {
     private CPhrase cphr8 = new CPhrase();
 
     private int[] notes = {A4, AS4, B4, C4, CS4, D4, DS4, E4, F4, FS4, G4, GS4, A5, AS5, B5, C5, CS5, D5, DS5, E5, F5, FS5, G5, GS5};
+    private int[] notesOneOctave = {A4, AS4, B4, C4, CS4, D4, DS4, E4, F4, FS4, G4, GS4};
     private int[] circleOfFifthsMajor = {C4, G4, D4, A4, E4, B4, FS4, DF4, AF4, EF4, BF4, F4};
     private int[] circleOfFifthsMinor = {A4, E4, B4, FS4, CS4, GS4, DS4, BF4, F4, C4, G4, D4};
     int[] similarKeys = new int[5];
@@ -43,9 +44,12 @@ public final class JMMusicCreator implements JMC {
     private int[] scaleNotes = new int[15];
 
     private List noteLengthsList = new LinkedList(Arrays.asList(SIXTEENTH_NOTE, DOTTED_SIXTEENTH_NOTE,
-            EIGHTH_NOTE, DOTTED_EIGHTH_NOTE,
-            QUARTER_NOTE, DOTTED_QUARTER_NOTE,
-            HALF_NOTE));
+                                                                EIGHTH_NOTE, DOTTED_EIGHTH_NOTE,
+                                                                QUARTER_NOTE, DOTTED_QUARTER_NOTE,
+                                                                HALF_NOTE));
+
+    private double QUARTER_NOTE_LENGTH_IN_SECONDS = 2.2291157245635986 - 1.0448979139328003;
+
 
     private Note[] theirMelodyAnswer;
 
@@ -1357,6 +1361,7 @@ public final class JMMusicCreator implements JMC {
         Note[] melodyArray = new Note[melody.size()];
         melody.toArray(melodyArray);
 
+
         //Add melody array to phrase
         phr2.addNoteList(melodyArray);
         setScore(phr2);
@@ -1379,6 +1384,7 @@ public final class JMMusicCreator implements JMC {
         double duration = melodyArray[i2].getDuration();
         int pitch = (int)nonScaleNotes.get(i3);
         int originalPitch = melodyArray[i2].getPitch();
+
 
         //Ensure new note is maximum of 3 semitones from original so it's not too obvious
         while(Math.abs(originalPitch - pitch) > 3){
@@ -1576,4 +1582,83 @@ public final class JMMusicCreator implements JMC {
         return i2;
     }
 
+
+
+
+//******************************************************
+// __      __   _            _______
+// \ \    / /  (_)          |__   __|
+//  \ \  / /__  _  ___ ___     | |_   _ _ __   ___ _ __
+//   \ \/ / _ \| |/ __/ _ \    | | | | | '_ \ / _ \ '__|
+//    \  / (_) | | (_|  __/    | | |_| | | | |  __/ |
+//     \/ \___/|_|\___\___|    |_|\__,_|_| |_|\___|_|
+// ******************************************************
+
+    public String makeMIDIEasyVoiceTuner(){
+        return makeMIDIMediumPitch();
+    }
+
+
+    public Note[] makeMIDIMediumVoiceTuner(){
+        int i = rn.nextInt(12);
+        int rootNote = notes[i];
+
+
+        //Make major or minor scale
+        int minorOrMajor = rn.nextInt(2);
+
+        if(minorOrMajor == 0) {
+            minor = true;
+            makeMinorScale(rootNote);
+        } else {
+            major = true;
+            makeMajorScale(rootNote);
+        }
+
+
+        //Set scale notes
+        if(minor) {
+            scaleNotes = minorScale;
+        } else {
+            scaleNotes = majorScale;
+        }
+
+
+        //Make a one octave version of scaleNotes
+        int[] scaleNotesOneOctave =  new int[7];
+        for(int j = 0; j < 7; j++){
+            scaleNotesOneOctave[j] = scaleNotes[j];
+        }
+
+
+        //Make 3 note melody
+        int noteIndex = rn.nextInt(7);
+        int durationIndex = rn.nextInt(7);
+
+        Note n1 = new Note(scaleNotesOneOctave[noteIndex], (double)noteLengthsList.get(durationIndex));
+
+        noteIndex = rn.nextInt(7);
+        durationIndex = rn.nextInt(7);
+
+        Note n2 = new Note(scaleNotesOneOctave[noteIndex], (double)noteLengthsList.get(durationIndex));
+
+        noteIndex = rn.nextInt(7);
+        durationIndex = rn.nextInt(7);
+
+        Note n3 = new Note(scaleNotesOneOctave[noteIndex], (double)noteLengthsList.get(durationIndex));
+
+        Note[] melodyArray = {n1,n2,n3};
+        phr2.addNoteList(melodyArray);
+
+        p.addPhrase(phr2);
+        s.addPart(p);
+
+        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/VoiceTuner.mid");
+        return melodyArray;
+    }
+
+
+    public String makeMIDIHardVoiceTuner(){
+        return "";
+    }
 }

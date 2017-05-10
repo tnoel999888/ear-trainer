@@ -25,12 +25,12 @@ import javafx.scene.effect.GaussianBlur;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import jm.gui.cpn.JGrandStave;
+import jm.music.data.Note;
 import jm.music.data.Phrase;
 
 import java.awt.*;
@@ -39,6 +39,7 @@ import java.beans.PropertyChangeListener;
 import java.io.*;
 import java.util.*;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 import javax.sound.midi.InvalidMidiDataException;
@@ -103,23 +104,29 @@ public class VoiceTunerController implements PitchDetectionHandler {
     private boolean startClicked = false;
     private boolean recording = false;
 
-
     private AudioDispatcher dispatcher;
     private Mixer currentMixer;
+    private double timeStamp;
+    private double firstTimeStamp;
+    private int firstTimeStampCounter = 1;
 
     private PitchProcessor.PitchEstimationAlgorithm algo;
 
     private Sequencer sequencer;
 
     private List pitches;
+    private List times;
     private String[] notes = {"A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"};
+    private Note[] melodyArray;
 
+    private double QUARTER_NOTE_LENGTH_IN_SECONDS = 2.2291157245635986 - 1.0448979139328003;
 
 
 
     @FXML
     public void initialize() {
         pitches = new LinkedList();
+        times = new LinkedList();
 
         for(Mixer.Info info : Shared.getMixerInfo(false, true)){
             List<String> list = Arrays.asList(Shared.toLocalString(info).split(","));
@@ -210,6 +217,7 @@ public class VoiceTunerController implements PitchDetectionHandler {
         timerLabel.setVisible(true);
         radioButtonsGroup.setDisable(true);
         questionLabel.setText("Question 1");
+        recordButton.setDisable(false);
 
         generateQuestion();
     }
@@ -221,6 +229,7 @@ public class VoiceTunerController implements PitchDetectionHandler {
         sequencer.close();
 
         pitches.clear();
+        times.clear();
         recordButton.setText("Record");
         recordButton.setDisable(false);
         questionTimeline.stop();
@@ -233,6 +242,7 @@ public class VoiceTunerController implements PitchDetectionHandler {
             nextQuestionButton.setText("Next Question");
             questionLabel.setVisible(false);
             nextQuestionButton.setDisable(true);
+            recordButton.setDisable(true);
             stopTimer();
             loadScore();
         }
@@ -242,6 +252,7 @@ public class VoiceTunerController implements PitchDetectionHandler {
         resetButtonColours();
 
         setScore(phrase);
+
         generateQuestion();
     }
 
@@ -250,16 +261,26 @@ public class VoiceTunerController implements PitchDetectionHandler {
     private void RecordButtonClicked(ActionEvent event) throws IOException {
         recordButton.setText("Recording");
         recordButton.setDisable(true);
+        double lengthToRecordFor;
+
+        if(easyRadioButton.isSelected()){
+            lengthToRecordFor = 1000;
+        } else {
+            double n1Length = convertNoteDurationToSeconds(melodyArray[0].getRhythmValue());
+            double n2Length = convertNoteDurationToSeconds(melodyArray[1].getRhythmValue());
+            double n3Length = convertNoteDurationToSeconds(melodyArray[2].getRhythmValue());
+            lengthToRecordFor = Math.floor((n1Length + n2Length + n3Length) * 1000);
+        }
 
         questionTimeline = new Timeline(
-                new KeyFrame(Duration.seconds(0),
+                new KeyFrame(Duration.millis(0),
                         new EventHandler<ActionEvent>() {
                             int secs = 0;
                             @Override public void handle(ActionEvent actionEvent) {
-                                if(secs < 1) {
+                                secs++;
+                                if(secs < lengthToRecordFor) {
                                     recording = true;
-                                    secs++;
-                                } else {
+                                } else if (secs == lengthToRecordFor){
                                     recordButton.setText("Recorded");
                                     recording = false;
                                     checkAnswer();
@@ -267,11 +288,30 @@ public class VoiceTunerController implements PitchDetectionHandler {
                             }
                         }
                 ),
-                new KeyFrame(Duration.seconds(1))
+                new KeyFrame(Duration.millis(1))
         );
 
         questionTimeline.setCycleCount(Animation.INDEFINITE);
         questionTimeline.play();
+    }
+
+
+    private double convertNoteDurationToSeconds(double noteDuration){
+        if(noteDuration == 1.0){
+            return QUARTER_NOTE_LENGTH_IN_SECONDS;
+        } else if(noteDuration == 1.5){
+            return QUARTER_NOTE_LENGTH_IN_SECONDS * 1.5;
+        } else if(noteDuration == 2.0){
+            return QUARTER_NOTE_LENGTH_IN_SECONDS * 2;
+        } else if(noteDuration == 0.75){
+            return QUARTER_NOTE_LENGTH_IN_SECONDS * 0.75;
+        } else if(noteDuration == 0.5){
+            return QUARTER_NOTE_LENGTH_IN_SECONDS * 0.5;
+        } else if(noteDuration == 0.375){
+            return QUARTER_NOTE_LENGTH_IN_SECONDS * 0.375;
+        } else {
+            return QUARTER_NOTE_LENGTH_IN_SECONDS * 0.25;
+        }
     }
 
 
@@ -315,32 +355,113 @@ public class VoiceTunerController implements PitchDetectionHandler {
 
 
     private void checkAnswer() {
-        float totalPitch = 0;
+        if(easyRadioButton.isSelected()) {
+            float totalPitch = 0;
 
-        for(int i = 0; i < pitches.size(); i++){
-            totalPitch += (float)pitches.get(i);
-        }
+            for (int i = 0; i < pitches.size(); i++) {
+                totalPitch += (float) pitches.get(i);
+            }
 
-        float avgPitch = totalPitch/pitches.size();
-        int noOfSemitonesFromMiddleA = calculateNoteFromPitch(avgPitch);
-        String note = notes[noOfSemitonesFromMiddleA];
+            float avgPitch = totalPitch / pitches.size();
+            int noOfSemitonesFromMiddleA = calculateNoteFromPitch(avgPitch);
+            String note = notes[noOfSemitonesFromMiddleA];
 
-        if(note.equals(correctAnswer)){
-            makeButtonGreen(recordButton);
-            numberOfCorrectAnswers++;
-            correctIncorrectLabel.setTextFill(Color.web("#3abf4c"));
-            correctIncorrectLabel.setText("Correct!");
+            if (note.equals(correctAnswer)) {
+                makeButtonGreen(recordButton);
+                numberOfCorrectAnswers++;
+                correctIncorrectLabel.setTextFill(Color.web("#3abf4c"));
+                correctIncorrectLabel.setText("Correct!");
+            } else {
+                makeButtonRed(recordButton);
+                correctIncorrectLabel.setTextFill(Color.web("#da4343"));
+                correctIncorrectLabel.setText("Incorrect. You sang on average: " + note);
+            }
         } else {
-            makeButtonRed(recordButton);
-            correctIncorrectLabel.setTextFill(javafx.scene.paint.Color.web("#da4343"));
-            correctIncorrectLabel.setText("Incorrect. You sang on average: " + note);
+            double n1Length = convertNoteDurationToSeconds(melodyArray[0].getRhythmValue());
+            System.out.println(n1Length);
+            double n2Length = convertNoteDurationToSeconds(melodyArray[1].getRhythmValue());
+            System.out.println(n2Length);
+            double n3Length = convertNoteDurationToSeconds(melodyArray[2].getRhythmValue());
+            System.out.println(n3Length);
+            System.out.println("");
+
+            List note1Pitches = new LinkedList();
+            List note2Pitches = new LinkedList();
+            List note3Pitches = new LinkedList();
+
+            for (int i = 0; i < times.size(); i++) {
+                if((double)times.get(i) > firstTimeStamp && (double)times.get(i) < n1Length + firstTimeStamp){
+                    note1Pitches.add(pitches.get(i));
+                } else if((double)times.get(i) >= n1Length + firstTimeStamp && (double)times.get(i) < n1Length + n2Length + firstTimeStamp){
+                    note2Pitches.add(pitches.get(i));
+                } else {
+                    note3Pitches.add(pitches.get(i));
+                }
+            }
+
+            System.out.println("");
+            System.out.println(note1Pitches.size());
+            System.out.println(note2Pitches.size());
+            System.out.println(note3Pitches.size());
+
+            String note1String = musicCreator.getNote(melodyArray[0]);
+            String note2String = musicCreator.getNote(melodyArray[1]);
+            String note3String = musicCreator.getNote(melodyArray[2]);
+
+            String theirNote1 = checkMajority(note1Pitches);
+            String theirNote2 = checkMajority(note2Pitches);
+            String theirNote3 = checkMajority(note3Pitches);
+
+            boolean note1Correct = theirNote1.equals(note1String);
+            boolean note2Correct = theirNote2.equals(note2String);
+            boolean note3Correct = theirNote3.equals(note3String);
+
+            if (note1Correct && note2Correct && note3Correct) {
+                makeButtonGreen(recordButton);
+                numberOfCorrectAnswers++;
+                correctIncorrectLabel.setTextFill(Color.web("#3abf4c"));
+                correctIncorrectLabel.setText("Correct!");
+            } else {
+                makeButtonRed(recordButton);
+                correctIncorrectLabel.setTextFill(Color.web("#da4343"));
+                correctIncorrectLabel.setText("Incorrect. You sang: " + theirNote1 + ", " + theirNote2 + ", " + theirNote3);
+            }
         }
 
         nextQuestionButton.setDisable(false);
 
-        if(questionNumber == 10){
+        if(questionNumber == TOTAL_QUESTIONS){
             nextQuestionButton.setText("Score");
         }
+    }
+
+
+    private String checkMajority(List notePitches) {
+        Map<String, Integer> map = new HashMap<String, Integer>();
+
+        for(int i = 0; i < notePitches.size(); i++) {
+            int noOfSemitonesFromMiddleA = calculateNoteFromPitch((float)notePitches.get(i));
+            String note = notes[noOfSemitonesFromMiddleA];
+
+            if(map.get(note) == null){
+                map.put(note,1);
+            }else{
+                map.put(note, map.get(note) + 1);
+            }
+        }
+
+        int largest = 0;
+        String modeNote = "";
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            String key = entry.getKey();
+            int value = entry.getValue();
+            if( value > largest){
+                largest = value;
+                modeNote = key;
+            }
+        }
+
+        return modeNote;
     }
 
 
@@ -401,14 +522,20 @@ public class VoiceTunerController implements PitchDetectionHandler {
         musicCreator = new JMMusicCreator(jScore);
 
         if(easyRadioButton.isSelected()){
-            correctAnswer = musicCreator.makeMIDIEasyPitch();
+            correctAnswer = musicCreator.makeMIDIEasyVoiceTuner();
         } else if(mediumRadioButton.isSelected()){
-            correctAnswer = musicCreator.makeMIDIMediumPitch();
+            melodyArray = musicCreator.makeMIDIMediumVoiceTuner();
         } else if(hardRadioButton.isSelected()){
-            correctAnswer = musicCreator.makeMIDIHardPitch();
+            correctAnswer = musicCreator.makeMIDIHardVoiceTuner();
         }
 
-        questionNoteLabel.setText("Sing: " + correctAnswer);
+        if(easyRadioButton.isSelected()) {
+            questionNoteLabel.setText("Sing: " + correctAnswer);
+        } else {
+            questionNoteLabel.setText("Sing: " + musicCreator.getNote(melodyArray[0]) +
+                                          ", " + musicCreator.getNote(melodyArray[1]) +
+                                          ", " + musicCreator.getNote(melodyArray[2]));
+        }
 
         playSound();
     }
@@ -421,7 +548,13 @@ public class VoiceTunerController implements PitchDetectionHandler {
 
 
     private void playSound() throws MidiUnavailableException, IOException, InvalidMidiDataException {
-        final String MEDIA_URL = "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Pitch.mid";
+        final String MEDIA_URL;
+
+        if(easyRadioButton.isSelected()){
+            MEDIA_URL = "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Pitch.mid";
+        } else {
+            MEDIA_URL = "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/VoiceTuner.mid";
+        }
 
         sequencer = MidiSystem.getSequencer();
         sequencer.open();
@@ -499,11 +632,17 @@ public class VoiceTunerController implements PitchDetectionHandler {
     @Override
     public void handlePitch(PitchDetectionResult pitchDetectionResult, AudioEvent audioEvent) {
         if (pitchDetectionResult.getPitch() != -1) {
-            //double timeStamp = audioEvent.getTimeStamp();
             float pitch = pitchDetectionResult.getPitch();
 
+            if(recording && firstTimeStampCounter > 0) {
+                firstTimeStamp = audioEvent.getTimeStamp();
+                firstTimeStamp--;
+            }
+
             if(recording) {
+                timeStamp = audioEvent.getTimeStamp();
                 pitches.add(pitch);
+                times.add(timeStamp);
             }
 
             int n2 = calculateNoteFromPitch(pitch);
