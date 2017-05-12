@@ -48,9 +48,6 @@ public final class JMMusicCreator implements JMC {
                                                                 QUARTER_NOTE, DOTTED_QUARTER_NOTE,
                                                                 HALF_NOTE));
 
-    private double QUARTER_NOTE_LENGTH_IN_SECONDS = 2.2291157245635986 - 1.0448979139328003;
-
-
     private Note[] theirMelodyAnswer;
 
     private Note[] scaleChord1 = {};
@@ -70,6 +67,9 @@ public final class JMMusicCreator implements JMC {
 
     private boolean minor = false;
     private boolean major = false;
+
+    private String rootKeyString;
+
 
 
     public JMMusicCreator(JGrandStave score) {
@@ -252,6 +252,24 @@ public final class JMMusicCreator implements JMC {
 
             default:
                 return "";
+        }
+    }
+
+
+    public String getRootKeyString(){
+        if(minor){
+            rootKeyString += "m";
+        }
+
+        return rootKeyString;
+    }
+
+
+    public String getMinorOrMajor(){
+        if(minor){
+            return "Minor";
+        } else {
+            return "Major";
         }
     }
 
@@ -1099,18 +1117,19 @@ public final class JMMusicCreator implements JMC {
     public String modulateFromMajor(int i, int root) {
         Note[][] rootKeyChords = scaleChords;
 
-        int index = (i - 1) % 12;
+        int leftOne = (i - 1) % 12;
+        int rightOne = (i + 1) % 12;
 
-        if (index < 0) {
-            index += 12;
+        if (leftOne < 0) {
+            leftOne += 12;
         }
 
         //Populate similarKeys array
         similarKeys[0] = getRelativeMinor(root);
-        similarKeys[1] = circleOfFifthsMajor[index];
-        similarKeys[2] = getRelativeMinor(circleOfFifthsMajor[index]);
-        similarKeys[3] = circleOfFifthsMajor[(i + 1) % 12];
-        similarKeys[4] = getRelativeMinor(circleOfFifthsMajor[(i + 1) % 12]);
+        similarKeys[1] = circleOfFifthsMajor[leftOne];
+        similarKeys[2] = getRelativeMinor(circleOfFifthsMajor[leftOne]);
+        similarKeys[3] = circleOfFifthsMajor[rightOne];
+        similarKeys[4] = getRelativeMinor(circleOfFifthsMajor[rightOne]);
 
 
         //Add tonic of original key
@@ -1151,7 +1170,7 @@ public final class JMMusicCreator implements JMC {
 
 
         //Add the dominant of the new key
-        cphr4.addChord(scaleChord5);
+        cphr4.addChord(scaleChord5MelodicMinor);
 
 
         //Add the tonic of the new key
@@ -1169,28 +1188,27 @@ public final class JMMusicCreator implements JMC {
         Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Modulation.mid");
 
         if(i3 == 0 || i3 == 2 || i3 == 4){
-            System.out.println(newKeyString + "m");
             return newKeyString + "m";
         } else {
-            System.out.println(newKeyString);
             return newKeyString;
         }
     }
 
 
     public String modulateFromMinor(int i, int root){
-        int index = (i - 1) % 12;
+        int leftOne = (i - 1) % 12;
+        int rightOne = (i + 1) % 12;
 
-        if (index < 0) {
-            index += 12;
+        if (leftOne < 0) {
+            leftOne += 12;
         }
 
         //Populate similarKeys array
         similarKeys[0] = getRelativeMajor(root);
-        similarKeys[1] = circleOfFifthsMinor[index];
-        similarKeys[2] = getRelativeMajor(circleOfFifthsMinor[index]);
-        similarKeys[3] = circleOfFifthsMinor[(i + 1) % 12];
-        similarKeys[4] = getRelativeMajor(circleOfFifthsMinor[(i + 1) % 12]);
+        similarKeys[1] = circleOfFifthsMinor[leftOne];
+        similarKeys[2] = getRelativeMajor(circleOfFifthsMinor[leftOne]);
+        similarKeys[3] = circleOfFifthsMinor[rightOne];
+        similarKeys[4] = getRelativeMajor(circleOfFifthsMinor[rightOne]);
 
 
         //Add tonic of original key
@@ -1211,7 +1229,7 @@ public final class JMMusicCreator implements JMC {
 
 
         //Add V of original key
-        cphr4.addChord(scaleChord5);
+        cphr4.addChord(scaleChord5MelodicMinor);
 
 
         //Add tonic of original key as common key
@@ -1258,10 +1276,8 @@ public final class JMMusicCreator implements JMC {
         Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Modulation.mid");
 
         if(i3 == 1 || i3 == 3){
-            System.out.println(newKeyString + "m");
             return newKeyString + "m";
         } else {
-            System.out.println(newKeyString);
             return newKeyString;
         }
     }
@@ -1269,21 +1285,24 @@ public final class JMMusicCreator implements JMC {
 
     public String makeMIDIEasyModulation(){
         int i = rn.nextInt(12);
-        int root = circleOfFifthsMajor[i];
+        int root;
 
         int minorOrMajor = rn.nextInt(2);
 
         if(minorOrMajor == 0) {
             minor = true;
+            root = circleOfFifthsMinor[i];
             makeMinorScale(root);
-            System.out.println("Minor");
+            rootKeyString = getNote(new Note(root, C));
             return modulateFromMinor(i, root);
         } else {
             major = true;
+            root = circleOfFifthsMajor[i];
             makeMajorScale(root);
-            System.out.println("Major");
+            rootKeyString = getNote(new Note(root, C));
             return modulateFromMajor(i, root);
         }
+
     }
 
 
@@ -1313,6 +1332,7 @@ public final class JMMusicCreator implements JMC {
     public int makeMIDIEasyWrongNote(){
         int i = rn.nextInt(12);
         int rootNote = notes[i];
+        jScore.setKeySignature(rootNote);
 
 
         //Make major or minor scale
@@ -1414,6 +1434,7 @@ public final class JMMusicCreator implements JMC {
     public int makeMIDIMediumWrongNote(){
         int i = rn.nextInt(12);
         int rootNote = notes[i];
+        jScore.setKeySignature(rootNote);
 
 
         //Make major or minor scale
@@ -1500,6 +1521,7 @@ public final class JMMusicCreator implements JMC {
     public int makeMIDIHardWrongNote(){
         int i = rn.nextInt(12);
         int rootNote = notes[i];
+        jScore.setKeySignature(rootNote);
 
 
         //Make major or minor scale

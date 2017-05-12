@@ -43,6 +43,11 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Label>
+            <Label fx:id="rootKeyLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="970.0" layoutY="71.0" visible="false" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font name="Courier New Bold" size="52.0" />
+               </font>
+            </Label>
             <HBox>
                <children>
                   <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />

@@ -48,11 +48,11 @@ public class ModulationRecognitionController {
     @FXML private Button similarKey3Button;
     @FXML private Button similarKey4Button;
 
-
     @FXML private Button correctButton;
 
     @FXML private Label timerLabel;
     @FXML private Label questionLabel;
+    @FXML private Label rootKeyLabel;
     @FXML private Label difficultyDescriptionLabel;
 
     @FXML private Button startButton;
@@ -152,6 +152,7 @@ public class ModulationRecognitionController {
         } else {
             nextQuestionButton.setText("Next Question");
             questionLabel.setVisible(false);
+            rootKeyLabel.setVisible(false);
             nextQuestionButton.setDisable(true);
             stopTimer();
             loadScore();
@@ -356,13 +357,33 @@ public class ModulationRecognitionController {
             correctAnswer = musicCreator.makeMIDIHardModulation();
         }
 
+        rootKeyLabel.setVisible(true);
+        rootKeyLabel.setText("Root key: " + musicCreator.getRootKeyString());
+
+        System.out.println("Old key: " + musicCreator.getRootKeyString());
+        System.out.println("New key: " + correctAnswer);
+
         similarKeys = musicCreator.getSimilarKeys();
 
-        String similarKey0Text = musicCreator.getNote(new Note(similarKeys[0], 1.0)) + "m";
-        String similarKey1Text = musicCreator.getNote(new Note(similarKeys[1], 1.0));
-        String similarKey2Text = musicCreator.getNote(new Note(similarKeys[2], 1.0)) + "m";
-        String similarKey3Text = musicCreator.getNote(new Note(similarKeys[3], 1.0));
-        String similarKey4Text = musicCreator.getNote(new Note(similarKeys[4], 1.0)) + "m";
+        String similarKey0Text;
+        String similarKey1Text;
+        String similarKey2Text;
+        String similarKey3Text;
+        String similarKey4Text;
+
+        if(musicCreator.getMinorOrMajor().equals("Major")) {
+            similarKey0Text = musicCreator.getNote(new Note(similarKeys[0], 1.0)) + "m";
+            similarKey1Text = musicCreator.getNote(new Note(similarKeys[1], 1.0));
+            similarKey2Text = musicCreator.getNote(new Note(similarKeys[2], 1.0)) + "m";
+            similarKey3Text = musicCreator.getNote(new Note(similarKeys[3], 1.0));
+            similarKey4Text = musicCreator.getNote(new Note(similarKeys[4], 1.0)) + "m";
+        } else {
+            similarKey0Text = musicCreator.getNote(new Note(similarKeys[0], 1.0));
+            similarKey1Text = musicCreator.getNote(new Note(similarKeys[1], 1.0)) + "m";
+            similarKey2Text = musicCreator.getNote(new Note(similarKeys[2], 1.0));
+            similarKey3Text = musicCreator.getNote(new Note(similarKeys[3], 1.0)) + "m";
+            similarKey4Text = musicCreator.getNote(new Note(similarKeys[4], 1.0));
+        }
 
         similarKey0Button.setText(similarKey0Text);
         similarKey1Button.setText(similarKey1Text);
