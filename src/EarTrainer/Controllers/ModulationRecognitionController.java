@@ -59,11 +59,18 @@ public class ModulationRecognitionController {
     @FXML private Button nextQuestionButton;
 
     @FXML private Pane scorePane;
+    @FXML private Pane scorePaneLeft;
+    @FXML private Pane scorePaneRight;
 
     @FXML HBox mediaBar;
 
     private JGrandStave jScore = new JGrandStave();
+    private JGrandStave jScoreLeft = new JGrandStave();
+    private JGrandStave jScoreRight = new JGrandStave();
+
     private Phrase phrase = new Phrase();
+    private Phrase phraseLeft = new Phrase();
+    private Phrase phraseRight = new Phrase();
 
     //MediaPlayer mediaPlayer;
     private JMMusicCreator musicCreator;
@@ -86,17 +93,34 @@ public class ModulationRecognitionController {
     @FXML
     public void initialize() {
         Dimension d = new Dimension();
-        d.setSize(600,300);
+        d.setSize(500,300);
+
         jScore.setPreferredSize(d);
         jScore.setMaximumSize(d);
-
         jScore.removeTitle();
         jScore.setEditable(false);
 
+        jScoreLeft.setPreferredSize(d);
+        jScoreLeft.setMaximumSize(d);
+        jScoreLeft.removeTitle();
+        jScoreLeft.setEditable(false);
+
+        jScoreRight.setPreferredSize(d);
+        jScoreRight.setMaximumSize(d);
+        jScoreRight.removeTitle();
+        jScoreRight.setEditable(false);
+
         SwingNode swingNode = new SwingNode();
+        SwingNode swingNodeLeft = new SwingNode();
+        SwingNode swingNodeRight = new SwingNode();
+
         swingNode.setContent(jScore);
+        swingNodeLeft.setContent(jScoreLeft);
+        swingNodeRight.setContent(jScoreRight);
 
         scorePane.getChildren().add(swingNode);
+        scorePaneLeft.getChildren().add(swingNodeLeft);
+        scorePaneRight.getChildren().add(swingNodeRight);
     }
 
 
@@ -162,7 +186,7 @@ public class ModulationRecognitionController {
         nextQuestionButton.setDisable(true);
         resetButtonColours();
 
-        setScore(phrase);
+//        setScore(phrase);
         generateQuestion();
     }
 
@@ -266,7 +290,7 @@ public class ModulationRecognitionController {
         nextQuestionButton.setDisable(false);
 
         Phrase phrase = musicCreator.getPhrase();
-        setScore(phrase);
+//        setScore(phrase);
     }
 
 
@@ -347,7 +371,7 @@ public class ModulationRecognitionController {
 
     @FXML
     private void generateQuestion() throws IOException, MidiUnavailableException, InvalidMidiDataException {
-        musicCreator = new JMMusicCreator(jScore);
+        musicCreator = new JMMusicCreator(jScore, jScoreLeft, jScoreRight);
 
         if(easyRadioButton.isSelected()){
             correctAnswer = musicCreator.makeMIDIEasyModulation();
@@ -414,16 +438,26 @@ public class ModulationRecognitionController {
     }
 
 
-    public void setScore(Phrase phr) {
-        jScore.setPhrase(phr);
+    public void setScore(Phrase phr, String score) {
+        JGrandStave scoreToUse;
+
+        if(score.equals("left")){
+            scoreToUse = jScoreLeft;
+        } else if(score.equals("middle")){
+            scoreToUse = jScore;
+        } else {
+            scoreToUse = jScoreRight;
+        }
+
+        scoreToUse.setPhrase(phr);
 
         Dimension d = new Dimension();
         d.setSize(600,300);
-        jScore.setPreferredSize(d);
-        jScore.setMaximumSize(d);
+        scoreToUse.setPreferredSize(d);
+        scoreToUse.setMaximumSize(d);
 
-        jScore.removeTitle();
-        jScore.setEditable(false);
+        scoreToUse.removeTitle();
+        scoreToUse.setEditable(false);
     }
 }
 

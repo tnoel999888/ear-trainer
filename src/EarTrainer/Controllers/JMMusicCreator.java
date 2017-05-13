@@ -19,10 +19,15 @@ public final class JMMusicCreator implements JMC {
     private Score s = new Score();
     private Part p = new Part(0);
     private JGrandStave jScore = new JGrandStave();
+    private JGrandStave jScoreLeft = new JGrandStave();
+    private JGrandStave jScoreRight = new JGrandStave();
 
     private Phrase phr1 = new Phrase(0.0);
     private Phrase phr2 = new Phrase(0.0);
     private Phrase originalPhr2 = new Phrase( 0.0);
+    private Phrase bottomNotes = new Phrase();
+    private Phrase middleNotes = new Phrase();
+    private Phrase topNotes = new Phrase();
 
     private CPhrase cphr1 = new CPhrase();
     private CPhrase cphr2 = new CPhrase();
@@ -74,6 +79,40 @@ public final class JMMusicCreator implements JMC {
 
     public JMMusicCreator(JGrandStave score) {
         jScore = score;
+
+        jScore.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                theirMelodyAnswer = jScore.getPhrase().getNoteArray();
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+    }
+
+
+    public JMMusicCreator(JGrandStave score, JGrandStave scoreLeft, JGrandStave scoreRight) {
+        jScore = score;
+        jScoreLeft = scoreLeft;
+        jScoreRight = scoreRight;
 
         jScore.addMouseListener(new MouseListener() {
             @Override
@@ -284,6 +323,29 @@ public final class JMMusicCreator implements JMC {
 
         jScore.removeTitle();
         jScore.setEditable(false);
+    }
+
+
+    public void setScoreSpecific(Phrase phr, String score) {
+        JGrandStave scoreToUse;
+
+        if(score.equals("left")){
+            scoreToUse = jScoreLeft;
+        } else if(score.equals("middle")){
+            scoreToUse = jScore;
+        } else {
+            scoreToUse = jScoreRight;
+        }
+
+        scoreToUse.setPhrase(phr);
+
+        Dimension d = new Dimension();
+        d.setSize(600,300);
+        scoreToUse.setPreferredSize(d);
+        scoreToUse.setMaximumSize(d);
+
+        scoreToUse.removeTitle();
+        scoreToUse.setEditable(false);
     }
 
 
@@ -1134,11 +1196,17 @@ public final class JMMusicCreator implements JMC {
 
         //Add tonic of original key
         cphr1.addChord(scaleChord1);
+        bottomNotes.add(scaleChord1[0]);
+        middleNotes.add(scaleChord1[1]);
+        topNotes.add(scaleChord1[2]);
 
 
         //Add random chord of original key
         int i2 = rn.nextInt(7);
         cphr2.addChord(scaleChords[i2]);
+        bottomNotes.add(scaleChords[i2][0]);
+        middleNotes.add(scaleChords[i2][1]);
+        topNotes.add(scaleChords[i2][2]);
 
 
         //Find key to modulate to from similar keys
@@ -1161,20 +1229,41 @@ public final class JMMusicCreator implements JMC {
 
         if (commonChords.contains(rootKeyChords[1])) {
             cphr3.addChord(scaleChord2);
+            bottomNotes.add(scaleChord2[0]);
+            middleNotes.add(scaleChord2[1]);
+            topNotes.add(scaleChord2[2]);
         } else if (commonChords.contains(rootKeyChords[3])) {
             cphr3.addChord(scaleChord4);
+            bottomNotes.add(scaleChord4[0]);
+            middleNotes.add(scaleChord4[1]);
+            topNotes.add(scaleChord4[2]);
         } else {
             int i4 = rn.nextInt(commonChords.size());
-            cphr3.addChord((Note[]) commonChords.get(i4));
+            cphr3.addChord((Note[])commonChords.get(i4));
+            bottomNotes.add(((Note[])commonChords.get(i4))[0]);
+            middleNotes.add(((Note[])commonChords.get(i4))[1]);
+            topNotes.add(((Note[])commonChords.get(i4))[2]);
         }
 
 
         //Add the dominant of the new key
         cphr4.addChord(scaleChord5MelodicMinor);
+        bottomNotes.add(scaleChord5MelodicMinor[0]);
+        middleNotes.add(scaleChord5MelodicMinor[1]);
+        topNotes.add(scaleChord5MelodicMinor[2]);
 
 
         //Add the tonic of the new key
         cphr5.addChord(scaleChord1);
+        bottomNotes.add(scaleChord1[0]);
+        middleNotes.add(scaleChord1[1]);
+        topNotes.add(scaleChord1[2]);
+
+
+        //Set the scores
+        setScoreSpecific(bottomNotes, "left");
+        setScoreSpecific(middleNotes, "middle");
+        setScoreSpecific(topNotes, "right");
 
 
         p.addCPhrase(cphr1);
@@ -1211,33 +1300,56 @@ public final class JMMusicCreator implements JMC {
         similarKeys[4] = getRelativeMajor(circleOfFifthsMinor[rightOne]);
 
 
+
+
         //Add tonic of original key
         cphr1.addChord(scaleChord1);
+        bottomNotes.add(scaleChord1[0]);
+        middleNotes.add(scaleChord1[1]);
+        topNotes.add(scaleChord1[2]);
 
 
         //Add IV or VI of original key
         int i2 = rn.nextInt(2);
         if(i2 == 0){
             cphr2.addChord(scaleChord4);
+            bottomNotes.add(scaleChord4[0]);
+            middleNotes.add(scaleChord4[1]);
+            topNotes.add(scaleChord4[2]);
         } else {
             cphr2.addChord(scaleChord6);
+            bottomNotes.add(scaleChord6[0]);
+            middleNotes.add(scaleChord6[1]);
+            topNotes.add(scaleChord6[2]);
         }
 
 
         //Add II of original key
         cphr3.addChord(scaleChord2);
+        bottomNotes.add(scaleChord2[0]);
+        middleNotes.add(scaleChord2[1]);
+        topNotes.add(scaleChord2[2]);
 
 
         //Add V of original key
         cphr4.addChord(scaleChord5MelodicMinor);
+        bottomNotes.add(scaleChord5MelodicMinor[0]);
+        middleNotes.add(scaleChord5MelodicMinor[1]);
+        topNotes.add(scaleChord5MelodicMinor[2]);
 
 
         //Add tonic of original key as common key
         cphr5.addChord(scaleChord1);
+        bottomNotes.add(scaleChord1[0]);
+        middleNotes.add(scaleChord1[1]);
+        topNotes.add(scaleChord1[2]);
 
 
         //Add tonic of original key as common key
         cphr6.addChord(scaleChord1);
+        bottomNotes.add(scaleChord1[0]);
+        middleNotes.add(scaleChord1[1]);
+        topNotes.add(scaleChord1[2]);
 
 
         //Find key to modulate to from similar keys
@@ -1256,10 +1368,22 @@ public final class JMMusicCreator implements JMC {
 
         //Add the dominant of the new key
         cphr7.addChord(scaleChord5);
+        bottomNotes.add(scaleChord5[0]);
+        middleNotes.add(scaleChord5[1]);
+        topNotes.add(scaleChord5[2]);
 
 
         //Add the tonic of the new key
         cphr8.addChord(scaleChord1);
+        bottomNotes.add(scaleChord1[0]);
+        middleNotes.add(scaleChord1[1]);
+        topNotes.add(scaleChord1[2]);
+
+
+        //Set the scores
+        setScoreSpecific(bottomNotes, "left");
+        setScoreSpecific(middleNotes, "middle");
+        setScoreSpecific(topNotes, "right");
 
 
         p.addCPhrase(cphr1);

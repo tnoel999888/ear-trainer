@@ -48,10 +48,17 @@
                   <Font name="Courier New Bold" size="52.0" />
                </font>
             </Label>
-            <HBox>
+            <GridPane hgap="50.0" HBox.hgrow="ALWAYS">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="10.0" prefWidth="500.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="10.0" prefWidth="500.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="10.0" prefWidth="500.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
                <children>
-                  <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                  <Pane fx:id="scorePane" maxHeight="300.0" maxWidth="600.0" minHeight="300.0" minWidth="600.0" pickOnBounds="false" prefHeight="300.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
+                  <Pane fx:id="scorePane" maxHeight="300.0" maxWidth="475.0" minHeight="300.0" minWidth="475.0" pickOnBounds="false" prefHeight="300.0" prefWidth="475.0" GridPane.columnIndex="1" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
@@ -59,9 +66,16 @@
                         <Insets />
                      </HBox.margin>
                   </Pane>
-                  <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                  <Pane fx:id="scorePaneLeft" maxHeight="300.0" maxWidth="475.0" minHeight="300.0" minWidth="475.0" pickOnBounds="false" prefHeight="300.0" prefWidth="475.0" />
+                  <Pane fx:id="scorePaneRight" maxHeight="300.0" maxWidth="475.0" minHeight="300.0" minWidth="475.0" pickOnBounds="false" prefHeight="300.0" prefWidth="475.0" GridPane.columnIndex="2" />
                </children>
-            </HBox>
+               <HBox.margin>
+                  <Insets left="25.0" right="25.0" />
+               </HBox.margin>
+               <padding>
+                  <Insets left="160.0" />
+               </padding>
+            </GridPane>
             <HBox fx:id="mediaBar" alignment="CENTER" maxHeight="50.0" maxWidth="600.0" prefHeight="50.0" prefWidth="600.0" VBox.vgrow="ALWAYS" />
             <Button fx:id="replayButton" mnemonicParsing="false" onAction="#replayButtonClicked" text="Replay" />
             <VBox maxHeight="70.0" maxWidth="673.0" minHeight="70.0" minWidth="300.0" prefHeight="70.0" prefWidth="673.0" VBox.vgrow="ALWAYS">

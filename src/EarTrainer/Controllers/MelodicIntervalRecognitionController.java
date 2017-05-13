@@ -200,7 +200,7 @@ public class MelodicIntervalRecognitionController {
         nextQuestionButton.setDisable(true);
         resetButtonColours();
 
-        setScore(phrase);
+//        setScore(phrase);
         generateQuestion();
     }
 
