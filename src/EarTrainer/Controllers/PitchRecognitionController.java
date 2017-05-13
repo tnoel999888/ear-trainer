@@ -184,6 +184,7 @@ public class PitchRecognitionController {
             nextQuestionButton.setText("Next Question");
             questionLabel.setVisible(false);
             nextQuestionButton.setDisable(true);
+            startClicked = false;
             stopTimer();
             loadScore();
         }

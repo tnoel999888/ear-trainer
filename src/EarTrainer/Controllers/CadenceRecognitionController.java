@@ -182,6 +182,7 @@ public class CadenceRecognitionController {
             nextQuestionButton.setText("Next Question");
             questionLabel.setVisible(false);
             nextQuestionButton.setDisable(true);
+            startClicked = false;
             stopTimer();
             loadScore();
         }

@@ -39,7 +39,7 @@ public final class JMMusicCreator implements JMC {
     private CPhrase cphr7 = new CPhrase();
     private CPhrase cphr8 = new CPhrase();
 
-    private int[] notes = {A4, AS4, B4, C4, CS4, D4, DS4, E4, F4, FS4, G4, GS4, A5, AS5, B5, C5, CS5, D5, DS5, E5, F5, FS5, G5, GS5};
+    private int[] notes = {A3, AS3, B3, C4, CS4, D4, DS4, E4, F4, FS4, G4, GS4, A4, AS4, B4, C5, CS5, D5, DS5, E5, F5, FS5, G5, GS5};
     private int[] notesOneOctave = {A4, AS4, B4, C4, CS4, D4, DS4, E4, F4, FS4, G4, GS4};
     private int[] circleOfFifthsMajor = {C4, G4, D4, A4, E4, B4, FS4, DF4, AF4, EF4, BF4, F4};
     private int[] circleOfFifthsMinor = {A4, E4, B4, FS4, CS4, GS4, DS4, BF4, F4, C4, G4, D4};
@@ -55,14 +55,14 @@ public final class JMMusicCreator implements JMC {
                                                                 HALF_NOTE));
 
     private Note[] theirMelodyAnswer;
-    private Note[] scaleChord1 = {};
-    private Note[] scaleChord2 = {};
-    private Note[] scaleChord3 = {};
-    private Note[] scaleChord4 = {};
-    private Note[] scaleChord5 = {};
-    private Note[] scaleChord5MelodicMinor = {};
-    private Note[] scaleChord6 = {};
-    private Note[] scaleChord7 = {};
+    private Note[] scaleChord1 = new Note[3];
+    private Note[] scaleChord2 = new Note[3];
+    private Note[] scaleChord3 = new Note[3];
+    private Note[] scaleChord4 = new Note[3];
+    private Note[] scaleChord5 = new Note[3];
+    private Note[] scaleChord5MelodicMinor = new Note[3];
+    private Note[] scaleChord6 = new Note[3];
+    private Note[] scaleChord7 = new Note[3];
     private Note[] bottomNotesArray = new Note[4];
     private Note[] middleNotesArray = new Note[4];
     private Note[] topNotesArray = new Note[4];
@@ -483,6 +483,7 @@ public final class JMMusicCreator implements JMC {
 
 
 
+
 //******************************************************************************************
 //   _    _                                  _        _____       _                       _
 //  | |  | |                                (_)      |_   _|     | |                     | |
@@ -814,7 +815,7 @@ public final class JMMusicCreator implements JMC {
     public void makeChords(int[] scale) {
         scaleChord1 = new Note[]{new Note(scale[0], C), new Note(scale[2], C), new Note(scale[4], C)};
 
-        //If minor, diminished, invert, 3-5-1
+        //If minor, diminished, invert, 3-5-8
         if (minor) {
             scaleChord2 = new Note[]{new Note(scale[3], C), new Note(scale[5], C), new Note(scale[8], C)};
         } else {
@@ -838,27 +839,57 @@ public final class JMMusicCreator implements JMC {
 
     public void makeMinorScale(int root) {
 
+//        for (int i = 0; i < notes.length; i++) {
+//            if (notes[i] == root) {
+//                minorScale[0] = notes[i];
+//                minorScale[1] = notes[(i + 2) % 12];
+//                minorScale[2] = notes[(i + 3) % 12];
+//                minorScale[3] = notes[(i + 5) % 12];
+//                minorScale[4] = notes[(i + 7) % 12];
+//                minorScale[5] = notes[(i + 8) % 12];
+//                minorScale[6] = notes[(i + 10) % 12];
+//                minorScale[7] = notes[(i + 12) % 12];
+//
+//                minorScale[8] = notes[(i + 14) % 12];
+//                minorScale[9] = notes[(i + 15) % 12];
+//                minorScale[10] = notes[(i + 17) % 12];
+//                minorScale[11] = notes[(i + 19) % 12];
+//                minorScale[12] = notes[(i + 20) % 12];
+//                minorScale[13] = notes[(i + 22) % 12];
+//                minorScale[14] = notes[(i + 24) % 12];
+//                break;
+//            }
+//        }
+
         for (int i = 0; i < notes.length; i++) {
             if (notes[i] == root) {
                 minorScale[0] = notes[i];
-                minorScale[1] = notes[(i + 2) % 12];
-                minorScale[2] = notes[(i + 3) % 12];
-                minorScale[3] = notes[(i + 5) % 12];
-                minorScale[4] = notes[(i + 7) % 12];
-                minorScale[5] = notes[(i + 8) % 12];
-                minorScale[6] = notes[(i + 10) % 12];
-                minorScale[7] = notes[(i + 12) % 12];
+                minorScale[1] = notes[(i + 2) % 24];
+                minorScale[2] = notes[(i + 3) % 24];
+                minorScale[3] = notes[(i + 5) % 24];
+                minorScale[4] = notes[(i + 7) % 24];
+                minorScale[5] = notes[(i + 8) % 24];
+                minorScale[6] = notes[(i + 10) % 24];
+                minorScale[7] = notes[(i + 12) % 24];
 
-                minorScale[8] = notes[(i + 14) % 12];
-                minorScale[9] = notes[(i + 15) % 12];
-                minorScale[10] = notes[(i + 17) % 12];
-                minorScale[11] = notes[(i + 19) % 12];
-                minorScale[12] = notes[(i + 20) % 12];
-                minorScale[13] = notes[(i + 22) % 12];
-                minorScale[14] = notes[(i + 24) % 12];
+                minorScale[8] = notes[(i + 14) % 24];
+                minorScale[9] = notes[(i + 15) % 24];
+                minorScale[10] = notes[(i + 17) % 24];
+                minorScale[11] = notes[(i + 19) % 24];
+                minorScale[12] = notes[(i + 20) % 24];
+                minorScale[13] = notes[(i + 22) % 24];
+                minorScale[14] = notes[(i + 24) % 24];
                 break;
             }
         }
+
+        System.out.println("");
+
+        for(int note: minorScale){
+            System.out.println(note);
+        }
+
+        System.out.println("");
 
         makeChords(minorScale);
 
@@ -869,26 +900,55 @@ public final class JMMusicCreator implements JMC {
 
     public void makeMajorScale(int root) {
 
+//        for (int i = 0; i < notes.length; i++) {
+//            if (notes[i] == root) {
+//                majorScale[0] = notes[i];
+//                majorScale[1] = notes[(i + 2) % 12];
+//                majorScale[2] = notes[(i + 4) % 12];
+//                majorScale[3] = notes[(i + 5) % 12];
+//                majorScale[4] = notes[(i + 7) % 12];
+//                majorScale[5] = notes[(i + 9) % 12];
+//                majorScale[6] = notes[(i + 11) % 12];
+//                majorScale[7] = notes[(i + 12) % 12];
+//
+//                majorScale[8] = notes[(i + 14) % 12];
+//                majorScale[9] = notes[(i + 16) % 12];
+//                majorScale[10] = notes[(i + 17) % 12];
+//                majorScale[11] = notes[(i + 19) % 12];
+//                majorScale[12] = notes[(i + 21) % 12];
+//                majorScale[13] = notes[(i + 23) % 12];
+//                majorScale[14] = notes[(i + 24) % 12];
+//            }
+//        }
+
         for (int i = 0; i < notes.length; i++) {
             if (notes[i] == root) {
                 majorScale[0] = notes[i];
-                majorScale[1] = notes[(i + 2) % 12];
-                majorScale[2] = notes[(i + 4) % 12];
-                majorScale[3] = notes[(i + 5) % 12];
-                majorScale[4] = notes[(i + 7) % 12];
-                majorScale[5] = notes[(i + 9) % 12];
-                majorScale[6] = notes[(i + 11) % 12];
-                majorScale[7] = notes[(i + 12) % 12];
+                majorScale[1] = notes[(i + 2) % 24];
+                majorScale[2] = notes[(i + 4) % 24];
+                majorScale[3] = notes[(i + 5) % 24];
+                majorScale[4] = notes[(i + 7) % 24];
+                majorScale[5] = notes[(i + 9) % 24];
+                majorScale[6] = notes[(i + 11) % 24];
+                majorScale[7] = notes[(i + 12) % 24];
 
-                majorScale[8] = notes[(i + 14) % 12];
-                majorScale[9] = notes[(i + 16) % 12];
-                majorScale[10] = notes[(i + 17) % 12];
-                majorScale[11] = notes[(i + 19) % 12];
-                majorScale[12] = notes[(i + 21) % 12];
-                majorScale[13] = notes[(i + 23) % 12];
-                majorScale[14] = notes[(i + 24) % 12];
+                majorScale[8] = notes[(i + 14) % 24];
+                majorScale[9] = notes[(i + 16) % 24];
+                majorScale[10] = notes[(i + 17) % 24];
+                majorScale[11] = notes[(i + 19) % 24];
+                majorScale[12] = notes[(i + 21) % 24];
+                majorScale[13] = notes[(i + 23) % 24];
+                majorScale[14] = notes[(i + 24) % 24];
             }
         }
+
+        System.out.println("");
+
+        for(int note: majorScale){
+            System.out.println(note);
+        }
+
+        System.out.println("");
 
         makeChords(majorScale);
 
@@ -905,9 +965,11 @@ public final class JMMusicCreator implements JMC {
         if (minorOrMajor == 0) {
             minor = true;
             makeMinorScale(rootNote);
+            System.out.println("minor");
         } else {
             major = true;
             makeMajorScale(rootNote);
+            System.out.println("major");
         }
 
 
@@ -916,6 +978,7 @@ public final class JMMusicCreator implements JMC {
         bottomNotesArray[0] = scaleChord1[0];
         middleNotesArray[0] = scaleChord1[1];
         topNotesArray[0] = scaleChord1[2];
+        System.out.println("1");
 
 
         //2nd Chord. Add II or IV chord
@@ -925,15 +988,23 @@ public final class JMMusicCreator implements JMC {
             bottomNotesArray[1] = scaleChord2[0];
             middleNotesArray[1] = scaleChord2[1];
             topNotesArray[1] = scaleChord2[2];
+            System.out.println("2");
         } else {
             cphr2.addChord(scaleChord4);
             bottomNotesArray[1] = scaleChord4[0];
             middleNotesArray[1] = scaleChord4[1];
             topNotesArray[1] = scaleChord4[2];
+            System.out.println("4");
         }
 
 
+        //4th Chord. Add I or VI chord
         int i4 = rn.nextInt(2);
+        cphr4.addChord(scaleChords1And6[i4]);
+        bottomNotesArray[3] = scaleChords1And6[i4][0];
+        middleNotesArray[3] = scaleChords1And6[i4][1];
+        topNotesArray[3] = scaleChords1And6[i4][2];
+
 
 
         //3rd Chord. Add V major chord if into tonic, else V minor chord
@@ -942,19 +1013,21 @@ public final class JMMusicCreator implements JMC {
             bottomNotesArray[2] = scaleChord5MelodicMinor[0];
             middleNotesArray[2] = scaleChord5MelodicMinor[1];
             topNotesArray[2] = scaleChord5MelodicMinor[2];
+            System.out.println("5 major");
         } else {
             cphr3.addChord(scaleChord5);
             bottomNotesArray[2] = scaleChord5[0];
             middleNotesArray[2] = scaleChord5[1];
             topNotesArray[2] = scaleChord5[2];
+            System.out.println("5");
         }
 
 
-        //4th Chord. Add I or VI chord
-        cphr4.addChord(scaleChords1And6[i4]);
-        bottomNotesArray[3] = scaleChords1And6[i4][0];
-        middleNotesArray[3] = scaleChords1And6[i4][1];
-        topNotesArray[3] = scaleChords1And6[i4][2];
+        if(i4 == 0) {
+            System.out.println("1");
+        } else {
+            System.out.println("6");
+        }
 
 
         //Add note arrays to the phrases

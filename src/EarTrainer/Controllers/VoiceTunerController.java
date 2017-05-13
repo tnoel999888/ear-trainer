@@ -242,6 +242,7 @@ public class VoiceTunerController implements PitchDetectionHandler {
             nextQuestionButton.setText("Next Question");
             questionLabel.setVisible(false);
             nextQuestionButton.setDisable(true);
+            startClicked = false;
             recordButton.setDisable(true);
             stopTimer();
             loadScore();

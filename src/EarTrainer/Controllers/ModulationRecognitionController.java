@@ -178,6 +178,7 @@ public class ModulationRecognitionController {
             questionLabel.setVisible(false);
             rootKeyLabel.setVisible(false);
             nextQuestionButton.setDisable(true);
+            startClicked = false;
             stopTimer();
             loadScore();
         }
