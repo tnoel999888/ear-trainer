@@ -18,6 +18,7 @@ public final class JMMusicCreator implements JMC {
 
     private Score s = new Score();
     private Part p = new Part(0);
+
     private JGrandStave jScore = new JGrandStave();
     private JGrandStave jScoreLeft = new JGrandStave();
     private JGrandStave jScoreRight = new JGrandStave();
@@ -42,7 +43,7 @@ public final class JMMusicCreator implements JMC {
     private int[] notesOneOctave = {A4, AS4, B4, C4, CS4, D4, DS4, E4, F4, FS4, G4, GS4};
     private int[] circleOfFifthsMajor = {C4, G4, D4, A4, E4, B4, FS4, DF4, AF4, EF4, BF4, F4};
     private int[] circleOfFifthsMinor = {A4, E4, B4, FS4, CS4, GS4, DS4, BF4, F4, C4, G4, D4};
-    int[] similarKeys = new int[5];
+    private int[] similarKeys = new int[5];
 
     private int[] minorScale = new int[15];
     private int[] majorScale = new int[15];
@@ -54,7 +55,6 @@ public final class JMMusicCreator implements JMC {
                                                                 HALF_NOTE));
 
     private Note[] theirMelodyAnswer;
-
     private Note[] scaleChord1 = {};
     private Note[] scaleChord2 = {};
     private Note[] scaleChord3 = {};
@@ -63,10 +63,12 @@ public final class JMMusicCreator implements JMC {
     private Note[] scaleChord5MelodicMinor = {};
     private Note[] scaleChord6 = {};
     private Note[] scaleChord7 = {};
+    private Note[] bottomNotesArray = new Note[4];
+    private Note[] middleNotesArray = new Note[4];
+    private Note[] topNotesArray = new Note[4];
 
     private Note[][] scaleChords = {scaleChord1, scaleChord2, scaleChord3, scaleChord4, scaleChord5, scaleChord6, scaleChord7};
     private Note[][] scaleChords1And6 = {scaleChord1, scaleChord6};
-
     private Note[][] randomAnd5 = {scaleChord1, scaleChord5};
     private Note[][] randomAnd5And4 = {scaleChord1, scaleChord5, scaleChord4};
 
@@ -908,27 +910,64 @@ public final class JMMusicCreator implements JMC {
             makeMajorScale(rootNote);
         }
 
+
         //1st Chord. Add I chord
         cphr1.addChord(scaleChord1);
+        bottomNotesArray[0] = scaleChord1[0];
+        middleNotesArray[0] = scaleChord1[1];
+        topNotesArray[0] = scaleChord1[2];
+
 
         //2nd Chord. Add II or IV chord
         int IIOrIVChord = rn.nextInt(2);
         if (IIOrIVChord == 0) {
             cphr2.addChord(scaleChord2);
+            bottomNotesArray[1] = scaleChord2[0];
+            middleNotesArray[1] = scaleChord2[1];
+            topNotesArray[1] = scaleChord2[2];
         } else {
             cphr2.addChord(scaleChord4);
+            bottomNotesArray[1] = scaleChord4[0];
+            middleNotesArray[1] = scaleChord4[1];
+            topNotesArray[1] = scaleChord4[2];
         }
 
-        //4th Chord. Add I or VI chord
+
         int i4 = rn.nextInt(2);
-        cphr4.addChord(scaleChords1And6[i4]);
+
 
         //3rd Chord. Add V major chord if into tonic, else V minor chord
         if (i4 == 0 && minor) {
             cphr3.addChord(scaleChord5MelodicMinor);
+            bottomNotesArray[2] = scaleChord5MelodicMinor[0];
+            middleNotesArray[2] = scaleChord5MelodicMinor[1];
+            topNotesArray[2] = scaleChord5MelodicMinor[2];
         } else {
             cphr3.addChord(scaleChord5);
+            bottomNotesArray[2] = scaleChord5[0];
+            middleNotesArray[2] = scaleChord5[1];
+            topNotesArray[2] = scaleChord5[2];
         }
+
+
+        //4th Chord. Add I or VI chord
+        cphr4.addChord(scaleChords1And6[i4]);
+        bottomNotesArray[3] = scaleChords1And6[i4][0];
+        middleNotesArray[3] = scaleChords1And6[i4][1];
+        topNotesArray[3] = scaleChords1And6[i4][2];
+
+
+        //Add note arrays to the phrases
+        bottomNotes.addNoteList(bottomNotesArray);
+        middleNotes.addNoteList(middleNotesArray);
+        topNotes.addNoteList(topNotesArray);
+
+
+        //Set the scores
+        setScoreSpecific(bottomNotes, "left");
+        setScoreSpecific(middleNotes, "middle");
+        setScoreSpecific(topNotes, "right");
+
 
         p.addCPhrase(cphr1);
         p.addCPhrase(cphr2);
@@ -966,43 +1005,91 @@ public final class JMMusicCreator implements JMC {
         int i3 = rn.nextInt(7);
         int i4 = rn.nextInt(7);
 
+
         //1st Chord. Add I chord
         cphr1.addChord(scaleChord1);
+        bottomNotesArray[0] = scaleChord1[0];
+        middleNotesArray[0] = scaleChord1[1];
+        topNotesArray[0] = scaleChord1[2];
+
 
         randomAnd5 = new Note[][]{scaleChords[i4], scaleChord5};
         int i5 = rn.nextInt(2);
         int i6 = -1;
 
+
         //4th Chord. Add I, V or VI chord
         if (i5 == 0) {
             cphr4.addChord(scaleChord5);
+            bottomNotesArray[3] = scaleChord5[0];
+            middleNotesArray[3] = scaleChord5[1];
+            topNotesArray[3] = scaleChord5[2];
         } else {
             i6 = rn.nextInt(2);
             cphr4.addChord(scaleChords1And6[i6]);
+            bottomNotesArray[3] = scaleChords1And6[i6][0];
+            middleNotesArray[3] = scaleChords1And6[i6][1];
+            topNotesArray[3] = scaleChords1And6[i6][2];
         }
+
 
         //3rd Chord. Add V or random
         if (i6 == 0 && minor) {
             cphr3.addChord(scaleChord5MelodicMinor);
+            bottomNotesArray[2] = scaleChord5MelodicMinor[0];
+            middleNotesArray[2] = scaleChord5MelodicMinor[1];
+            topNotesArray[2] = scaleChord5MelodicMinor[2];
         } else if (i6 == 0 && major) {
             cphr3.addChord(scaleChord5);
+            bottomNotesArray[2] = scaleChord5[0];
+            middleNotesArray[2] = scaleChord5[1];
+            topNotesArray[2] = scaleChord5[2];
         } else if (i6 == 1) {
             cphr3.addChord(randomAnd5[1]);
+            bottomNotesArray[2] = randomAnd5[1][0];
+            middleNotesArray[2] = randomAnd5[1][1];
+            topNotesArray[2] = randomAnd5[1][2];
         } else {
             cphr3.addChord(randomAnd5[0]);
+            bottomNotesArray[2] = randomAnd5[0][0];
+            middleNotesArray[2] = randomAnd5[0][1];
+            topNotesArray[2] = randomAnd5[0][2];
         }
+
 
         //2nd Chord. Add random chord or II/IV chord if 3rd chord is V
         if (i6 == -1) {
             cphr2.addChord(scaleChords[i3]);
+            bottomNotesArray[1] = scaleChords[i3][0];
+            middleNotesArray[1] = scaleChords[i3][1];
+            topNotesArray[1] = scaleChords[i3][2];
         } else {
             int IIOrIVChord = rn.nextInt(2);
             if (IIOrIVChord == 0) {
                 cphr2.addChord(scaleChord2);
+                bottomNotesArray[1] = scaleChord2[0];
+                middleNotesArray[1] = scaleChord2[1];
+                topNotesArray[1] = scaleChord2[2];
             } else {
                 cphr2.addChord(scaleChord4);
+                bottomNotesArray[1] = scaleChord2[0];
+                middleNotesArray[1] = scaleChord2[1];
+                topNotesArray[1] = scaleChord2[2];
             }
         }
+
+
+        //Add note arrays to the phrases
+        bottomNotes.addNoteList(bottomNotesArray);
+        middleNotes.addNoteList(middleNotesArray);
+        topNotes.addNoteList(topNotesArray);
+
+
+        //Set the scores
+        setScoreSpecific(bottomNotes, "left");
+        setScoreSpecific(middleNotes, "middle");
+        setScoreSpecific(topNotes, "right");
+
 
         p.addCPhrase(cphr1);
         p.addCPhrase(cphr2);
@@ -1042,47 +1129,100 @@ public final class JMMusicCreator implements JMC {
         int i3 = rn.nextInt(7);
         int i4 = rn.nextInt(7);
 
+
         //1st Chord. Add I chord
         cphr1.addChord(scaleChord1);
+        bottomNotesArray[0] = scaleChord1[0];
+        middleNotesArray[0] = scaleChord1[1];
+        topNotesArray[0] = scaleChord1[2];
 
         int i5 = rn.nextInt(3);
         int i6 = -1;
 
+
         //4th Chord. Add I, V or VI chord
         if (i5 == 0) {
             cphr4.addChord(scaleChord5);
+            bottomNotesArray[3] = scaleChord5[0];
+            middleNotesArray[3] = scaleChord5[1];
+            topNotesArray[3] = scaleChord5[2];
         } else if (i5 == 1) {
             i6 = rn.nextInt(2);
             cphr4.addChord(scaleChords1And6[i6]);
+            bottomNotesArray[3] = scaleChords1And6[i6][0];
+            middleNotesArray[3] = scaleChords1And6[i6][1];
+            topNotesArray[3] = scaleChords1And6[i6][2];
         } else {
             cphr4.addChord(scaleChord1);
+            bottomNotesArray[3] = scaleChord1[0];
+            middleNotesArray[3] = scaleChord1[1];
+            topNotesArray[3] = scaleChord1[2];
         }
+
 
         //3rd Chord. Add IV, V or random
         randomAnd5And4 = new Note[][]{scaleChords[i4], scaleChord5, scaleChord4};
         if (i6 == 0 && minor) {
             cphr3.addChord(scaleChord5MelodicMinor);
+            bottomNotesArray[2] = scaleChord5MelodicMinor[0];
+            middleNotesArray[2] = scaleChord5MelodicMinor[1];
+            topNotesArray[2] = scaleChord5MelodicMinor[2];
         } else if (i6 == 0 && major) {
             cphr3.addChord(scaleChord5);
+            bottomNotesArray[2] = scaleChord5[0];
+            middleNotesArray[2] = scaleChord5[1];
+            topNotesArray[2] = scaleChord5[2];
         } else if (i6 == 1) {
             cphr3.addChord(randomAnd5And4[1]);
+            bottomNotesArray[2] = randomAnd5And4[1][0];
+            middleNotesArray[2] = randomAnd5And4[1][1];
+            topNotesArray[2] = randomAnd5And4[1][2];
         } else if (i5 == 0) {
             cphr3.addChord(randomAnd5And4[0]);
+            bottomNotesArray[2] = randomAnd5And4[0][0];
+            middleNotesArray[2] = randomAnd5And4[0][1];
+            topNotesArray[2] = randomAnd5And4[0][2];
         } else {
             cphr3.addChord(randomAnd5And4[2]);
+            bottomNotesArray[2] = randomAnd5And4[2][0];
+            middleNotesArray[2] = randomAnd5And4[2][1];
+            topNotesArray[2] = randomAnd5And4[2][2];
         }
+
 
         //2nd Chord. Add random chord or II/IV chord if 3rd chord is V
         if (i6 == -1) {
             cphr2.addChord(scaleChords[i3]);
+            bottomNotesArray[1] = scaleChords[i3][0];
+            middleNotesArray[1] = scaleChords[i3][1];
+            topNotesArray[1] = scaleChords[i3][2];
         } else {
             int IIOrIVChord = rn.nextInt(2);
             if (IIOrIVChord == 0) {
                 cphr2.addChord(scaleChord2);
+                bottomNotesArray[1] = scaleChord2[0];
+                middleNotesArray[1] = scaleChord2[1];
+                topNotesArray[1] = scaleChord2[2];
             } else {
                 cphr2.addChord(scaleChord4);
+                bottomNotesArray[1] = scaleChord4[0];
+                middleNotesArray[1] = scaleChord4[1];
+                topNotesArray[1] = scaleChord4[2];
             }
         }
+
+
+        //Add note arrays to the phrases
+        bottomNotes.addNoteList(bottomNotesArray);
+        middleNotes.addNoteList(middleNotesArray);
+        topNotes.addNoteList(topNotesArray);
+
+
+        //Set the scores
+        setScoreSpecific(bottomNotes, "left");
+        setScoreSpecific(middleNotes, "middle");
+        setScoreSpecific(topNotes, "right");
+
 
         p.addCPhrase(cphr1);
         p.addCPhrase(cphr2);

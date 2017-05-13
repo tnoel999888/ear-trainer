@@ -59,10 +59,15 @@ public class CadenceRecognitionController {
     @FXML private Button nextQuestionButton;
 
     @FXML private Pane scorePane;
+    @FXML private Pane scorePaneLeft;
+    @FXML private Pane scorePaneRight;
 
     @FXML HBox mediaBar;
 
     private JGrandStave jScore = new JGrandStave();
+    private JGrandStave jScoreLeft = new JGrandStave();
+    private JGrandStave jScoreRight = new JGrandStave();
+
     private Phrase phrase = new Phrase();
 
     //MediaPlayer mediaPlayer;
@@ -78,23 +83,40 @@ public class CadenceRecognitionController {
     private Timeline timeline;
     private boolean startClicked = false;
 
-    Sequencer sequencer;
+    private Sequencer sequencer;
 
 
     @FXML
     public void initialize() {
         Dimension d = new Dimension();
-        d.setSize(600,300);
+        d.setSize(475,300);
+
         jScore.setPreferredSize(d);
         jScore.setMaximumSize(d);
-
         jScore.removeTitle();
         jScore.setEditable(false);
 
+        jScoreLeft.setPreferredSize(d);
+        jScoreLeft.setMaximumSize(d);
+        jScoreLeft.removeTitle();
+        jScoreLeft.setEditable(false);
+
+        jScoreRight.setPreferredSize(d);
+        jScoreRight.setMaximumSize(d);
+        jScoreRight.removeTitle();
+        jScoreRight.setEditable(false);
+
         SwingNode swingNode = new SwingNode();
+        SwingNode swingNodeLeft = new SwingNode();
+        SwingNode swingNodeRight = new SwingNode();
+
         swingNode.setContent(jScore);
+        swingNodeLeft.setContent(jScoreLeft);
+        swingNodeRight.setContent(jScoreRight);
 
         scorePane.getChildren().add(swingNode);
+        scorePaneLeft.getChildren().add(swingNodeLeft);
+        scorePaneRight.getChildren().add(swingNodeRight);
     }
 
 
@@ -106,6 +128,7 @@ public class CadenceRecognitionController {
         difficultyDescriptionLabel.setText("Only Perfect/Authentic and Interruptive/Deceptive Cadences.");
     }
 
+
     @FXML
     private void mediumRadioButtonSelected(ActionEvent event) throws IOException {
         imperfectButton.setDisable(false);
@@ -113,6 +136,7 @@ public class CadenceRecognitionController {
 
         difficultyDescriptionLabel.setText("Perfect/Authentic, Interruptive/Deceptive and Imperfect/Half Cadences.");
     }
+
 
     @FXML
     private void hardRadioButtonSelected(ActionEvent event) throws IOException {
@@ -170,6 +194,7 @@ public class CadenceRecognitionController {
         generateQuestion();
     }
 
+
     private void loadScore() {
         ColorAdjust adj = new ColorAdjust(0, 0, -0.2, 0);
         GaussianBlur blur = new GaussianBlur(10);
@@ -207,6 +232,7 @@ public class CadenceRecognitionController {
         newStage.setScene(scene);
         newStage.show();
     }
+
 
     private void resetButtonColours() {
         perfectButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
@@ -342,7 +368,7 @@ public class CadenceRecognitionController {
 
     @FXML
     private void generateQuestion() throws IOException, MidiUnavailableException, InvalidMidiDataException {
-        musicCreator = new JMMusicCreator(jScore);
+        musicCreator = new JMMusicCreator(jScore, jScoreLeft, jScoreRight);
 
         if(easyRadioButton.isSelected()){
             correctAnswer = musicCreator.makeMIDIEasyCadence();

@@ -93,7 +93,7 @@ public class ModulationRecognitionController {
     @FXML
     public void initialize() {
         Dimension d = new Dimension();
-        d.setSize(500,300);
+        d.setSize(475,300);
 
         jScore.setPreferredSize(d);
         jScore.setMaximumSize(d);
