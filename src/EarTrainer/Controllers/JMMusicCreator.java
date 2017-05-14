@@ -231,7 +231,6 @@ public final class JMMusicCreator implements JMC {
 
 
     public String getNote(Note n2) {
-        System.out.println(n2.getPitch());
         switch (n2.getPitch()) {
             case C3:
             case C4:

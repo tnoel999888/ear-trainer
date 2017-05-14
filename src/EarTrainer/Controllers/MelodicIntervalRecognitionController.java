@@ -188,6 +188,12 @@ public class MelodicIntervalRecognitionController {
         if (questionNumber != TOTAL_QUESTIONS) {
             questionNumber++;
             questionLabel.setText("Question " + Integer.toString(questionNumber));
+
+            questionAnswered = false;
+            nextQuestionButton.setDisable(true);
+            resetButtonColours();
+//        setScore(phrase);
+            generateQuestion();
         } else {
             nextQuestionButton.setText("Next Question");
             questionLabel.setVisible(false);
@@ -195,14 +201,13 @@ public class MelodicIntervalRecognitionController {
             startClicked = false;
             stopTimer();
             loadScore();
+
+            questionAnswered = false;
+            nextQuestionButton.setDisable(true);
+            resetButtonColours();
         }
 
-        questionAnswered = false;
-        nextQuestionButton.setDisable(true);
-        resetButtonColours();
 
-//        setScore(phrase);
-        generateQuestion();
     }
 
 
@@ -398,7 +403,7 @@ public class MelodicIntervalRecognitionController {
 
         makeButtonGreen(correctButton);
 
-        if(questionNumber == 10){
+        if(questionNumber == TOTAL_QUESTIONS){
             nextQuestionButton.setText("Score");
         }
     }

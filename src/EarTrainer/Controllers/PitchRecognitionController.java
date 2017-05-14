@@ -177,9 +177,15 @@ public class PitchRecognitionController {
         sequencer.stop();
         sequencer.close();
 
-        if (questionNumber != 10) {
+        if (questionNumber != TOTAL_QUESTIONS) {
             questionNumber++;
             questionLabel.setText("Question " + Integer.toString(questionNumber));
+
+            questionAnswered = false;
+            nextQuestionButton.setDisable(true);
+            resetButtonColours();
+            setScore(phrase);
+            generateQuestion();
         } else {
             nextQuestionButton.setText("Next Question");
             questionLabel.setVisible(false);
@@ -187,14 +193,12 @@ public class PitchRecognitionController {
             startClicked = false;
             stopTimer();
             loadScore();
+
+            questionAnswered = false;
+            nextQuestionButton.setDisable(true);
+            resetButtonColours();
+            setScore(phrase);
         }
-
-        questionAnswered = false;
-        nextQuestionButton.setDisable(true);
-        resetButtonColours();
-
-        setScore(phrase);
-        generateQuestion();
     }
 
 
@@ -380,7 +384,7 @@ public class PitchRecognitionController {
 
         makeButtonGreen(correctButton);
 
-        if(questionNumber == 10){
+        if(questionNumber == TOTAL_QUESTIONS){
             nextQuestionButton.setText("Score");
         }
     }
@@ -435,29 +439,29 @@ public class PitchRecognitionController {
 
     private Button getCorrectButton(String correctAnswer) {
         switch(correctAnswer){
-            case "c":
+            case "C":
                 return cButton;
-            case "c sharp":
+            case "C#":
                 return cSharpButton;
-            case "d":
+            case "D":
                 return dButton;
-            case "d sharp":
+            case "D#":
                 return dSharpButton;
-            case "e":
+            case "E":
                 return eButton;
-            case "f":
+            case "F":
                 return fButton;
-            case "f sharp":
+            case "F#":
                 return fSharpButton;
-            case "g":
+            case "G":
                 return gButton;
-            case "g sharp":
+            case "G#":
                 return gSharpButton;
-            case "a":
+            case "A":
                 return aButton;
-            case "a sharp":
+            case "A#":
                 return aSharpButton;
-            case "b":
+            case "B":
                 return bButton;
             default:
                 return cButton;

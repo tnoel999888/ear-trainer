@@ -238,6 +238,12 @@ public class VoiceTunerController implements PitchDetectionHandler {
         if (questionNumber != TOTAL_QUESTIONS) {
             questionNumber++;
             questionLabel.setText("Question " + Integer.toString(questionNumber));
+
+            questionAnswered = false;
+            nextQuestionButton.setDisable(true);
+            resetButtonColours();
+            setScore(phrase);
+            generateQuestion();
         } else {
             nextQuestionButton.setText("Next Question");
             questionLabel.setVisible(false);
@@ -246,15 +252,12 @@ public class VoiceTunerController implements PitchDetectionHandler {
             recordButton.setDisable(true);
             stopTimer();
             loadScore();
+
+            questionAnswered = false;
+            nextQuestionButton.setDisable(true);
+            resetButtonColours();
+            setScore(phrase);
         }
-
-        questionAnswered = false;
-        nextQuestionButton.setDisable(true);
-        resetButtonColours();
-
-        setScore(phrase);
-
-        generateQuestion();
     }
 
 

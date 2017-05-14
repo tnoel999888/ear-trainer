@@ -179,6 +179,11 @@ public class ModulationRecognitionController {
         if (questionNumber != TOTAL_QUESTIONS) {
             questionNumber++;
             questionLabel.setText("Question " + Integer.toString(questionNumber));
+
+            questionAnswered = false;
+            nextQuestionButton.setDisable(true);
+            resetButtonColours();
+            generateQuestion();
         } else {
             nextQuestionButton.setText("Next Question");
             questionLabel.setVisible(false);
@@ -187,14 +192,15 @@ public class ModulationRecognitionController {
             startClicked = false;
             stopTimer();
             loadScore();
+
+            questionAnswered = false;
+            nextQuestionButton.setDisable(true);
+            resetButtonColours();
         }
 
-        questionAnswered = false;
-        nextQuestionButton.setDisable(true);
-        resetButtonColours();
+
 
 //        setScore(phrase);
-        generateQuestion();
     }
 
 
@@ -220,6 +226,7 @@ public class ModulationRecognitionController {
         controller.setNumberOfCorrectAnswers(numberOfCorrectAnswers);
         controller.setTime(strMins, strSecs);
         controller.setStackPane(stackPane);
+//        controller.setSequencer(sequencer);
 
         if(numberOfCorrectAnswers >= 0 && numberOfCorrectAnswers <= 3){
             controller.setImageToUse("../Images/ScoreRed.png");
@@ -310,7 +317,7 @@ public class ModulationRecognitionController {
 
         makeButtonGreen(correctButton);
 
-        if(questionNumber == 10){
+        if(questionNumber == TOTAL_QUESTIONS){
             nextQuestionButton.setText("Score");
         }
     }
@@ -395,6 +402,10 @@ public class ModulationRecognitionController {
         System.out.println("New key: " + correctAnswer);
 
         similarKeys = musicCreator.getSimilarKeys();
+
+        for(int similarKey: similarKeys){
+            System.out.println(similarKey);
+        }
 
         String similarKey0Text;
         String similarKey1Text;

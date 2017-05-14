@@ -9,6 +9,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+
+import javax.sound.midi.Sequencer;
 import java.io.IOException;
 
 
@@ -24,6 +26,8 @@ public class PopupScoreController {
     @FXML private Label timeLabel;
     @FXML private ImageView scoreImage;
     @FXML private Image image;
+
+    private Sequencer sequencer;
 
     @FXML
     private void OKButtonClicked(ActionEvent event) throws IOException {
@@ -52,5 +56,12 @@ public class PopupScoreController {
     public void setImageToUse(String imageToUse) {
         image = new Image(getClass().getResource(imageToUse).toExternalForm());
         scoreImage.setImage(image);
+    }
+
+    public void setSequencer(Sequencer sequencer) {
+        this.sequencer = sequencer;
+
+        sequencer.stop();
+        sequencer.close();
     }
 }

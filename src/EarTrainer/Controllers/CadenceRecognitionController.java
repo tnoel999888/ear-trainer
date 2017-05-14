@@ -175,6 +175,12 @@ public class CadenceRecognitionController {
         if (questionNumber != TOTAL_QUESTIONS) {
             questionNumber++;
             questionLabel.setText("Question " + Integer.toString(questionNumber));
+
+            questionAnswered = false;
+            nextQuestionButton.setDisable(true);
+            resetButtonColours();
+            setScore(phrase);
+            generateQuestion();
         } else {
             nextQuestionButton.setText("Next Question");
             questionLabel.setVisible(false);
@@ -182,14 +188,12 @@ public class CadenceRecognitionController {
             startClicked = false;
             stopTimer();
             loadScore();
+
+            questionAnswered = false;
+            nextQuestionButton.setDisable(true);
+            resetButtonColours();
+            setScore(phrase);
         }
-
-        questionAnswered = false;
-        nextQuestionButton.setDisable(true);
-        resetButtonColours();
-
-        setScore(phrase);
-        generateQuestion();
     }
 
 
