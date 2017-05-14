@@ -2,12 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="49021a73-ff27-48b5-96a0-9e054912d8d1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Music/Cadence.mid" afterPath="$PROJECT_DIR$/src/EarTrainer/Music/Cadence.mid" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/JMMusicCreator.class" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/JMMusicCreator.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/ModulationRecognitionController$1.class" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/ModulationRecognitionController$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/ModulationRecognitionController.class" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/ModulationRecognitionController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Music/Cadence.mid" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Music/Cadence.mid" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Music/Modulation.mid" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Music/Modulation.mid" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Music/Modulation.mid" afterPath="$PROJECT_DIR$/src/EarTrainer/Music/Modulation.mid" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/CadenceRecognitionController.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/CadenceRecognitionController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Views/CadenceRecognition.fxml" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Views/CadenceRecognition.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Views/ModulationRecognition.fxml" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Views/ModulationRecognition.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/JMMusicCreator.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/JMMusicCreator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Views/CadenceRecognition.fxml" afterPath="$PROJECT_DIR$/src/EarTrainer/Views/CadenceRecognition.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/ModulationRecognitionController.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/ModulationRecognitionController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Views/ModulationRecognition.fxml" afterPath="$PROJECT_DIR$/src/EarTrainer/Views/ModulationRecognition.fxml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -64,8 +70,8 @@
       <file leaf-file-name="ModulationRecognitionController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/ModulationRecognitionController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-657">
-              <caret line="168" column="133" lean-forward="false" selection-start-line="168" selection-start-column="133" selection-end-line="168" selection-end-column="133" />
+            <state relative-caret-position="1935">
+              <caret line="424" column="62" lean-forward="false" selection-start-line="424" selection-start-column="62" selection-end-line="424" selection-end-column="62" />
               <folding>
                 <element signature="method#initialize#0;class#ModulationRecognitionController#0" expanded="false" />
                 <element signature="method#easyRadioButtonSelected#0;class#ModulationRecognitionController#0" expanded="false" />
@@ -97,20 +103,20 @@
       <file leaf-file-name="JMMusicCreator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/JMMusicCreator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3800">
-              <caret line="41" column="177" lean-forward="true" selection-start-line="41" selection-start-column="177" selection-end-line="41" selection-end-column="177" />
+            <state relative-caret-position="-3446">
+              <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#JMMusicCreator#0;class#JMMusicCreator#0" expanded="false" />
-                <element signature="method#mouseClicked#0;class#3392:3943" expanded="false" />
-                <element signature="method#mousePressed#0;class#3392:3943" expanded="false" />
-                <element signature="method#mouseEntered#0;class#3392:3943" expanded="false" />
-                <element signature="method#mouseExited#0;class#3392:3943" expanded="false" />
+                <element signature="method#mouseClicked#0;class#3401:3952" expanded="false" />
+                <element signature="method#mousePressed#0;class#3401:3952" expanded="false" />
+                <element signature="method#mouseEntered#0;class#3401:3952" expanded="false" />
+                <element signature="method#mouseExited#0;class#3401:3952" expanded="false" />
                 <element signature="method#JMMusicCreator#1;class#JMMusicCreator#0" expanded="false" />
-                <element signature="method#mouseClicked#0;class#4175:4726" expanded="false" />
-                <element signature="method#mousePressed#0;class#4175:4726" expanded="false" />
-                <element signature="method#mouseEntered#0;class#4175:4726" expanded="false" />
-                <element signature="method#mouseExited#0;class#4175:4726" expanded="false" />
+                <element signature="method#mouseClicked#0;class#4184:4735" expanded="false" />
+                <element signature="method#mousePressed#0;class#4184:4735" expanded="false" />
+                <element signature="method#mouseEntered#0;class#4184:4735" expanded="false" />
+                <element signature="method#mouseExited#0;class#4184:4735" expanded="false" />
                 <element signature="method#getInterval#0;class#JMMusicCreator#0" expanded="false" />
                 <element signature="method#getNote#0;class#JMMusicCreator#0" expanded="false" />
                 <element signature="method#getRootKeyString#0;class#JMMusicCreator#0" expanded="false" />
@@ -136,6 +142,7 @@
                 <element signature="method#makeMajorScale#0;class#JMMusicCreator#0" expanded="false" />
                 <element signature="method#makeMIDIEasyCadence#0;class#JMMusicCreator#0" expanded="false" />
                 <element signature="method#makeMIDIMediumCadence#0;class#JMMusicCreator#0" expanded="false" />
+                <element signature="method#makeMIDIHardCadence#0;class#JMMusicCreator#0" expanded="false" />
                 <element signature="method#getRelativeMinor#0;class#JMMusicCreator#0" expanded="false" />
                 <element signature="method#getRelativeMajor#0;class#JMMusicCreator#0" expanded="false" />
                 <element signature="method#findCommonChords#0;class#JMMusicCreator#0" expanded="false" />
@@ -238,7 +245,6 @@
         <option value="$PROJECT_DIR$/src/EarTrainer/Views/VoiceTuner.fxml" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Views/ModulationRecognition.fxml" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Views/CadenceRecognition.fxml" />
-        <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/ModulationRecognitionController.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/MelodicIntervalRecognitionController.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/HarmonicIntervalRecognitionController.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/PitchRecognitionController.java" />
@@ -246,6 +252,7 @@
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/VoiceTunerController.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/WrongNoteIdentificationController.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/CadenceRecognitionController.java" />
+        <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/ModulationRecognitionController.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/JMMusicCreator.java" />
       </list>
     </option>
@@ -1232,8 +1239,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/ModulationRecognitionController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-657">
-          <caret line="168" column="133" lean-forward="false" selection-start-line="168" selection-start-column="133" selection-end-line="168" selection-end-column="133" />
+        <state relative-caret-position="1935">
+          <caret line="424" column="62" lean-forward="false" selection-start-line="424" selection-start-column="62" selection-end-line="424" selection-end-column="62" />
           <folding>
             <element signature="method#initialize#0;class#ModulationRecognitionController#0" expanded="false" />
             <element signature="method#easyRadioButtonSelected#0;class#ModulationRecognitionController#0" expanded="false" />
@@ -1263,20 +1270,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/JMMusicCreator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3800">
-          <caret line="41" column="177" lean-forward="true" selection-start-line="41" selection-start-column="177" selection-end-line="41" selection-end-column="177" />
+        <state relative-caret-position="-3446">
+          <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#JMMusicCreator#0;class#JMMusicCreator#0" expanded="false" />
-            <element signature="method#mouseClicked#0;class#3392:3943" expanded="false" />
-            <element signature="method#mousePressed#0;class#3392:3943" expanded="false" />
-            <element signature="method#mouseEntered#0;class#3392:3943" expanded="false" />
-            <element signature="method#mouseExited#0;class#3392:3943" expanded="false" />
+            <element signature="method#mouseClicked#0;class#3401:3952" expanded="false" />
+            <element signature="method#mousePressed#0;class#3401:3952" expanded="false" />
+            <element signature="method#mouseEntered#0;class#3401:3952" expanded="false" />
+            <element signature="method#mouseExited#0;class#3401:3952" expanded="false" />
             <element signature="method#JMMusicCreator#1;class#JMMusicCreator#0" expanded="false" />
-            <element signature="method#mouseClicked#0;class#4175:4726" expanded="false" />
-            <element signature="method#mousePressed#0;class#4175:4726" expanded="false" />
-            <element signature="method#mouseEntered#0;class#4175:4726" expanded="false" />
-            <element signature="method#mouseExited#0;class#4175:4726" expanded="false" />
+            <element signature="method#mouseClicked#0;class#4184:4735" expanded="false" />
+            <element signature="method#mousePressed#0;class#4184:4735" expanded="false" />
+            <element signature="method#mouseEntered#0;class#4184:4735" expanded="false" />
+            <element signature="method#mouseExited#0;class#4184:4735" expanded="false" />
             <element signature="method#getInterval#0;class#JMMusicCreator#0" expanded="false" />
             <element signature="method#getNote#0;class#JMMusicCreator#0" expanded="false" />
             <element signature="method#getRootKeyString#0;class#JMMusicCreator#0" expanded="false" />
@@ -1302,6 +1309,7 @@
             <element signature="method#makeMajorScale#0;class#JMMusicCreator#0" expanded="false" />
             <element signature="method#makeMIDIEasyCadence#0;class#JMMusicCreator#0" expanded="false" />
             <element signature="method#makeMIDIMediumCadence#0;class#JMMusicCreator#0" expanded="false" />
+            <element signature="method#makeMIDIHardCadence#0;class#JMMusicCreator#0" expanded="false" />
             <element signature="method#getRelativeMinor#0;class#JMMusicCreator#0" expanded="false" />
             <element signature="method#getRelativeMajor#0;class#JMMusicCreator#0" expanded="false" />
             <element signature="method#findCommonChords#0;class#JMMusicCreator#0" expanded="false" />

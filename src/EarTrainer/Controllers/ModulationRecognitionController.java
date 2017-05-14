@@ -54,6 +54,12 @@ public class ModulationRecognitionController {
     @FXML private Label questionLabel;
     @FXML private Label rootKeyLabel;
     @FXML private Label difficultyDescriptionLabel;
+    @FXML private Label similarKey0Label;
+    @FXML private Label similarKey1Label;
+    @FXML private Label similarKey2Label;
+    @FXML private Label similarKey3Label;
+    @FXML private Label similarKey4Label;
+
 
     @FXML private Button startButton;
     @FXML private Button nextQuestionButton;
@@ -397,16 +403,26 @@ public class ModulationRecognitionController {
         String similarKey4Text;
 
         if(musicCreator.getMinorOrMajor().equals("Major")) {
+            similarKey0Label.setText("Root Key Relative Minor:");
             similarKey0Text = musicCreator.getNote(new Note(similarKeys[0], 1.0)) + "m";
+            similarKey1Label.setText("Sub Dominant:");
             similarKey1Text = musicCreator.getNote(new Note(similarKeys[1], 1.0));
+            similarKey2Label.setText("Sub Dominant Relative Minor:");
             similarKey2Text = musicCreator.getNote(new Note(similarKeys[2], 1.0)) + "m";
+            similarKey3Label.setText("Dominant:");
             similarKey3Text = musicCreator.getNote(new Note(similarKeys[3], 1.0));
+            similarKey4Label.setText("Dominant Relative Minor:");
             similarKey4Text = musicCreator.getNote(new Note(similarKeys[4], 1.0)) + "m";
         } else {
+            similarKey0Label.setText("Root Key Relative Major:");
             similarKey0Text = musicCreator.getNote(new Note(similarKeys[0], 1.0));
+            similarKey1Label.setText("Sub Dominant:");
             similarKey1Text = musicCreator.getNote(new Note(similarKeys[1], 1.0)) + "m";
+            similarKey2Label.setText("Sub Dominant Relative Major:");
             similarKey2Text = musicCreator.getNote(new Note(similarKeys[2], 1.0));
+            similarKey3Label.setText("Dominant:");
             similarKey3Text = musicCreator.getNote(new Note(similarKeys[3], 1.0)) + "m";
+            similarKey4Label.setText("Dominant Relative Major:");
             similarKey4Text = musicCreator.getNote(new Note(similarKeys[4], 1.0));
         }
 
