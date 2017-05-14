@@ -39,7 +39,8 @@ public final class JMMusicCreator implements JMC {
     private CPhrase cphr7 = new CPhrase();
     private CPhrase cphr8 = new CPhrase();
 
-    private int[] notes = {A3, AS3, B3, C4, CS4, D4, DS4, E4, F4, FS4, G4, GS4, A4, AS4, B4, C5, CS5, D5, DS5, E5, F5, FS5, G5, GS5};
+    private int[] notes = {A3, AS3, B3, C4, CS4, D4, DS4, E4, F4, FS4, G4, GS4, A4, AS4, B4, C5, CS5, D5, DS5, E5, F5, FS5, G5, GS5, A5, AS5, B5, C6, CS6, D6, DS6, E6, F6, FS6};
+    private int SIZE_OF_NOTES_ARRAY = notes.length;
     private int[] notesOneOctave = {A4, AS4, B4, C4, CS4, D4, DS4, E4, F4, FS4, G4, GS4};
     private int[] circleOfFifthsMajor = {C4, G4, D4, A4, E4, B4, FS4, DF4, AF4, EF4, BF4, F4};
     private int[] circleOfFifthsMinor = {A4, E4, B4, FS4, CS4, GS4, DS4, BF4, F4, C4, G4, D4};
@@ -805,7 +806,7 @@ public final class JMMusicCreator implements JMC {
     public int sharpen(int note) {
         for (int i = 0; i < notes.length; i++) {
             if (notes[i] == note) {
-                return notes[(i + 1) % 12];
+                return notes[(i + 1) % SIZE_OF_NOTES_ARRAY];
             }
         }
         return 0;
@@ -864,21 +865,21 @@ public final class JMMusicCreator implements JMC {
         for (int i = 0; i < notes.length; i++) {
             if (notes[i] == root) {
                 minorScale[0] = notes[i];
-                minorScale[1] = notes[(i + 2) % 24];
-                minorScale[2] = notes[(i + 3) % 24];
-                minorScale[3] = notes[(i + 5) % 24];
-                minorScale[4] = notes[(i + 7) % 24];
-                minorScale[5] = notes[(i + 8) % 24];
-                minorScale[6] = notes[(i + 10) % 24];
-                minorScale[7] = notes[(i + 12) % 24];
+                minorScale[1] = notes[(i + 2) % SIZE_OF_NOTES_ARRAY];
+                minorScale[2] = notes[(i + 3) % SIZE_OF_NOTES_ARRAY];
+                minorScale[3] = notes[(i + 5) % SIZE_OF_NOTES_ARRAY];
+                minorScale[4] = notes[(i + 7) % SIZE_OF_NOTES_ARRAY];
+                minorScale[5] = notes[(i + 8) % SIZE_OF_NOTES_ARRAY];
+                minorScale[6] = notes[(i + 10) % SIZE_OF_NOTES_ARRAY];
+                minorScale[7] = notes[(i + 12) % SIZE_OF_NOTES_ARRAY];
 
-                minorScale[8] = notes[(i + 14) % 24];
-                minorScale[9] = notes[(i + 15) % 24];
-                minorScale[10] = notes[(i + 17) % 24];
-                minorScale[11] = notes[(i + 19) % 24];
-                minorScale[12] = notes[(i + 20) % 24];
-                minorScale[13] = notes[(i + 22) % 24];
-                minorScale[14] = notes[(i + 24) % 24];
+                minorScale[8] = notes[(i + 14) % SIZE_OF_NOTES_ARRAY];
+                minorScale[9] = notes[(i + 15) % SIZE_OF_NOTES_ARRAY];
+                minorScale[10] = notes[(i + 17) % SIZE_OF_NOTES_ARRAY];
+                minorScale[11] = notes[(i + 19) % SIZE_OF_NOTES_ARRAY];
+                minorScale[12] = notes[(i + 20) % SIZE_OF_NOTES_ARRAY];
+                minorScale[13] = notes[(i + 22) % SIZE_OF_NOTES_ARRAY];
+                minorScale[14] = notes[(i + 24) % SIZE_OF_NOTES_ARRAY];
                 break;
             }
         }
@@ -924,21 +925,21 @@ public final class JMMusicCreator implements JMC {
         for (int i = 0; i < notes.length; i++) {
             if (notes[i] == root) {
                 majorScale[0] = notes[i];
-                majorScale[1] = notes[(i + 2) % 24];
-                majorScale[2] = notes[(i + 4) % 24];
-                majorScale[3] = notes[(i + 5) % 24];
-                majorScale[4] = notes[(i + 7) % 24];
-                majorScale[5] = notes[(i + 9) % 24];
-                majorScale[6] = notes[(i + 11) % 24];
-                majorScale[7] = notes[(i + 12) % 24];
+                majorScale[1] = notes[(i + 2) % SIZE_OF_NOTES_ARRAY];
+                majorScale[2] = notes[(i + 4) % SIZE_OF_NOTES_ARRAY];
+                majorScale[3] = notes[(i + 5) % SIZE_OF_NOTES_ARRAY];
+                majorScale[4] = notes[(i + 7) % SIZE_OF_NOTES_ARRAY];
+                majorScale[5] = notes[(i + 9) % SIZE_OF_NOTES_ARRAY];
+                majorScale[6] = notes[(i + 11) % SIZE_OF_NOTES_ARRAY];
+                majorScale[7] = notes[(i + 12) % SIZE_OF_NOTES_ARRAY];
 
-                majorScale[8] = notes[(i + 14) % 24];
-                majorScale[9] = notes[(i + 16) % 24];
-                majorScale[10] = notes[(i + 17) % 24];
-                majorScale[11] = notes[(i + 19) % 24];
-                majorScale[12] = notes[(i + 21) % 24];
-                majorScale[13] = notes[(i + 23) % 24];
-                majorScale[14] = notes[(i + 24) % 24];
+                majorScale[8] = notes[(i + 14) % SIZE_OF_NOTES_ARRAY];
+                majorScale[9] = notes[(i + 16) % SIZE_OF_NOTES_ARRAY];
+                majorScale[10] = notes[(i + 17) % SIZE_OF_NOTES_ARRAY];
+                majorScale[11] = notes[(i + 19) % SIZE_OF_NOTES_ARRAY];
+                majorScale[12] = notes[(i + 21) % SIZE_OF_NOTES_ARRAY];
+                majorScale[13] = notes[(i + 23) % SIZE_OF_NOTES_ARRAY];
+                majorScale[14] = notes[(i + 24) % SIZE_OF_NOTES_ARRAY];
             }
         }
 
@@ -1337,7 +1338,7 @@ public final class JMMusicCreator implements JMC {
 
         for (int j = 0; j < 12; j++) {
             if (notes[j] == note) {
-                int index = (j - 3) % 12;
+                int index = (j - 3) % SIZE_OF_NOTES_ARRAY;
 
                 if (index < 0) {
                     index += 12;
@@ -1357,11 +1358,7 @@ public final class JMMusicCreator implements JMC {
 
         for (int j = 0; j < 12; j++) {
             if (notes[j] == note) {
-                int index = (j + 3) % 12;
-
-                if (index < 0) {
-                    index += 12;
-                }
+                int index = (j + 3) % SIZE_OF_NOTES_ARRAY;
 
                 relativeMajor = notes[index];
                 break;
@@ -1407,14 +1404,14 @@ public final class JMMusicCreator implements JMC {
         similarKeys[4] = getRelativeMinor(circleOfFifthsMajor[rightOne]);
 
 
-        //Add tonic of original key
+        //1st Chord. Add tonic of original key
         cphr1.addChord(scaleChord1);
         bottomNotes.add(scaleChord1[0]);
         middleNotes.add(scaleChord1[1]);
         topNotes.add(scaleChord1[2]);
 
 
-        //Add random chord of original key
+        //2nd Chord. Add random chord of original key
         int i2 = rn.nextInt(7);
         cphr2.addChord(scaleChords[i2]);
         bottomNotes.add(scaleChords[i2][0]);
@@ -1436,7 +1433,7 @@ public final class JMMusicCreator implements JMC {
         }
 
 
-        //Add a common chord to begin the modulation
+        //3rd Chord. Add a common chord to begin the modulation
         Note[][] newKeyChords = scaleChords;
         ArrayList commonChords = findCommonChords(rootKeyChords, newKeyChords);
 
@@ -1459,14 +1456,14 @@ public final class JMMusicCreator implements JMC {
         }
 
 
-        //Add the dominant of the new key
+        //4th Chord. Add the dominant of the new key
         cphr4.addChord(scaleChord5MelodicMinor);
         bottomNotes.add(scaleChord5MelodicMinor[0]);
         middleNotes.add(scaleChord5MelodicMinor[1]);
         topNotes.add(scaleChord5MelodicMinor[2]);
 
 
-        //Add the tonic of the new key
+        //5th Chord. Add the tonic of the new key
         cphr5.addChord(scaleChord1);
         bottomNotes.add(scaleChord1[0]);
         middleNotes.add(scaleChord1[1]);
@@ -1513,16 +1510,14 @@ public final class JMMusicCreator implements JMC {
         similarKeys[4] = getRelativeMajor(circleOfFifthsMinor[rightOne]);
 
 
-
-
-        //Add tonic of original key
+        //1st Chord. Add tonic of original key
         cphr1.addChord(scaleChord1);
         bottomNotes.add(scaleChord1[0]);
         middleNotes.add(scaleChord1[1]);
         topNotes.add(scaleChord1[2]);
 
 
-        //Add IV or VI of original key
+        //2nd Chord. Add IV or VI of original key
         int i2 = rn.nextInt(2);
         if(i2 == 0){
             cphr2.addChord(scaleChord4);
@@ -1537,28 +1532,28 @@ public final class JMMusicCreator implements JMC {
         }
 
 
-        //Add II of original key
+        //3rd Chord. Add II of original key
         cphr3.addChord(scaleChord2);
         bottomNotes.add(scaleChord2[0]);
         middleNotes.add(scaleChord2[1]);
         topNotes.add(scaleChord2[2]);
 
 
-        //Add V of original key
+        //4th Chord. Add V of original key
         cphr4.addChord(scaleChord5MelodicMinor);
         bottomNotes.add(scaleChord5MelodicMinor[0]);
         middleNotes.add(scaleChord5MelodicMinor[1]);
         topNotes.add(scaleChord5MelodicMinor[2]);
 
 
-        //Add tonic of original key as common key
+        //5th Chord. Add tonic of original key as common key
         cphr5.addChord(scaleChord1);
         bottomNotes.add(scaleChord1[0]);
         middleNotes.add(scaleChord1[1]);
         topNotes.add(scaleChord1[2]);
 
 
-        //Add tonic of original key as common key
+        //6th Chord. Add tonic of original key as common key
         cphr6.addChord(scaleChord1);
         bottomNotes.add(scaleChord1[0]);
         middleNotes.add(scaleChord1[1]);
@@ -1579,14 +1574,14 @@ public final class JMMusicCreator implements JMC {
         }
 
 
-        //Add the dominant of the new key
+        //7th Chord. Add the dominant of the new key
         cphr7.addChord(scaleChord5);
         bottomNotes.add(scaleChord5[0]);
         middleNotes.add(scaleChord5[1]);
         topNotes.add(scaleChord5[2]);
 
 
-        //Add the tonic of the new key
+        //8th Chord. Add the tonic of the new key
         cphr8.addChord(scaleChord1);
         bottomNotes.add(scaleChord1[0]);
         middleNotes.add(scaleChord1[1]);

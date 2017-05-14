@@ -13,7 +13,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.effect.GaussianBlur;
 import javafx.scene.layout.HBox;
@@ -24,8 +23,6 @@ import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import jm.gui.cpn.JGrandStave;
 import jm.music.data.Phrase;
-import jm.music.data.Score;
-
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.MidiUnavailableException;
