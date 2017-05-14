@@ -329,6 +329,9 @@ public class SharpFlatRecognitionController {
 
     @FXML
     private void replayButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException {
+        sequencer.stop();
+        sequencer.close();
+
         playSound();
     }
 

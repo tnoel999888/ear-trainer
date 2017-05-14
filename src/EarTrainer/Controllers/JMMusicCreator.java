@@ -231,65 +231,78 @@ public final class JMMusicCreator implements JMC {
 
 
     public String getNote(Note n2) {
+        System.out.println(n2.getPitch());
         switch (n2.getPitch()) {
             case C3:
-            case C5:
             case C4:
+            case C5:
+            case C6:
                 return "C";
 
             case CS3:
-            case CS5:
             case CS4:
+            case CS5:
+            case CS6:
                 return "C#";
 
             case D3:
-            case D5:
             case D4:
+            case D5:
+            case D6:
                 return "D";
 
             case DS3:
-            case DS5:
             case DS4:
+            case DS5:
+            case DS6:
                 return "D#";
 
             case E3:
-            case E5:
             case E4:
+            case E5:
+            case E6:
                 return "E";
 
             case F3:
-            case F5:
             case F4:
+            case F5:
+            case F6:
                 return "F";
 
             case FS3:
-            case FS5:
             case FS4:
+            case FS5:
+            case FS6:
                 return "F#";
 
             case G3:
-            case G5:
             case G4:
+            case G5:
+            case G6:
                 return "G";
 
             case GS3:
-            case GS5:
             case GS4:
+            case GS5:
+            case GS6:
                 return "G#";
 
             case A3:
-            case A5:
             case A4:
+            case A5:
+            case A6:
                 return "A";
 
             case AS3:
-            case AS5:
             case AS4:
+            case AS5:
+            case AS6:
                 return "A#";
 
             case B3:
-            case B5:
             case B4:
+            case B5:
+            case B6:
                 return "B";
 
             default:
