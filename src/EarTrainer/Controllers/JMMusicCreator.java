@@ -1997,6 +1997,60 @@ public final class JMMusicCreator implements JMC {
         }
 
 
+        //Make 2 note melody
+        int noteIndex = rn.nextInt(7);
+        int durationIndex = rn.nextInt(7);
+
+        Note n1 = new Note(scaleNotesOneOctave[noteIndex], (double)noteLengthsList.get(durationIndex));
+
+        noteIndex = rn.nextInt(7);
+        durationIndex = rn.nextInt(7);
+
+        Note n2 = new Note(scaleNotesOneOctave[noteIndex], (double)noteLengthsList.get(durationIndex));
+
+        Note[] melodyArray = {n1,n2};
+        phr2.addNoteList(melodyArray);
+
+        p.addPhrase(phr2);
+        s.addPart(p);
+
+        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/VoiceTuner.mid");
+        return melodyArray;
+    }
+
+
+    public Note[] makeMIDIHardVoiceTuner(){
+        int i = rn.nextInt(12);
+        int rootNote = notes[i];
+
+
+        //Make major or minor scale
+        int minorOrMajor = rn.nextInt(2);
+
+        if(minorOrMajor == 0) {
+            minor = true;
+            makeMinorScale(rootNote);
+        } else {
+            major = true;
+            makeMajorScale(rootNote);
+        }
+
+
+        //Set scale notes
+        if(minor) {
+            scaleNotes = minorScale;
+        } else {
+            scaleNotes = majorScale;
+        }
+
+
+        //Make a one octave version of scaleNotes
+        int[] scaleNotesOneOctave =  new int[7];
+        for(int j = 0; j < 7; j++){
+            scaleNotesOneOctave[j] = scaleNotes[j];
+        }
+
+
         //Make 3 note melody
         int noteIndex = rn.nextInt(7);
         int durationIndex = rn.nextInt(7);
@@ -2021,10 +2075,5 @@ public final class JMMusicCreator implements JMC {
 
         Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/VoiceTuner.mid");
         return melodyArray;
-    }
-
-
-    public String makeMIDIHardVoiceTuner(){
-        return "";
     }
 }

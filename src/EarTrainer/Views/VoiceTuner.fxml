@@ -161,26 +161,13 @@
                   <Insets />
                </VBox.margin>
             </VBox>
-            <Label fx:id="difficultyDescriptionLabel" text="White notes only. One octave." VBox.vgrow="ALWAYS">
+            <Label fx:id="difficultyDescriptionLabel" text="Sing/Play a single note" VBox.vgrow="ALWAYS">
                <padding>
                   <Insets bottom="10.0" top="5.0" />
                </padding></Label>
-            <HBox alignment="CENTER" spacing="20.0">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Microphone Input:" HBox.hgrow="ALWAYS">
-                     <VBox.margin>
-                        <Insets bottom="10.0" />
-                     </VBox.margin>
-                  </Text>
-                  <ChoiceBox fx:id="dropDownBox" prefWidth="180.0" HBox.hgrow="ALWAYS" />
-               </children>
-               <VBox.margin>
-                  <Insets bottom="10.0" />
-               </VBox.margin>
-            </HBox>
             <HBox alignment="CENTER" spacing="50.0">
                <children>
-                  <Pane fx:id="inputPane" prefHeight="200.0" prefWidth="200.0" />
+                  <Pane fx:id="inputPane" prefHeight="150.0" prefWidth="220.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER" fillHeight="false" maxHeight="65.0" minHeight="65.0" prefHeight="65.0" spacing="45.0" VBox.vgrow="ALWAYS">

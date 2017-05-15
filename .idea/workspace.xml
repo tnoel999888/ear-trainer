@@ -2,19 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="49021a73-ff27-48b5-96a0-9e054912d8d1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Music/Cadence.mid" afterPath="$PROJECT_DIR$/src/EarTrainer/Music/Cadence.mid" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Music/Modulation.mid" afterPath="$PROJECT_DIR$/src/EarTrainer/Music/Modulation.mid" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/InputPanel$1.class" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/InputPanel$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/InputPanel.class" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/InputPanel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/JMMusicCreator.class" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/JMMusicCreator.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/PitchRecognitionController.class" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/PitchRecognitionController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/VoiceTunerController$1.class" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/VoiceTunerController$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/VoiceTunerController$2.class" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/VoiceTunerController$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/VoiceTunerController$3.class" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/VoiceTunerController$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/VoiceTunerController$4.class" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/VoiceTunerController$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/VoiceTunerController.class" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/VoiceTunerController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Music/Pitch.mid" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Music/Pitch.mid" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Music/VoiceTuner.mid" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Music/VoiceTuner.mid" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Music/Pitch.mid" afterPath="$PROJECT_DIR$/src/EarTrainer/Music/Pitch.mid" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/CadenceRecognitionController.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/CadenceRecognitionController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/HarmonicIntervalRecognitionController.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/HarmonicIntervalRecognitionController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Music/VoiceTuner.mid" afterPath="$PROJECT_DIR$/src/EarTrainer/Music/VoiceTuner.mid" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/InputPanel.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/InputPanel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/JMMusicCreator.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/JMMusicCreator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/MelodicIntervalRecognitionController.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/MelodicIntervalRecognitionController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/ModulationRecognitionController.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/ModulationRecognitionController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/PitchRecognitionController.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/PitchRecognitionController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/PopupScoreController.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/PopupScoreController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/SharpFlatRecognitionController.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/SharpFlatRecognitionController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/VoiceTunerController.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/VoiceTunerController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/WrongNoteIdentificationController.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/WrongNoteIdentificationController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Views/VoiceTuner.fxml" afterPath="$PROJECT_DIR$/src/EarTrainer/Views/VoiceTuner.fxml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,180 +40,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ModulationRecognitionController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/ModulationRecognitionController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-304">
-              <caret line="174" column="133" lean-forward="false" selection-start-line="174" selection-start-column="133" selection-end-line="174" selection-end-column="133" />
-              <folding>
-                <element signature="method#initialize#0;class#ModulationRecognitionController#0" expanded="false" />
-                <element signature="method#easyRadioButtonSelected#0;class#ModulationRecognitionController#0" expanded="false" />
-                <element signature="method#mediumRadioButtonSelected#0;class#ModulationRecognitionController#0" expanded="false" />
-                <element signature="method#hardRadioButtonSelected#0;class#ModulationRecognitionController#0" expanded="false" />
-                <element signature="method#BackButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
-                <element signature="method#StartButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
-                <element signature="method#NextQuestionButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
-                <element signature="method#loadScore#0;class#ModulationRecognitionController#0" expanded="false" />
-                <element signature="method#resetButtonColours#0;class#ModulationRecognitionController#0" expanded="false" />
-                <element signature="method#similarKey0ButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
-                <element signature="method#similarKey1ButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
-                <element signature="method#similarKey2ButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
-                <element signature="method#similarKey3ButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
-                <element signature="method#similarKey4ButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
-                <element signature="method#AnswerButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
-                <element signature="method#checkAnswer#0;class#ModulationRecognitionController#0" expanded="false" />
-                <element signature="method#startTimer#0;class#ModulationRecognitionController#0" expanded="false" />
-                <element signature="method#stopTimer#0;class#ModulationRecognitionController#0" expanded="false" />
-                <element signature="method#getCorrectButton#0;class#ModulationRecognitionController#0" expanded="false" />
-                <element signature="method#generateQuestion#0;class#ModulationRecognitionController#0" expanded="false" />
-                <element signature="method#replayButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
-                <element signature="method#playSound#0;class#ModulationRecognitionController#0" expanded="false" />
-                <element signature="method#setScore#0;class#ModulationRecognitionController#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PitchRecognitionController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/PitchRecognitionController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="377" column="59" lean-forward="false" selection-start-line="377" selection-start-column="59" selection-end-line="377" selection-end-column="59" />
-              <folding>
-                <element signature="method#initialize#0;class#PitchRecognitionController#0" expanded="false" />
-                <element signature="method#easyRadioButtonSelected#0;class#PitchRecognitionController#0" expanded="false" />
-                <element signature="method#mediumRadioButtonSelected#0;class#PitchRecognitionController#0" expanded="false" />
-                <element signature="method#hardRadioButtonSelected#0;class#PitchRecognitionController#0" expanded="false" />
-                <element signature="method#BackButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
-                <element signature="method#StartButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
-                <element signature="method#NextQuestionButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
-                <element signature="method#loadScore#0;class#PitchRecognitionController#0" expanded="false" />
-                <element signature="method#resetButtonColours#0;class#PitchRecognitionController#0" expanded="false" />
-                <element signature="method#cButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
-                <element signature="method#cSharpButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
-                <element signature="method#dButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
-                <element signature="method#dSharpButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
-                <element signature="method#eButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
-                <element signature="method#fButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
-                <element signature="method#fSharpButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
-                <element signature="method#gButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
-                <element signature="method#gSharpButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
-                <element signature="method#aButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
-                <element signature="method#aSharpButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
-                <element signature="method#bButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
-                <element signature="method#AnswerButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
-                <element signature="method#checkAnswer#0;class#PitchRecognitionController#0" expanded="false" />
-                <element signature="method#startTimer#0;class#PitchRecognitionController#0" expanded="false" />
-                <element signature="method#stopTimer#0;class#PitchRecognitionController#0" expanded="false" />
-                <element signature="method#getCorrectButton#0;class#PitchRecognitionController#0" expanded="false" />
-                <element signature="method#generateQuestion#0;class#PitchRecognitionController#0" expanded="false" />
-                <element signature="method#replayButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
-                <element signature="method#playSound#0;class#PitchRecognitionController#0" expanded="false" />
-                <element signature="method#setScore#0;class#PitchRecognitionController#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SharpFlatRecognitionController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/SharpFlatRecognitionController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="583">
-              <caret line="240" column="59" lean-forward="false" selection-start-line="240" selection-start-column="59" selection-end-line="240" selection-end-column="59" />
-              <folding>
-                <element signature="method#initialize#0;class#SharpFlatRecognitionController#0" expanded="false" />
-                <element signature="method#easyRadioButtonSelected#0;class#SharpFlatRecognitionController#0" expanded="false" />
-                <element signature="method#mediumRadioButtonSelected#0;class#SharpFlatRecognitionController#0" expanded="false" />
-                <element signature="method#hardRadioButtonSelected#0;class#SharpFlatRecognitionController#0" expanded="false" />
-                <element signature="method#BackButtonClicked#0;class#SharpFlatRecognitionController#0" expanded="false" />
-                <element signature="method#StartButtonClicked#0;class#SharpFlatRecognitionController#0" expanded="false" />
-                <element signature="method#NextQuestionButtonClicked#0;class#SharpFlatRecognitionController#0" expanded="false" />
-                <element signature="method#loadScore#0;class#SharpFlatRecognitionController#0" expanded="false" />
-                <element signature="method#resetButtonColours#0;class#SharpFlatRecognitionController#0" expanded="false" />
-                <element signature="method#flatButtonClicked#0;class#SharpFlatRecognitionController#0" expanded="false" />
-                <element signature="method#sharpButtonClicked#0;class#SharpFlatRecognitionController#0" expanded="false" />
-                <element signature="method#AnswerButtonClicked#0;class#SharpFlatRecognitionController#0" expanded="false" />
-                <element signature="method#checkAnswer#0;class#SharpFlatRecognitionController#0" expanded="false" />
-                <element signature="method#startTimer#0;class#SharpFlatRecognitionController#0" expanded="false" />
-                <element signature="method#stopTimer#0;class#SharpFlatRecognitionController#0" expanded="false" />
-                <element signature="method#getCorrectButton#0;class#SharpFlatRecognitionController#0" expanded="false" />
-                <element signature="method#generateQuestion#0;class#SharpFlatRecognitionController#0" expanded="false" />
-                <element signature="method#replayButtonClicked#0;class#SharpFlatRecognitionController#0" expanded="false" />
-                <element signature="method#playSound#0;class#SharpFlatRecognitionController#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VoiceTunerController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/VoiceTunerController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-40">
-              <caret line="226" column="133" lean-forward="false" selection-start-line="226" selection-start-column="133" selection-end-line="226" selection-end-column="133" />
-              <folding>
-                <element signature="method#initialize#0;class#VoiceTunerController#0" expanded="false" />
-                <element signature="method#easyRadioButtonSelected#0;class#VoiceTunerController#0" expanded="false" />
-                <element signature="method#mediumRadioButtonSelected#0;class#VoiceTunerController#0" expanded="false" />
-                <element signature="method#hardRadioButtonSelected#0;class#VoiceTunerController#0" expanded="false" />
-                <element signature="method#BackButtonClicked#0;class#VoiceTunerController#0" expanded="false" />
-                <element signature="method#StartButtonClicked#0;class#VoiceTunerController#0" expanded="false" />
-                <element signature="method#NextQuestionButtonClicked#0;class#VoiceTunerController#0" expanded="false" />
-                <element signature="method#RecordButtonClicked#0;class#VoiceTunerController#0" expanded="false" />
-                <element signature="method#convertNoteDurationToSeconds#0;class#VoiceTunerController#0" expanded="false" />
-                <element signature="method#loadScore#0;class#VoiceTunerController#0" expanded="false" />
-                <element signature="method#checkAnswer#0;class#VoiceTunerController#0" expanded="false" />
-                <element signature="method#checkMajority#0;class#VoiceTunerController#0" expanded="false" />
-                <element signature="method#resetButtonColours#0;class#VoiceTunerController#0" expanded="false" />
-                <element signature="method#startTimer#0;class#VoiceTunerController#0" expanded="false" />
-                <element signature="method#stopTimer#0;class#VoiceTunerController#0" expanded="false" />
-                <element signature="method#generateQuestion#0;class#VoiceTunerController#0" expanded="false" />
-                <element signature="method#replayButtonClicked#0;class#VoiceTunerController#0" expanded="false" />
-                <element signature="method#playSound#0;class#VoiceTunerController#0" expanded="false" />
-                <element signature="method#setScore#0;class#VoiceTunerController#0" expanded="false" />
-                <element signature="method#setNewMixer#0;class#VoiceTunerController#0" expanded="false" />
-                <element signature="method#calculateNoteFromPitch#0;class#VoiceTunerController#0" expanded="false" />
-                <element signature="method#handlePitch#0;class#VoiceTunerController#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WrongNoteIdentificationController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/WrongNoteIdentificationController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1440">
-              <caret line="252" column="77" lean-forward="false" selection-start-line="252" selection-start-column="77" selection-end-line="252" selection-end-column="77" />
-              <folding>
-                <element signature="method#initialize#0;class#WrongNoteIdentificationController#0" expanded="false" />
-                <element signature="method#easyRadioButtonSelected#0;class#WrongNoteIdentificationController#0" expanded="false" />
-                <element signature="method#mediumRadioButtonSelected#0;class#WrongNoteIdentificationController#0" expanded="false" />
-                <element signature="method#hardRadioButtonSelected#0;class#WrongNoteIdentificationController#0" expanded="false" />
-                <element signature="method#BackButtonClicked#0;class#WrongNoteIdentificationController#0" expanded="false" />
-                <element signature="method#AnswerButtonClicked#0;class#WrongNoteIdentificationController#0" expanded="false" />
-                <element signature="method#SubmitButtonClicked#0;class#WrongNoteIdentificationController#0" expanded="false" />
-                <element signature="method#StartButtonClicked#0;class#WrongNoteIdentificationController#0" expanded="false" />
-                <element signature="method#NextQuestionButtonClicked#0;class#WrongNoteIdentificationController#0" expanded="false" />
-                <element signature="method#loadScore#0;class#WrongNoteIdentificationController#0" expanded="false" />
-                <element signature="method#resetButtonColours#0;class#WrongNoteIdentificationController#0" expanded="false" />
-                <element signature="method#contains#0;class#WrongNoteIdentificationController#0" expanded="false" />
-                <element signature="method#checkAnswer#0;class#WrongNoteIdentificationController#0" expanded="false" />
-                <element signature="method#startTimer#0;class#WrongNoteIdentificationController#0" expanded="false" />
-                <element signature="method#stopTimer#0;class#WrongNoteIdentificationController#0" expanded="false" />
-                <element signature="method#generateQuestion#0;class#WrongNoteIdentificationController#0" expanded="false" />
-                <element signature="method#replayButtonClicked#0;class#WrongNoteIdentificationController#0" expanded="false" />
-                <element signature="method#playChangedButtonClicked#0;class#WrongNoteIdentificationController#0" expanded="false" />
-                <element signature="method#playSound#0;class#WrongNoteIdentificationController#0" expanded="false" />
-                <element signature="method#setScore#0;class#WrongNoteIdentificationController#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="JMMusicCreator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/JMMusicCreator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1809">
-              <caret line="1400" column="53" lean-forward="false" selection-start-line="1400" selection-start-column="53" selection-end-line="1400" selection-end-column="53" />
+            <state relative-caret-position="617">
+              <caret line="1967" column="0" lean-forward="false" selection-start-line="1967" selection-start-column="0" selection-end-line="1967" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#JMMusicCreator#0;class#JMMusicCreator#0" expanded="false" />
@@ -256,49 +92,51 @@
                 <element signature="method#makeMIDIMediumWrongNote#0;class#JMMusicCreator#0" expanded="false" />
                 <element signature="method#makeMIDIHardWrongNote#0;class#JMMusicCreator#0" expanded="false" />
                 <element signature="method#makeMIDIMediumVoiceTuner#0;class#JMMusicCreator#0" expanded="false" />
+                <element signature="method#makeMIDIHardVoiceTuner#0;class#JMMusicCreator#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HarmonicIntervalRecognitionController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/HarmonicIntervalRecognitionController.java">
+      <file leaf-file-name="VoiceTunerController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/VoiceTunerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="393" column="0" lean-forward="true" selection-start-line="393" selection-start-column="0" selection-end-line="393" selection-end-column="0" />
+            <state relative-caret-position="-625">
+              <caret line="126" column="29" lean-forward="false" selection-start-line="126" selection-start-column="29" selection-end-line="126" selection-end-column="29" />
               <folding>
-                <element signature="method#initialize#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-                <element signature="method#easyRadioButtonSelected#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-                <element signature="method#mediumRadioButtonSelected#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-                <element signature="method#hardRadioButtonSelected#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-                <element signature="method#BackButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-                <element signature="method#StartButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-                <element signature="method#NextQuestionButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-                <element signature="method#loadScore#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-                <element signature="method#resetButtonColours#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-                <element signature="method#unisonButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-                <element signature="method#minorSecondButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-                <element signature="method#majorSecondButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-                <element signature="method#perfectFourthButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-                <element signature="method#tritoneButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-                <element signature="method#minorThirdButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-                <element signature="method#majorThirdButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-                <element signature="method#perfectFifthButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-                <element signature="method#octaveButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-                <element signature="method#minorSixthButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-                <element signature="method#majorSixthButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-                <element signature="method#minorSeventhButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-                <element signature="method#majorSeventhButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-                <element signature="method#AnswerButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-                <element signature="method#checkAnswer#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-                <element signature="method#startTimer#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-                <element signature="method#stopTimer#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-                <element signature="method#getCorrectButton#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-                <element signature="method#generateQuestion#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-                <element signature="method#replayButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-                <element signature="method#playSound#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-                <element signature="method#setScore#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+                <element signature="method#initialize#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="method#easyRadioButtonSelected#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="method#mediumRadioButtonSelected#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="method#hardRadioButtonSelected#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="method#BackButtonClicked#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="method#StartButtonClicked#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="method#NextQuestionButtonClicked#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="method#RecordButtonClicked#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="method#convertNoteDurationToSeconds#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="method#loadScore#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="method#checkAnswer#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="method#checkMajority#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="method#resetButtonColours#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="method#startTimer#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="method#stopTimer#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="method#generateQuestion#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="method#replayButtonClicked#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="method#playSound#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="method#setScore#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="method#setNewMixer#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="method#calculateNoteFromPitch#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="method#handlePitch#0;class#VoiceTunerController#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InputPanel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/InputPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="722">
+              <caret line="66" column="46" lean-forward="false" selection-start-line="66" selection-start-column="46" selection-end-line="66" selection-end-column="46" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -306,10 +144,9 @@
       <file leaf-file-name="MelodicIntervalRecognitionController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/MelodicIntervalRecognitionController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="396" column="59" lean-forward="false" selection-start-line="396" selection-start-column="59" selection-end-line="396" selection-end-column="59" />
+            <state relative-caret-position="616">
+              <caret line="105" column="8" lean-forward="true" selection-start-line="105" selection-start-column="8" selection-end-line="105" selection-end-column="46" />
               <folding>
-                <element signature="method#initialize#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
                 <element signature="method#easyRadioButtonSelected#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
                 <element signature="method#mediumRadioButtonSelected#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
                 <element signature="method#hardRadioButtonSelected#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
@@ -356,7 +193,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>setNewMixer</find>
       <find>algoPane</find>
       <find>startbutton</find>
       <find>generateQuestion</find>
@@ -386,6 +222,7 @@
       <find>nextQuestionButton.setText</find>
       <find>pitches</find>
       <find>times</find>
+      <find>System.out.println</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -424,31 +261,29 @@
         <option value="$PROJECT_DIR$/src/EarTrainer/Views/PitchRecognition.fxml" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Views/Home.fxml" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/PitchDetectorExample.java" />
-        <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/InputPanel.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/HomeController.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/ScoreWithoutScoreFrame.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Views/WrongNoteIdentification.fxml" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Views/VoiceTuner.fxml" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Views/ModulationRecognition.fxml" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Views/CadenceRecognition.fxml" />
-        <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/JMMusicCreator.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/PopupScoreController.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/CadenceRecognitionController.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/ModulationRecognitionController.java" />
-        <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/VoiceTunerController.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/PitchRecognitionController.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/HarmonicIntervalRecognitionController.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/MelodicIntervalRecognitionController.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/SharpFlatRecognitionController.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/WrongNoteIdentificationController.java" />
+        <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/JMMusicCreator.java" />
+        <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/InputPanel.java" />
+        <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/VoiceTunerController.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="131" />
-    <option name="y" value="1080" />
-    <option name="width" value="1680" />
-    <option name="height" value="1050" />
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -465,9 +300,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -822,7 +657,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="131" y="1080" width="1680" height="1050" extended-state="0" />
+    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -834,13 +669,13 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18979591" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18910891" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23687424" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23908414" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1030,13 +865,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/PitchDetectionPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/javafx-src.zip!/javafx/scene/control/Labeled.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
@@ -1069,13 +897,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1305">
           <caret line="114" column="39" lean-forward="false" selection-start-line="112" selection-start-column="8" selection-end-line="114" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/InputPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="49" column="41" lean-forward="false" selection-start-line="49" selection-start-column="41" selection-end-line="49" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -1116,13 +937,6 @@
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/Shared.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="33" column="13" lean-forward="false" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/PitchRecognition.fxml">
@@ -1193,8 +1007,8 @@
         <state relative-caret-position="592">
           <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
           <folding>
-            <element signature="e#1407#1408#0" expanded="true" />
-            <element signature="e#1459#1460#0" expanded="true" />
+            <element signature="e#1407#1408#0" expanded="false" />
+            <element signature="e#1459#1460#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1229,10 +1043,194 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/PitchRecognitionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2205">
+          <caret line="377" column="59" lean-forward="false" selection-start-line="377" selection-start-column="59" selection-end-line="377" selection-end-column="59" />
+          <folding>
+            <element signature="method#initialize#0;class#PitchRecognitionController#0" expanded="false" />
+            <element signature="method#easyRadioButtonSelected#0;class#PitchRecognitionController#0" expanded="false" />
+            <element signature="method#mediumRadioButtonSelected#0;class#PitchRecognitionController#0" expanded="false" />
+            <element signature="method#hardRadioButtonSelected#0;class#PitchRecognitionController#0" expanded="false" />
+            <element signature="method#BackButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
+            <element signature="method#StartButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
+            <element signature="method#NextQuestionButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
+            <element signature="method#loadScore#0;class#PitchRecognitionController#0" expanded="false" />
+            <element signature="method#resetButtonColours#0;class#PitchRecognitionController#0" expanded="false" />
+            <element signature="method#cButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
+            <element signature="method#cSharpButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
+            <element signature="method#dButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
+            <element signature="method#dSharpButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
+            <element signature="method#eButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
+            <element signature="method#fButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
+            <element signature="method#fSharpButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
+            <element signature="method#gButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
+            <element signature="method#gSharpButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
+            <element signature="method#aButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
+            <element signature="method#aSharpButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
+            <element signature="method#bButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
+            <element signature="method#AnswerButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
+            <element signature="method#checkAnswer#0;class#PitchRecognitionController#0" expanded="false" />
+            <element signature="method#startTimer#0;class#PitchRecognitionController#0" expanded="false" />
+            <element signature="method#stopTimer#0;class#PitchRecognitionController#0" expanded="false" />
+            <element signature="method#getCorrectButton#0;class#PitchRecognitionController#0" expanded="false" />
+            <element signature="method#generateQuestion#0;class#PitchRecognitionController#0" expanded="false" />
+            <element signature="method#replayButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
+            <element signature="method#playSound#0;class#PitchRecognitionController#0" expanded="false" />
+            <element signature="method#setScore#0;class#PitchRecognitionController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/SharpFlatRecognitionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1455">
+          <caret line="240" column="59" lean-forward="false" selection-start-line="240" selection-start-column="59" selection-end-line="240" selection-end-column="59" />
+          <folding>
+            <element signature="method#initialize#0;class#SharpFlatRecognitionController#0" expanded="false" />
+            <element signature="method#easyRadioButtonSelected#0;class#SharpFlatRecognitionController#0" expanded="false" />
+            <element signature="method#mediumRadioButtonSelected#0;class#SharpFlatRecognitionController#0" expanded="false" />
+            <element signature="method#hardRadioButtonSelected#0;class#SharpFlatRecognitionController#0" expanded="false" />
+            <element signature="method#BackButtonClicked#0;class#SharpFlatRecognitionController#0" expanded="false" />
+            <element signature="method#StartButtonClicked#0;class#SharpFlatRecognitionController#0" expanded="false" />
+            <element signature="method#NextQuestionButtonClicked#0;class#SharpFlatRecognitionController#0" expanded="false" />
+            <element signature="method#loadScore#0;class#SharpFlatRecognitionController#0" expanded="false" />
+            <element signature="method#resetButtonColours#0;class#SharpFlatRecognitionController#0" expanded="false" />
+            <element signature="method#flatButtonClicked#0;class#SharpFlatRecognitionController#0" expanded="false" />
+            <element signature="method#sharpButtonClicked#0;class#SharpFlatRecognitionController#0" expanded="false" />
+            <element signature="method#AnswerButtonClicked#0;class#SharpFlatRecognitionController#0" expanded="false" />
+            <element signature="method#checkAnswer#0;class#SharpFlatRecognitionController#0" expanded="false" />
+            <element signature="method#startTimer#0;class#SharpFlatRecognitionController#0" expanded="false" />
+            <element signature="method#stopTimer#0;class#SharpFlatRecognitionController#0" expanded="false" />
+            <element signature="method#getCorrectButton#0;class#SharpFlatRecognitionController#0" expanded="false" />
+            <element signature="method#generateQuestion#0;class#SharpFlatRecognitionController#0" expanded="false" />
+            <element signature="method#replayButtonClicked#0;class#SharpFlatRecognitionController#0" expanded="false" />
+            <element signature="method#playSound#0;class#SharpFlatRecognitionController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/WrongNoteIdentificationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding>
+            <element signature="method#initialize#0;class#WrongNoteIdentificationController#0" expanded="false" />
+            <element signature="method#easyRadioButtonSelected#0;class#WrongNoteIdentificationController#0" expanded="false" />
+            <element signature="method#mediumRadioButtonSelected#0;class#WrongNoteIdentificationController#0" expanded="false" />
+            <element signature="method#hardRadioButtonSelected#0;class#WrongNoteIdentificationController#0" expanded="false" />
+            <element signature="method#BackButtonClicked#0;class#WrongNoteIdentificationController#0" expanded="false" />
+            <element signature="method#AnswerButtonClicked#0;class#WrongNoteIdentificationController#0" expanded="false" />
+            <element signature="method#SubmitButtonClicked#0;class#WrongNoteIdentificationController#0" expanded="false" />
+            <element signature="method#StartButtonClicked#0;class#WrongNoteIdentificationController#0" expanded="false" />
+            <element signature="method#NextQuestionButtonClicked#0;class#WrongNoteIdentificationController#0" expanded="false" />
+            <element signature="method#loadScore#0;class#WrongNoteIdentificationController#0" expanded="false" />
+            <element signature="method#resetButtonColours#0;class#WrongNoteIdentificationController#0" expanded="false" />
+            <element signature="method#contains#0;class#WrongNoteIdentificationController#0" expanded="false" />
+            <element signature="method#checkAnswer#0;class#WrongNoteIdentificationController#0" expanded="false" />
+            <element signature="method#startTimer#0;class#WrongNoteIdentificationController#0" expanded="false" />
+            <element signature="method#stopTimer#0;class#WrongNoteIdentificationController#0" expanded="false" />
+            <element signature="method#generateQuestion#0;class#WrongNoteIdentificationController#0" expanded="false" />
+            <element signature="method#replayButtonClicked#0;class#WrongNoteIdentificationController#0" expanded="false" />
+            <element signature="method#playChangedButtonClicked#0;class#WrongNoteIdentificationController#0" expanded="false" />
+            <element signature="method#playSound#0;class#WrongNoteIdentificationController#0" expanded="false" />
+            <element signature="method#setScore#0;class#WrongNoteIdentificationController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/HarmonicIntervalRecognitionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2265">
+          <caret line="393" column="0" lean-forward="false" selection-start-line="393" selection-start-column="0" selection-end-line="393" selection-end-column="0" />
+          <folding>
+            <element signature="method#initialize#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#easyRadioButtonSelected#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#mediumRadioButtonSelected#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#hardRadioButtonSelected#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#BackButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#StartButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#NextQuestionButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#loadScore#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#resetButtonColours#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#unisonButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#minorSecondButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#majorSecondButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#perfectFourthButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#tritoneButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#minorThirdButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#majorThirdButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#perfectFifthButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#octaveButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#minorSixthButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#majorSixthButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#minorSeventhButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#majorSeventhButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#AnswerButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#checkAnswer#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#startTimer#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#stopTimer#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#getCorrectButton#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#generateQuestion#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#replayButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#playSound#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#setScore#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/Shared.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="33" column="13" lean-forward="false" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/PitchDetectionPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="36" column="13" lean-forward="false" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/ModulationRecognitionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="174" column="133" lean-forward="false" selection-start-line="174" selection-start-column="133" selection-end-line="174" selection-end-column="133" />
+          <folding>
+            <element signature="method#initialize#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#easyRadioButtonSelected#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#mediumRadioButtonSelected#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#hardRadioButtonSelected#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#BackButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#StartButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#NextQuestionButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#loadScore#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#resetButtonColours#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#similarKey0ButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#similarKey1ButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#similarKey2ButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#similarKey3ButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#similarKey4ButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#AnswerButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#checkAnswer#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#startTimer#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#stopTimer#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#getCorrectButton#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#generateQuestion#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#replayButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#playSound#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="method#setScore#0;class#ModulationRecognitionController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/JMMusicCreator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1809">
-          <caret line="1400" column="53" lean-forward="false" selection-start-line="1400" selection-start-column="53" selection-end-line="1400" selection-end-column="53" />
+        <state relative-caret-position="617">
+          <caret line="1967" column="0" lean-forward="false" selection-start-line="1967" selection-start-column="0" selection-end-line="1967" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#JMMusicCreator#0;class#JMMusicCreator#0" expanded="false" />
@@ -1280,56 +1278,16 @@
             <element signature="method#makeMIDIMediumWrongNote#0;class#JMMusicCreator#0" expanded="false" />
             <element signature="method#makeMIDIHardWrongNote#0;class#JMMusicCreator#0" expanded="false" />
             <element signature="method#makeMIDIMediumVoiceTuner#0;class#JMMusicCreator#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/HarmonicIntervalRecognitionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="393" column="0" lean-forward="true" selection-start-line="393" selection-start-column="0" selection-end-line="393" selection-end-column="0" />
-          <folding>
-            <element signature="method#initialize#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#easyRadioButtonSelected#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#mediumRadioButtonSelected#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#hardRadioButtonSelected#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#BackButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#StartButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#NextQuestionButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#loadScore#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#resetButtonColours#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#unisonButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#minorSecondButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#majorSecondButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#perfectFourthButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#tritoneButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#minorThirdButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#majorThirdButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#perfectFifthButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#octaveButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#minorSixthButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#majorSixthButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#minorSeventhButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#majorSeventhButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#AnswerButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#checkAnswer#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#startTimer#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#stopTimer#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#getCorrectButton#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#generateQuestion#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#replayButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#playSound#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#setScore#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#makeMIDIHardVoiceTuner#0;class#JMMusicCreator#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/MelodicIntervalRecognitionController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="396" column="59" lean-forward="false" selection-start-line="396" selection-start-column="59" selection-end-line="396" selection-end-column="59" />
+        <state relative-caret-position="616">
+          <caret line="105" column="8" lean-forward="true" selection-start-line="105" selection-start-column="8" selection-end-line="105" selection-end-column="46" />
           <folding>
-            <element signature="method#initialize#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
             <element signature="method#easyRadioButtonSelected#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
             <element signature="method#mediumRadioButtonSelected#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
             <element signature="method#hardRadioButtonSelected#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
@@ -1364,109 +1322,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/ModulationRecognitionController.java">
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/InputPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-304">
-          <caret line="174" column="133" lean-forward="false" selection-start-line="174" selection-start-column="133" selection-end-line="174" selection-end-column="133" />
-          <folding>
-            <element signature="method#initialize#0;class#ModulationRecognitionController#0" expanded="false" />
-            <element signature="method#easyRadioButtonSelected#0;class#ModulationRecognitionController#0" expanded="false" />
-            <element signature="method#mediumRadioButtonSelected#0;class#ModulationRecognitionController#0" expanded="false" />
-            <element signature="method#hardRadioButtonSelected#0;class#ModulationRecognitionController#0" expanded="false" />
-            <element signature="method#BackButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
-            <element signature="method#StartButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
-            <element signature="method#NextQuestionButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
-            <element signature="method#loadScore#0;class#ModulationRecognitionController#0" expanded="false" />
-            <element signature="method#resetButtonColours#0;class#ModulationRecognitionController#0" expanded="false" />
-            <element signature="method#similarKey0ButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
-            <element signature="method#similarKey1ButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
-            <element signature="method#similarKey2ButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
-            <element signature="method#similarKey3ButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
-            <element signature="method#similarKey4ButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
-            <element signature="method#AnswerButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
-            <element signature="method#checkAnswer#0;class#ModulationRecognitionController#0" expanded="false" />
-            <element signature="method#startTimer#0;class#ModulationRecognitionController#0" expanded="false" />
-            <element signature="method#stopTimer#0;class#ModulationRecognitionController#0" expanded="false" />
-            <element signature="method#getCorrectButton#0;class#ModulationRecognitionController#0" expanded="false" />
-            <element signature="method#generateQuestion#0;class#ModulationRecognitionController#0" expanded="false" />
-            <element signature="method#replayButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
-            <element signature="method#playSound#0;class#ModulationRecognitionController#0" expanded="false" />
-            <element signature="method#setScore#0;class#ModulationRecognitionController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/PitchRecognitionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="377" column="59" lean-forward="false" selection-start-line="377" selection-start-column="59" selection-end-line="377" selection-end-column="59" />
-          <folding>
-            <element signature="method#initialize#0;class#PitchRecognitionController#0" expanded="false" />
-            <element signature="method#easyRadioButtonSelected#0;class#PitchRecognitionController#0" expanded="false" />
-            <element signature="method#mediumRadioButtonSelected#0;class#PitchRecognitionController#0" expanded="false" />
-            <element signature="method#hardRadioButtonSelected#0;class#PitchRecognitionController#0" expanded="false" />
-            <element signature="method#BackButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
-            <element signature="method#StartButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
-            <element signature="method#NextQuestionButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
-            <element signature="method#loadScore#0;class#PitchRecognitionController#0" expanded="false" />
-            <element signature="method#resetButtonColours#0;class#PitchRecognitionController#0" expanded="false" />
-            <element signature="method#cButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
-            <element signature="method#cSharpButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
-            <element signature="method#dButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
-            <element signature="method#dSharpButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
-            <element signature="method#eButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
-            <element signature="method#fButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
-            <element signature="method#fSharpButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
-            <element signature="method#gButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
-            <element signature="method#gSharpButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
-            <element signature="method#aButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
-            <element signature="method#aSharpButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
-            <element signature="method#bButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
-            <element signature="method#AnswerButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
-            <element signature="method#checkAnswer#0;class#PitchRecognitionController#0" expanded="false" />
-            <element signature="method#startTimer#0;class#PitchRecognitionController#0" expanded="false" />
-            <element signature="method#stopTimer#0;class#PitchRecognitionController#0" expanded="false" />
-            <element signature="method#getCorrectButton#0;class#PitchRecognitionController#0" expanded="false" />
-            <element signature="method#generateQuestion#0;class#PitchRecognitionController#0" expanded="false" />
-            <element signature="method#replayButtonClicked#0;class#PitchRecognitionController#0" expanded="false" />
-            <element signature="method#playSound#0;class#PitchRecognitionController#0" expanded="false" />
-            <element signature="method#setScore#0;class#PitchRecognitionController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/SharpFlatRecognitionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="583">
-          <caret line="240" column="59" lean-forward="false" selection-start-line="240" selection-start-column="59" selection-end-line="240" selection-end-column="59" />
-          <folding>
-            <element signature="method#initialize#0;class#SharpFlatRecognitionController#0" expanded="false" />
-            <element signature="method#easyRadioButtonSelected#0;class#SharpFlatRecognitionController#0" expanded="false" />
-            <element signature="method#mediumRadioButtonSelected#0;class#SharpFlatRecognitionController#0" expanded="false" />
-            <element signature="method#hardRadioButtonSelected#0;class#SharpFlatRecognitionController#0" expanded="false" />
-            <element signature="method#BackButtonClicked#0;class#SharpFlatRecognitionController#0" expanded="false" />
-            <element signature="method#StartButtonClicked#0;class#SharpFlatRecognitionController#0" expanded="false" />
-            <element signature="method#NextQuestionButtonClicked#0;class#SharpFlatRecognitionController#0" expanded="false" />
-            <element signature="method#loadScore#0;class#SharpFlatRecognitionController#0" expanded="false" />
-            <element signature="method#resetButtonColours#0;class#SharpFlatRecognitionController#0" expanded="false" />
-            <element signature="method#flatButtonClicked#0;class#SharpFlatRecognitionController#0" expanded="false" />
-            <element signature="method#sharpButtonClicked#0;class#SharpFlatRecognitionController#0" expanded="false" />
-            <element signature="method#AnswerButtonClicked#0;class#SharpFlatRecognitionController#0" expanded="false" />
-            <element signature="method#checkAnswer#0;class#SharpFlatRecognitionController#0" expanded="false" />
-            <element signature="method#startTimer#0;class#SharpFlatRecognitionController#0" expanded="false" />
-            <element signature="method#stopTimer#0;class#SharpFlatRecognitionController#0" expanded="false" />
-            <element signature="method#getCorrectButton#0;class#SharpFlatRecognitionController#0" expanded="false" />
-            <element signature="method#generateQuestion#0;class#SharpFlatRecognitionController#0" expanded="false" />
-            <element signature="method#replayButtonClicked#0;class#SharpFlatRecognitionController#0" expanded="false" />
-            <element signature="method#playSound#0;class#SharpFlatRecognitionController#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="722">
+          <caret line="66" column="46" lean-forward="false" selection-start-line="66" selection-start-column="46" selection-end-line="66" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/VoiceTunerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-40">
-          <caret line="226" column="133" lean-forward="false" selection-start-line="226" selection-start-column="133" selection-end-line="226" selection-end-column="133" />
+        <state relative-caret-position="-625">
+          <caret line="126" column="29" lean-forward="false" selection-start-line="126" selection-start-column="29" selection-end-line="126" selection-end-column="29" />
           <folding>
             <element signature="method#initialize#0;class#VoiceTunerController#0" expanded="false" />
             <element signature="method#easyRadioButtonSelected#0;class#VoiceTunerController#0" expanded="false" />
@@ -1490,35 +1357,6 @@
             <element signature="method#setNewMixer#0;class#VoiceTunerController#0" expanded="false" />
             <element signature="method#calculateNoteFromPitch#0;class#VoiceTunerController#0" expanded="false" />
             <element signature="method#handlePitch#0;class#VoiceTunerController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/WrongNoteIdentificationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1440">
-          <caret line="252" column="77" lean-forward="false" selection-start-line="252" selection-start-column="77" selection-end-line="252" selection-end-column="77" />
-          <folding>
-            <element signature="method#initialize#0;class#WrongNoteIdentificationController#0" expanded="false" />
-            <element signature="method#easyRadioButtonSelected#0;class#WrongNoteIdentificationController#0" expanded="false" />
-            <element signature="method#mediumRadioButtonSelected#0;class#WrongNoteIdentificationController#0" expanded="false" />
-            <element signature="method#hardRadioButtonSelected#0;class#WrongNoteIdentificationController#0" expanded="false" />
-            <element signature="method#BackButtonClicked#0;class#WrongNoteIdentificationController#0" expanded="false" />
-            <element signature="method#AnswerButtonClicked#0;class#WrongNoteIdentificationController#0" expanded="false" />
-            <element signature="method#SubmitButtonClicked#0;class#WrongNoteIdentificationController#0" expanded="false" />
-            <element signature="method#StartButtonClicked#0;class#WrongNoteIdentificationController#0" expanded="false" />
-            <element signature="method#NextQuestionButtonClicked#0;class#WrongNoteIdentificationController#0" expanded="false" />
-            <element signature="method#loadScore#0;class#WrongNoteIdentificationController#0" expanded="false" />
-            <element signature="method#resetButtonColours#0;class#WrongNoteIdentificationController#0" expanded="false" />
-            <element signature="method#contains#0;class#WrongNoteIdentificationController#0" expanded="false" />
-            <element signature="method#checkAnswer#0;class#WrongNoteIdentificationController#0" expanded="false" />
-            <element signature="method#startTimer#0;class#WrongNoteIdentificationController#0" expanded="false" />
-            <element signature="method#stopTimer#0;class#WrongNoteIdentificationController#0" expanded="false" />
-            <element signature="method#generateQuestion#0;class#WrongNoteIdentificationController#0" expanded="false" />
-            <element signature="method#replayButtonClicked#0;class#WrongNoteIdentificationController#0" expanded="false" />
-            <element signature="method#playChangedButtonClicked#0;class#WrongNoteIdentificationController#0" expanded="false" />
-            <element signature="method#playSound#0;class#WrongNoteIdentificationController#0" expanded="false" />
-            <element signature="method#setScore#0;class#WrongNoteIdentificationController#0" expanded="false" />
           </folding>
         </state>
       </provider>

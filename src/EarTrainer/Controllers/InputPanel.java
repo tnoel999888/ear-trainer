@@ -27,6 +27,8 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Mixer;
@@ -51,18 +53,20 @@ public class InputPanel extends JPanel {
         JPanel buttonPanel = new JPanel(new GridLayout(0,1));
         ButtonGroup group = new ButtonGroup();
         for(Mixer.Info info : Shared.getMixerInfo(false, true)){
+            List<String> list = Arrays.asList(Shared.toLocalString(info).split(","));
             JRadioButton button = new JRadioButton();
-            button.setText(Shared.toLocalString(info));
+            button.setText(list.get(0));
             buttonPanel.add(button);
             group.add(button);
             button.setActionCommand(info.toString());
             button.addActionListener(setInput);
         }
 
-        this.add(new JScrollPane(buttonPanel,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER),BorderLayout.CENTER);
-        this.setMaximumSize(new Dimension(300,150));
-        this.setPreferredSize(new Dimension(300,150));
+        this.add(new JScrollPane(buttonPanel,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED),BorderLayout.CENTER);
+        this.setMaximumSize(new Dimension(220,150));
+        this.setPreferredSize(new Dimension(220,150));
     }
+
 
     private ActionListener setInput = new ActionListener(){
         @Override
