@@ -852,28 +852,6 @@ public final class JMMusicCreator implements JMC {
 
     public void makeMinorScale(int root) {
 
-//        for (int i = 0; i < notes.length; i++) {
-//            if (notes[i] == root) {
-//                minorScale[0] = notes[i];
-//                minorScale[1] = notes[(i + 2) % 12];
-//                minorScale[2] = notes[(i + 3) % 12];
-//                minorScale[3] = notes[(i + 5) % 12];
-//                minorScale[4] = notes[(i + 7) % 12];
-//                minorScale[5] = notes[(i + 8) % 12];
-//                minorScale[6] = notes[(i + 10) % 12];
-//                minorScale[7] = notes[(i + 12) % 12];
-//
-//                minorScale[8] = notes[(i + 14) % 12];
-//                minorScale[9] = notes[(i + 15) % 12];
-//                minorScale[10] = notes[(i + 17) % 12];
-//                minorScale[11] = notes[(i + 19) % 12];
-//                minorScale[12] = notes[(i + 20) % 12];
-//                minorScale[13] = notes[(i + 22) % 12];
-//                minorScale[14] = notes[(i + 24) % 12];
-//                break;
-//            }
-//        }
-
         for (int i = 0; i < notes.length; i++) {
             if (notes[i] == root) {
                 minorScale[0] = notes[i];
@@ -896,14 +874,6 @@ public final class JMMusicCreator implements JMC {
             }
         }
 
-        System.out.println("");
-
-        for(int note: minorScale){
-            System.out.println(note);
-        }
-
-        System.out.println("");
-
         makeChords(minorScale);
 
         scaleChords = new Note[][]{scaleChord1, scaleChord2, scaleChord3, scaleChord4, scaleChord5, scaleChord6, scaleChord7};
@@ -912,27 +882,6 @@ public final class JMMusicCreator implements JMC {
 
 
     public void makeMajorScale(int root) {
-
-//        for (int i = 0; i < notes.length; i++) {
-//            if (notes[i] == root) {
-//                majorScale[0] = notes[i];
-//                majorScale[1] = notes[(i + 2) % 12];
-//                majorScale[2] = notes[(i + 4) % 12];
-//                majorScale[3] = notes[(i + 5) % 12];
-//                majorScale[4] = notes[(i + 7) % 12];
-//                majorScale[5] = notes[(i + 9) % 12];
-//                majorScale[6] = notes[(i + 11) % 12];
-//                majorScale[7] = notes[(i + 12) % 12];
-//
-//                majorScale[8] = notes[(i + 14) % 12];
-//                majorScale[9] = notes[(i + 16) % 12];
-//                majorScale[10] = notes[(i + 17) % 12];
-//                majorScale[11] = notes[(i + 19) % 12];
-//                majorScale[12] = notes[(i + 21) % 12];
-//                majorScale[13] = notes[(i + 23) % 12];
-//                majorScale[14] = notes[(i + 24) % 12];
-//            }
-//        }
 
         for (int i = 0; i < notes.length; i++) {
             if (notes[i] == root) {
@@ -954,14 +903,6 @@ public final class JMMusicCreator implements JMC {
                 majorScale[14] = notes[(i + 24) % SIZE_OF_NOTES_ARRAY];
             }
         }
-
-        System.out.println("");
-
-        for(int note: majorScale){
-            System.out.println(note);
-        }
-
-        System.out.println("");
 
         makeChords(majorScale);
 
@@ -1348,7 +1289,7 @@ public final class JMMusicCreator implements JMC {
     public int getRelativeMinor(int note) {
         int relativeMinor = 0;
 
-        for (int j = 0; j < 12; j++) {
+        for (int j = 0; j < SIZE_OF_NOTES_ARRAY; j++) {
             if (notes[j] == note) {
                 int index = (j - 3) % SIZE_OF_NOTES_ARRAY;
 
@@ -1368,7 +1309,7 @@ public final class JMMusicCreator implements JMC {
     public int getRelativeMajor(int note) {
         int relativeMajor = 0;
 
-        for (int j = 0; j < 12; j++) {
+        for (int j = 0; j < SIZE_OF_NOTES_ARRAY; j++) {
             if (notes[j] == note) {
                 int index = (j + 3) % SIZE_OF_NOTES_ARRAY;
 

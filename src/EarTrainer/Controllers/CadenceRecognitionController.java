@@ -286,7 +286,9 @@ public class CadenceRecognitionController {
         nextQuestionButton.setDisable(false);
 
         Phrase phrase = musicCreator.getPhrase();
-        setScore(phrase);
+        setScoreSpecific(phrase, "left");
+        setScoreSpecific(phrase, "middle");
+        setScoreSpecific(phrase, "right");
     }
 
 
@@ -416,6 +418,29 @@ public class CadenceRecognitionController {
 
         jScore.removeTitle();
         jScore.setEditable(false);
+    }
+
+
+    public void setScoreSpecific(Phrase phr, String score) {
+        JGrandStave scoreToUse;
+
+        if(score.equals("left")){
+            scoreToUse = jScoreLeft;
+        } else if(score.equals("middle")){
+            scoreToUse = jScore;
+        } else {
+            scoreToUse = jScoreRight;
+        }
+
+        scoreToUse.setPhrase(phr);
+
+        Dimension d = new Dimension();
+        d.setSize(600,300);
+        scoreToUse.setPreferredSize(d);
+        scoreToUse.setMaximumSize(d);
+
+        scoreToUse.removeTitle();
+        scoreToUse.setEditable(false);
     }
 }
 
