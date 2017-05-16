@@ -911,7 +911,7 @@ public final class JMMusicCreator implements JMC {
     }
 
 
-    public String makeMIDIEasyCadence() {
+    public void chooseRandomRootAndMakeMinorOrMajorScale(){
         int i = rn.nextInt(12);
         int rootNote = notes[i];
         int minorOrMajor = rn.nextInt(2);
@@ -919,20 +919,20 @@ public final class JMMusicCreator implements JMC {
         if (minorOrMajor == 0) {
             minor = true;
             makeMinorScale(rootNote);
-            System.out.println("minor");
         } else {
             major = true;
             makeMajorScale(rootNote);
-            System.out.println("major");
         }
+    }
 
+
+    public void makePerfect(){
 
         //1st Chord. Add I chord
         cphr1.addChord(scaleChord1);
         bottomNotesArray[0] = scaleChord1[0];
         middleNotesArray[0] = scaleChord1[1];
         topNotesArray[0] = scaleChord1[2];
-        System.out.println("1");
 
 
         //2nd Chord. Add II or IV chord
@@ -942,46 +942,33 @@ public final class JMMusicCreator implements JMC {
             bottomNotesArray[1] = scaleChord2[0];
             middleNotesArray[1] = scaleChord2[1];
             topNotesArray[1] = scaleChord2[2];
-            System.out.println("2");
         } else {
             cphr2.addChord(scaleChord4);
             bottomNotesArray[1] = scaleChord4[0];
             middleNotesArray[1] = scaleChord4[1];
             topNotesArray[1] = scaleChord4[2];
-            System.out.println("4");
         }
 
 
-        //4th Chord. Add I or VI chord
-        int i4 = rn.nextInt(2);
-        cphr4.addChord(scaleChords1And6[i4]);
-        bottomNotesArray[3] = scaleChords1And6[i4][0];
-        middleNotesArray[3] = scaleChords1And6[i4][1];
-        topNotesArray[3] = scaleChords1And6[i4][2];
-
-
-
-        //3rd Chord. Add V major chord if into tonic, else V minor chord
-        if (i4 == 0 && minor) {
+        //3rd Chord. Add V major chord if in minor scale
+        if (minor) {
             cphr3.addChord(scaleChord5MelodicMinor);
             bottomNotesArray[2] = scaleChord5MelodicMinor[0];
             middleNotesArray[2] = scaleChord5MelodicMinor[1];
             topNotesArray[2] = scaleChord5MelodicMinor[2];
-            System.out.println("5 major");
         } else {
             cphr3.addChord(scaleChord5);
             bottomNotesArray[2] = scaleChord5[0];
             middleNotesArray[2] = scaleChord5[1];
             topNotesArray[2] = scaleChord5[2];
-            System.out.println("5");
         }
 
 
-        if(i4 == 0) {
-            System.out.println("1");
-        } else {
-            System.out.println("6");
-        }
+        //4th Chord. Add I or VI chord
+        cphr4.addChord(scaleChord1);
+        bottomNotesArray[3] = scaleChord1[0];
+        middleNotesArray[3] = scaleChord1[1];
+        topNotesArray[3] = scaleChord1[2];
 
 
         //Add note arrays to the phrases
@@ -996,6 +983,7 @@ public final class JMMusicCreator implements JMC {
         setScoreSpecific(topNotes, "right");
 
 
+        //Add CPhrases to Part p
         p.addCPhrase(cphr1);
         p.addCPhrase(cphr2);
         p.addCPhrase(cphr3);
@@ -1007,8 +995,209 @@ public final class JMMusicCreator implements JMC {
 
         minor = false;
         major = false;
+    }
 
-        if (i4 == 0) {
+
+    public void makeInterruptive(){
+
+        //1st Chord. Add I chord
+        cphr1.addChord(scaleChord1);
+        bottomNotesArray[0] = scaleChord1[0];
+        middleNotesArray[0] = scaleChord1[1];
+        topNotesArray[0] = scaleChord1[2];
+
+
+        //2nd Chord. Add II or IV chord
+        int IIOrIVChord = rn.nextInt(2);
+        if (IIOrIVChord == 0) {
+            cphr2.addChord(scaleChord2);
+            bottomNotesArray[1] = scaleChord2[0];
+            middleNotesArray[1] = scaleChord2[1];
+            topNotesArray[1] = scaleChord2[2];
+        } else {
+            cphr2.addChord(scaleChord4);
+            bottomNotesArray[1] = scaleChord4[0];
+            middleNotesArray[1] = scaleChord4[1];
+            topNotesArray[1] = scaleChord4[2];
+        }
+
+
+        //3rd Chord. Add V chord
+        cphr3.addChord(scaleChord5);
+        bottomNotesArray[2] = scaleChord5[0];
+        middleNotesArray[2] = scaleChord5[1];
+        topNotesArray[2] = scaleChord5[2];
+
+
+        //4th Chord. Add VI chord
+        cphr4.addChord(scaleChord6);
+        bottomNotesArray[3] = scaleChord6[0];
+        middleNotesArray[3] = scaleChord6[1];
+        topNotesArray[3] = scaleChord6[2];
+
+
+        //Add note arrays to the phrases
+        bottomNotes.addNoteList(bottomNotesArray);
+        middleNotes.addNoteList(middleNotesArray);
+        topNotes.addNoteList(topNotesArray);
+
+
+        //Set the scores
+        setScoreSpecific(bottomNotes, "left");
+        setScoreSpecific(middleNotes, "middle");
+        setScoreSpecific(topNotes, "right");
+
+
+        //Add CPhrases to Part p
+        p.addCPhrase(cphr1);
+        p.addCPhrase(cphr2);
+        p.addCPhrase(cphr3);
+        p.addCPhrase(cphr4);
+
+        s.addPart(p);
+
+        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Cadence.mid");
+
+        minor = false;
+        major = false;
+    }
+
+
+    public void makeImperfect(){
+
+        int i2 = rn.nextInt(7);
+        int i3 = rn.nextInt(7);
+
+        //1st Chord. Add I chord
+        cphr1.addChord(scaleChord1);
+        bottomNotesArray[0] = scaleChord1[0];
+        middleNotesArray[0] = scaleChord1[1];
+        topNotesArray[0] = scaleChord1[2];
+
+
+        //2nd Chord. Add random chord
+        cphr2.addChord(scaleChords[i2]);
+        bottomNotesArray[1] = scaleChords[i2][0];
+        middleNotesArray[1] = scaleChords[i2][1];
+        topNotesArray[1] = scaleChords[i2][2];
+
+
+        //3rd Chord. Add random chord
+        cphr3.addChord(scaleChords[i3]);
+        bottomNotesArray[2] = scaleChords[i3][0];
+        middleNotesArray[2] = scaleChords[i3][1];
+        topNotesArray[2] = scaleChords[i3][2];
+
+
+        //4th Chord. Add V chord
+        cphr4.addChord(scaleChord5);
+        bottomNotesArray[3] = scaleChord5[0];
+        middleNotesArray[3] = scaleChord5[1];
+        topNotesArray[3] = scaleChord5[2];
+
+
+        //Add note arrays to the phrases
+        bottomNotes.addNoteList(bottomNotesArray);
+        middleNotes.addNoteList(middleNotesArray);
+        topNotes.addNoteList(topNotesArray);
+
+
+        //Set the scores
+        setScoreSpecific(bottomNotes, "left");
+        setScoreSpecific(middleNotes, "middle");
+        setScoreSpecific(topNotes, "right");
+
+
+        //Add CPhrases to Part p
+        p.addCPhrase(cphr1);
+        p.addCPhrase(cphr2);
+        p.addCPhrase(cphr3);
+        p.addCPhrase(cphr4);
+
+        s.addPart(p);
+
+        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Cadence.mid");
+
+        minor = false;
+        major = false;
+    }
+
+
+    public void makePlagal(){
+
+        int i2 = rn.nextInt(7);
+
+        //1st Chord. Add I chord
+        cphr1.addChord(scaleChord1);
+        bottomNotesArray[0] = scaleChord1[0];
+        middleNotesArray[0] = scaleChord1[1];
+        topNotesArray[0] = scaleChord1[2];
+
+
+        //2nd Chord. Add random chord
+        cphr2.addChord(scaleChords[i2]);
+        bottomNotesArray[1] = scaleChords[i2][0];
+        middleNotesArray[1] = scaleChords[i2][1];
+        topNotesArray[1] = scaleChords[i2][2];
+
+
+        //3rd Chord. Add IV chord
+        cphr3.addChord(scaleChord4);
+        bottomNotesArray[2] = scaleChord4[0];
+        middleNotesArray[2] = scaleChord4[1];
+        topNotesArray[2] = scaleChord4[2];
+
+
+        //4th Chord. Add I chord
+        cphr4.addChord(scaleChord1);
+        bottomNotesArray[3] = scaleChord1[0];
+        middleNotesArray[3] = scaleChord1[1];
+        topNotesArray[3] = scaleChord1[2];
+
+
+        //Add note arrays to the phrases
+        bottomNotes.addNoteList(bottomNotesArray);
+        middleNotes.addNoteList(middleNotesArray);
+        topNotes.addNoteList(topNotesArray);
+
+
+        //Set the scores
+        setScoreSpecific(bottomNotes, "left");
+        setScoreSpecific(middleNotes, "middle");
+        setScoreSpecific(topNotes, "right");
+
+
+        //Add CPhrases to Part p
+        p.addCPhrase(cphr1);
+        p.addCPhrase(cphr2);
+        p.addCPhrase(cphr3);
+        p.addCPhrase(cphr4);
+
+        s.addPart(p);
+
+        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Cadence.mid");
+
+        minor = false;
+        major = false;
+    }
+
+
+    public String makeMIDIEasyCadence() {
+
+        chooseRandomRootAndMakeMinorOrMajorScale();
+
+        //Randomly make Perfect or Interruptive cadence
+        int i2 = rn.nextInt(2);
+        switch(i2){
+            case(0):
+                makePerfect();
+                break;
+            case(1):
+                makeInterruptive();
+                break;
+        }
+
+        if (i2 == 0) {
             return "perfect";
         } else {
             return "interruptive";
@@ -1017,122 +1206,27 @@ public final class JMMusicCreator implements JMC {
 
 
     public String makeMIDIMediumCadence() {
-        int i = rn.nextInt(12);
-        int rootNote = notes[i];
-        int minorOrMajor = rn.nextInt(2);
 
-        if (minorOrMajor == 0) {
-            minor = true;
-            makeMinorScale(rootNote);
-        } else {
-            major = true;
-            makeMajorScale(rootNote);
-        }
+        chooseRandomRootAndMakeMinorOrMajorScale();
 
-        int i3 = rn.nextInt(7);
-        int i4 = rn.nextInt(7);
-
-
-        //1st Chord. Add I chord
-        cphr1.addChord(scaleChord1);
-        bottomNotesArray[0] = scaleChord1[0];
-        middleNotesArray[0] = scaleChord1[1];
-        topNotesArray[0] = scaleChord1[2];
-
-
-        randomAnd5 = new Note[][]{scaleChords[i4], scaleChord5};
-        int i5 = rn.nextInt(2);
-        int i6 = -1;
-
-
-        //4th Chord. Add I, V or VI chord
-        if (i5 == 0) {
-            cphr4.addChord(scaleChord5);
-            bottomNotesArray[3] = scaleChord5[0];
-            middleNotesArray[3] = scaleChord5[1];
-            topNotesArray[3] = scaleChord5[2];
-        } else {
-            i6 = rn.nextInt(2);
-            cphr4.addChord(scaleChords1And6[i6]);
-            bottomNotesArray[3] = scaleChords1And6[i6][0];
-            middleNotesArray[3] = scaleChords1And6[i6][1];
-            topNotesArray[3] = scaleChords1And6[i6][2];
+        //Randomly make Perfect, Interruptive or Imperfect cadence
+        int i2 = rn.nextInt(3);
+        switch(i2){
+            case(0):
+                makePerfect();
+                break;
+            case(1):
+                makeInterruptive();
+                break;
+            case(2):
+                makeImperfect();
+                break;
         }
 
 
-        //3rd Chord. Add V or random
-        if (i6 == 0 && minor) {
-            cphr3.addChord(scaleChord5MelodicMinor);
-            bottomNotesArray[2] = scaleChord5MelodicMinor[0];
-            middleNotesArray[2] = scaleChord5MelodicMinor[1];
-            topNotesArray[2] = scaleChord5MelodicMinor[2];
-        } else if (i6 == 0 && major) {
-            cphr3.addChord(scaleChord5);
-            bottomNotesArray[2] = scaleChord5[0];
-            middleNotesArray[2] = scaleChord5[1];
-            topNotesArray[2] = scaleChord5[2];
-        } else if (i6 == 1) {
-            cphr3.addChord(randomAnd5[1]);
-            bottomNotesArray[2] = randomAnd5[1][0];
-            middleNotesArray[2] = randomAnd5[1][1];
-            topNotesArray[2] = randomAnd5[1][2];
-        } else {
-            cphr3.addChord(randomAnd5[0]);
-            bottomNotesArray[2] = randomAnd5[0][0];
-            middleNotesArray[2] = randomAnd5[0][1];
-            topNotesArray[2] = randomAnd5[0][2];
-        }
-
-
-        //2nd Chord. Add random chord or II/IV chord if 3rd chord is V
-        if (i6 == -1) {
-            cphr2.addChord(scaleChords[i3]);
-            bottomNotesArray[1] = scaleChords[i3][0];
-            middleNotesArray[1] = scaleChords[i3][1];
-            topNotesArray[1] = scaleChords[i3][2];
-        } else {
-            int IIOrIVChord = rn.nextInt(2);
-            if (IIOrIVChord == 0) {
-                cphr2.addChord(scaleChord2);
-                bottomNotesArray[1] = scaleChord2[0];
-                middleNotesArray[1] = scaleChord2[1];
-                topNotesArray[1] = scaleChord2[2];
-            } else {
-                cphr2.addChord(scaleChord4);
-                bottomNotesArray[1] = scaleChord2[0];
-                middleNotesArray[1] = scaleChord2[1];
-                topNotesArray[1] = scaleChord2[2];
-            }
-        }
-
-
-        //Add note arrays to the phrases
-        bottomNotes.addNoteList(bottomNotesArray);
-        middleNotes.addNoteList(middleNotesArray);
-        topNotes.addNoteList(topNotesArray);
-
-
-        //Set the scores
-        setScoreSpecific(bottomNotes, "left");
-        setScoreSpecific(middleNotes, "middle");
-        setScoreSpecific(topNotes, "right");
-
-
-        p.addCPhrase(cphr1);
-        p.addCPhrase(cphr2);
-        p.addCPhrase(cphr3);
-        p.addCPhrase(cphr4);
-
-        s.addPart(p);
-
-        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Cadence.mid");
-
-        minor = false;
-        major = false;
-
-        if (i6 == 0) {
+        if(i2 == 0) {
             return "perfect";
-        } else if (i6 == 1) {
+        } else if(i2 == 1) {
             return "interruptive";
         } else {
             return "imperfect";
@@ -1141,136 +1235,35 @@ public final class JMMusicCreator implements JMC {
 
 
     public String makeMIDIHardCadence() {
-        int i = rn.nextInt(12);
-        int rootNote = notes[i];
-        int minorOrMajor = rn.nextInt(2);
 
-        if (minorOrMajor == 0) {
-            minor = true;
-            makeMinorScale(rootNote);
-        } else {
-            major = true;
-            makeMajorScale(rootNote);
-        }
+        chooseRandomRootAndMakeMinorOrMajorScale();
 
-        int i3 = rn.nextInt(7);
-        int i4 = rn.nextInt(7);
-
-
-        //1st Chord. Add I chord
-        cphr1.addChord(scaleChord1);
-        bottomNotesArray[0] = scaleChord1[0];
-        middleNotesArray[0] = scaleChord1[1];
-        topNotesArray[0] = scaleChord1[2];
-
-        int i5 = rn.nextInt(3);
-        int i6 = -1;
-
-
-        //4th Chord. Add I, V or VI chord
-        if (i5 == 0) {
-            cphr4.addChord(scaleChord5);
-            bottomNotesArray[3] = scaleChord5[0];
-            middleNotesArray[3] = scaleChord5[1];
-            topNotesArray[3] = scaleChord5[2];
-        } else if (i5 == 1) {
-            i6 = rn.nextInt(2);
-            cphr4.addChord(scaleChords1And6[i6]);
-            bottomNotesArray[3] = scaleChords1And6[i6][0];
-            middleNotesArray[3] = scaleChords1And6[i6][1];
-            topNotesArray[3] = scaleChords1And6[i6][2];
-        } else {
-            cphr4.addChord(scaleChord1);
-            bottomNotesArray[3] = scaleChord1[0];
-            middleNotesArray[3] = scaleChord1[1];
-            topNotesArray[3] = scaleChord1[2];
+        //Randomly make Perfect, Interruptive, Imperfect or Plagal cadence
+        int i2 = rn.nextInt(4);
+        switch(i2){
+            case(0):
+                makePerfect();
+                break;
+            case(1):
+                makeInterruptive();
+                break;
+            case(2):
+                makeImperfect();
+                break;
+            case(3):
+                makePlagal();
+                break;
         }
 
 
-        //3rd Chord. Add IV, V or random
-        randomAnd5And4 = new Note[][]{scaleChords[i4], scaleChord5, scaleChord4};
-        if (i6 == 0 && minor) {
-            cphr3.addChord(scaleChord5MelodicMinor);
-            bottomNotesArray[2] = scaleChord5MelodicMinor[0];
-            middleNotesArray[2] = scaleChord5MelodicMinor[1];
-            topNotesArray[2] = scaleChord5MelodicMinor[2];
-        } else if (i6 == 0 && major) {
-            cphr3.addChord(scaleChord5);
-            bottomNotesArray[2] = scaleChord5[0];
-            middleNotesArray[2] = scaleChord5[1];
-            topNotesArray[2] = scaleChord5[2];
-        } else if (i6 == 1) {
-            cphr3.addChord(randomAnd5And4[1]);
-            bottomNotesArray[2] = randomAnd5And4[1][0];
-            middleNotesArray[2] = randomAnd5And4[1][1];
-            topNotesArray[2] = randomAnd5And4[1][2];
-        } else if (i5 == 0) {
-            cphr3.addChord(randomAnd5And4[0]);
-            bottomNotesArray[2] = randomAnd5And4[0][0];
-            middleNotesArray[2] = randomAnd5And4[0][1];
-            topNotesArray[2] = randomAnd5And4[0][2];
-        } else {
-            cphr3.addChord(randomAnd5And4[2]);
-            bottomNotesArray[2] = randomAnd5And4[2][0];
-            middleNotesArray[2] = randomAnd5And4[2][1];
-            topNotesArray[2] = randomAnd5And4[2][2];
-        }
-
-
-        //2nd Chord. Add random chord or II/IV chord if 3rd chord is V
-        if (i6 == -1) {
-            cphr2.addChord(scaleChords[i3]);
-            bottomNotesArray[1] = scaleChords[i3][0];
-            middleNotesArray[1] = scaleChords[i3][1];
-            topNotesArray[1] = scaleChords[i3][2];
-        } else {
-            int IIOrIVChord = rn.nextInt(2);
-            if (IIOrIVChord == 0) {
-                cphr2.addChord(scaleChord2);
-                bottomNotesArray[1] = scaleChord2[0];
-                middleNotesArray[1] = scaleChord2[1];
-                topNotesArray[1] = scaleChord2[2];
-            } else {
-                cphr2.addChord(scaleChord4);
-                bottomNotesArray[1] = scaleChord4[0];
-                middleNotesArray[1] = scaleChord4[1];
-                topNotesArray[1] = scaleChord4[2];
-            }
-        }
-
-
-        //Add note arrays to the phrases
-        bottomNotes.addNoteList(bottomNotesArray);
-        middleNotes.addNoteList(middleNotesArray);
-        topNotes.addNoteList(topNotesArray);
-
-
-        //Set the scores
-        setScoreSpecific(bottomNotes, "left");
-        setScoreSpecific(middleNotes, "middle");
-        setScoreSpecific(topNotes, "right");
-
-
-        p.addCPhrase(cphr1);
-        p.addCPhrase(cphr2);
-        p.addCPhrase(cphr3);
-        p.addCPhrase(cphr4);
-
-        s.addPart(p);
-
-        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Cadence.mid");
-
-        minor = false;
-        major = false;
-
-        if (i5 == 1 && i6 == 0) {
+        if(i2 == 0) {
             return "perfect";
-        } else if (i5 == 1 && i6 == 1) {
+        } else if(i2 == 1) {
             return "interruptive";
-        } else if (i5 == 2) {
-            return "plagal";
-        } else {
+        } else if(i2 == 2){
             return "imperfect";
+        } else {
+            return "plagal";
         }
     }
 

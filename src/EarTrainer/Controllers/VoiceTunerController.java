@@ -85,8 +85,6 @@ public class VoiceTunerController implements PitchDetectionHandler {
 
     @FXML private Pane inputPane;
 
-    @FXML private HBox mediaBar;
-
 
     private JGrandStave jScore = new JGrandStave();
     private Phrase phrase = new Phrase();
@@ -268,7 +266,7 @@ public class VoiceTunerController implements PitchDetectionHandler {
         double lengthToRecordFor;
 
         if(easyRadioButton.isSelected()){
-            lengthToRecordFor = 1000;
+            lengthToRecordFor = QUARTER_NOTE_LENGTH_IN_SECONDS;
         } else if(mediumRadioButton.isSelected()){
             double n1Length = convertNoteDurationToSeconds(melodyArray[0].getRhythmValue());
             double n2Length = convertNoteDurationToSeconds(melodyArray[1].getRhythmValue());

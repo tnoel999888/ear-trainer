@@ -285,10 +285,10 @@ public class CadenceRecognitionController {
         questionAnswered = true;
         nextQuestionButton.setDisable(false);
 
-        Phrase phrase = musicCreator.getPhrase();
-        setScoreSpecific(phrase, "left");
-        setScoreSpecific(phrase, "middle");
-        setScoreSpecific(phrase, "right");
+//        Phrase phrase = musicCreator.getPhrase();
+//        setScoreSpecific(phrase, "left");
+//        setScoreSpecific(phrase, "middle");
+//        setScoreSpecific(phrase, "right");
     }
 
 
