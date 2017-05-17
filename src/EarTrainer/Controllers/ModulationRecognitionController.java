@@ -398,14 +398,9 @@ public class ModulationRecognitionController {
         rootKeyLabel.setVisible(true);
         rootKeyLabel.setText("Root key: " + musicCreator.getRootKeyString());
 
-        System.out.println("Old key: " + musicCreator.getRootKeyString());
         System.out.println("New key: " + correctAnswer);
 
         similarKeys = musicCreator.getSimilarKeys();
-
-        for(int similarKey: similarKeys){
-            System.out.println(similarKey);
-        }
 
         String similarKey0Text;
         String similarKey1Text;

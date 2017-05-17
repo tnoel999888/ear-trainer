@@ -266,7 +266,7 @@ public class VoiceTunerController implements PitchDetectionHandler {
         double lengthToRecordFor;
 
         if(easyRadioButton.isSelected()){
-            lengthToRecordFor = QUARTER_NOTE_LENGTH_IN_SECONDS;
+            lengthToRecordFor = Math.floor(QUARTER_NOTE_LENGTH_IN_SECONDS * 1000);
         } else if(mediumRadioButton.isSelected()){
             double n1Length = convertNoteDurationToSeconds(melodyArray[0].getRhythmValue());
             double n2Length = convertNoteDurationToSeconds(melodyArray[1].getRhythmValue());
@@ -281,12 +281,12 @@ public class VoiceTunerController implements PitchDetectionHandler {
         questionTimeline = new Timeline(
                 new KeyFrame(Duration.millis(0),
                         new EventHandler<ActionEvent>() {
-                            int secs = 0;
+                            int millisecs = 0;
                             @Override public void handle(ActionEvent actionEvent) {
-                                secs++;
-                                if(secs < lengthToRecordFor) {
+                                millisecs++;
+                                if(millisecs < lengthToRecordFor) {
                                     recording = true;
-                                } else if (secs == lengthToRecordFor){
+                                } else if (millisecs == lengthToRecordFor){
                                     recordButton.setText("Recorded");
                                     recording = false;
                                     checkAnswer();
@@ -360,19 +360,34 @@ public class VoiceTunerController implements PitchDetectionHandler {
     }
 
 
+    private String getAveragePitch(List pitches){
+        float totalPitch = 0;
+
+        for (int i = 0; i < pitches.size(); i++) {
+            totalPitch += (float) pitches.get(i);
+        }
+
+        float avgPitch = totalPitch / pitches.size();
+        int noOfSemitonesFromMiddleA = calculateNoteFromPitch(avgPitch);
+        String note = notes[noOfSemitonesFromMiddleA];
+
+        return note;
+    }
+
+
     private void checkAnswer() {
         firstTimeStampCounter = 1;
 
         if(easyRadioButton.isSelected()) {
-            float totalPitch = 0;
-
-            for (int i = 0; i < pitches.size(); i++) {
-                totalPitch += (float) pitches.get(i);
-            }
-
-            float avgPitch = totalPitch / pitches.size();
-            int noOfSemitonesFromMiddleA = calculateNoteFromPitch(avgPitch);
-            String note = notes[noOfSemitonesFromMiddleA];
+//            float totalPitch = 0;
+//
+//            for (int i = 0; i < pitches.size(); i++) {
+//                totalPitch += (float) pitches.get(i);
+//            }
+//
+//            float avgPitch = totalPitch / pitches.size();
+//            int noOfSemitonesFromMiddleA = calculateNoteFromPitch(avgPitch);
+            String note = getAveragePitch(pitches);
 
             if (note.equals(correctAnswer)) {
                 makeButtonGreen(recordButton);
@@ -386,7 +401,6 @@ public class VoiceTunerController implements PitchDetectionHandler {
             }
         } else if(mediumRadioButton.isSelected()) {
             double n1Length = convertNoteDurationToSeconds(melodyArray[0].getRhythmValue());
-            double n2Length = convertNoteDurationToSeconds(melodyArray[1].getRhythmValue());
 
             List note1Pitches = new LinkedList();
             List note2Pitches = new LinkedList();
@@ -402,8 +416,8 @@ public class VoiceTunerController implements PitchDetectionHandler {
             String note1String = musicCreator.getNote(melodyArray[0]);
             String note2String = musicCreator.getNote(melodyArray[1]);
 
-            String theirNote1 = checkMajority(note1Pitches);
-            String theirNote2 = checkMajority(note2Pitches);
+            String theirNote1 = getAveragePitch(note1Pitches);
+            String theirNote2 = getAveragePitch(note2Pitches);
 
             boolean note1Correct = theirNote1.equals(note1String);
             boolean note2Correct = theirNote2.equals(note2String);
@@ -421,7 +435,6 @@ public class VoiceTunerController implements PitchDetectionHandler {
         } else {
             double n1Length = convertNoteDurationToSeconds(melodyArray[0].getRhythmValue());
             double n2Length = convertNoteDurationToSeconds(melodyArray[1].getRhythmValue());
-            double n3Length = convertNoteDurationToSeconds(melodyArray[2].getRhythmValue());
 
             List note1Pitches = new LinkedList();
             List note2Pitches = new LinkedList();
@@ -441,9 +454,9 @@ public class VoiceTunerController implements PitchDetectionHandler {
             String note2String = musicCreator.getNote(melodyArray[1]);
             String note3String = musicCreator.getNote(melodyArray[2]);
 
-            String theirNote1 = checkMajority(note1Pitches);
-            String theirNote2 = checkMajority(note2Pitches);
-            String theirNote3 = checkMajority(note3Pitches);
+            String theirNote1 = getAveragePitch(note1Pitches);
+            String theirNote2 = getAveragePitch(note2Pitches);
+            String theirNote3 = getAveragePitch(note3Pitches);
 
             boolean note1Correct = theirNote1.equals(note1String);
             boolean note2Correct = theirNote2.equals(note2String);
@@ -469,33 +482,33 @@ public class VoiceTunerController implements PitchDetectionHandler {
     }
 
 
-    private String checkMajority(List notePitches) {
-        Map<String, Integer> map = new HashMap<String, Integer>();
-
-        for(int i = 0; i < notePitches.size(); i++) {
-            int noOfSemitonesFromMiddleA = calculateNoteFromPitch((float)notePitches.get(i));
-            String note = notes[noOfSemitonesFromMiddleA];
-
-            if(map.get(note) == null){
-                map.put(note,1);
-            }else{
-                map.put(note, map.get(note) + 1);
-            }
-        }
-
-        int largest = 0;
-        String modeNote = "";
-        for (Map.Entry<String, Integer> entry : map.entrySet()) {
-            String key = entry.getKey();
-            int value = entry.getValue();
-            if( value > largest){
-                largest = value;
-                modeNote = key;
-            }
-        }
-
-        return modeNote;
-    }
+//    private String checkMajority(List notePitches) {
+//        Map<String, Integer> map = new HashMap<String, Integer>();
+//
+//        for(int i = 0; i < notePitches.size(); i++) {
+//            int noOfSemitonesFromMiddleA = calculateNoteFromPitch((float)notePitches.get(i));
+//            String note = notes[noOfSemitonesFromMiddleA];
+//
+//            if(map.get(note) == null){
+//                map.put(note,1);
+//            }else{
+//                map.put(note, map.get(note) + 1);
+//            }
+//        }
+//
+//        int largest = 0;
+//        String modeNote = "";
+//        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+//            String key = entry.getKey();
+//            int value = entry.getValue();
+//            if( value > largest){
+//                largest = value;
+//                modeNote = key;
+//            }
+//        }
+//
+//        return modeNote;
+//    }
 
 
     private void resetButtonColours() {
