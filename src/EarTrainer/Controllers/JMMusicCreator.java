@@ -2,6 +2,7 @@ package EarTrainer.Controllers;
 
 import jm.JMC;
 
+import jm.audio.Instrument;
 import jm.gui.cpn.JGrandStave;
 import jm.music.data.*;
 import jm.util.*;
@@ -11,6 +12,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 
 public final class JMMusicCreator implements JMC {
@@ -74,6 +76,13 @@ public final class JMMusicCreator implements JMC {
     private boolean major = false;
 
     private String rootKeyString;
+
+    private final double ONE_CENT_RATIO = 1.000578;
+    private final double FIVE_CENTS_RATIO = 1.002892;
+    private final double FIFTEEN_CENTS_RATIO = 1.008702;
+    private final double TWENTY_FIVE_CENTS_RATIO = 1.014545;
+    private final double FIFTY_CENTS_RATIO = 1.029302;
+
 
 
 
@@ -707,13 +716,22 @@ public final class JMMusicCreator implements JMC {
 //                         | |
 //                         |_|
 //********************************************************
+    public double getSecondNoteFrequency(double ratio1, double ratio2, double noteOneFrequency){
+        double random = ThreadLocalRandom.current().nextDouble(ratio1, ratio2);
+
+        System.out.println(noteOneFrequency);
+        double freq1 = noteOneFrequency * random;
+        double freq2 = noteOneFrequency / random;
+        double[] freqs = {freq1, freq2};
+        int i3 = rn.nextInt(2);
+        double freq = freqs[i3];
+        System.out.println(freq);
+
+        return freq;
+    }
+
 
     public String makeMIDIEasySharpFlat() {
-        Random rn = new Random();
-        int i = rn.nextInt(7);
-        int[] array = {0, 2, 4, 5, 7, 9, 11};
-        int interval = array[i];
-
         //setScore(phr2);
 
         Note n = new Note(C4, C);
@@ -721,83 +739,90 @@ public final class JMMusicCreator implements JMC {
         phr2.addNote(n);
         phr1.addNote(n);
 
+        // set up an audio instrument
+        Instrument sineWave = new OvertoneInst(44100);
 
-//        double twentyFiveCentsRatio = 1.014545;
-//        double fiftyCentsRatio = 1.029302;
-//        //double hundredCentsRatio = 1.059463;
-//        double random = ThreadLocalRandom.current().nextDouble(twentyFiveCentsRatio, fiftyCentsRatio);
-//
-//        System.out.println(n.getFrequency());
-//        double freq1 = n.getFrequency() * random;
-//        double freq2 = n.getFrequency() / random;
-//        double[] freqs = {freq1, freq2};
-//        int i3 = rn.nextInt(2);
-//        double freq = freqs[i3];
-//        System.out.println(freq);
+        double note2Freq = getSecondNoteFrequency(FIFTEEN_CENTS_RATIO, TWENTY_FIVE_CENTS_RATIO, n.getFrequency());
 
 
-        Note n2 = new Note(C4, C);
-
+        Note n2 = new Note(note2Freq, C);
         phr1.addNote(n2);
+
 
         p.addPhrase(phr1);
         s.addPart(p);
 
-        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/SharpFlat.mid");
+        Write.au(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/SharpFlat.au", sineWave);
 
-        return getNote(n);
+        if(n.getFrequency() < note2Freq){
+            return "sharp";
+        } else {
+            return "flat";
+        }
     }
 
 
     public String makeMIDIMediumSharpFlat() {
-        Random rn = new Random();
-        int i = rn.nextInt(12);
-        int[] array = new int[12];
+        //setScore(phr2);
 
-        for (int j = 0; j < 12; j++) {
-            array[j] = j;
-        }
-
-        int interval = array[i];
-
-        setScore(phr2);
-
-        Note n = new Note(C4 + interval, C);
+        Note n = new Note(C4, C);
 
         phr2.addNote(n);
+        phr1.addNote(n);
 
-        p.addPhrase(phr2);
+        // set up an audio instrument
+        Instrument sineWave = new OvertoneInst(44100);
+
+        double note2Freq = getSecondNoteFrequency(FIVE_CENTS_RATIO, FIFTEEN_CENTS_RATIO, n.getFrequency());
+
+
+        Note n2 = new Note(note2Freq, C);
+        phr1.addNote(n2);
+
+
+        p.addPhrase(phr1);
         s.addPart(p);
 
-        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/SharpFlat.mid");
+        Write.au(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/SharpFlat.au", sineWave);
 
-        return getNote(n);
+        if(n.getFrequency() < note2Freq){
+            return "sharp";
+        } else {
+            return "flat";
+        }
     }
 
 
     public String makeMIDIHardSharpFlat() {
-        Random rn = new Random();
-        int i = rn.nextInt(36);
-        int[] array = new int[36];
+        int interval = rn.nextInt(12);
 
-        for (int j = 0; j < 36; j++) {
-            array[j] = j;
-        }
+        //setScore(phr2);
 
-        int interval = array[i];
-
-        setScore(phr2);
-
-        Note n = new Note(C3 + interval, C);
+        Note n = new Note(C4 + interval, C);
 
         phr2.addNote(n);
+        phr1.addNote(n);
 
-        p.addPhrase(phr2);
+        // set up an audio instrument
+        Instrument sineWave = new OvertoneInst(44100);
+
+        double note2Freq = getSecondNoteFrequency(ONE_CENT_RATIO, FIVE_CENTS_RATIO, n.getFrequency());
+
+
+        Note n2 = new Note(note2Freq, C);
+        phr1.addNote(n2);
+
+
+        p.addPhrase(phr1);
         s.addPart(p);
 
-        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/SharpFlat.mid");
+        Write.au(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/SharpFlat.au", sineWave);
 
-        return getNote(n);
+        if(n.getFrequency() < note2Freq){
+            return "sharp";
+        } else {
+            return "flat";
+        }
     }
 
 
@@ -1072,7 +1097,7 @@ public final class JMMusicCreator implements JMC {
         topNotesArray[0] = scaleChord1[2];
 
 
-        //2nd Chord. Add random chord
+        //2nd Chord. Add random chord (2,4,5)
         cphr2.addChord(scaleChords[i2]);
         bottomNotesArray[1] = scaleChords[i2][0];
         middleNotesArray[1] = scaleChords[i2][1];
@@ -1131,7 +1156,7 @@ public final class JMMusicCreator implements JMC {
         topNotesArray[0] = scaleChord1[2];
 
 
-        //2nd Chord. Add random chord
+        //2nd Chord. Add random chord, (6, 1 1st Inversion)
         cphr2.addChord(scaleChords[i2]);
         bottomNotesArray[1] = scaleChords[i2][0];
         middleNotesArray[1] = scaleChords[i2][1];
@@ -1579,21 +1604,21 @@ public final class JMMusicCreator implements JMC {
         int i = rn.nextInt(12);
         int root;
 
-        int minorOrMajor = rn.nextInt(2);
-
-        if(minorOrMajor == 0) {
-            minor = true;
-            root = circleOfFifthsMinor[i];
-            makeMinorScale(root);
-            rootKeyString = getNote(new Note(root, C));
-            return modulateFromMinor(i, root);
-        } else {
+//        int minorOrMajor = rn.nextInt(2);
+//
+//        if(minorOrMajor == 0) {
+//            minor = true;
+//            root = circleOfFifthsMinor[i];
+//            makeMinorScale(root);
+//            rootKeyString = getNote(new Note(root, C));
+//            return modulateFromMinor(i, root);
+//        } else {
             major = true;
             root = circleOfFifthsMajor[i];
             makeMajorScale(root);
             rootKeyString = getNote(new Note(root, C));
             return modulateFromMajor(i, root);
-        }
+//        }
     }
 
 

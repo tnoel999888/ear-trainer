@@ -22,13 +22,18 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import jm.gui.cpn.JGrandStave;
+import jm.gui.cpn.JStaveActionHandler;
+import jm.gui.cpn.PianoStave;
+import jm.gui.cpn.Stave;
 import jm.music.data.Phrase;
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.MidiUnavailableException;
 import javax.sound.midi.Sequencer;
+import javax.swing.*;
 import java.awt.*;
 import java.io.*;
+import java.util.Vector;
 
 
 public class CadenceRecognitionController {
@@ -60,6 +65,8 @@ public class CadenceRecognitionController {
     @FXML private Pane scorePaneRight;
 
     @FXML HBox mediaBar;
+
+    private PianoStave stave = new PianoStave();
 
     private JGrandStave jScore = new JGrandStave();
     private JGrandStave jScoreLeft = new JGrandStave();
@@ -93,6 +100,11 @@ public class CadenceRecognitionController {
         jScore.removeTitle();
         jScore.setEditable(false);
 
+        stave.setPreferredSize(d);
+        stave.setMaximumSize(d);
+        stave.removeTitle();
+        stave.setEditable(false);
+
         jScoreLeft.setPreferredSize(d);
         jScoreLeft.setMaximumSize(d);
         jScoreLeft.removeTitle();
@@ -114,6 +126,8 @@ public class CadenceRecognitionController {
         scorePane.getChildren().add(swingNode);
         scorePaneLeft.getChildren().add(swingNodeLeft);
         scorePaneRight.getChildren().add(swingNodeRight);
+
+//        stave.get
     }
 
 

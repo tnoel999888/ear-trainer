@@ -43,7 +43,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Label>
-            <GridPane hgap="50.0">
+            <GridPane hgap="50.0" maxHeight="300.0" minHeight="300.0" prefHeight="300.0">
                <children>
                   <Pane fx:id="scorePane" maxHeight="300.0" maxWidth="475.0" minHeight="300.0" minWidth="475.0" pickOnBounds="false" prefHeight="300.0" prefWidth="475.0" GridPane.columnIndex="1" VBox.vgrow="ALWAYS">
                      <HBox.margin>

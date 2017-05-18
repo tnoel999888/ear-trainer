@@ -1,6 +1,5 @@
 package EarTrainer.Controllers;
 
-import com.sun.media.sound.SimpleInstrument;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -30,6 +29,7 @@ import java.io.*;
 
 
 import javax.sound.midi.*;
+import javax.sound.sampled.*;
 
 
 public class SharpFlatRecognitionController {
@@ -97,19 +97,19 @@ public class SharpFlatRecognitionController {
 
     @FXML
     private void easyRadioButtonSelected(ActionEvent event) throws IOException {
-        difficultyDescriptionLabel.setText("Middle C only. +/- 10-25 Cents");
+        difficultyDescriptionLabel.setText("Middle C only. +/- 15-25 Cents");
     }
 
 
     @FXML
     private void mediumRadioButtonSelected(ActionEvent event) throws IOException {
-        difficultyDescriptionLabel.setText("White notes only. 1 Octave. +/- 5-10 Cents");
+        difficultyDescriptionLabel.setText("Middle C only. +/- 5-15 Cents");
     }
 
 
     @FXML
     private void hardRadioButtonSelected(ActionEvent event) throws IOException {
-        difficultyDescriptionLabel.setText("All notes. 3 Octaves. +/- 1-5 Cents");
+        difficultyDescriptionLabel.setText("All notes. 1 Octave. +/- 1-5 Cents");
     }
 
 
@@ -121,7 +121,7 @@ public class SharpFlatRecognitionController {
 
 
     @FXML
-    private void StartButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException {
+    private void StartButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException, LineUnavailableException, UnsupportedAudioFileException {
         startClicked = true;
         questionNumber = 1;
         numberOfCorrectAnswers = 0;
@@ -137,9 +137,9 @@ public class SharpFlatRecognitionController {
 
 
     @FXML
-    private void NextQuestionButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException {
-        sequencer.stop();
-        sequencer.close();
+    private void NextQuestionButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException, LineUnavailableException, UnsupportedAudioFileException {
+//        sequencer.stop();
+//        sequencer.close();
 
         if (questionNumber != TOTAL_QUESTIONS) {
             questionNumber++;
@@ -214,7 +214,7 @@ public class SharpFlatRecognitionController {
     private void flatButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
             AnswerButtonClicked();
-            checkAnswer("unison", flatButton);
+            checkAnswer("flat", flatButton);
         }
     }
 
@@ -223,7 +223,7 @@ public class SharpFlatRecognitionController {
     private void sharpButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
             AnswerButtonClicked();
-            checkAnswer("minor second", sharpButton);
+            checkAnswer("sharp", sharpButton);
         }
     }
 
@@ -313,7 +313,7 @@ public class SharpFlatRecognitionController {
 
 
     @FXML
-    private void generateQuestion() throws IOException, MidiUnavailableException, InvalidMidiDataException {
+    private void generateQuestion() throws IOException, MidiUnavailableException, InvalidMidiDataException, LineUnavailableException, UnsupportedAudioFileException {
         musicCreator = new JMMusicCreator(jScore);
 
         if(easyRadioButton.isSelected()){
@@ -331,33 +331,22 @@ public class SharpFlatRecognitionController {
 
 
     @FXML
-    private void replayButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException {
-        sequencer.stop();
-        sequencer.close();
-
+    private void replayButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException, LineUnavailableException, UnsupportedAudioFileException {
         playSound();
     }
 
 
-    private void playSound() throws MidiUnavailableException, IOException, InvalidMidiDataException {
-        final String MEDIA_URL = "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/SharpFlat.mid";
-
-        sequencer = MidiSystem.getSequencer();
-        sequencer.open();
-        InputStream is = new BufferedInputStream(new FileInputStream(new File(MEDIA_URL)));
+    private void playSound() throws MidiUnavailableException, IOException, InvalidMidiDataException, UnsupportedAudioFileException, LineUnavailableException {
+        final String MEDIA_URL = "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/SharpFlat.au";
 
 
-        ShortMessage myMsg = new ShortMessage();
-        myMsg.setMessage(ShortMessage.PITCH_BEND, 3, 2, 100);
-        MidiEvent pitchBend = new MidiEvent(myMsg, 1);
-        
-        Sequence sequence = MidiSystem.getSequence(is);
-        Track track = sequence.createTrack();
-        track.add(pitchBend);
-
-
-        sequencer.setSequence(sequence);
-        sequencer.start();
+        File audioFile = new File(MEDIA_URL);
+        AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
+        AudioFormat format = audioStream.getFormat();
+        DataLine.Info info = new DataLine.Info(Clip.class, format);
+        Clip audioClip = (Clip) AudioSystem.getLine(info);
+        audioClip.open(audioStream);
+        audioClip.start();
     }
 
 
