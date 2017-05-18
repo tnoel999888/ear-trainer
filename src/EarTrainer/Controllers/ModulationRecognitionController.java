@@ -32,15 +32,7 @@ import java.awt.*;
 import java.io.*;
 
 
-public class ModulationRecognitionController {
-
-    public static final int TOTAL_QUESTIONS = 10;
-    @FXML private StackPane stackPane;
-
-    @FXML private HBox radioButtonsGroup;
-    @FXML private RadioButton easyRadioButton;
-    @FXML private RadioButton mediumRadioButton;
-    @FXML private RadioButton hardRadioButton;
+public class ModulationRecognitionController extends AbstractController{
 
     @FXML private Button similarKey0Button;
     @FXML private Button similarKey1Button;
@@ -48,29 +40,16 @@ public class ModulationRecognitionController {
     @FXML private Button similarKey3Button;
     @FXML private Button similarKey4Button;
 
-    @FXML private Button correctButton;
-
-    @FXML private Label timerLabel;
-    @FXML private Label questionLabel;
     @FXML private Label rootKeyLabel;
-    @FXML private Label difficultyDescriptionLabel;
     @FXML private Label similarKey0Label;
     @FXML private Label similarKey1Label;
     @FXML private Label similarKey2Label;
     @FXML private Label similarKey3Label;
     @FXML private Label similarKey4Label;
 
-
-    @FXML private Button startButton;
-    @FXML private Button nextQuestionButton;
-
-    @FXML private Pane scorePane;
     @FXML private Pane scorePaneLeft;
     @FXML private Pane scorePaneRight;
 
-    @FXML HBox mediaBar;
-
-    private JGrandStave jScore = new JGrandStave();
     private JGrandStave jScoreLeft = new JGrandStave();
     private JGrandStave jScoreRight = new JGrandStave();
 
@@ -78,24 +57,11 @@ public class ModulationRecognitionController {
     private Phrase phraseLeft = new Phrase();
     private Phrase phraseRight = new Phrase();
 
-    //MediaPlayer mediaPlayer;
-    private JMMusicCreator musicCreator;
-    private String strSecs;
-    private String strMins;
-
-    private int questionNumber;
-    private int numberOfCorrectAnswers = 0;
-
-    private String correctAnswer = "a";
-    private boolean questionAnswered;
-    private Timeline timeline;
-    private boolean startClicked = false;
-
     private int[] similarKeys = new int[5];
 
-    private Sequencer sequencer;
 
 
+    @Override
     @FXML
     public void initialize() {
         Dimension d = new Dimension();
@@ -148,103 +114,7 @@ public class ModulationRecognitionController {
     }
 
 
-    @FXML
-    private void BackButtonClicked(ActionEvent event) throws IOException {
-        Stage stage = (Stage) stackPane.getScene().getWindow();
-        stage.hide();
-    }
-
-
-    @FXML
-    private void StartButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException {
-        startClicked = true;
-        questionNumber = 1;
-        numberOfCorrectAnswers = 0;
-        startTimer();
-        questionLabel.setVisible(true);
-        startButton.setDisable(true);
-        timerLabel.setVisible(true);
-        radioButtonsGroup.setDisable(true);
-        questionLabel.setText("Question 1");
-
-        generateQuestion();
-    }
-
-
-    @FXML
-    private void NextQuestionButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException {
-        sequencer.stop();
-        sequencer.close();
-
-        if (questionNumber != TOTAL_QUESTIONS) {
-            questionNumber++;
-            questionLabel.setText("Question " + Integer.toString(questionNumber));
-
-            questionAnswered = false;
-            nextQuestionButton.setDisable(true);
-            resetButtonColours();
-            generateQuestion();
-        } else {
-            nextQuestionButton.setText("Next Question");
-            questionLabel.setVisible(false);
-            rootKeyLabel.setVisible(false);
-            nextQuestionButton.setDisable(true);
-            startClicked = false;
-            stopTimer();
-            loadScore();
-
-            questionAnswered = false;
-            nextQuestionButton.setDisable(true);
-            resetButtonColours();
-        }
-
-
-
-//        setScore(phrase);
-    }
-
-
-    private void loadScore() {
-        ColorAdjust adj = new ColorAdjust(0, 0, -0.2, 0);
-        GaussianBlur blur = new GaussianBlur(10);
-        adj.setInput(blur);
-        stackPane.setEffect(adj);
-        stackPane.setDisable(true);
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/PopupScore.fxml"));
-        Parent root = null;
-        try {
-            root = (Parent)loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        startButton.setDisable(false);
-        radioButtonsGroup.setDisable(false);
-
-        PopupScoreController controller = loader.<PopupScoreController>getController();
-        controller.setNumberOfCorrectAnswers(numberOfCorrectAnswers);
-        controller.setTime(strMins, strSecs);
-        controller.setStackPane(stackPane);
-//        controller.setSequencer(sequencer);
-
-        if(numberOfCorrectAnswers >= 0 && numberOfCorrectAnswers <= 3){
-            controller.setImageToUse("../Images/ScoreRed.png");
-        } else if(numberOfCorrectAnswers > 3 && numberOfCorrectAnswers <= 6) {
-            controller.setImageToUse("../Images/ScoreAmber.png");
-        } else {
-            controller.setImageToUse("../Images/ScoreGreen.png");
-        }
-
-        Stage newStage = new Stage();
-        newStage.initStyle(StageStyle.UNDECORATED);
-        Scene scene = new Scene(root);
-        newStage.setScene(scene);
-        newStage.show();
-    }
-
-
-    private void resetButtonColours() {
+    protected void resetButtonColours() {
         similarKey0Button.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
         similarKey1Button.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
         similarKey2Button.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
@@ -298,78 +168,6 @@ public class ModulationRecognitionController {
     }
 
 
-    @FXML
-    private void AnswerButtonClicked() throws IOException {
-        questionAnswered = true;
-        nextQuestionButton.setDisable(false);
-
-        Phrase phrase = musicCreator.getPhrase();
-//        setScore(phrase);
-    }
-
-
-    private void checkAnswer(String answer, Button button) {
-        if(!answer.equals(correctAnswer)){
-            makeButtonRed(button);
-        } else {
-            numberOfCorrectAnswers++;
-        }
-
-        makeButtonGreen(correctButton);
-
-        if(questionNumber == TOTAL_QUESTIONS){
-            nextQuestionButton.setText("Score");
-        }
-    }
-
-
-    private void makeButtonRed(Button button) {
-        button.setStyle("-fx-base: #ffb3b3;");
-    }
-
-
-    private void makeButtonGreen(Button correctButton) {
-        correctButton.setStyle("-fx-base: #adebad;");
-    }
-
-
-    private void startTimer() {
-        Timeline timeline = new Timeline(
-                new KeyFrame(Duration.seconds(0),
-                        new EventHandler<ActionEvent>() {
-                            int secs = 0;
-                            @Override public void handle(ActionEvent actionEvent) {
-                                secs++;
-                                strSecs = Integer.toString(secs % 60);
-                                strMins = Integer.toString(secs/60);
-
-                                if (strSecs.length() == 1){
-                                    strSecs = "0" + strSecs;
-                                }
-
-                                if (strMins.length() == 1){
-                                    strMins = "0" + strMins;
-                                }
-
-                                timerLabel.setText(strMins + ":" + strSecs);
-                            }
-                        }
-                ),
-                new KeyFrame(Duration.seconds(1))
-        );
-
-        this.timeline = timeline;
-        timeline.setCycleCount(Animation.INDEFINITE);
-        timeline.play();
-    }
-
-
-    private void stopTimer() {
-        timerLabel.setVisible(false);
-        timeline.stop();
-    }
-
-
     private Button getCorrectButton(String correctAnswer) {
         Button[] buttons = {similarKey0Button, similarKey1Button, similarKey2Button, similarKey3Button, similarKey4Button};
 
@@ -383,8 +181,9 @@ public class ModulationRecognitionController {
     }
 
 
+    @Override
     @FXML
-    private void generateQuestion() throws IOException, MidiUnavailableException, InvalidMidiDataException {
+    protected void generateQuestion() throws IOException, MidiUnavailableException, InvalidMidiDataException {
         musicCreator = new JMMusicCreator(jScore, jScoreLeft, jScoreRight);
 
         if(easyRadioButton.isSelected()){
@@ -444,16 +243,7 @@ public class ModulationRecognitionController {
     }
 
 
-    @FXML
-    private void replayButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException {
-        sequencer.stop();
-        sequencer.close();
-
-        playSound();
-    }
-
-
-    private void playSound() throws MidiUnavailableException, IOException, InvalidMidiDataException {
+    protected void playSound() throws MidiUnavailableException, IOException, InvalidMidiDataException {
         final String MEDIA_URL = "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Modulation.mid";
 
         sequencer = MidiSystem.getSequencer();

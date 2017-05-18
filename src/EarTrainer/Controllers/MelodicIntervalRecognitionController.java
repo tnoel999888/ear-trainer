@@ -37,15 +37,7 @@ import javax.sound.midi.MidiUnavailableException;
 import javax.sound.midi.Sequencer;
 
 
-public class MelodicIntervalRecognitionController {
-
-    public static final int TOTAL_QUESTIONS = 10;
-    @FXML private StackPane stackPane;
-
-    @FXML private HBox radioButtonsGroup;
-    @FXML private RadioButton easyRadioButton;
-    @FXML private RadioButton mediumRadioButton;
-    @FXML private RadioButton hardRadioButton;
+public class MelodicIntervalRecognitionController extends AbstractController{
 
     @FXML private Button unisonButton;
     @FXML private Button minorSecondButton;
@@ -61,53 +53,6 @@ public class MelodicIntervalRecognitionController {
     @FXML private Button minorSeventhButton;
     @FXML private Button majorSeventhButton;
 
-    @FXML private Button correctButton = new Button();
-
-    @FXML private Label timerLabel;
-    @FXML private Label questionLabel;
-    @FXML private Label difficultyDescriptionLabel;
-
-    @FXML private Button startButton;
-    @FXML private Button nextQuestionButton;
-
-    @FXML private Pane scorePane;
-
-    @FXML HBox mediaBar;
-
-    private JGrandStave jScore = new JGrandStave();
-    private Phrase phrase = new Phrase();
-
-    private JMMusicCreator musicCreator;
-    private String strSecs;
-    private String strMins;
-
-    private int questionNumber;
-    private int numberOfCorrectAnswers = 0;
-
-    private String correctAnswer = "unison";
-    private boolean questionAnswered;
-    private Timeline timeline;
-    private boolean startClicked = false;
-
-    private Sequencer sequencer;
-
-
-
-    @FXML
-    public void initialize() {
-        Dimension d = new Dimension();
-        d.setSize(600,300);
-        jScore.setPreferredSize(d);
-        jScore.setMaximumSize(d);
-
-        jScore.removeTitle();
-        jScore.setEditable(true);
-
-        SwingNode swingNode = new SwingNode();
-        swingNode.setContent(jScore);
-
-        scorePane.getChildren().add(swingNode);
-    }
 
 
     @FXML
@@ -157,100 +102,7 @@ public class MelodicIntervalRecognitionController {
     }
 
 
-    @FXML
-    private void BackButtonClicked(ActionEvent event) throws IOException {
-        Stage stage = (Stage) stackPane.getScene().getWindow();
-        stage.hide();
-    }
-
-
-    @FXML
-    private void StartButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException {
-        startClicked = true;
-        questionNumber = 1;
-        numberOfCorrectAnswers = 0;
-        startTimer();
-        questionLabel.setVisible(true);
-        startButton.setDisable(true);
-        timerLabel.setVisible(true);
-        radioButtonsGroup.setDisable(true);
-        questionLabel.setText("Question 1");
-
-        generateQuestion();
-    }
-
-
-    @FXML
-    private void NextQuestionButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException {
-        sequencer.stop();
-        sequencer.close();
-
-        if (questionNumber != TOTAL_QUESTIONS) {
-            questionNumber++;
-            questionLabel.setText("Question " + Integer.toString(questionNumber));
-
-            questionAnswered = false;
-            nextQuestionButton.setDisable(true);
-            resetButtonColours();
-//        setScore(phrase);
-            generateQuestion();
-        } else {
-            nextQuestionButton.setText("Next Question");
-            questionLabel.setVisible(false);
-            nextQuestionButton.setDisable(true);
-            startClicked = false;
-            stopTimer();
-            loadScore();
-
-            questionAnswered = false;
-            nextQuestionButton.setDisable(true);
-            resetButtonColours();
-        }
-
-
-    }
-
-
-    private void loadScore() {
-        ColorAdjust adj = new ColorAdjust(0, 0, -0.2, 0);
-        GaussianBlur blur = new GaussianBlur(10);
-        adj.setInput(blur);
-        stackPane.setEffect(adj);
-        stackPane.setDisable(true);
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/PopupScore.fxml"));
-        Parent root = null;
-        try {
-            root = (Parent)loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        startButton.setDisable(false);
-        radioButtonsGroup.setDisable(false);
-
-        PopupScoreController controller = loader.<PopupScoreController>getController();
-        controller.setNumberOfCorrectAnswers(numberOfCorrectAnswers);
-        controller.setTime(strMins, strSecs);
-        controller.setStackPane(stackPane);
-
-        if(numberOfCorrectAnswers >= 0 && numberOfCorrectAnswers <= 3){
-            controller.setImageToUse("../Images/ScoreRed.png");
-        } else if(numberOfCorrectAnswers > 3 && numberOfCorrectAnswers <= 6) {
-            controller.setImageToUse("../Images/ScoreAmber.png");
-        } else {
-            controller.setImageToUse("../Images/ScoreGreen.png");
-        }
-
-        Stage newStage = new Stage();
-        newStage.initStyle(StageStyle.UNDECORATED);
-        Scene scene = new Scene(root);
-        newStage.setScene(scene);
-        newStage.show();
-    }
-
-
-    private void resetButtonColours() {
+    protected void resetButtonColours() {
         unisonButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
         minorSecondButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
         majorSecondButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
@@ -384,78 +236,6 @@ public class MelodicIntervalRecognitionController {
     }
 
 
-    @FXML
-    private void AnswerButtonClicked() throws IOException {
-        questionAnswered = true;
-        nextQuestionButton.setDisable(false);
-
-        Phrase phrase = musicCreator.getPhrase();
-        setScore(phrase);
-    }
-
-
-    private void checkAnswer(String answer, Button button) {
-        if(answer != correctAnswer){
-            makeButtonRed(button);
-        } else {
-            numberOfCorrectAnswers++;
-        }
-
-        makeButtonGreen(correctButton);
-
-        if(questionNumber == TOTAL_QUESTIONS){
-            nextQuestionButton.setText("Score");
-        }
-    }
-
-
-    private void makeButtonRed(Button button) {
-        button.setStyle("-fx-base: #ffb3b3;");
-    }
-
-
-    private void makeButtonGreen(Button correctButton) {
-        correctButton.setStyle("-fx-base: #adebad;");
-    }
-
-
-    private void startTimer() {
-        Timeline timeline = new Timeline(
-                new KeyFrame(Duration.seconds(0),
-                        new EventHandler<ActionEvent>() {
-                            int secs = 0;
-                            @Override public void handle(ActionEvent actionEvent) {
-                                secs++;
-                                strSecs = Integer.toString(secs % 60);
-                                strMins = Integer.toString(secs/60);
-
-                                if (strSecs.length() == 1){
-                                    strSecs = "0" + strSecs;
-                                }
-
-                                if (strMins.length() == 1){
-                                    strMins = "0" + strMins;
-                                }
-
-                                timerLabel.setText(strMins + ":" + strSecs);
-                            }
-                        }
-                ),
-                new KeyFrame(Duration.seconds(1))
-        );
-        
-        this.timeline = timeline;
-        timeline.setCycleCount(Animation.INDEFINITE);
-        timeline.play();
-    }
-
-
-    private void stopTimer() {
-        timerLabel.setVisible(false);
-        timeline.stop();
-    }
-
-
     private Button getCorrectButton(String correctAnswer) {
         switch(correctAnswer){
             case "unison":
@@ -491,7 +271,7 @@ public class MelodicIntervalRecognitionController {
 
 
     @FXML
-    private void generateQuestion() throws IOException, MidiUnavailableException, InvalidMidiDataException {
+    protected void generateQuestion() throws IOException, MidiUnavailableException, InvalidMidiDataException {
         musicCreator = new JMMusicCreator(jScore);
 
         if(easyRadioButton.isSelected()){
@@ -508,16 +288,7 @@ public class MelodicIntervalRecognitionController {
     }
 
 
-    @FXML
-    private void replayButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException {
-        sequencer.stop();
-        sequencer.close();
-
-        playSound();
-    }
-
-
-    private void playSound() throws MidiUnavailableException, IOException, InvalidMidiDataException {
+    protected void playSound() throws MidiUnavailableException, IOException, InvalidMidiDataException {
         final String MEDIA_URL = "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/MelodicInterval.mid";
 
         sequencer = MidiSystem.getSequencer();
@@ -527,18 +298,6 @@ public class MelodicIntervalRecognitionController {
         sequencer.start();
     }
 
-
-    public void setScore(Phrase phr) {
-        jScore.setPhrase(phr);
-
-        Dimension d = new Dimension();
-        d.setSize(600,300);
-        jScore.setPreferredSize(d);
-        jScore.setMaximumSize(d);
-
-        jScore.removeTitle();
-        jScore.setEditable(true);
-    }
 }
 
 

@@ -81,7 +81,6 @@ public final class JMMusicCreator implements JMC {
     private final double FIVE_CENTS_RATIO = 1.002892;
     private final double FIFTEEN_CENTS_RATIO = 1.008702;
     private final double TWENTY_FIVE_CENTS_RATIO = 1.014545;
-    private final double FIFTY_CENTS_RATIO = 1.029302;
 
 
 
