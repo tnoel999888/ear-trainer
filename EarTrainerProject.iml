@@ -10,23 +10,22 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/commons-lang3-3.5/commons-lang3-3.5.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/PitchDetector-latest.jar!/" />
         </CLASSES>
         <JAVADOC />
-        <SOURCES />
+        <SOURCES>
+          <root url="jar://$USER_HOME$/Downloads/PitchDetector-latest.jar!/" />
+        </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/commons-lang3-3.5/commons-lang3-3.5-tests.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/TarsosDSP-latest.jar!/" />
         </CLASSES>
-        <JAVADOC>
-          <root url="jar://$USER_HOME$/Downloads/commons-lang3-3.5/commons-lang3-3.5-javadoc.jar!/" />
-        </JAVADOC>
+        <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/Downloads/commons-lang3-3.5/commons-lang3-3.5-sources.jar!/" />
-          <root url="jar://$USER_HOME$/Downloads/commons-lang3-3.5/commons-lang3-3.5-test-sources.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/TarsosDSP-latest.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
@@ -42,66 +41,12 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="file://$USER_HOME$/jMusic/inst" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$USER_HOME$/jMusic/inst" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="file://$USER_HOME$/jMusic" />
-          <root url="file://$USER_HOME$/jMusic" />
-        </CLASSES>
-        <JAVADOC>
-          <root url="file://$USER_HOME$/jMusic/jm/CVS" />
-        </JAVADOC>
-        <SOURCES>
-          <root url="file://$USER_HOME$/jMusic" />
-        </SOURCES>
-        <jarDirectory url="file://$USER_HOME$/jMusic" recursive="false" />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/JMSL_v103/classes/jmsl.jar!/" />
+          <root url="file://$USER_HOME$/Downloads/commons-lang3-3.5/apidocs/org/apache/commons/lang3" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/JMSL_v103/classes/jscore.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/jsyn-complete-20160812.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/TarsosDSP-latest.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="jar://$USER_HOME$/Downloads/TarsosDSP-latest.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
+    <orderEntry type="library" name="lang3" level="project" />
   </component>
 </module>

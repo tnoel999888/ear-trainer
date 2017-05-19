@@ -6,7 +6,7 @@ import jm.audio.Instrument;
 import jm.gui.cpn.JGrandStave;
 import jm.music.data.*;
 import jm.util.*;
-import org.apache.commons.lang3.ArrayUtils;
+//import org.apache.commons.lang3.ArrayUtils;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -1644,6 +1644,35 @@ public final class JMMusicCreator implements JMC {
 //                             |___/
 //*********************************************************
 
+    public List makeMelody(){
+
+        List melody = new LinkedList<Note>();
+        double lengthSoFar = 0.0;
+
+        while(lengthSoFar != 4.0){
+            int p = rn.nextInt(15);
+            int pitch = scaleNotes[p];
+
+            if(noteLengthsList.size() == 0){
+                break;
+            }
+
+            int d = rn.nextInt(noteLengthsList.size());
+            double duration = (double)noteLengthsList.get(d);
+
+
+            if(duration + lengthSoFar <= 4.0){
+                melody.add(new Note(pitch, duration));
+                lengthSoFar += duration;
+            } else {
+                noteLengthsList.remove(d);
+            }
+        }
+
+        return melody;
+    }
+
+
     public int makeMIDIEasyWrongNote(){
         int i = rn.nextInt(12);
         int rootNote = notes[i];
@@ -1702,11 +1731,12 @@ public final class JMMusicCreator implements JMC {
         setScore(phr2);
         originalPhr2.addNoteList(melodyArray);
 
+
         //Find notes which do not belong to this scale
         List nonScaleNotes = new LinkedList();
 
-        for(int n : notes){
-            if(!ArrayUtils.contains(scaleNotes,n)){
+        for(int n : notes) {
+            if (!(Arrays.asList(scaleNotes).contains(n))) {
                 nonScaleNotes.add(n);
             }
         }
@@ -1747,21 +1777,9 @@ public final class JMMusicCreator implements JMC {
 
 
     public int makeMIDIMediumWrongNote(){
-        int i = rn.nextInt(12);
-        int rootNote = notes[i];
-        jScore.setKeySignature(rootNote);
-
 
         //Make major or minor scale
-        int minorOrMajor = rn.nextInt(2);
-
-        if(minorOrMajor == 0) {
-            minor = true;
-            makeMinorScale(rootNote);
-        } else {
-            major = true;
-            makeMajorScale(rootNote);
-        }
+        chooseRandomRootAndMakeMinorOrMajorScale();
 
 
         //Set scale notes
@@ -1773,29 +1791,7 @@ public final class JMMusicCreator implements JMC {
 
 
         //Made melody
-        List melody = new LinkedList<Note>();
-        double lengthSoFar = 0.0;
-
-        while(lengthSoFar != 4.0){
-            int p = rn.nextInt(15);
-            int pitch = scaleNotes[p];
-
-            if(noteLengthsList.size() == 0){
-                break;
-            }
-
-            int d = rn.nextInt(noteLengthsList.size());
-            double duration = (double)noteLengthsList.get(d);
-
-
-            if(duration + lengthSoFar <= 4.0){
-                melody.add(new Note(pitch, duration));
-                lengthSoFar += duration;
-            } else {
-                noteLengthsList.remove(d);
-            }
-        }
-
+        List melody = makeMelody();
         Note[] melodyArray = new Note[melody.size()];
         melody.toArray(melodyArray);
 
@@ -1834,21 +1830,9 @@ public final class JMMusicCreator implements JMC {
 
 
     public int makeMIDIHardWrongNote(){
-        int i = rn.nextInt(12);
-        int rootNote = notes[i];
-        jScore.setKeySignature(rootNote);
-
 
         //Make major or minor scale
-        int minorOrMajor = rn.nextInt(2);
-
-        if(minorOrMajor == 0) {
-            minor = true;
-            makeMinorScale(rootNote);
-        } else {
-            major = true;
-            makeMajorScale(rootNote);
-        }
+        chooseRandomRootAndMakeMinorOrMajorScale();
 
 
         //Set scale notes
@@ -1860,29 +1844,7 @@ public final class JMMusicCreator implements JMC {
 
 
         //Made melody
-        List melody = new LinkedList<Note>();
-        double lengthSoFar = 0.0;
-
-        while(lengthSoFar != 4.0){
-            int p = rn.nextInt(15);
-            int pitch = scaleNotes[p];
-
-            if(noteLengthsList.size() == 0){
-                break;
-            }
-
-            int d = rn.nextInt(noteLengthsList.size());
-            double duration = (double)noteLengthsList.get(d);
-
-
-            if(duration + lengthSoFar <= 4.0){
-                melody.add(new Note(pitch, duration));
-                lengthSoFar += duration;
-            } else {
-                noteLengthsList.remove(d);
-            }
-        }
-
+        List melody = makeMelody();
         Note[] melodyArray = new Note[melody.size()];
         melody.toArray(melodyArray);
 
