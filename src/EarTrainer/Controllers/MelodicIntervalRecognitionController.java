@@ -25,16 +25,25 @@ import jm.gui.cpn.BassStave;
 import jm.gui.cpn.JGrandStave;
 import jm.gui.cpn.PianoStave;
 import jm.gui.cpn.Stave;
+import jm.music.data.Note;
+import jm.music.data.Part;
 import jm.music.data.Phrase;
+import jm.music.data.Score;
+import jm.util.Write;
 
 import java.awt.*;
 import java.io.*;
+import java.util.Random;
 
 
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.MidiUnavailableException;
 import javax.sound.midi.Sequencer;
+
+import static jm.constants.Durations.*;
+import static jm.constants.Pitches.*;
+import static jm.constants.RhythmValues.*;
 
 
 public class MelodicIntervalRecognitionController extends AbstractController{
@@ -270,16 +279,128 @@ public class MelodicIntervalRecognitionController extends AbstractController{
     }
 
 
+    private String makeMIDIEasyMelodic() {
+        Note n1 = new Note(C4, C);
+        phr1.addNote(n1);
+
+        setScore(phr1);
+
+        Random rn = new Random();
+        int i = rn.nextInt(5);
+        int[] array = {0, 3, 4, 7, 12};
+        int interval = array[i];
+
+        System.out.println(interval);
+
+        Note n2 = new Note(C4 + interval, C);
+
+        phr2.addNote(n1);
+        phr2.addNote(n2);
+
+        p.addPhrase(phr2);
+        s.addPart(p);
+
+        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/MelodicInterval.mid");
+
+        return getInterval(interval);
+    }
+
+
+    private String makeMIDIMediumMelodic() {
+        Random rn = new Random();
+        int i = rn.nextInt(7);
+        int[] array = {0, 1, 2, 3, 4, 7, 12};
+        int interval = array[i];
+
+        System.out.println(interval);
+
+        int i2 = rn.nextInt(7);
+        int[] roots = {C4,
+                D4,
+                E4,
+                F4,
+                G4,
+                A4,
+                B4,};
+
+        int chosenRoot = roots[i2];
+
+        Note n1 = new Note(chosenRoot, C);
+        phr1.addNote(n1);
+
+        setScore(phr1);
+
+        Note n2 = new Note(chosenRoot + interval, C);
+
+        phr2.addNote(n1);
+        phr2.addNote(n2);
+
+        p.addPhrase(phr2);
+        s.addPart(p);
+
+        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/MelodicInterval.mid");
+
+        return getInterval(interval);
+    }
+
+
+    private String makeMIDIHardMelodic() {
+        Random rn = new Random();
+        int interval = rn.nextInt(25) - 12;
+
+        System.out.println(interval);
+
+        Random r2n = new Random();
+        int i2 = r2n.nextInt(21);
+        int[] roots = {C3, C4, C5,
+                CS3, CS4, CS5,
+                D3, D4, D5,
+                DS3, DS4, DS5,
+                E3, E4, E5,
+                F3, F4, F5,
+                FS3, FS4, FS5,
+                G3, G4, G5,
+                GS3, GS4, GS5,
+                A3, A4, A5,
+                AS3, AS4, AS5,
+                B3, B4, B5};
+
+        int chosenRoot = roots[i2];
+
+        Note n1 = new Note(chosenRoot, C);
+        phr1.addNote(n1);
+
+        setScore(phr1);
+
+        Note n2 = new Note(chosenRoot + interval, C);
+
+        phr2.addNote(n1);
+        phr2.addNote(n2);
+
+        p.addPhrase(phr2);
+        s.addPart(p);
+
+        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/MelodicInterval.mid");
+
+        return getInterval(interval);
+    }
+
+
     @FXML
     protected void generateQuestion() throws IOException, MidiUnavailableException, InvalidMidiDataException {
-        musicCreator = new JMMusicCreator(jScore);
+//        musicCreator = new JMMusicCreator(jScore);
+        phr1 = new Phrase();
+        phr2 = new Phrase();
+        p = new Part();
+        s = new Score();
+
 
         if(easyRadioButton.isSelected()){
-            correctAnswer = musicCreator.makeMIDIEasyMelodic();
+            correctAnswer = makeMIDIEasyMelodic();
         } else if(mediumRadioButton.isSelected()){
-            correctAnswer = musicCreator.makeMIDIMediumMelodic();
+            correctAnswer = makeMIDIMediumMelodic();
         } else if(hardRadioButton.isSelected()){
-            correctAnswer = musicCreator.makeMIDIHardMelodic();
+            correctAnswer = makeMIDIHardMelodic();
         }
 
         correctButton = getCorrectButton(correctAnswer);
@@ -297,7 +418,6 @@ public class MelodicIntervalRecognitionController extends AbstractController{
         sequencer.setSequence(is);
         sequencer.start();
     }
-
 }
 
 

@@ -32,8 +32,15 @@ import javax.sound.midi.MidiSystem;
 import javax.sound.midi.MidiUnavailableException;
 import javax.sound.midi.Sequencer;
 import java.awt.*;
+import java.awt.List;
 import java.io.*;
+import java.util.*;
+
 import javafx.scene.paint.Color;
+
+import static jm.constants.Pitches.*;
+import static jm.constants.RhythmValues.*;
+import static jm.constants.Durations.*;
 
 
 public class WrongNoteIdentificationController extends AbstractController{
@@ -72,7 +79,7 @@ public class WrongNoteIdentificationController extends AbstractController{
     private void SubmitButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
             AnswerButtonClicked();
-            checkAnswer(musicCreator.getTheirMelodyAnswer(), musicCreator.getOriginalPhrase().getNoteArray());
+            checkAnswer(getTheirMelodyAnswer(), getOriginalPhrase().getNoteArray());
         }
     }
 
@@ -145,7 +152,7 @@ public class WrongNoteIdentificationController extends AbstractController{
                         break;
                     }
                 } else {
-                    if (contains(musicCreator.getScaleNotes(), theirMelodyAnswer[i].getPitch())) {
+                    if (contains(getScaleNotes(), theirMelodyAnswer[i].getPitch())) {
                         makeButtonGreen(submitButton);
                         numberOfCorrectAnswers++;
                         correctIncorrectText.setTextFill(Color.web("#3abf4c"));
@@ -189,17 +196,227 @@ public class WrongNoteIdentificationController extends AbstractController{
     }
 
 
+    private LinkedList makeMelody(){
+
+        LinkedList melody = new LinkedList<Note>();
+        double lengthSoFar = 0.0;
+
+        while(lengthSoFar != 4.0){
+            int p = rn.nextInt(15);
+            int pitch = scaleNotes[p];
+
+            if(noteLengthsList.size() == 0){
+                break;
+            }
+
+            int d = rn.nextInt(noteLengthsList.size());
+            double duration = (double)noteLengthsList.get(d);
+
+
+            if(duration + lengthSoFar <= 4.0){
+                melody.add(new Note(pitch, duration));
+                lengthSoFar += duration;
+            } else {
+                noteLengthsList.remove(d);
+            }
+        }
+
+        return melody;
+    }
+
+
+    private int makeMIDIEasyWrongNote(){
+
+        //Make major or minor scale
+        chooseRandomRootAndMakeMinorOrMajorScale();
+
+
+        //Set scale notes
+        if(minor) {
+            scaleNotes = minorScale;
+        } else {
+            scaleNotes = majorScale;
+        }
+
+
+        //Make melody
+        LinkedList melody = makeMelody();
+        Note[] melodyArray = new Note[melody.size()];
+        melody.toArray(melodyArray);
+
+
+        //Add melody array to phrase
+        phr2.addNoteList(melodyArray);
+        setScore(phr2);
+        originalPhr2.addNoteList(melodyArray);
+
+
+        //Find notes which do not belong to this scale
+        LinkedList nonScaleNotes = new LinkedList();
+
+        for(int n : notes) {
+            if (!(Arrays.asList(scaleNotes).contains(n))) {
+                nonScaleNotes.add(n);
+            }
+        }
+
+
+        //Find random note in melody to change
+        int i2 = rn.nextInt(melody.size());
+        int i3 = rn.nextInt(nonScaleNotes.size());
+
+        double duration = melodyArray[i2].getDuration();
+        int pitch = (int)nonScaleNotes.get(i3);
+        int originalPitch = melodyArray[i2].getPitch();
+
+
+        //Ensure new note is maximum of 3 semitones from original so it's not too obvious
+        while(Math.abs(originalPitch - pitch) > 3){
+            i3 = rn.nextInt(nonScaleNotes.size());
+            pitch = (int)nonScaleNotes.get(i3);
+        }
+
+        melodyArray[i2] = new Note(pitch, duration);
+
+        System.out.println("Incorrect note index: " + i2);
+
+
+        //Add melody array to phrase
+        phr1.addNoteList(melodyArray);
+        theirMelodyAnswer = melodyArray;
+        setScoreEditable(phr1);
+
+        p.add(phr1);
+        s.addPart(p);
+
+        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/WrongNote.mid");
+
+        return i2;
+    }
+
+
+    private int makeMIDIMediumWrongNote(){
+
+        //Make major or minor scale
+        chooseRandomRootAndMakeMinorOrMajorScale();
+
+
+        //Set scale notes
+        if(minor) {
+            scaleNotes = minorScale;
+        } else {
+            scaleNotes = majorScale;
+        }
+
+
+        //Made melody
+        LinkedList melody = makeMelody();
+        Note[] melodyArray = new Note[melody.size()];
+        melody.toArray(melodyArray);
+
+
+        //Add melody array to phrase
+        phr2.addNoteList(melodyArray);
+        originalPhr2.addNoteList(melodyArray);
+
+
+        //Find random note in melody to change
+        int i2 = rn.nextInt(melodyArray.length);
+        int i3 = rn.nextInt(2);
+
+        double duration = melodyArray[i2].getDuration();
+        int pitch = melodyArray[i2].getPitch();
+
+        int[] upOrDown = {-3,3};
+        int newPitch = pitch + upOrDown[i3];
+
+        System.out.println("Up or down: " + i3);
+        System.out.println("Wrong note: " + i2);
+
+        melodyArray[i2] = new Note(newPitch, duration);
+        phr1.addNoteList(melodyArray);
+
+        setScoreEditable(phr1);
+
+
+        p.add(phr2);
+        s.addPart(p);
+
+        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/WrongNote.mid");
+
+        return i2;
+    }
+
+
+    private int makeMIDIHardWrongNote(){
+
+        //Make major or minor scale
+        chooseRandomRootAndMakeMinorOrMajorScale();
+
+
+        //Set scale notes
+        if(minor) {
+            scaleNotes = minorScale;
+        } else {
+            scaleNotes = majorScale;
+        }
+
+
+        //Made melody
+        LinkedList melody = makeMelody();
+        Note[] melodyArray = new Note[melody.size()];
+        melody.toArray(melodyArray);
+
+
+        //Add melody array to phrase
+        phr2.addNoteList(melodyArray);
+        originalPhr2.addNoteList(melodyArray);
+
+
+        //Find random note in melody to change
+        int i2 = rn.nextInt(melodyArray.length);
+        int i3 = rn.nextInt(2);
+
+        double duration = melodyArray[i2].getDuration();
+        int pitch = melodyArray[i2].getPitch();
+
+        int[] upOrDown = {-1,1};
+        int newPitch = pitch + upOrDown[i3];
+
+        System.out.println("Up or down: " + i3);
+        System.out.println("Wrong note: " + i2);
+
+        melodyArray[i2] = new Note(newPitch, duration);
+        phr1.addNoteList(melodyArray);
+
+        setScoreEditable(phr1);
+
+
+        p.add(phr2);
+        s.addPart(p);
+
+        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/WrongNote.mid");
+
+        return i2;
+    }
+
+
     @FXML
     protected void generateQuestion() throws IOException, MidiUnavailableException, InvalidMidiDataException {
-        musicCreator = new JMMusicCreator(jScore);
-        phrase = musicCreator.getOriginalPhrase();
+//        musicCreator = new JMMusicCreator(jScore);
+        phrase = getOriginalPhrase();
+        phr1 = new Phrase();
+        phr2 = new Phrase();
+        p = new Part();
+        s = new Score();
+
 
         if(easyRadioButton.isSelected()){
-            indexOfChangedNote = musicCreator.makeMIDIEasyWrongNote();
+            indexOfChangedNote = makeMIDIEasyWrongNote();
         } else if(mediumRadioButton.isSelected()){
-            indexOfChangedNote = musicCreator.makeMIDIMediumWrongNote();
+            indexOfChangedNote = makeMIDIMediumWrongNote();
         } else if(hardRadioButton.isSelected()){
-            indexOfChangedNote = musicCreator.makeMIDIHardWrongNote();
+            indexOfChangedNote = makeMIDIHardWrongNote();
         }
 
         playSound(filePath);

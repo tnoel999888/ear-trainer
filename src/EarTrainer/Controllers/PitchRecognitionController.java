@@ -26,11 +26,13 @@ import javafx.util.Duration;
 import jm.gui.cpn.BassStave;
 import jm.gui.cpn.JGrandStave;
 import jm.gui.cpn.Stave;
-import jm.music.data.Phrase;
+import jm.music.data.*;
 import jm.util.View;
+import jm.util.Write;
 
 import java.awt.*;
 import java.io.*;
+import java.util.Random;
 
 
 import javax.sound.midi.InvalidMidiDataException;
@@ -38,6 +40,10 @@ import javax.sound.midi.MidiSystem;
 import javax.sound.midi.MidiUnavailableException;
 import javax.sound.midi.Sequencer;
 import javax.swing.*;
+
+import static jm.constants.Pitches.*;
+import static jm.constants.RhythmValues.*;
+import static jm.constants.Durations.*;
 
 
 public class PitchRecognitionController extends AbstractController{
@@ -225,7 +231,6 @@ public class PitchRecognitionController extends AbstractController{
     }
 
 
-
     private Button getCorrectButton(String correctAnswer) {
         switch(correctAnswer){
             case "C":
@@ -258,16 +263,94 @@ public class PitchRecognitionController extends AbstractController{
     }
 
 
+    private String makeMIDIEasyPitch() {
+        Random rn = new Random();
+        int i = rn.nextInt(7);
+        int[] array = {0, 2, 4, 5, 7, 9, 11};
+        int interval = array[i];
+
+        setScore(phr1);
+
+        Note n = new Note(C4 + interval, C);
+
+        phr2.addNote(n);
+
+        p.addPhrase(phr2);
+        s.addPart(p);
+
+        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Pitch.mid");
+
+        return getNote(n);
+    }
+
+
+    private String makeMIDIMediumPitch() {
+        Random rn = new Random();
+        int i = rn.nextInt(12);
+        int[] array = new int[12];
+
+        for (int j = 0; j < 12; j++) {
+            array[j] = j;
+        }
+
+        int interval = array[i];
+
+        setScore(phr1);
+
+        Note n = new Note(C4 + interval, C);
+
+        phr2.addNote(n);
+
+        p.addPhrase(phr2);
+        s.addPart(p);
+
+        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Pitch.mid");
+
+        return getNote(n);
+    }
+
+
+    private String makeMIDIHardPitch() {
+        Random rn = new Random();
+        int i = rn.nextInt(36);
+        int[] array = new int[36];
+
+        for (int j = 0; j < 36; j++) {
+            array[j] = j;
+        }
+
+        int interval = array[i];
+
+        setScore(phr1);
+
+        Note n = new Note(C3 + interval, C);
+
+        phr2.addNote(n);
+
+        p.addPhrase(phr2);
+        s.addPart(p);
+
+        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Pitch.mid");
+
+        return getNote(n);
+    }
+
+
     @FXML
     protected void generateQuestion() throws IOException, MidiUnavailableException, InvalidMidiDataException {
-        musicCreator = new JMMusicCreator(jScore);
+//        musicCreator = new JMMusicCreator(jScore);
+        phr1 = new Phrase();
+        phr2 = new Phrase();
+        p = new Part();
+        s = new Score();
+
 
         if(easyRadioButton.isSelected()){
-            correctAnswer = musicCreator.makeMIDIEasyPitch();
+            correctAnswer = makeMIDIEasyPitch();
         } else if(mediumRadioButton.isSelected()){
-            correctAnswer = musicCreator.makeMIDIMediumPitch();
+            correctAnswer = makeMIDIMediumPitch();
         } else if(hardRadioButton.isSelected()){
-            correctAnswer = musicCreator.makeMIDIHardPitch();
+            correctAnswer = makeMIDIHardPitch();
         }
 
         correctButton = getCorrectButton(correctAnswer);

@@ -23,7 +23,8 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import jm.gui.cpn.JGrandStave;
-import jm.music.data.Phrase;
+import jm.music.data.*;
+import jm.util.Write;
 
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiSystem;
@@ -31,6 +32,10 @@ import javax.sound.midi.MidiUnavailableException;
 import javax.sound.midi.Sequencer;
 import java.awt.*;
 import java.io.*;
+import java.util.Random;
+
+import static jm.constants.Durations.*;
+import static jm.constants.Pitches.*;
 
 
 public class HarmonicIntervalRecognitionController extends AbstractController {
@@ -268,16 +273,130 @@ public class HarmonicIntervalRecognitionController extends AbstractController {
     }
 
 
+    private String makeMIDIEasyHarmonic() {
+        Note n1 = new Note(C4, C);
+        phr1.addNote(n1);
+
+        setScore(phr1);
+
+        Random rn = new Random();
+        int i = rn.nextInt(5);
+        int[] array = {0, 3, 4, 7, 12};
+        int interval = array[i];
+
+        System.out.println(i);
+
+        Note n2 = new Note(C4 + interval, C);
+
+        Note[] notes = {n1, n2};
+        cphr1.addChord(notes);
+
+        p.addCPhrase(cphr1);
+        s.addPart(p);
+
+        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/HarmonicInterval.mid");
+
+        return getInterval(interval);
+    }
+
+
+    private String makeMIDIMediumHarmonic() {
+        Random rn = new Random();
+        int i = rn.nextInt(7);
+        int[] array = {0, 1, 2, 3, 4, 7, 12};
+        int interval = array[i];
+
+        System.out.println(interval);
+
+        Random r2n = new Random();
+        int i2 = r2n.nextInt(7);
+        int[] roots = {C4,
+                D4,
+                E4,
+                F4,
+                G4,
+                A4,
+                B4,};
+
+        int chosenRoot = roots[i2];
+
+        Note n1 = new Note(chosenRoot, C);
+        phr1.addNote(n1);
+
+        setScore(phr1);
+
+        Note n2 = new Note(chosenRoot + interval, C);
+
+        Note[] notes = {n1, n2};
+        cphr1.addChord(notes);
+
+        p.addCPhrase(cphr1);
+        s.addPart(p);
+
+        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/HarmonicInterval.mid");
+
+        return getInterval(interval);
+    }
+
+
+    private String makeMIDIHardHarmonic() {
+        Random rn = new Random();
+        int i = rn.nextInt(25) - 12;
+
+        System.out.println(i);
+
+        Random r2n = new Random();
+        int i2 = r2n.nextInt(21);
+        int[] roots = {C3, C4, C5,
+                CS3, CS4, CS5,
+                D3, D4, D5,
+                DS3, DS4, DS5,
+                E3, E4, E5,
+                F3, F4, F5,
+                FS3, FS4, FS5,
+                G3, G4, G5,
+                GS3, GS4, GS5,
+                A3, A4, A5,
+                AS3, AS4, AS5,
+                B3, B4, B5};
+
+        int chosenRoot = roots[i2];
+
+        Note n1 = new Note(chosenRoot, C);
+        phr1.addNote(n1);
+
+        setScore(phr1);
+
+        Note n2 = new Note(chosenRoot + i, C);
+
+        Note[] notes = {n1, n2};
+        cphr1.addChord(notes);
+
+        p.addCPhrase(cphr1);
+        s.addPart(p);
+
+        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/HarmonicInterval.mid");
+
+        return getInterval(i);
+    }
+
+
     @FXML
     protected void generateQuestion() throws IOException, MidiUnavailableException, InvalidMidiDataException {
-        musicCreator = new JMMusicCreator(jScore);
+//        musicCreator = new JMMusicCreator(jScore);
+        phr1 = new Phrase();
+        phr2 = new Phrase();
+        cphr1 = new CPhrase();
+        p = new Part();
+        s = new Score();
+
 
         if(easyRadioButton.isSelected()){
-            correctAnswer = musicCreator.makeMIDIEasyHarmonic();
+            correctAnswer = makeMIDIEasyHarmonic();
         } else if(mediumRadioButton.isSelected()){
-            correctAnswer = musicCreator.makeMIDIMediumHarmonic();
+            correctAnswer = makeMIDIMediumHarmonic();
         } else if(hardRadioButton.isSelected()){
-            correctAnswer = musicCreator.makeMIDIHardHarmonic();
+            correctAnswer = makeMIDIHardHarmonic();
         }
 
         correctButton = getCorrectButton(correctAnswer);

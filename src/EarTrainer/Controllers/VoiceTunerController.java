@@ -10,47 +10,37 @@ import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.embed.swing.SwingNode;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.effect.ColorAdjust;
-import javafx.scene.effect.GaussianBlur;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.util.Duration;
-import jm.gui.cpn.JGrandStave;
 import jm.music.data.Note;
+import jm.music.data.Part;
 import jm.music.data.Phrase;
+import jm.music.data.Score;
+import jm.util.Write;
 
-import java.awt.*;
-import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.*;
 import java.util.*;
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.MidiUnavailableException;
-import javax.sound.midi.Sequencer;
 import javax.sound.sampled.*;
 import javax.swing.*;
+
+import static jm.constants.Pitches.*;
+import static jm.constants.RhythmValues.*;
+import static jm.constants.Durations.*;
 
 
 public class VoiceTunerController extends AbstractController implements PitchDetectionHandler {
@@ -87,7 +77,7 @@ public class VoiceTunerController extends AbstractController implements PitchDet
 
     private List pitches;
     private List times;
-    private String[] notes = {"A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"};
+    private String[] notesStrings = {"A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"};
     private Note[] melodyArray;
 
     private double QUARTER_NOTE_LENGTH_IN_SECONDS = 2.2291157245635986 - 1.0448979139328003;
@@ -300,7 +290,7 @@ public class VoiceTunerController extends AbstractController implements PitchDet
 
         float avgPitch = totalPitch / pitches.size();
         int noOfSemitonesFromMiddleA = calculateNoteFromPitch(avgPitch);
-        String note = notes[noOfSemitonesFromMiddleA];
+        String note = notesStrings[noOfSemitonesFromMiddleA];
 
         return note;
     }
@@ -344,8 +334,8 @@ public class VoiceTunerController extends AbstractController implements PitchDet
                 }
             }
 
-            String note1String = musicCreator.getNote(melodyArray[0]);
-            String note2String = musicCreator.getNote(melodyArray[1]);
+            String note1String = getNote(melodyArray[0]);
+            String note2String = getNote(melodyArray[1]);
 
             String theirNote1 = getAveragePitch(note1Pitches);
             String theirNote2 = getAveragePitch(note2Pitches);
@@ -381,9 +371,9 @@ public class VoiceTunerController extends AbstractController implements PitchDet
                 }
             }
 
-            String note1String = musicCreator.getNote(melodyArray[0]);
-            String note2String = musicCreator.getNote(melodyArray[1]);
-            String note3String = musicCreator.getNote(melodyArray[2]);
+            String note1String = getNote(melodyArray[0]);
+            String note2String = getNote(melodyArray[1]);
+            String note3String = getNote(melodyArray[2]);
 
             String theirNote1 = getAveragePitch(note1Pitches);
             String theirNote2 = getAveragePitch(note2Pitches);
@@ -418,7 +408,7 @@ public class VoiceTunerController extends AbstractController implements PitchDet
 //
 //        for(int i = 0; i < notePitches.size(); i++) {
 //            int noOfSemitonesFromMiddleA = calculateNoteFromPitch((float)notePitches.get(i));
-//            String note = notes[noOfSemitonesFromMiddleA];
+//            String note = notesStrings[noOfSemitonesFromMiddleA];
 //
 //            if(map.get(note) == null){
 //                map.put(note,1);
@@ -447,27 +437,151 @@ public class VoiceTunerController extends AbstractController implements PitchDet
     }
 
 
+
+    public String makeMIDIEasyVoiceTuner(){
+        Random rn = new Random();
+        int i = rn.nextInt(12);
+        int[] array = new int[12];
+
+        for (int j = 0; j < 12; j++) {
+            array[j] = j;
+        }
+
+        int interval = array[i];
+
+        setScore(phr1);
+
+        Note n = new Note(C4 + interval, C);
+
+        phr2.addNote(n);
+
+        p.addPhrase(phr2);
+        s.addPart(p);
+
+        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Pitch.mid");
+
+        return getNote(n);
+    }
+
+
+    public Note[] makeMIDIMediumVoiceTuner(){
+
+        //Make minor or major scale
+        chooseRandomRootAndMakeMinorOrMajorScale();
+
+
+        //Set scale notesStrings
+        if(minor) {
+            scaleNotes = minorScale;
+        } else {
+            scaleNotes = majorScale;
+        }
+
+
+        //Make a one octave version of scaleNotes
+        int[] scaleNotesOneOctave =  new int[7];
+        for(int j = 0; j < 7; j++){
+            scaleNotesOneOctave[j] = scaleNotes[j];
+        }
+
+
+        //Make 2 note melody
+        int noteIndex = rn.nextInt(7);
+        int durationIndex = rn.nextInt(7);
+
+        Note n1 = new Note(scaleNotesOneOctave[noteIndex], (double)noteLengthsList.get(durationIndex));
+
+        noteIndex = rn.nextInt(7);
+        durationIndex = rn.nextInt(7);
+
+        Note n2 = new Note(scaleNotesOneOctave[noteIndex], (double)noteLengthsList.get(durationIndex));
+
+        Note[] melodyArray = {n1,n2};
+        phr2.addNoteList(melodyArray);
+
+        p.addPhrase(phr2);
+        s.addPart(p);
+
+        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/VoiceTuner.mid");
+        return melodyArray;
+    }
+
+
+    public Note[] makeMIDIHardVoiceTuner(){
+
+        //Make minor or major scale
+        chooseRandomRootAndMakeMinorOrMajorScale();
+
+
+
+        //Set scale notesStrings
+        if(minor) {
+            scaleNotes = minorScale;
+        } else {
+            scaleNotes = majorScale;
+        }
+
+
+        //Make a one octave version of scaleNotes
+        int[] scaleNotesOneOctave =  new int[7];
+        for(int j = 0; j < 7; j++){
+            scaleNotesOneOctave[j] = scaleNotes[j];
+        }
+
+
+        //Make 3 note melody
+        int noteIndex = rn.nextInt(7);
+        int durationIndex = rn.nextInt(7);
+
+        Note n1 = new Note(scaleNotesOneOctave[noteIndex], (double)noteLengthsList.get(durationIndex));
+
+        noteIndex = rn.nextInt(7);
+        durationIndex = rn.nextInt(7);
+
+        Note n2 = new Note(scaleNotesOneOctave[noteIndex], (double)noteLengthsList.get(durationIndex));
+
+        noteIndex = rn.nextInt(7);
+        durationIndex = rn.nextInt(7);
+
+        Note n3 = new Note(scaleNotesOneOctave[noteIndex], (double)noteLengthsList.get(durationIndex));
+
+        Note[] melodyArray = {n1,n2,n3};
+        phr2.addNoteList(melodyArray);
+
+        p.addPhrase(phr2);
+        s.addPart(p);
+
+        Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/VoiceTuner.mid");
+        return melodyArray;
+    }
+
+
     @FXML
     protected void generateQuestion() throws IOException, MidiUnavailableException, InvalidMidiDataException {
-        musicCreator = new JMMusicCreator(jScore);
+//        musicCreator = new JMMusicCreator(jScore);
+        phrase = getOriginalPhrase();
+        phr1 = new Phrase();
+        phr2 = new Phrase();
+        p = new Part();
+        s = new Score();
 
         if(easyRadioButton.isSelected()){
-            correctAnswer = musicCreator.makeMIDIEasyVoiceTuner();
+            correctAnswer = makeMIDIEasyVoiceTuner();
         } else if(mediumRadioButton.isSelected()){
-            melodyArray = musicCreator.makeMIDIMediumVoiceTuner();
+            melodyArray = makeMIDIMediumVoiceTuner();
         } else if(hardRadioButton.isSelected()){
-            melodyArray = musicCreator.makeMIDIHardVoiceTuner();
+            melodyArray = makeMIDIHardVoiceTuner();
         }
 
         if(easyRadioButton.isSelected()) {
             questionNoteLabel.setText("Sing: " + correctAnswer);
         } else if(mediumRadioButton.isSelected()) {
-            questionNoteLabel.setText("Sing: " + musicCreator.getNote(melodyArray[0]) +
-                                        ", " + musicCreator.getNote(melodyArray[1]));
+            questionNoteLabel.setText("Sing: " + getNote(melodyArray[0]) +
+                                        ", " + getNote(melodyArray[1]));
         } else {
-            questionNoteLabel.setText("Sing: " + musicCreator.getNote(melodyArray[0]) +
-                                          ", " + musicCreator.getNote(melodyArray[1]) +
-                                          ", " + musicCreator.getNote(melodyArray[2]));
+            questionNoteLabel.setText("Sing: " + getNote(melodyArray[0]) +
+                                          ", " + getNote(melodyArray[1]) +
+                                          ", " + getNote(melodyArray[2]));
         }
 
         playSound();
@@ -573,30 +687,30 @@ public class VoiceTunerController extends AbstractController implements PitchDet
             String notep4;
 
 
-            String note = notes[n2];
+            String note = notesStrings[n2];
 
             if(n2 != 0) {
-                notem1 = notes[n2 - 1];
+                notem1 = notesStrings[n2 - 1];
             } else {
-                notem1 = notes[11];
+                notem1 = notesStrings[11];
             }
 
             if(n2 > 1) {
-                notem2 = notes[n2 - 2];
+                notem2 = notesStrings[n2 - 2];
             } else {
-                notem2 = notes[10];
+                notem2 = notesStrings[10];
             }
 
             if(n2 > 2) {
-                notem3 = notes[n2 - 3];
+                notem3 = notesStrings[n2 - 3];
             } else {
-                notem3 = notes[9];
+                notem3 = notesStrings[9];
             }
 
             if(n2 > 3) {
-                notem4 = notes[n2 - 4];
+                notem4 = notesStrings[n2 - 4];
             } else {
-                notem4 = notes[8];
+                notem4 = notesStrings[8];
             }
 
 
@@ -604,27 +718,27 @@ public class VoiceTunerController extends AbstractController implements PitchDet
 
 
             if(n2 != 11) {
-                notep1 = notes[n2 + 1];
+                notep1 = notesStrings[n2 + 1];
             } else {
-                notep1 = notes[0];
+                notep1 = notesStrings[0];
             }
 
             if(n2 < 10) {
-                notep2 = notes[n2 + 2];
+                notep2 = notesStrings[n2 + 2];
             } else {
-                notep2 = notes[1];
+                notep2 = notesStrings[1];
             }
 
             if(n2 < 9) {
-                notep3 = notes[n2 + 3];
+                notep3 = notesStrings[n2 + 3];
             } else {
-                notep3 = notes[2];
+                notep3 = notesStrings[2];
             }
 
             if(n2 < 8) {
-                notep4 = notes[n2 + 4];
+                notep4 = notesStrings[n2 + 4];
             } else {
-                notep4 = notes[3];
+                notep4 = notesStrings[3];
             }
 
 

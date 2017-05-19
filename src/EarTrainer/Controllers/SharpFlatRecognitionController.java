@@ -21,15 +21,26 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
+import jm.audio.*;
 import jm.gui.cpn.JGrandStave;
+import jm.music.data.Note;
+import jm.music.data.Part;
 import jm.music.data.Phrase;
+import jm.music.data.Score;
+import jm.util.Write;
 
 import java.awt.*;
 import java.io.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 
 import javax.sound.midi.*;
+import javax.sound.midi.Instrument;
 import javax.sound.sampled.*;
+
+import static jm.constants.Pitches.*;
+import static jm.constants.RhythmValues.*;
+import static jm.constants.Durations.*;
 
 
 public class SharpFlatRecognitionController extends AbstractController {
@@ -130,16 +141,131 @@ public class SharpFlatRecognitionController extends AbstractController {
     }
 
 
+    private double getSecondNoteFrequency(double ratio1, double ratio2, double noteOneFrequency){
+        double random = ThreadLocalRandom.current().nextDouble(ratio1, ratio2);
+
+        System.out.println(noteOneFrequency);
+        double freq1 = noteOneFrequency * random;
+        double freq2 = noteOneFrequency / random;
+        double[] freqs = {freq1, freq2};
+        int i3 = rn.nextInt(2);
+        double freq = freqs[i3];
+        System.out.println(freq);
+
+        return freq;
+    }
+
+
+    private String makeMIDIEasySharpFlat() {
+        //setScore(phr2);
+
+        Note n = new Note(C4, C);
+
+        phr2.addNote(n);
+        phr1.addNote(n);
+
+        // set up an audio instrument
+        jm.audio.Instrument sineWave = new OvertoneInst(44100);
+
+        double note2Freq = getSecondNoteFrequency(FIFTEEN_CENTS_RATIO, TWENTY_FIVE_CENTS_RATIO, n.getFrequency());
+
+
+        Note n2 = new Note(note2Freq, C);
+        phr1.addNote(n2);
+
+
+        p.addPhrase(phr1);
+        s.addPart(p);
+
+        Write.au(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/SharpFlat.au", sineWave);
+
+        if(n.getFrequency() < note2Freq){
+            return "sharp";
+        } else {
+            return "flat";
+        }
+    }
+
+
+    private String makeMIDIMediumSharpFlat() {
+        //setScore(phr2);
+
+        Note n = new Note(C4, C);
+
+        phr2.addNote(n);
+        phr1.addNote(n);
+
+        // set up an audio instrument
+        jm.audio.Instrument sineWave = new OvertoneInst(44100);
+
+        double note2Freq = getSecondNoteFrequency(FIVE_CENTS_RATIO, FIFTEEN_CENTS_RATIO, n.getFrequency());
+
+
+        Note n2 = new Note(note2Freq, C);
+        phr1.addNote(n2);
+
+
+        p.addPhrase(phr1);
+        s.addPart(p);
+
+        Write.au(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/SharpFlat.au", sineWave);
+
+        if(n.getFrequency() < note2Freq){
+            return "sharp";
+        } else {
+            return "flat";
+        }
+    }
+
+
+    private String makeMIDIHardSharpFlat() {
+        int interval = rn.nextInt(12);
+
+        //setScore(phr2);
+
+        Note n = new Note(C4 + interval, C);
+
+        phr2.addNote(n);
+        phr1.addNote(n);
+
+        // set up an audio instrument
+        jm.audio.Instrument sineWave = new OvertoneInst(44100);
+
+        double note2Freq = getSecondNoteFrequency(ONE_CENT_RATIO, FIVE_CENTS_RATIO, n.getFrequency());
+
+
+        Note n2 = new Note(note2Freq, C);
+        phr1.addNote(n2);
+
+
+        p.addPhrase(phr1);
+        s.addPart(p);
+
+        Write.au(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/SharpFlat.au", sineWave);
+
+        if(n.getFrequency() < note2Freq){
+            return "sharp";
+        } else {
+            return "flat";
+        }
+    }
+
+
     @FXML
     protected void generateQuestion() throws IOException, MidiUnavailableException, InvalidMidiDataException, LineUnavailableException, UnsupportedAudioFileException {
-        musicCreator = new JMMusicCreator(jScore);
+//        musicCreator = new JMMusicCreator(jScore);
+        phr1 = new Phrase();
+        phr2 = new Phrase();
+        p = new Part();
+        s = new Score();
+
 
         if(easyRadioButton.isSelected()){
-            correctAnswer = musicCreator.makeMIDIEasySharpFlat();
+            correctAnswer = makeMIDIEasySharpFlat();
         } else if(mediumRadioButton.isSelected()){
-            correctAnswer = musicCreator.makeMIDIMediumSharpFlat();
+            correctAnswer = makeMIDIMediumSharpFlat();
         } else if(hardRadioButton.isSelected()){
-            correctAnswer = musicCreator.makeMIDIHardSharpFlat();
+            correctAnswer = makeMIDIHardSharpFlat();
         }
 
         correctButton = getCorrectButton(correctAnswer);
