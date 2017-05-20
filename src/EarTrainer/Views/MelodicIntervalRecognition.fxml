@@ -43,6 +43,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Label>
+            <Region maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="200.0" />
             <HBox>
                <children>
                   <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
@@ -57,7 +58,7 @@
                   <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
-            <HBox fx:id="mediaBar" alignment="CENTER" maxHeight="50.0" maxWidth="600.0" prefHeight="50.0" prefWidth="600.0" VBox.vgrow="ALWAYS" />
+            <Region maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="200.0" />
             <Button fx:id="replayButton" mnemonicParsing="false" onAction="#replayButtonClicked" text="Replay" />
             <VBox maxHeight="70.0" maxWidth="673.0" minHeight="70.0" minWidth="300.0" prefHeight="70.0" prefWidth="673.0" VBox.vgrow="ALWAYS">
                <children>
@@ -73,7 +74,7 @@
                         </Label>
                      </children>
                      <VBox.margin>
-                        <Insets left="230.0" />
+                        <Insets left="240.0" />
                      </VBox.margin>
                   </HBox>
                   <HBox fx:id="radioButtonsGroup" alignment="CENTER" maxHeight="30.0" maxWidth="414.0" minHeight="30.0" minWidth="100.0" prefHeight="30.0" prefWidth="414.0" spacing="20.0" StackPane.alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
@@ -167,9 +168,10 @@
                   <Button fx:id="tritoneButton" disable="true" layoutX="23.0" layoutY="120.0" maxHeight="50.0" maxWidth="130.0" minHeight="50.0" minWidth="130.0" mnemonicParsing="false" onAction="#tritoneButtonClicked" prefHeight="50.0" prefWidth="130.0" text="Tritone" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
                </children>
                <VBox.margin>
-                  <Insets bottom="35.0" />
+                  <Insets />
                </VBox.margin>
             </GridPane>
+            <Region maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="200.0" />
          </children>
          <StackPane.margin>
             <Insets />

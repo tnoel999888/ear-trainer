@@ -48,6 +48,7 @@
                   <Font name="Courier New Bold" size="52.0" />
                </font>
             </Label>
+            <Region maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="200.0" />
             <HBox alignment="BOTTOM_CENTER" spacing="10.0">
                <children>
                   <Label fx:id="noteLabelm4" layoutX="950.0" layoutY="151.0" textFill="#0000001a">
@@ -202,6 +203,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
             </GridPane>
+            <Region maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="200.0" />
          </children>
          <StackPane.margin>
             <Insets />

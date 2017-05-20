@@ -43,6 +43,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Label>
+            <Region maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="200.0" />
             <HBox>
                <children>
                   <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
@@ -62,7 +63,6 @@
                   <Font size="23.0" />
                </font>
             </Label>
-            <HBox fx:id="mediaBar" alignment="CENTER" maxHeight="50.0" maxWidth="600.0" prefHeight="50.0" prefWidth="600.0" VBox.vgrow="ALWAYS" />
             <HBox spacing="20.0">
                <children>
                   <Region prefHeight="20.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
@@ -164,9 +164,10 @@
                      </font></Button>
                </children>
                <VBox.margin>
-                  <Insets bottom="35.0" />
+                  <Insets />
                </VBox.margin>
             </GridPane>
+            <Region maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="200.0" />
          </children>
          <StackPane.margin>
             <Insets />

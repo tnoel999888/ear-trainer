@@ -48,5 +48,23 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="lang3" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Applications/JavaFX Scene Builder 2.0.app/Contents/Java/SceneBuilderApp.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Applications/JavaFX Scene Builder 2.0.app/Contents/Java/SceneBuilderKit.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

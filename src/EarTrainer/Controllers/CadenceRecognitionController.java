@@ -18,6 +18,7 @@ import javafx.scene.effect.GaussianBlur;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.shape.*;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
@@ -64,7 +65,7 @@ public class CadenceRecognitionController extends AbstractController{
     @FXML
     public void initialize() {
         Dimension d = new Dimension();
-        d.setSize(475,300);
+        d.setSize(475,170);
 
         jScore.setPreferredSize(d);
         jScore.setMaximumSize(d);
@@ -84,6 +85,47 @@ public class CadenceRecognitionController extends AbstractController{
         SwingNode swingNode = new SwingNode();
         SwingNode swingNodeLeft = new SwingNode();
         SwingNode swingNodeRight = new SwingNode();
+
+
+        // Top 200px and bottom 200px of yourSwingNode will be trimed.
+        swingNode.setLayoutY(-100.0);
+        swingNode.layoutBoundsProperty().addListener((o, ov, nv) -> {
+            scorePane.setMaxHeight(nv.getHeight() - 100.0);
+        });
+
+        swingNodeLeft.setLayoutY(-100.0);
+        swingNodeLeft.layoutBoundsProperty().addListener((o, ov, nv) -> {
+            scorePaneLeft.setMaxHeight(nv.getHeight() - 100.0);
+        });
+
+        swingNodeRight.setLayoutY(-100.0);
+        swingNodeRight.layoutBoundsProperty().addListener((o, ov, nv) -> {
+            scorePaneRight.setMaxHeight(nv.getHeight() - 100.0);
+        });
+
+
+        // Set a clip for the layout bounds of Pane if you need
+        javafx.scene.shape.Rectangle clip = new javafx.scene.shape.Rectangle();
+        scorePane.layoutBoundsProperty().addListener((o, ov, nv) -> {
+            clip.setWidth(nv.getWidth());
+            clip.setHeight(nv.getHeight());
+        });
+        scorePane.setClip(clip);
+
+        javafx.scene.shape.Rectangle clip2 = new javafx.scene.shape.Rectangle();
+        scorePaneLeft.layoutBoundsProperty().addListener((o, ov, nv) -> {
+            clip2.setWidth(nv.getWidth());
+            clip2.setHeight(nv.getHeight());
+        });
+        scorePaneLeft.setClip(clip2);
+
+        javafx.scene.shape.Rectangle clip3 = new javafx.scene.shape.Rectangle();
+        scorePaneRight.layoutBoundsProperty().addListener((o, ov, nv) -> {
+            clip3.setWidth(nv.getWidth());
+            clip3.setHeight(nv.getHeight());
+        });
+        scorePaneRight.setClip(clip3);
+
 
         swingNode.setContent(jScore);
         swingNodeLeft.setContent(jScoreLeft);
