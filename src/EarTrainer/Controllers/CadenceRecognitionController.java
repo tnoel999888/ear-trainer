@@ -148,7 +148,7 @@ public class CadenceRecognitionController extends AbstractController{
     @FXML
     private void perfectButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
+            answerButtonClicked();
             checkAnswer("perfect", perfectButton);
         }
     }
@@ -157,7 +157,7 @@ public class CadenceRecognitionController extends AbstractController{
     @FXML
     private void interruptiveButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
+            answerButtonClicked();
             checkAnswer("interruptive", interruptiveButton);
         }
     }
@@ -166,7 +166,7 @@ public class CadenceRecognitionController extends AbstractController{
     @FXML
     private void imperfectButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
+            answerButtonClicked();
             checkAnswer("imperfect", imperfectButton);
         }
     }
@@ -175,9 +175,22 @@ public class CadenceRecognitionController extends AbstractController{
     @FXML
     private void plagalButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
+            answerButtonClicked();
             checkAnswer("plagal", plagalButton);
         }
+    }
+
+
+    @Override
+    @FXML
+    void answerButtonClicked() throws IOException {
+        questionAnswered = true;
+        nextQuestionButton.setDisable(false);
+
+        //Set the scores
+        setScoreSpecific(bottomNotes, "left");
+        setScoreSpecific(middleNotes, "middle");
+        setScoreSpecific(topNotes, "right");
     }
 
 

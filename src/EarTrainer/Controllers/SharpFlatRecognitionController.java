@@ -23,7 +23,11 @@ public class SharpFlatRecognitionController extends AbstractController {
     @FXML private Button flatButton;
     @FXML private Button sharpButton;
 
-    private Instrument sineWave = new OvertoneInst(44100);
+    private final double ONE_CENT_RATIO = 1.000578;
+    private final double FIVE_CENTS_RATIO = 1.002892;
+    private final double FIFTEEN_CENTS_RATIO = 1.008702;
+    private final double TWENTY_FIVE_CENTS_RATIO = 1.014545;
+
 
 
 
@@ -55,8 +59,7 @@ public class SharpFlatRecognitionController extends AbstractController {
     @Override
     @FXML
     void NextQuestionButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException, LineUnavailableException, UnsupportedAudioFileException {
-//        sequencer.stop();
-//        sequencer.close();
+        correctIncorrectLabel.setText("");
 
         if (questionNumber != TOTAL_QUESTIONS) {
             questionNumber++;
@@ -65,7 +68,7 @@ public class SharpFlatRecognitionController extends AbstractController {
             questionAnswered = false;
             nextQuestionButton.setDisable(true);
             resetButtonColours();
-            //setScore(phrase);
+
             generateQuestion();
         } else {
             nextQuestionButton.setText("Next Question");
@@ -91,7 +94,7 @@ public class SharpFlatRecognitionController extends AbstractController {
     @FXML
     private void flatButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
+            answerButtonClicked();
             checkAnswer("flat", flatButton);
         }
     }
@@ -100,7 +103,7 @@ public class SharpFlatRecognitionController extends AbstractController {
     @FXML
     private void sharpButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
+            answerButtonClicked();
             checkAnswer("sharp", sharpButton);
         }
     }
@@ -134,16 +137,23 @@ public class SharpFlatRecognitionController extends AbstractController {
 
 
     private String makeMIDIEasySharpFlat() {
+
         Note n = new Note(C4, C);
 
         phr2.addNote(n);
         phr1.addNote(n);
         setScore(phr2);
 
+
+        // set up an audio instrument
+        Instrument sineWave = new OvertoneInst(44100);
+
         double note2Freq = getSecondNoteFrequency(FIFTEEN_CENTS_RATIO, TWENTY_FIVE_CENTS_RATIO, n.getFrequency());
+
 
         Note n2 = new Note(note2Freq, C);
         phr1.addNote(n2);
+
 
         p.addPhrase(phr1);
         s.addPart(p);
@@ -164,6 +174,9 @@ public class SharpFlatRecognitionController extends AbstractController {
         phr2.addNote(n);
         phr1.addNote(n);
         setScore(phr2);
+
+        // set up an audio instrument
+        Instrument sineWave = new OvertoneInst(44100);
 
         double note2Freq = getSecondNoteFrequency(FIVE_CENTS_RATIO, FIFTEEN_CENTS_RATIO, n.getFrequency());
 
@@ -191,6 +204,9 @@ public class SharpFlatRecognitionController extends AbstractController {
         phr2.addNote(n);
         phr1.addNote(n);
         setScore(phr2);
+
+        // set up an audio instrument
+        Instrument sineWave = new OvertoneInst(44100);
 
         double note2Freq = getSecondNoteFrequency(ONE_CENT_RATIO, FIVE_CENTS_RATIO, n.getFrequency());
 
@@ -243,6 +259,7 @@ public class SharpFlatRecognitionController extends AbstractController {
     protected void playSound() throws MidiUnavailableException, IOException, InvalidMidiDataException, UnsupportedAudioFileException, LineUnavailableException {
         final String MEDIA_URL = "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/SharpFlat.au";
 
+
         File audioFile = new File(MEDIA_URL);
         AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
         AudioFormat format = audioStream.getFormat();
@@ -251,7 +268,6 @@ public class SharpFlatRecognitionController extends AbstractController {
         audioClip.open(audioStream);
         audioClip.start();
     }
-
 }
 
 

@@ -100,7 +100,7 @@ public class HarmonicIntervalRecognitionController extends AbstractController {
     @FXML
     private void unisonButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
+            answerButtonClicked();
             checkAnswer("unison", unisonButton);
         }
     }
@@ -109,7 +109,7 @@ public class HarmonicIntervalRecognitionController extends AbstractController {
     @FXML
     private void minorSecondButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
+            answerButtonClicked();
             checkAnswer("minor second", minorSecondButton);
         }
     }
@@ -118,7 +118,7 @@ public class HarmonicIntervalRecognitionController extends AbstractController {
     @FXML
     private void majorSecondButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
+            answerButtonClicked();
             checkAnswer("major second", majorSecondButton);
         }
     }
@@ -127,7 +127,7 @@ public class HarmonicIntervalRecognitionController extends AbstractController {
     @FXML
     private void perfectFourthButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
+            answerButtonClicked();
             checkAnswer("perfect fourth", perfectFourthButton);
         }
     }
@@ -136,7 +136,7 @@ public class HarmonicIntervalRecognitionController extends AbstractController {
     @FXML
     private void tritoneButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
+            answerButtonClicked();
             checkAnswer("tritone", tritoneButton);
         }
     }
@@ -145,7 +145,7 @@ public class HarmonicIntervalRecognitionController extends AbstractController {
     @FXML
     private void minorThirdButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
+            answerButtonClicked();
             checkAnswer("minor third", minorThirdButton);
         }
     }
@@ -154,7 +154,7 @@ public class HarmonicIntervalRecognitionController extends AbstractController {
     @FXML
     private void majorThirdButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
+            answerButtonClicked();
             checkAnswer("major third", majorThirdButton);
         }
     }
@@ -163,7 +163,7 @@ public class HarmonicIntervalRecognitionController extends AbstractController {
     @FXML
     private void perfectFifthButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
+            answerButtonClicked();
             checkAnswer("perfect fifth", perfectFifthButton);
         }
     }
@@ -172,7 +172,7 @@ public class HarmonicIntervalRecognitionController extends AbstractController {
     @FXML
     private void octaveButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
+            answerButtonClicked();
             checkAnswer("octave", octaveButton);
         }
     }
@@ -181,7 +181,7 @@ public class HarmonicIntervalRecognitionController extends AbstractController {
     @FXML
     private void minorSixthButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
+            answerButtonClicked();
             checkAnswer("minor sixth", minorSixthButton);
         }
     }
@@ -190,7 +190,7 @@ public class HarmonicIntervalRecognitionController extends AbstractController {
     @FXML
     private void majorSixthButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
+            answerButtonClicked();
             checkAnswer("major sixth", majorSixthButton);
         }
     }
@@ -199,7 +199,7 @@ public class HarmonicIntervalRecognitionController extends AbstractController {
     @FXML
     private void minorSeventhButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
+            answerButtonClicked();
             checkAnswer("minor seventh", minorSeventhButton);
         }
     }
@@ -208,7 +208,7 @@ public class HarmonicIntervalRecognitionController extends AbstractController {
     @FXML
     private void majorSeventhButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
+            answerButtonClicked();
             checkAnswer("major seventh", majorSeventhButton);
         }
     }

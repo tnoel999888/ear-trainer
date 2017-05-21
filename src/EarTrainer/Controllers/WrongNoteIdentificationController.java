@@ -53,7 +53,7 @@ public class WrongNoteIdentificationController extends AbstractController{
     @FXML
     private void SubmitButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
+            answerButtonClicked();
             checkAnswer(theirMelodyAnswer, getOriginalPhrase().getNoteArray());
         }
     }

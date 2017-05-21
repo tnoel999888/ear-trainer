@@ -18,7 +18,6 @@ import javafx.scene.effect.GaussianBlur;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -35,6 +34,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.util.*;
+import java.util.List;
 import static jm.constants.Pitches.*;
 import static jm.constants.RhythmValues.*;
 
@@ -69,13 +69,12 @@ public abstract class AbstractController {
     int SIZE_OF_NOTES_ARRAY = notes.length;
     int[] circleOfFifthsMajor = {C4, G4, D4, A4, E4, B4, FS4, DF4, AF4, EF4, BF4, F4};
     int[] circleOfFifthsMinor = {A4, E4, B4, FS4, CS4, GS4, DS4, BF4, F4, C4, G4, D4};
-    int[] similarKeys = new int[5];
 
     int[] minorScale = new int[15];
     int[] majorScale = new int[15];
     int[] scaleNotes = new int[15];
 
-    java.util.List noteLengthsList = new LinkedList(Arrays.asList(SIXTEENTH_NOTE, DOTTED_SIXTEENTH_NOTE,
+    List noteLengthsList = new LinkedList(Arrays.asList(SIXTEENTH_NOTE, DOTTED_SIXTEENTH_NOTE,
                                                                     EIGHTH_NOTE, DOTTED_EIGHTH_NOTE,
                                                                     QUARTER_NOTE, DOTTED_QUARTER_NOTE,
                                                                     HALF_NOTE));
@@ -98,13 +97,6 @@ public abstract class AbstractController {
 
     boolean minor = false;
     boolean major = false;
-
-    String rootKeyString;
-
-    final double ONE_CENT_RATIO = 1.000578;
-    final double FIVE_CENTS_RATIO = 1.002892;
-    final double FIFTEEN_CENTS_RATIO = 1.008702;
-    final double TWENTY_FIVE_CENTS_RATIO = 1.014545;
 
     static final int TOTAL_QUESTIONS = 10;
     @FXML StackPane stackPane;
@@ -286,15 +278,6 @@ public abstract class AbstractController {
             default:
                 return "";
         }
-    }
-
-
-    String getRootKeyString(){
-        if(minor){
-            rootKeyString += "m";
-        }
-
-        return rootKeyString;
     }
 
 
@@ -569,12 +552,11 @@ public abstract class AbstractController {
 
 
     @FXML
-    void AnswerButtonClicked() throws IOException {
+    void answerButtonClicked() throws IOException {
         questionAnswered = true;
         nextQuestionButton.setDisable(false);
 
-        Phrase phrase = phr2;
-        setScore(phrase);
+        setScore(phr2);
     }
 
 

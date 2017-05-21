@@ -41,6 +41,9 @@ public class ModulationRecognitionController extends AbstractController{
 
     private int[] similarKeys = new int[5];
 
+    private String rootKeyString;
+
+
 
 
     @Override
@@ -149,7 +152,7 @@ public class ModulationRecognitionController extends AbstractController{
     @FXML
     private void similarKey0ButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
+            answerButtonClicked();
             checkAnswer(similarKey0Button.getText(), similarKey0Button);
         }
     }
@@ -158,7 +161,7 @@ public class ModulationRecognitionController extends AbstractController{
     @FXML
     private void similarKey1ButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
+            answerButtonClicked();
             checkAnswer(similarKey1Button.getText(), similarKey1Button);
         }
     }
@@ -167,7 +170,7 @@ public class ModulationRecognitionController extends AbstractController{
     @FXML
     private void similarKey2ButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
+            answerButtonClicked();
             checkAnswer(similarKey2Button.getText(), similarKey2Button);
         }
     }
@@ -176,7 +179,7 @@ public class ModulationRecognitionController extends AbstractController{
     @FXML
     private void similarKey3ButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
+            answerButtonClicked();
             checkAnswer(similarKey3Button.getText(), similarKey3Button);
         }
     }
@@ -185,9 +188,22 @@ public class ModulationRecognitionController extends AbstractController{
     @FXML
     private void similarKey4ButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
+            answerButtonClicked();
             checkAnswer(similarKey4Button.getText(), similarKey4Button);
         }
+    }
+
+
+    @Override
+    @FXML
+    void answerButtonClicked() throws IOException {
+        questionAnswered = true;
+        nextQuestionButton.setDisable(false);
+
+        //Set the scores
+        setScoreSpecific(bottomNotes, "left");
+        setScoreSpecific(middleNotes, "middle");
+        setScoreSpecific(topNotes, "right");
     }
 
 
@@ -254,6 +270,15 @@ public class ModulationRecognitionController extends AbstractController{
         }
 
         return commonChords;
+    }
+
+
+    private String getRootKeyString(){
+        if(minor){
+            rootKeyString += "m";
+        }
+
+        return rootKeyString;
     }
 
 

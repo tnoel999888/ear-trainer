@@ -95,7 +95,7 @@ public class PitchRecognitionController extends AbstractController{
     @FXML
     private void cButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
+            answerButtonClicked();
             checkAnswer("C", cButton);
         }
     }
@@ -104,7 +104,7 @@ public class PitchRecognitionController extends AbstractController{
     @FXML
     private void cSharpButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
+            answerButtonClicked();
             checkAnswer("C#", cSharpButton);
         }
     }
@@ -113,7 +113,7 @@ public class PitchRecognitionController extends AbstractController{
     @FXML
     private void dButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
+            answerButtonClicked();
             checkAnswer("D", dButton);
         }
     }
@@ -122,7 +122,7 @@ public class PitchRecognitionController extends AbstractController{
     @FXML
     private void dSharpButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
+            answerButtonClicked();
             checkAnswer("D#", dSharpButton);
         }
     }
@@ -131,7 +131,7 @@ public class PitchRecognitionController extends AbstractController{
     @FXML
     private void eButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
+            answerButtonClicked();
             checkAnswer("E", eButton);
         }
     }
@@ -140,7 +140,7 @@ public class PitchRecognitionController extends AbstractController{
     @FXML
     private void fButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
+            answerButtonClicked();
             checkAnswer("F", fButton);
         }
     }
@@ -149,7 +149,7 @@ public class PitchRecognitionController extends AbstractController{
     @FXML
     private void fSharpButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
+            answerButtonClicked();
             checkAnswer("F#", fSharpButton);
         }
     }
@@ -158,7 +158,7 @@ public class PitchRecognitionController extends AbstractController{
     @FXML
     private void gButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
+            answerButtonClicked();
             checkAnswer("G", gButton);
         }
     }
@@ -167,7 +167,7 @@ public class PitchRecognitionController extends AbstractController{
     @FXML
     private void gSharpButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
+            answerButtonClicked();
             checkAnswer("G#", gSharpButton);
         }
     }
@@ -176,7 +176,7 @@ public class PitchRecognitionController extends AbstractController{
     @FXML
     private void aButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
+            answerButtonClicked();
             checkAnswer("A", aButton);
         }
     }
@@ -185,7 +185,7 @@ public class PitchRecognitionController extends AbstractController{
     @FXML
     private void aSharpButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
+            answerButtonClicked();
             checkAnswer("A#", aSharpButton);
         }
     }
@@ -194,7 +194,7 @@ public class PitchRecognitionController extends AbstractController{
     @FXML
     private void bButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
-            AnswerButtonClicked();
+            answerButtonClicked();
             checkAnswer("B", bButton);
         }
     }
