@@ -1,39 +1,15 @@
 package EarTrainer.Controllers;
 
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.embed.swing.SwingNode;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.effect.ColorAdjust;
-import javafx.scene.effect.GaussianBlur;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import javafx.util.Duration;
-import jm.gui.cpn.JGrandStave;
 import jm.music.data.*;
 import jm.util.Write;
-
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.MidiUnavailableException;
-import javax.sound.midi.Sequencer;
-import java.awt.*;
 import java.io.*;
 import java.util.Random;
-
 import static jm.constants.Durations.*;
 import static jm.constants.Pitches.*;
 
@@ -53,7 +29,6 @@ public class HarmonicIntervalRecognitionController extends AbstractController {
     @FXML private Button majorSixthButton;
     @FXML private Button minorSeventhButton;
     @FXML private Button majorSeventhButton;
-
 
 
 

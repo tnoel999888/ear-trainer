@@ -18,12 +18,13 @@ import javafx.scene.effect.GaussianBlur;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.*;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import jm.gui.cpn.JGrandStave;
 import jm.music.data.*;
-
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiUnavailableException;
 import javax.sound.midi.Sequencer;
@@ -34,10 +35,9 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.util.*;
-
 import static jm.constants.Pitches.*;
 import static jm.constants.RhythmValues.*;
-import static jm.constants.Durations.*;
+
 
 /**
  * Created by timannoel on 18/05/2017.
@@ -48,10 +48,6 @@ public abstract class AbstractController {
 
     Score s = new Score();
     Part p = new Part(0);
-
-//    private JGrandStave jScore = new JGrandStave();
-    JGrandStave jScoreLeft = new JGrandStave();
-    JGrandStave jScoreRight = new JGrandStave();
 
     Phrase phr1 = new Phrase(0.0);
     Phrase phr2 = new Phrase(0.0);
@@ -80,9 +76,9 @@ public abstract class AbstractController {
     int[] scaleNotes = new int[15];
 
     java.util.List noteLengthsList = new LinkedList(Arrays.asList(SIXTEENTH_NOTE, DOTTED_SIXTEENTH_NOTE,
-            EIGHTH_NOTE, DOTTED_EIGHTH_NOTE,
-            QUARTER_NOTE, DOTTED_QUARTER_NOTE,
-            HALF_NOTE));
+                                                                    EIGHTH_NOTE, DOTTED_EIGHTH_NOTE,
+                                                                    QUARTER_NOTE, DOTTED_QUARTER_NOTE,
+                                                                    HALF_NOTE));
 
     Note[] theirMelodyAnswer;
     Note[] scaleChord1 = new Note[3];
@@ -110,15 +106,6 @@ public abstract class AbstractController {
     final double FIFTEEN_CENTS_RATIO = 1.008702;
     final double TWENTY_FIVE_CENTS_RATIO = 1.014545;
 
-
-
-
-
-
-
-
-
-
     static final int TOTAL_QUESTIONS = 10;
     @FXML StackPane stackPane;
 
@@ -132,18 +119,16 @@ public abstract class AbstractController {
     @FXML Label timerLabel;
     @FXML Label questionLabel;
     @FXML Label difficultyDescriptionLabel;
+    @FXML Label correctIncorrectLabel;
 
     @FXML Button startButton;
     @FXML Button nextQuestionButton;
 
     @FXML Pane scorePane;
 
-    @FXML HBox mediaBar;
-
     JGrandStave jScore = new JGrandStave();
     Phrase phrase = new Phrase();
 
-//    JMMusicCreator musicCreator;
     String strSecs;
     String strMins;
 
@@ -159,94 +144,9 @@ public abstract class AbstractController {
 
 
 
-//    public JMMusicCreator(JGrandStave score) {
-//        jScore = score;
-//
-//        jScore.addMouseListener(new MouseListener() {
-//            @Override
-//            public void mouseClicked(MouseEvent e) {
-//
-//            }
-//
-//            @Override
-//            public void mousePressed(MouseEvent e) {
-//
-//            }
-//
-//            @Override
-//            public void mouseReleased(MouseEvent e) {
-//                theirMelodyAnswer = jScore.getPhrase().getNoteArray();
-//            }
-//
-//            @Override
-//            public void mouseEntered(MouseEvent e) {
-//
-//            }
-//
-//            @Override
-//            public void mouseExited(MouseEvent e) {
-//
-//            }
-//        });
-//    }
-
-
-//    public JMMusicCreator(JGrandStave score, JGrandStave scoreLeft, JGrandStave scoreRight) {
-//        jScore = score;
-//        jScoreLeft = scoreLeft;
-//        jScoreRight = scoreRight;
-//
-//        jScore.addMouseListener(new MouseListener() {
-//            @Override
-//            public void mouseClicked(MouseEvent e) {
-//
-//            }
-//
-//            @Override
-//            public void mousePressed(MouseEvent e) {
-//
-//            }
-//
-//            @Override
-//            public void mouseReleased(MouseEvent e) {
-//                theirMelodyAnswer = jScore.getPhrase().getNoteArray();
-//            }
-//
-//            @Override
-//            public void mouseEntered(MouseEvent e) {
-//
-//            }
-//
-//            @Override
-//            public void mouseExited(MouseEvent e) {
-//
-//            }
-//        });
-//    }
-
-
-    Phrase getPhrase() {
-        return phr2;
-    }
-
 
     Phrase getOriginalPhrase() {
         return originalPhr2;
-    }
-
-
-    Note[] getTheirMelodyAnswer() {
-        return theirMelodyAnswer;
-    }
-
-
-    int[] getScaleNotes() {
-        return scaleNotes;
-    }
-
-
-    int[] getSimilarKeys() {
-        return similarKeys;
     }
 
 
@@ -398,51 +298,6 @@ public abstract class AbstractController {
     }
 
 
-    String getMinorOrMajor(){
-        if(minor){
-            return "Minor";
-        } else {
-            return "Major";
-        }
-    }
-
-//
-//    private void setScore(Phrase phr) {
-//        jScore.setPhrase(phr);
-//
-//        Dimension d = new Dimension();
-//        d.setSize(600, 300);
-//        jScore.setPreferredSize(d);
-//        jScore.setMaximumSize(d);
-//
-//        jScore.removeTitle();
-//        jScore.setEditable(false);
-//    }
-
-
-    void setScoreSpecific(Phrase phr, String score) {
-        JGrandStave scoreToUse;
-
-        if(score.equals("left")){
-            scoreToUse = jScoreLeft;
-        } else if(score.equals("middle")){
-            scoreToUse = jScore;
-        } else {
-            scoreToUse = jScoreRight;
-        }
-
-        scoreToUse.setPhrase(phr);
-
-        Dimension d = new Dimension();
-        d.setSize(600,300);
-        scoreToUse.setPreferredSize(d);
-        scoreToUse.setMaximumSize(d);
-
-        scoreToUse.removeTitle();
-        scoreToUse.setEditable(false);
-    }
-
-
     void setScoreEditable(Phrase phr) {
         jScore.setPhrase(phr);
 
@@ -456,9 +311,7 @@ public abstract class AbstractController {
     }
 
 
-
-
-    int sharpen(int note) {
+    private int sharpen(int note) {
         for (int i = 0; i < notes.length; i++) {
             if (notes[i] == note) {
                 return notes[(i + 1) % SIZE_OF_NOTES_ARRAY];
@@ -468,7 +321,7 @@ public abstract class AbstractController {
     }
 
 
-    void makeChords(int[] scale) {
+    private void makeChords(int[] scale) {
         scaleChord1 = new Note[]{new Note(scale[0], C), new Note(scale[2], C), new Note(scale[4], C)};
 
         //If minor, diminished, invert, 3-5-8
@@ -569,7 +422,6 @@ public abstract class AbstractController {
     }
 
 
-
     @FXML
     public void initialize() {
         Dimension d = new Dimension();
@@ -584,10 +436,6 @@ public abstract class AbstractController {
         swingNode.setContent(jScore);
 
         scorePane.getChildren().add(swingNode);
-
-
-
-//        jScore = score;
 
         jScore.addMouseListener(new MouseListener() {
             @Override
@@ -645,6 +493,8 @@ public abstract class AbstractController {
     void NextQuestionButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException, LineUnavailableException, UnsupportedAudioFileException {
         sequencer.stop();
         sequencer.close();
+        correctIncorrectLabel.setText("");
+
 
         if (questionNumber != TOTAL_QUESTIONS) {
             questionNumber++;
@@ -723,15 +573,19 @@ public abstract class AbstractController {
         questionAnswered = true;
         nextQuestionButton.setDisable(false);
 
-        Phrase phrase = getPhrase();
+        Phrase phrase = phr2;
         setScore(phrase);
     }
 
 
     void checkAnswer(String answer, Button button) {
-        if(answer != correctAnswer){
+        if(!answer.equals(correctAnswer)){
+            correctIncorrectLabel.setTextFill(Color.web("#da4343"));
+            correctIncorrectLabel.setText("Incorrect.");
             makeButtonRed(button);
         } else {
+            correctIncorrectLabel.setTextFill(javafx.scene.paint.Color.web("#3abf4c"));
+            correctIncorrectLabel.setText("Correct!");
             numberOfCorrectAnswers++;
         }
 

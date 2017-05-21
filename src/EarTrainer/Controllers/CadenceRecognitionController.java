@@ -1,45 +1,21 @@
 package EarTrainer.Controllers;
 
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.embed.swing.SwingNode;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.effect.ColorAdjust;
-import javafx.scene.effect.GaussianBlur;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.shape.*;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import javafx.util.Duration;
 import jm.gui.cpn.JGrandStave;
-import jm.gui.cpn.JStaveActionHandler;
-import jm.gui.cpn.PianoStave;
-import jm.gui.cpn.Stave;
 import jm.music.data.CPhrase;
 import jm.music.data.Part;
 import jm.music.data.Phrase;
 import jm.music.data.Score;
 import jm.util.Write;
-
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.MidiUnavailableException;
-import javax.sound.midi.Sequencer;
-import javax.swing.*;
 import java.awt.*;
 import java.io.*;
-import java.util.Vector;
 
 
 public class CadenceRecognitionController extends AbstractController{
@@ -49,13 +25,9 @@ public class CadenceRecognitionController extends AbstractController{
     @FXML private Button imperfectButton;
     @FXML private Button plagalButton;
 
-
-//    @FXML private Pane scorePane;
     @FXML private Pane scorePaneLeft;
     @FXML private Pane scorePaneRight;
 
-
-//    private JGrandStave jScore = new JGrandStave();
     private JGrandStave jScoreLeft = new JGrandStave();
     private JGrandStave jScoreRight = new JGrandStave();
 
@@ -597,7 +569,6 @@ public class CadenceRecognitionController extends AbstractController{
     }
 
 
-
     protected void playSound() throws MidiUnavailableException, IOException, InvalidMidiDataException {
         final String MEDIA_URL = "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Cadence.mid";
 
@@ -609,8 +580,7 @@ public class CadenceRecognitionController extends AbstractController{
     }
 
 
-
-    public void setScoreSpecific(Phrase phr, String score) {
+    private void setScoreSpecific(Phrase phr, String score) {
         JGrandStave scoreToUse;
 
         if(score.equals("left")){

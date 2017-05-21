@@ -1,52 +1,29 @@
 package EarTrainer.Controllers;
 
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.embed.swing.SwingNode;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.effect.ColorAdjust;
-import javafx.scene.effect.GaussianBlur;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import javafx.util.Duration;
-import jm.audio.*;
-import jm.gui.cpn.JGrandStave;
 import jm.music.data.Note;
 import jm.music.data.Part;
 import jm.music.data.Phrase;
 import jm.music.data.Score;
 import jm.util.Write;
-
-import java.awt.*;
 import java.io.*;
 import java.util.concurrent.ThreadLocalRandom;
-
-
 import javax.sound.midi.*;
-import javax.sound.midi.Instrument;
 import javax.sound.sampled.*;
-
 import static jm.constants.Pitches.*;
 import static jm.constants.RhythmValues.*;
-import static jm.constants.Durations.*;
+import jm.audio.Instrument;
 
 
 public class SharpFlatRecognitionController extends AbstractController {
 
     @FXML private Button flatButton;
     @FXML private Button sharpButton;
+
+    private Instrument sineWave = new OvertoneInst(44100);
 
 
 
@@ -157,22 +134,16 @@ public class SharpFlatRecognitionController extends AbstractController {
 
 
     private String makeMIDIEasySharpFlat() {
-        //setScore(phr2);
-
         Note n = new Note(C4, C);
 
         phr2.addNote(n);
         phr1.addNote(n);
-
-        // set up an audio instrument
-        jm.audio.Instrument sineWave = new OvertoneInst(44100);
+        setScore(phr2);
 
         double note2Freq = getSecondNoteFrequency(FIFTEEN_CENTS_RATIO, TWENTY_FIVE_CENTS_RATIO, n.getFrequency());
 
-
         Note n2 = new Note(note2Freq, C);
         phr1.addNote(n2);
-
 
         p.addPhrase(phr1);
         s.addPart(p);
@@ -188,22 +159,16 @@ public class SharpFlatRecognitionController extends AbstractController {
 
 
     private String makeMIDIMediumSharpFlat() {
-        //setScore(phr2);
-
         Note n = new Note(C4, C);
 
         phr2.addNote(n);
         phr1.addNote(n);
-
-        // set up an audio instrument
-        jm.audio.Instrument sineWave = new OvertoneInst(44100);
+        setScore(phr2);
 
         double note2Freq = getSecondNoteFrequency(FIVE_CENTS_RATIO, FIFTEEN_CENTS_RATIO, n.getFrequency());
 
-
         Note n2 = new Note(note2Freq, C);
         phr1.addNote(n2);
-
 
         p.addPhrase(phr1);
         s.addPart(p);
@@ -221,22 +186,16 @@ public class SharpFlatRecognitionController extends AbstractController {
     private String makeMIDIHardSharpFlat() {
         int interval = rn.nextInt(12);
 
-        //setScore(phr2);
-
         Note n = new Note(C4 + interval, C);
 
         phr2.addNote(n);
         phr1.addNote(n);
-
-        // set up an audio instrument
-        jm.audio.Instrument sineWave = new OvertoneInst(44100);
+        setScore(phr2);
 
         double note2Freq = getSecondNoteFrequency(ONE_CENT_RATIO, FIVE_CENTS_RATIO, n.getFrequency());
 
-
         Note n2 = new Note(note2Freq, C);
         phr1.addNote(n2);
-
 
         p.addPhrase(phr1);
         s.addPart(p);
@@ -253,7 +212,6 @@ public class SharpFlatRecognitionController extends AbstractController {
 
     @FXML
     protected void generateQuestion() throws IOException, MidiUnavailableException, InvalidMidiDataException, LineUnavailableException, UnsupportedAudioFileException {
-//        musicCreator = new JMMusicCreator(jScore);
         phr1 = new Phrase();
         phr2 = new Phrase();
         p = new Part();

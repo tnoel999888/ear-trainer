@@ -1,4 +1,4 @@
-package EarTrainer;
+package EarTrainer.Controllers;
 
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -16,7 +16,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("Views/SplashScreen.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../Views/SplashScreen.fxml"));
         Scene scene = new Scene(root, 620, 400);
 
         primaryStage.initStyle(StageStyle.UNDECORATED);

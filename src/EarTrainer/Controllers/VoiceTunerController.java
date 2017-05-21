@@ -24,23 +24,18 @@ import jm.music.data.Part;
 import jm.music.data.Phrase;
 import jm.music.data.Score;
 import jm.util.Write;
-
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.*;
 import java.util.*;
 import java.util.List;
-
-
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.MidiUnavailableException;
 import javax.sound.sampled.*;
 import javax.swing.*;
-
 import static jm.constants.Pitches.*;
 import static jm.constants.RhythmValues.*;
-import static jm.constants.Durations.*;
 
 
 public class VoiceTunerController extends AbstractController implements PitchDetectionHandler {

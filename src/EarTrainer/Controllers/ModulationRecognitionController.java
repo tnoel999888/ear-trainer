@@ -1,41 +1,21 @@
 package EarTrainer.Controllers;
 
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.embed.swing.SwingNode;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.effect.ColorAdjust;
-import javafx.scene.effect.GaussianBlur;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import javafx.util.Duration;
 import jm.gui.cpn.JGrandStave;
 import jm.music.data.*;
 import jm.util.Write;
-
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.MidiUnavailableException;
-import javax.sound.midi.Sequencer;
 import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
-
-import static jm.constants.Pitches.*;
 import static jm.constants.RhythmValues.*;
-import static jm.constants.Durations.*;
 
 
 public class ModulationRecognitionController extends AbstractController{
@@ -224,8 +204,6 @@ public class ModulationRecognitionController extends AbstractController{
     }
 
 
-
-
     private int getRelativeMinor(int note) {
         int relativeMinor = 0;
 
@@ -389,8 +367,6 @@ public class ModulationRecognitionController extends AbstractController{
 
         Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Modulation.mid");
 
-        minor = false;
-        major = false;
 
         if(i3 == 0 || i3 == 2 || i3 == 4){
             return newKeyString + "m";
@@ -512,8 +488,6 @@ public class ModulationRecognitionController extends AbstractController{
 
         s.addPart(p);
 
-        minor = false;
-        major = false;
 
         Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Modulation.mid");
 
@@ -529,38 +503,40 @@ public class ModulationRecognitionController extends AbstractController{
         int i = rn.nextInt(12);
         int root;
 
-//        int minorOrMajor = rn.nextInt(2);
-//
-//        if(minorOrMajor == 0) {
-//            minor = true;
-//            root = circleOfFifthsMinor[i];
-//            makeMinorScale(root);
-//            rootKeyString = getNote(new Note(root, C));
-//            return modulateFromMinor(i, root);
-//        } else {
-        major = true;
-        root = circleOfFifthsMajor[i];
-        makeMajorScale(root);
-        rootKeyString = getNote(new Note(root, C));
-        return modulateFromMajor(i, root);
-//        }
+        minor = false;
+        major = false;
+
+        int minorOrMajor = rn.nextInt(2);
+
+        if(minorOrMajor == 0) {
+            minor = true;
+            root = circleOfFifthsMinor[i];
+            makeMinorScale(root);
+            rootKeyString = getNote(new Note(root, C));
+            return modulateFromMinor(i, root);
+        } else {
+            major = true;
+            root = circleOfFifthsMajor[i];
+            makeMajorScale(root);
+            rootKeyString = getNote(new Note(root, C));
+            return modulateFromMajor(i, root);
+        }
     }
 
 
     private String makeMIDIMediumModulation(){
-        return "";
+        return makeMIDIEasyModulation();
     }
 
 
     private String makeMIDIHardModulation(){
-        return "";
+        return makeMIDIEasyModulation();
     }
 
 
     @Override
     @FXML
     protected void generateQuestion() throws IOException, MidiUnavailableException, InvalidMidiDataException {
-//        musicCreator = new JMMusicCreator(jScore, jScoreLeft, jScoreRight);
         phr1 = new Phrase();
         phr2 = new Phrase();
         bottomNotes = new Phrase();
@@ -591,15 +567,14 @@ public class ModulationRecognitionController extends AbstractController{
 
         System.out.println("New key: " + correctAnswer);
 
-        similarKeys = getSimilarKeys();
-
         String similarKey0Text;
         String similarKey1Text;
         String similarKey2Text;
         String similarKey3Text;
         String similarKey4Text;
 
-        if(getMinorOrMajor().equals("Major")) {
+        if(major) {
+            System.out.println("major");
             similarKey0Label.setText("Root Key Relative Minor:");
             similarKey0Text = getNote(new Note(similarKeys[0], 1.0)) + "m";
             similarKey1Label.setText("Sub Dominant:");
@@ -611,6 +586,7 @@ public class ModulationRecognitionController extends AbstractController{
             similarKey4Label.setText("Dominant Relative Minor:");
             similarKey4Text = getNote(new Note(similarKeys[4], 1.0)) + "m";
         } else {
+            System.out.println("minor");
             similarKey0Label.setText("Root Key Relative Major:");
             similarKey0Text = getNote(new Note(similarKeys[0], 1.0));
             similarKey1Label.setText("Sub Dominant:");
@@ -646,7 +622,7 @@ public class ModulationRecognitionController extends AbstractController{
     }
 
 
-    public void setScore(Phrase phr, String score) {
+    private void setScoreSpecific(Phrase phr, String score) {
         JGrandStave scoreToUse;
 
         if(score.equals("left")){

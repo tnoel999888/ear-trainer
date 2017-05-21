@@ -1,27 +1,9 @@
 package EarTrainer.Controllers;
 
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.embed.swing.SwingNode;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.*;
 import javafx.scene.control.Label;
-import javafx.scene.effect.ColorAdjust;
-import javafx.scene.effect.GaussianBlur;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import javafx.util.Duration;
-import jm.gui.cpn.JGrandStave;
 import jm.music.data.Note;
 import jm.music.data.Part;
 import jm.music.data.Phrase;
@@ -30,17 +12,10 @@ import jm.util.Write;
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.MidiUnavailableException;
-import javax.sound.midi.Sequencer;
 import java.awt.*;
-import java.awt.List;
 import java.io.*;
 import java.util.*;
-
 import javafx.scene.paint.Color;
-
-import static jm.constants.Pitches.*;
-import static jm.constants.RhythmValues.*;
-import static jm.constants.Durations.*;
 
 
 public class WrongNoteIdentificationController extends AbstractController{
@@ -79,7 +54,7 @@ public class WrongNoteIdentificationController extends AbstractController{
     private void SubmitButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
             AnswerButtonClicked();
-            checkAnswer(getTheirMelodyAnswer(), getOriginalPhrase().getNoteArray());
+            checkAnswer(theirMelodyAnswer, getOriginalPhrase().getNoteArray());
         }
     }
 
@@ -152,7 +127,7 @@ public class WrongNoteIdentificationController extends AbstractController{
                         break;
                     }
                 } else {
-                    if (contains(getScaleNotes(), theirMelodyAnswer[i].getPitch())) {
+                    if (contains(scaleNotes, theirMelodyAnswer[i].getPitch())) {
                         makeButtonGreen(submitButton);
                         numberOfCorrectAnswers++;
                         correctIncorrectText.setTextFill(Color.web("#3abf4c"));
