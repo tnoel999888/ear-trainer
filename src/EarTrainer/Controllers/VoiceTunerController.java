@@ -275,7 +275,6 @@ public class VoiceTunerController extends AbstractController implements PitchDet
     }
 
 
-
     private String getAveragePitch(List pitches){
         float totalPitch = 0;
 
@@ -432,8 +431,7 @@ public class VoiceTunerController extends AbstractController implements PitchDet
     }
 
 
-
-    public String makeMIDIEasyVoiceTuner(){
+    private String makeMIDIEasyVoiceTuner(){
         Random rn = new Random();
         int i = rn.nextInt(12);
         int[] array = new int[12];
@@ -459,7 +457,7 @@ public class VoiceTunerController extends AbstractController implements PitchDet
     }
 
 
-    public Note[] makeMIDIMediumVoiceTuner(){
+    private Note[] makeMIDIMediumVoiceTuner(){
 
         //Make minor or major scale
         chooseRandomRootAndMakeMinorOrMajorScale();
@@ -502,7 +500,7 @@ public class VoiceTunerController extends AbstractController implements PitchDet
     }
 
 
-    public Note[] makeMIDIHardVoiceTuner(){
+    private Note[] makeMIDIHardVoiceTuner(){
 
         //Make minor or major scale
         chooseRandomRootAndMakeMinorOrMajorScale();
@@ -553,8 +551,6 @@ public class VoiceTunerController extends AbstractController implements PitchDet
 
     @FXML
     protected void generateQuestion() throws IOException, MidiUnavailableException, InvalidMidiDataException {
-//        musicCreator = new JMMusicCreator(jScore);
-        phrase = getOriginalPhrase();
         phr1 = new Phrase();
         phr2 = new Phrase();
         p = new Part();
@@ -643,7 +639,7 @@ public class VoiceTunerController extends AbstractController implements PitchDet
         double a = Math.pow(2, 1.0/12);
         double n = Math.log(ratio)/Math.log(a);
 
-        int noOfSemitonesFromMiddleA = (int) Math.round(n);
+        int noOfSemitonesFromMiddleA = (int)Math.round(n);
         noOfSemitonesFromMiddleA = noOfSemitonesFromMiddleA % 12;
 
         if(noOfSemitonesFromMiddleA < 0){

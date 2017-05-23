@@ -6,10 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import jm.gui.cpn.JGrandStave;
-import jm.music.data.CPhrase;
-import jm.music.data.Part;
-import jm.music.data.Phrase;
-import jm.music.data.Score;
+import jm.music.data.*;
 import jm.util.Write;
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiSystem;
@@ -213,46 +210,46 @@ public class CadenceRecognitionController extends AbstractController{
     private void makePerfect(){
 
         //1st Chord. Add I chord
-        cphr1.addChord(scaleChord1);
         bottomNotesArray[0] = scaleChord1[0];
         middleNotesArray[0] = scaleChord1[1];
         topNotesArray[0] = scaleChord1[2];
+        usedChord1 = scaleChord1;
 
 
         //2nd Chord. Add II or IV chord
         int IIOrIVChord = rn.nextInt(2);
         if (IIOrIVChord == 0) {
-            cphr2.addChord(scaleChord2);
             bottomNotesArray[1] = scaleChord2[0];
             middleNotesArray[1] = scaleChord2[1];
             topNotesArray[1] = scaleChord2[2];
+            usedChord2 = scaleChord2;
         } else {
-            cphr2.addChord(scaleChord4);
             bottomNotesArray[1] = scaleChord4[0];
             middleNotesArray[1] = scaleChord4[1];
             topNotesArray[1] = scaleChord4[2];
+            usedChord2 = scaleChord4;
         }
 
 
         //3rd Chord. Add V major chord if in minor scale
         if (minor) {
-            cphr3.addChord(scaleChord5MelodicMinor);
             bottomNotesArray[2] = scaleChord5MelodicMinor[0];
             middleNotesArray[2] = scaleChord5MelodicMinor[1];
             topNotesArray[2] = scaleChord5MelodicMinor[2];
+            usedChord3 = scaleChord5MelodicMinor;
         } else {
-            cphr3.addChord(scaleChord5);
             bottomNotesArray[2] = scaleChord5[0];
             middleNotesArray[2] = scaleChord5[1];
             topNotesArray[2] = scaleChord5[2];
+            usedChord3 = scaleChord5;
         }
 
 
-        //4th Chord. Add I or VI chord
-        cphr4.addChord(scaleChord1);
+        //4th Chord. Add I chord
         bottomNotesArray[3] = scaleChord1[0];
         middleNotesArray[3] = scaleChord1[1];
         topNotesArray[3] = scaleChord1[2];
+        usedChord4 = scaleChord1;
 
 
         //Add note arrays to the phrases
@@ -267,11 +264,25 @@ public class CadenceRecognitionController extends AbstractController{
         setScoreSpecific(topNotes, "right");
 
 
+        //Rearrange voices to minimise movement
+        placeCommonNotesInSameVoice(usedChord1, usedChord2);
+        placeCommonNotesInSameVoice(usedChord2, usedChord3);
+        placeCommonNotesInSameVoice(usedChord3, usedChord4);
+
+
+        //Add the selected chords to the CPhrases
+        cphr1.addChord(usedChord1);
+        cphr2.addChord(usedChord2);
+        cphr3.addChord(usedChord3);
+        cphr4.addChord(usedChord4);
+
+
         //Add CPhrases to Part p
         p.addCPhrase(cphr1);
         p.addCPhrase(cphr2);
         p.addCPhrase(cphr3);
         p.addCPhrase(cphr4);
+
 
         s.addPart(p);
 
@@ -285,39 +296,39 @@ public class CadenceRecognitionController extends AbstractController{
     private void makeInterruptive(){
 
         //1st Chord. Add I chord
-        cphr1.addChord(scaleChord1);
         bottomNotesArray[0] = scaleChord1[0];
         middleNotesArray[0] = scaleChord1[1];
         topNotesArray[0] = scaleChord1[2];
+        usedChord1 = scaleChord1;
 
 
         //2nd Chord. Add II or IV chord
         int IIOrIVChord = rn.nextInt(2);
         if (IIOrIVChord == 0) {
-            cphr2.addChord(scaleChord2);
             bottomNotesArray[1] = scaleChord2[0];
             middleNotesArray[1] = scaleChord2[1];
             topNotesArray[1] = scaleChord2[2];
+            usedChord2 = scaleChord2;
         } else {
-            cphr2.addChord(scaleChord4);
             bottomNotesArray[1] = scaleChord4[0];
             middleNotesArray[1] = scaleChord4[1];
             topNotesArray[1] = scaleChord4[2];
+            usedChord2 = scaleChord4;
         }
 
 
         //3rd Chord. Add V chord
-        cphr3.addChord(scaleChord5);
         bottomNotesArray[2] = scaleChord5[0];
         middleNotesArray[2] = scaleChord5[1];
         topNotesArray[2] = scaleChord5[2];
+        usedChord3 = scaleChord5;
 
 
         //4th Chord. Add VI chord
-        cphr4.addChord(scaleChord6);
         bottomNotesArray[3] = scaleChord6[0];
         middleNotesArray[3] = scaleChord6[1];
         topNotesArray[3] = scaleChord6[2];
+        usedChord4 = scaleChord6;
 
 
         //Add note arrays to the phrases
@@ -332,11 +343,25 @@ public class CadenceRecognitionController extends AbstractController{
         setScoreSpecific(topNotes, "right");
 
 
+        //Rearrange voices to minimise movement
+        placeCommonNotesInSameVoice(usedChord1, usedChord2);
+        placeCommonNotesInSameVoice(usedChord2, usedChord3);
+        placeCommonNotesInSameVoice(usedChord3, usedChord4);
+
+
+        //Add the selected chords to the CPhrases
+        cphr1.addChord(usedChord1);
+        cphr2.addChord(usedChord2);
+        cphr3.addChord(usedChord3);
+        cphr4.addChord(usedChord4);
+
+
         //Add CPhrases to Part p
         p.addCPhrase(cphr1);
         p.addCPhrase(cphr2);
         p.addCPhrase(cphr3);
         p.addCPhrase(cphr4);
+
 
         s.addPart(p);
 
@@ -353,31 +378,31 @@ public class CadenceRecognitionController extends AbstractController{
         int i3 = rn.nextInt(7);
 
         //1st Chord. Add I chord
-        cphr1.addChord(scaleChord1);
         bottomNotesArray[0] = scaleChord1[0];
         middleNotesArray[0] = scaleChord1[1];
         topNotesArray[0] = scaleChord1[2];
+        usedChord1 = scaleChord1;
 
 
         //2nd Chord. Add random chord (2,4,5)
-        cphr2.addChord(scaleChords[i2]);
         bottomNotesArray[1] = scaleChords[i2][0];
         middleNotesArray[1] = scaleChords[i2][1];
         topNotesArray[1] = scaleChords[i2][2];
+        usedChord2 = scaleChords[i2];
 
 
         //3rd Chord. Add random chord
-        cphr3.addChord(scaleChords[i3]);
         bottomNotesArray[2] = scaleChords[i3][0];
         middleNotesArray[2] = scaleChords[i3][1];
         topNotesArray[2] = scaleChords[i3][2];
+        usedChord3 = scaleChords[i3];
 
 
         //4th Chord. Add V chord
-        cphr4.addChord(scaleChord5);
         bottomNotesArray[3] = scaleChord5[0];
         middleNotesArray[3] = scaleChord5[1];
         topNotesArray[3] = scaleChord5[2];
+        usedChord4 = scaleChord5;
 
 
         //Add note arrays to the phrases
@@ -392,11 +417,25 @@ public class CadenceRecognitionController extends AbstractController{
         setScoreSpecific(topNotes, "right");
 
 
+        //Rearrange voices to minimise movement
+        placeCommonNotesInSameVoice(usedChord1, usedChord2);
+        placeCommonNotesInSameVoice(usedChord2, usedChord3);
+        placeCommonNotesInSameVoice(usedChord3, usedChord4);
+
+
+        //Add the selected chords to the CPhrases
+        cphr1.addChord(usedChord1);
+        cphr2.addChord(usedChord2);
+        cphr3.addChord(usedChord3);
+        cphr4.addChord(usedChord4);
+
+
         //Add CPhrases to Part p
         p.addCPhrase(cphr1);
         p.addCPhrase(cphr2);
         p.addCPhrase(cphr3);
         p.addCPhrase(cphr4);
+
 
         s.addPart(p);
 
@@ -412,31 +451,31 @@ public class CadenceRecognitionController extends AbstractController{
         int i2 = rn.nextInt(7);
 
         //1st Chord. Add I chord
-        cphr1.addChord(scaleChord1);
         bottomNotesArray[0] = scaleChord1[0];
         middleNotesArray[0] = scaleChord1[1];
         topNotesArray[0] = scaleChord1[2];
+        usedChord1 = scaleChord1;
 
 
         //2nd Chord. Add random chord, (6, 1 1st Inversion)
-        cphr2.addChord(scaleChords[i2]);
         bottomNotesArray[1] = scaleChords[i2][0];
         middleNotesArray[1] = scaleChords[i2][1];
         topNotesArray[1] = scaleChords[i2][2];
+        usedChord2 = scaleChords[i2];
 
 
         //3rd Chord. Add IV chord
-        cphr3.addChord(scaleChord4);
         bottomNotesArray[2] = scaleChord4[0];
         middleNotesArray[2] = scaleChord4[1];
         topNotesArray[2] = scaleChord4[2];
+        usedChord3 = scaleChord4;
 
 
         //4th Chord. Add I chord
-        cphr4.addChord(scaleChord1);
         bottomNotesArray[3] = scaleChord1[0];
         middleNotesArray[3] = scaleChord1[1];
         topNotesArray[3] = scaleChord1[2];
+        usedChord4 = scaleChord1;
 
 
         //Add note arrays to the phrases
@@ -451,11 +490,25 @@ public class CadenceRecognitionController extends AbstractController{
         setScoreSpecific(topNotes, "right");
 
 
+        //Rearrange voices to minimise movement
+        placeCommonNotesInSameVoice(usedChord1, usedChord2);
+        placeCommonNotesInSameVoice(usedChord2, usedChord3);
+        placeCommonNotesInSameVoice(usedChord3, usedChord4);
+
+
+        //Add the selected chords to the CPhrases
+        cphr1.addChord(usedChord1);
+        cphr2.addChord(usedChord2);
+        cphr3.addChord(usedChord3);
+        cphr4.addChord(usedChord4);
+
+
         //Add CPhrases to Part p
         p.addCPhrase(cphr1);
         p.addCPhrase(cphr2);
         p.addCPhrase(cphr3);
         p.addCPhrase(cphr4);
+
 
         s.addPart(p);
 

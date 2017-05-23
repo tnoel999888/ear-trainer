@@ -301,18 +301,18 @@ public class ModulationRecognitionController extends AbstractController{
 
 
         //1st Chord. Add tonic of original key
-        cphr1.addChord(scaleChord1);
         bottomNotes.add(scaleChord1[0]);
         middleNotes.add(scaleChord1[1]);
         topNotes.add(scaleChord1[2]);
+        usedChord1 = scaleChord1;
 
 
         //2nd Chord. Add random chord of original key
         int i2 = rn.nextInt(7);
-        cphr2.addChord(scaleChords[i2]);
         bottomNotes.add(scaleChords[i2][0]);
         middleNotes.add(scaleChords[i2][1]);
         topNotes.add(scaleChords[i2][2]);
+        usedChord2 = scaleChords[i2];
 
 
         //Find key to modulate to from similar keys
@@ -336,43 +336,43 @@ public class ModulationRecognitionController extends AbstractController{
         ArrayList commonChords = findCommonChords(rootKeyChords, newKeyChords);
 
         if (commonChords.contains(newKeyChords[1])) {
-            cphr3.addChord(scaleChord2);
             bottomNotes.add(scaleChord2[0]);
             middleNotes.add(scaleChord2[1]);
             topNotes.add(scaleChord2[2]);
+            usedChord3 = scaleChord2;
         } else if (commonChords.contains(newKeyChords[3])) {
-            cphr3.addChord(scaleChord4);
             bottomNotes.add(scaleChord4[0]);
             middleNotes.add(scaleChord4[1]);
             topNotes.add(scaleChord4[2]);
+            usedChord3 = scaleChord4;
         } else {
             int i4 = rn.nextInt(commonChords.size());
-            cphr3.addChord((Note[])commonChords.get(i4));
             bottomNotes.add(((Note[])commonChords.get(i4))[0]);
             middleNotes.add(((Note[])commonChords.get(i4))[1]);
             topNotes.add(((Note[])commonChords.get(i4))[2]);
+            usedChord3 = (Note[])commonChords.get(i4);
         }
 
 
         //4th Chord. Add the dominant of the new key
         if(minor) {
-            cphr4.addChord(scaleChord5MelodicMinor);
             bottomNotes.add(scaleChord5MelodicMinor[0]);
             middleNotes.add(scaleChord5MelodicMinor[1]);
             topNotes.add(scaleChord5MelodicMinor[2]);
+            usedChord4 = scaleChord5MelodicMinor;
         } else {
-            cphr4.addChord(scaleChord5);
             bottomNotes.add(scaleChord5[0]);
             middleNotes.add(scaleChord5[1]);
             topNotes.add(scaleChord5[2]);
+            usedChord4 = scaleChord5;
         }
 
 
         //5th Chord. Add the tonic of the new key
-        cphr5.addChord(scaleChord1);
         bottomNotes.add(scaleChord1[0]);
         middleNotes.add(scaleChord1[1]);
         topNotes.add(scaleChord1[2]);
+        usedChord5 = scaleChord1;
 
 
         //Set the scores
@@ -381,12 +381,28 @@ public class ModulationRecognitionController extends AbstractController{
         setScoreSpecific(topNotes, "right");
 
 
+        //Rearrange voices to minimise movement
+        placeCommonNotesInSameVoice(usedChord1, usedChord2);
+        placeCommonNotesInSameVoice(usedChord2, usedChord3);
+        placeCommonNotesInSameVoice(usedChord3, usedChord4);
+        placeCommonNotesInSameVoice(usedChord4, usedChord5);
+
+
+        //Add the selected chords to the CPhrases
+        cphr1.addChord(usedChord1);
+        cphr2.addChord(usedChord2);
+        cphr3.addChord(usedChord3);
+        cphr4.addChord(usedChord4);
+        cphr5.addChord(usedChord5);
+
+
         //Add CPhrases to Part p
         p.addCPhrase(cphr1);
         p.addCPhrase(cphr2);
         p.addCPhrase(cphr3);
         p.addCPhrase(cphr4);
         p.addCPhrase(cphr5);
+
 
         s.addPart(p);
 
@@ -418,53 +434,53 @@ public class ModulationRecognitionController extends AbstractController{
 
 
         //1st Chord. Add tonic of original key
-        cphr1.addChord(scaleChord1);
         bottomNotes.add(scaleChord1[0]);
         middleNotes.add(scaleChord1[1]);
         topNotes.add(scaleChord1[2]);
+        usedChord1 = scaleChord1;
 
 
         //2nd Chord. Add IV or VI of original key
         int i2 = rn.nextInt(2);
         if(i2 == 0){
-            cphr2.addChord(scaleChord4);
             bottomNotes.add(scaleChord4[0]);
             middleNotes.add(scaleChord4[1]);
             topNotes.add(scaleChord4[2]);
+            usedChord2 = scaleChord4;
         } else {
-            cphr2.addChord(scaleChord6);
             bottomNotes.add(scaleChord6[0]);
             middleNotes.add(scaleChord6[1]);
             topNotes.add(scaleChord6[2]);
+            usedChord2 = scaleChord6;
         }
 
 
         //3rd Chord. Add II of original key
-        cphr3.addChord(scaleChord2);
         bottomNotes.add(scaleChord2[0]);
         middleNotes.add(scaleChord2[1]);
         topNotes.add(scaleChord2[2]);
+        usedChord3 = scaleChord2;
 
 
         //4th Chord. Add V of original key
-        cphr4.addChord(scaleChord5MelodicMinor);
         bottomNotes.add(scaleChord5MelodicMinor[0]);
         middleNotes.add(scaleChord5MelodicMinor[1]);
         topNotes.add(scaleChord5MelodicMinor[2]);
+        usedChord4 = scaleChord5MelodicMinor;
 
 
         //5th Chord. Add tonic of original key as common key
-        cphr5.addChord(scaleChord1);
         bottomNotes.add(scaleChord1[0]);
         middleNotes.add(scaleChord1[1]);
         topNotes.add(scaleChord1[2]);
+        usedChord5 = scaleChord1;
 
 
         //6th Chord. Add tonic of original key as common key
-        cphr6.addChord(scaleChord1);
         bottomNotes.add(scaleChord1[0]);
         middleNotes.add(scaleChord1[1]);
         topNotes.add(scaleChord1[2]);
+        usedChord6 = scaleChord1;
 
 
         //Find key to modulate to from similar keys
@@ -482,23 +498,44 @@ public class ModulationRecognitionController extends AbstractController{
 
 
         //7th Chord. Add the dominant of the new key
-        cphr7.addChord(scaleChord5);
         bottomNotes.add(scaleChord5[0]);
         middleNotes.add(scaleChord5[1]);
         topNotes.add(scaleChord5[2]);
+        usedChord7 = scaleChord5;
 
 
         //8th Chord. Add the tonic of the new key
-        cphr8.addChord(scaleChord1);
         bottomNotes.add(scaleChord1[0]);
         middleNotes.add(scaleChord1[1]);
         topNotes.add(scaleChord1[2]);
+        usedChord8 = scaleChord1;
 
 
         //Set the scores
         setScoreSpecific(bottomNotes, "left");
         setScoreSpecific(middleNotes, "middle");
         setScoreSpecific(topNotes, "right");
+
+
+        //Rearrange voices to minimise movement
+        placeCommonNotesInSameVoice(usedChord1, usedChord2);
+        placeCommonNotesInSameVoice(usedChord2, usedChord3);
+        placeCommonNotesInSameVoice(usedChord3, usedChord4);
+        placeCommonNotesInSameVoice(usedChord4, usedChord5);
+        placeCommonNotesInSameVoice(usedChord5, usedChord6);
+        placeCommonNotesInSameVoice(usedChord6, usedChord7);
+        placeCommonNotesInSameVoice(usedChord7, usedChord8);
+
+
+        //Add the selected chords to the CPhrases
+        cphr1.addChord(usedChord1);
+        cphr2.addChord(usedChord2);
+        cphr3.addChord(usedChord3);
+        cphr4.addChord(usedChord4);
+        cphr5.addChord(usedChord5);
+        cphr6.addChord(usedChord6);
+        cphr7.addChord(usedChord7);
+        cphr8.addChord(usedChord8);
 
 
         //Add CPhrases to Part p
@@ -511,8 +548,8 @@ public class ModulationRecognitionController extends AbstractController{
         p.addCPhrase(cphr7);
         p.addCPhrase(cphr8);
 
-        s.addPart(p);
 
+        s.addPart(p);
 
         Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Modulation.mid");
 

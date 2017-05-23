@@ -51,7 +51,6 @@ public abstract class AbstractController {
 
     Phrase phr1 = new Phrase(0.0);
     Phrase phr2 = new Phrase(0.0);
-    Phrase originalPhr2 = new Phrase( 0.0);
     Phrase bottomNotes = new Phrase();
     Phrase middleNotes = new Phrase();
     Phrase topNotes = new Phrase();
@@ -70,16 +69,16 @@ public abstract class AbstractController {
     int[] circleOfFifthsMajor = {C4, G4, D4, A4, E4, B4, FS4, DF4, AF4, EF4, BF4, F4};
     int[] circleOfFifthsMinor = {A4, E4, B4, FS4, CS4, GS4, DS4, BF4, F4, C4, G4, D4};
 
-    int[] minorScale = new int[15];
-    int[] majorScale = new int[15];
-    int[] scaleNotes = new int[15];
+    int[] minorScale = new int[22];
+    int[] majorScale = new int[22];
+    int[] scaleNotes = new int[22];
 
     List noteLengthsList = new LinkedList(Arrays.asList(SIXTEENTH_NOTE, DOTTED_SIXTEENTH_NOTE,
                                                                     EIGHTH_NOTE, DOTTED_EIGHTH_NOTE,
                                                                     QUARTER_NOTE, DOTTED_QUARTER_NOTE,
                                                                     HALF_NOTE));
 
-    Note[] theirMelodyAnswer;
+//    Note[] theirMelodyAnswer;
     Note[] scaleChord1 = new Note[3];
     Note[] scaleChord2 = new Note[3];
     Note[] scaleChord3 = new Note[3];
@@ -91,6 +90,15 @@ public abstract class AbstractController {
     Note[] bottomNotesArray = new Note[4];
     Note[] middleNotesArray = new Note[4];
     Note[] topNotesArray = new Note[4];
+
+    Note[] usedChord1;
+    Note[] usedChord2;
+    Note[] usedChord3;
+    Note[] usedChord4;
+    Note[] usedChord5;
+    Note[] usedChord6;
+    Note[] usedChord7;
+    Note[] usedChord8;
 
     Note[][] scaleChords = {scaleChord1, scaleChord2, scaleChord3, scaleChord4, scaleChord5, scaleChord6, scaleChord7};
     Note[][] scaleChords1And6 = {scaleChord1, scaleChord6};
@@ -135,11 +143,6 @@ public abstract class AbstractController {
     Sequencer sequencer;
 
 
-
-
-    Phrase getOriginalPhrase() {
-        return originalPhr2;
-    }
 
 
     String getInterval(int i) {
@@ -340,15 +343,23 @@ public abstract class AbstractController {
                 minorScale[4] = notes[(i + 7) % SIZE_OF_NOTES_ARRAY];
                 minorScale[5] = notes[(i + 8) % SIZE_OF_NOTES_ARRAY];
                 minorScale[6] = notes[(i + 10) % SIZE_OF_NOTES_ARRAY];
-                minorScale[7] = notes[(i + 12) % SIZE_OF_NOTES_ARRAY];
 
+                minorScale[7] = notes[(i + 12) % SIZE_OF_NOTES_ARRAY];
                 minorScale[8] = notes[(i + 14) % SIZE_OF_NOTES_ARRAY];
                 minorScale[9] = notes[(i + 15) % SIZE_OF_NOTES_ARRAY];
                 minorScale[10] = notes[(i + 17) % SIZE_OF_NOTES_ARRAY];
                 minorScale[11] = notes[(i + 19) % SIZE_OF_NOTES_ARRAY];
                 minorScale[12] = notes[(i + 20) % SIZE_OF_NOTES_ARRAY];
                 minorScale[13] = notes[(i + 22) % SIZE_OF_NOTES_ARRAY];
+
                 minorScale[14] = notes[(i + 24) % SIZE_OF_NOTES_ARRAY];
+                minorScale[15] = notes[(i + 26) % SIZE_OF_NOTES_ARRAY];
+                minorScale[16] = notes[(i + 27) % SIZE_OF_NOTES_ARRAY];
+                minorScale[17] = notes[(i + 29) % SIZE_OF_NOTES_ARRAY];
+                minorScale[18] = notes[(i + 31) % SIZE_OF_NOTES_ARRAY];
+                minorScale[19] = notes[(i + 32) % SIZE_OF_NOTES_ARRAY];
+                minorScale[20] = notes[(i + 34) % SIZE_OF_NOTES_ARRAY];
+                minorScale[21] = notes[(i + 36) % SIZE_OF_NOTES_ARRAY];
                 break;
             }
         }
@@ -371,15 +382,23 @@ public abstract class AbstractController {
                 majorScale[4] = notes[(i + 7) % SIZE_OF_NOTES_ARRAY];
                 majorScale[5] = notes[(i + 9) % SIZE_OF_NOTES_ARRAY];
                 majorScale[6] = notes[(i + 11) % SIZE_OF_NOTES_ARRAY];
-                majorScale[7] = notes[(i + 12) % SIZE_OF_NOTES_ARRAY];
 
+                majorScale[7] = notes[(i + 12) % SIZE_OF_NOTES_ARRAY];
                 majorScale[8] = notes[(i + 14) % SIZE_OF_NOTES_ARRAY];
                 majorScale[9] = notes[(i + 16) % SIZE_OF_NOTES_ARRAY];
                 majorScale[10] = notes[(i + 17) % SIZE_OF_NOTES_ARRAY];
                 majorScale[11] = notes[(i + 19) % SIZE_OF_NOTES_ARRAY];
                 majorScale[12] = notes[(i + 21) % SIZE_OF_NOTES_ARRAY];
                 majorScale[13] = notes[(i + 23) % SIZE_OF_NOTES_ARRAY];
-                majorScale[14] = notes[(i + 24) % SIZE_OF_NOTES_ARRAY];
+
+                minorScale[14] = notes[(i + 24) % SIZE_OF_NOTES_ARRAY];
+                minorScale[15] = notes[(i + 26) % SIZE_OF_NOTES_ARRAY];
+                minorScale[16] = notes[(i + 28) % SIZE_OF_NOTES_ARRAY];
+                minorScale[17] = notes[(i + 29) % SIZE_OF_NOTES_ARRAY];
+                minorScale[18] = notes[(i + 31) % SIZE_OF_NOTES_ARRAY];
+                minorScale[19] = notes[(i + 33) % SIZE_OF_NOTES_ARRAY];
+                minorScale[20] = notes[(i + 35) % SIZE_OF_NOTES_ARRAY];
+                minorScale[21] = notes[(i + 36) % SIZE_OF_NOTES_ARRAY];
             }
         }
 
@@ -398,9 +417,28 @@ public abstract class AbstractController {
         if (minorOrMajor == 0) {
             minor = true;
             makeMinorScale(rootNote);
+            scaleNotes = minorScale.clone();
         } else {
             major = true;
             makeMajorScale(rootNote);
+            scaleNotes = majorScale.clone();
+        }
+    }
+
+
+    void placeCommonNotesInSameVoice(Note[] chord1, Note[] chord2){
+        for(int i = 0; i < chord1.length; i++){
+            int pitch1 = chord1[i].getPitch();
+
+            for(int j = 0; j < chord2.length; j++){
+                int pitch2 = chord2[j].getPitch();
+
+                if(pitch1 + 12 == pitch2 || pitch1 + 24 == pitch2 || pitch1 + 36 == pitch2
+                        ||pitch1 - 12 == pitch2 || pitch1 - 24 == pitch2 || pitch1 - 36 == pitch2) {
+                    chord2[j].setPitch(chord2[i].getPitch());
+                    chord2[i].setPitch(pitch1);
+                }
+            }
         }
     }
 
@@ -420,32 +458,32 @@ public abstract class AbstractController {
 
         scorePane.getChildren().add(swingNode);
 
-        jScore.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                theirMelodyAnswer = jScore.getPhrase().getNoteArray();
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-
-            }
-        });
+//        jScore.addMouseListener(new MouseListener() {
+//            @Override
+//            public void mouseClicked(MouseEvent e) {
+//
+//            }
+//
+//            @Override
+//            public void mousePressed(MouseEvent e) {
+//
+//            }
+//
+//            @Override
+//            public void mouseReleased(MouseEvent e) {
+//                theirMelodyAnswer = jScore.getPhrase().getNoteArray();
+//            }
+//
+//            @Override
+//            public void mouseEntered(MouseEvent e) {
+//
+//            }
+//
+//            @Override
+//            public void mouseExited(MouseEvent e) {
+//
+//            }
+//        });
     }
 
 
