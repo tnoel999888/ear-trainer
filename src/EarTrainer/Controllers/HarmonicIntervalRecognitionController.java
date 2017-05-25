@@ -1,13 +1,19 @@
 package EarTrainer.Controllers;
 
+import javafx.embed.swing.SwingNode;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.layout.Pane;
+import javafx.scene.shape.*;
+import javafx.scene.shape.Rectangle;
+import jm.gui.cpn.JGrandStave;
 import jm.music.data.*;
 import jm.util.Write;
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.MidiUnavailableException;
+import java.awt.*;
 import java.io.*;
 import java.util.Random;
 import static jm.constants.Durations.*;
@@ -30,6 +36,67 @@ public class HarmonicIntervalRecognitionController extends AbstractController {
     @FXML private Button minorSeventhButton;
     @FXML private Button majorSeventhButton;
 
+    @FXML private Pane scorePaneTop;
+
+//    private JGrandStave jScoreTop = new JGrandStave();
+
+
+
+
+    @Override
+    @FXML
+    public void initialize() {
+        Dimension d = new Dimension();
+        d.setSize(475,300);
+
+        jScore.setPreferredSize(d);
+        jScore.setMaximumSize(d);
+        jScore.removeTitle();
+        jScore.setEditable(false);
+
+        jScoreTop.setPreferredSize(d);
+        jScoreTop.setMaximumSize(d);
+        jScoreTop.removeTitle();
+        jScoreTop.setEditable(false);
+
+        SwingNode swingNode = new SwingNode();
+        SwingNode swingNodeRight = new SwingNode();
+
+
+        // Top 200px and bottom 200px of yourSwingNode will be trimed.
+        swingNode.setLayoutY(-100.0);
+        swingNode.layoutBoundsProperty().addListener((o, ov, nv) -> {
+            scorePane.setMaxHeight(nv.getHeight() - 100.0);
+        });
+
+        swingNodeRight.setLayoutY(-100.0);
+        swingNodeRight.layoutBoundsProperty().addListener((o, ov, nv) -> {
+            scorePaneTop.setMaxHeight(nv.getHeight() - 100.0);
+        });
+
+
+        // Set a clip for the layout bounds of Pane if you need
+        Rectangle clip = new Rectangle();
+        scorePane.layoutBoundsProperty().addListener((o, ov, nv) -> {
+            clip.setWidth(nv.getWidth());
+            clip.setHeight(nv.getHeight());
+        });
+        scorePane.setClip(clip);
+
+        Rectangle clip2 = new Rectangle();
+        scorePaneTop.layoutBoundsProperty().addListener((o, ov, nv) -> {
+            clip2.setWidth(nv.getWidth());
+            clip2.setHeight(nv.getHeight());
+        });
+        scorePaneTop.setClip(clip2);
+
+
+        swingNode.setContent(jScore);
+        swingNodeRight.setContent(jScoreTop);
+
+        scorePane.getChildren().add(swingNode);
+        scorePaneTop.getChildren().add(swingNodeRight);
+    }
 
 
     @FXML
@@ -214,6 +281,15 @@ public class HarmonicIntervalRecognitionController extends AbstractController {
     }
 
 
+    @FXML
+    void answerButtonClicked() throws IOException {
+        questionAnswered = true;
+        nextQuestionButton.setDisable(false);
+
+        jScoreTop.setPhrase(phr2);
+    }
+
+
     private Button getCorrectButton(String correctAnswer) {
         switch(correctAnswer){
             case "unison":
@@ -253,8 +329,8 @@ public class HarmonicIntervalRecognitionController extends AbstractController {
         phr1.addNote(n1);
 
         setScore(phr1);
+        jScoreTop.setPhrase(emptyPhr);
 
-        Random rn = new Random();
         int i = rn.nextInt(5);
         int[] array = {0, 3, 4, 7, 12};
         int interval = array[i];
@@ -262,6 +338,7 @@ public class HarmonicIntervalRecognitionController extends AbstractController {
         System.out.println(i);
 
         Note n2 = new Note(C4 + interval, C);
+        phr2.addNote(n2);
 
         Note[] notes = {n1, n2};
         cphr1.addChord(notes);
@@ -283,8 +360,7 @@ public class HarmonicIntervalRecognitionController extends AbstractController {
 
         System.out.println(interval);
 
-        Random r2n = new Random();
-        int i2 = r2n.nextInt(7);
+        int i2 = rn.nextInt(7);
         int[] roots = {C4,
                 D4,
                 E4,
@@ -299,8 +375,10 @@ public class HarmonicIntervalRecognitionController extends AbstractController {
         phr1.addNote(n1);
 
         setScore(phr1);
+        jScoreTop.setPhrase(phr2);
 
         Note n2 = new Note(chosenRoot + interval, C);
+        phr2.addNote(n2);
 
         Note[] notes = {n1, n2};
         cphr1.addChord(notes);
@@ -315,13 +393,11 @@ public class HarmonicIntervalRecognitionController extends AbstractController {
 
 
     private String makeMIDIHardHarmonic() {
-        Random rn = new Random();
         int i = rn.nextInt(25) - 12;
+        int i2 = rn.nextInt(21);
 
         System.out.println(i);
 
-        Random r2n = new Random();
-        int i2 = r2n.nextInt(21);
         int[] roots = {C3, C4, C5,
                 CS3, CS4, CS5,
                 D3, D4, D5,
@@ -341,8 +417,10 @@ public class HarmonicIntervalRecognitionController extends AbstractController {
         phr1.addNote(n1);
 
         setScore(phr1);
+        jScoreTop.setPhrase(phr2);
 
         Note n2 = new Note(chosenRoot + i, C);
+        phr2.addNote(n2);
 
         Note[] notes = {n1, n2};
         cphr1.addChord(notes);
@@ -358,10 +436,10 @@ public class HarmonicIntervalRecognitionController extends AbstractController {
 
     @FXML
     protected void generateQuestion() throws IOException, MidiUnavailableException, InvalidMidiDataException {
-//        musicCreator = new JMMusicCreator(jScore);
         phr1 = new Phrase();
         phr2 = new Phrase();
         cphr1 = new CPhrase();
+
         p = new Part();
         s = new Score();
 
@@ -389,7 +467,6 @@ public class HarmonicIntervalRecognitionController extends AbstractController {
         sequencer.setSequence(is);
         sequencer.start();
     }
-
 }
 
 

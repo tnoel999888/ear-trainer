@@ -36,9 +36,6 @@ public class ModulationRecognitionController extends AbstractController{
     @FXML private Pane scorePaneLeft;
     @FXML private Pane scorePaneRight;
 
-    private JGrandStave jScoreLeft = new JGrandStave();
-    private JGrandStave jScoreRight = new JGrandStave();
-
     private int[] similarKeys = new int[5];
 
     private String rootKeyString;
@@ -57,15 +54,15 @@ public class ModulationRecognitionController extends AbstractController{
         jScore.removeTitle();
         jScore.setEditable(false);
 
-        jScoreLeft.setPreferredSize(d);
-        jScoreLeft.setMaximumSize(d);
-        jScoreLeft.removeTitle();
-        jScoreLeft.setEditable(false);
+        jScoreBottom.setPreferredSize(d);
+        jScoreBottom.setMaximumSize(d);
+        jScoreBottom.removeTitle();
+        jScoreBottom.setEditable(false);
 
-        jScoreRight.setPreferredSize(d);
-        jScoreRight.setMaximumSize(d);
-        jScoreRight.removeTitle();
-        jScoreRight.setEditable(false);
+        jScoreTop.setPreferredSize(d);
+        jScoreTop.setMaximumSize(d);
+        jScoreTop.removeTitle();
+        jScoreTop.setEditable(false);
 
         SwingNode swingNode = new SwingNode();
         SwingNode swingNodeLeft = new SwingNode();
@@ -113,8 +110,8 @@ public class ModulationRecognitionController extends AbstractController{
 
 
         swingNode.setContent(jScore);
-        swingNodeLeft.setContent(jScoreLeft);
-        swingNodeRight.setContent(jScoreRight);
+        swingNodeLeft.setContent(jScoreBottom);
+        swingNodeRight.setContent(jScoreTop);
 
         scorePane.getChildren().add(swingNode);
         scorePaneLeft.getChildren().add(swingNodeLeft);
@@ -375,6 +372,20 @@ public class ModulationRecognitionController extends AbstractController{
         usedChord5 = scaleChord1;
 
 
+        //6th Chord. Add the dominant 7 of new key
+        bottomNotes.add(scaleChord5Inverted[0]);
+        middleNotes.add(scaleChord5Inverted[1]);
+        topNotes.add(scaleChord5Inverted[2]);
+        usedChord6 = scaleChord5Inverted;
+
+
+        //7th Chord. Add the dominant 7 of new key
+        bottomNotes.add(scaleChord1[0]);
+        middleNotes.add(scaleChord1[1]);
+        topNotes.add(scaleChord1[2]);
+        usedChord7 = scaleChord1;
+
+
         //Set the scores
         setScoreSpecific(bottomNotes, "left");
         setScoreSpecific(middleNotes, "middle");
@@ -386,6 +397,8 @@ public class ModulationRecognitionController extends AbstractController{
         placeCommonNotesInSameVoice(usedChord2, usedChord3);
         placeCommonNotesInSameVoice(usedChord3, usedChord4);
         placeCommonNotesInSameVoice(usedChord4, usedChord5);
+        placeCommonNotesInSameVoice(usedChord5, usedChord6);
+        placeCommonNotesInSameVoice(usedChord6, usedChord7);
 
 
         //Add the selected chords to the CPhrases
@@ -394,6 +407,8 @@ public class ModulationRecognitionController extends AbstractController{
         cphr3.addChord(usedChord3);
         cphr4.addChord(usedChord4);
         cphr5.addChord(usedChord5);
+        cphr5.addChord(usedChord6);
+        cphr5.addChord(usedChord7);
 
 
         //Add CPhrases to Part p
@@ -402,6 +417,8 @@ public class ModulationRecognitionController extends AbstractController{
         p.addCPhrase(cphr3);
         p.addCPhrase(cphr4);
         p.addCPhrase(cphr5);
+        p.addCPhrase(cphr6);
+        p.addCPhrase(cphr7);
 
 
         s.addPart(p);
@@ -477,10 +494,10 @@ public class ModulationRecognitionController extends AbstractController{
 
 
         //6th Chord. Add tonic of original key as common key
-        bottomNotes.add(scaleChord1[0]);
-        middleNotes.add(scaleChord1[1]);
-        topNotes.add(scaleChord1[2]);
-        usedChord6 = scaleChord1;
+        bottomNotes.add(scaleChord1RemovedFifth[0]);
+        middleNotes.add(scaleChord1RemovedFifth[1]);
+        topNotes.add(scaleChord1RemovedFifth[2]);
+        usedChord6 = scaleChord1RemovedFifth;
 
 
         //Find key to modulate to from similar keys
@@ -497,18 +514,25 @@ public class ModulationRecognitionController extends AbstractController{
         }
 
 
-        //7th Chord. Add the dominant of the new key
-        bottomNotes.add(scaleChord5[0]);
-        middleNotes.add(scaleChord5[1]);
-        topNotes.add(scaleChord5[2]);
-        usedChord7 = scaleChord5;
+        //7th Chord. Add the 3rd inverted dominant of the new key
+        bottomNotes.add(scaleChord5Inverted[0]);
+        middleNotes.add(scaleChord5Inverted[1]);
+        topNotes.add(scaleChord5Inverted[2]);
+        usedChord7 = scaleChord5Inverted;
 
 
-        //8th Chord. Add the tonic of the new key
+        //8th Chord. Add the dominant 7 of new key
+        bottomNotes.add(scaleChord5Seventh[0]);
+        middleNotes.add(scaleChord5Seventh[1]);
+        topNotes.add(scaleChord5Seventh[2]);
+        usedChord8 = scaleChord5Seventh;
+
+
+        //9th Chord. Add the tonic of the new key
         bottomNotes.add(scaleChord1[0]);
         middleNotes.add(scaleChord1[1]);
         topNotes.add(scaleChord1[2]);
-        usedChord8 = scaleChord1;
+        usedChord9 = scaleChord1;
 
 
         //Set the scores
@@ -522,9 +546,10 @@ public class ModulationRecognitionController extends AbstractController{
         placeCommonNotesInSameVoice(usedChord2, usedChord3);
         placeCommonNotesInSameVoice(usedChord3, usedChord4);
         placeCommonNotesInSameVoice(usedChord4, usedChord5);
-        placeCommonNotesInSameVoice(usedChord5, usedChord6);
+//        placeCommonNotesInSameVoice(usedChord5, usedChord6);
         placeCommonNotesInSameVoice(usedChord6, usedChord7);
         placeCommonNotesInSameVoice(usedChord7, usedChord8);
+        placeCommonNotesInSameVoice(usedChord8, usedChord9);
 
 
         //Add the selected chords to the CPhrases
@@ -536,6 +561,7 @@ public class ModulationRecognitionController extends AbstractController{
         cphr6.addChord(usedChord6);
         cphr7.addChord(usedChord7);
         cphr8.addChord(usedChord8);
+        cphr9.addChord(usedChord9);
 
 
         //Add CPhrases to Part p
@@ -547,6 +573,7 @@ public class ModulationRecognitionController extends AbstractController{
         p.addCPhrase(cphr6);
         p.addCPhrase(cphr7);
         p.addCPhrase(cphr8);
+        p.addCPhrase(cphr9);
 
 
         s.addPart(p);
@@ -612,6 +639,7 @@ public class ModulationRecognitionController extends AbstractController{
         cphr6 = new CPhrase();
         cphr7 = new CPhrase();
         cphr8 = new CPhrase();
+        cphr9 = new CPhrase();
         p = new Part();
         s = new Score();
 
@@ -688,11 +716,11 @@ public class ModulationRecognitionController extends AbstractController{
         JGrandStave scoreToUse;
 
         if(score.equals("left")){
-            scoreToUse = jScoreLeft;
+            scoreToUse = jScoreBottom;
         } else if(score.equals("middle")){
             scoreToUse = jScore;
         } else {
-            scoreToUse = jScoreRight;
+            scoreToUse = jScoreTop;
         }
 
         scoreToUse.setPhrase(phr);

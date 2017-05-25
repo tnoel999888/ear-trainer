@@ -30,8 +30,6 @@ import javax.sound.midi.Sequencer;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.util.*;
 import java.util.List;
@@ -54,6 +52,7 @@ public abstract class AbstractController {
     Phrase bottomNotes = new Phrase();
     Phrase middleNotes = new Phrase();
     Phrase topNotes = new Phrase();
+    Phrase emptyPhr = new Phrase();
 
     CPhrase cphr1 = new CPhrase();
     CPhrase cphr2 = new CPhrase();
@@ -63,6 +62,7 @@ public abstract class AbstractController {
     CPhrase cphr6 = new CPhrase();
     CPhrase cphr7 = new CPhrase();
     CPhrase cphr8 = new CPhrase();
+    CPhrase cphr9 = new CPhrase();
 
     int[] notes = {A3, AS3, B3, C4, CS4, D4, DS4, E4, F4, FS4, G4, GS4, A4, AS4, B4, C5, CS5, D5, DS5, E5, F5, FS5, G5, GS5, A5, AS5, B5, C6, CS6, D6, DS6, E6, F6, FS6, G6, GS6};
     int SIZE_OF_NOTES_ARRAY = notes.length;
@@ -80,13 +80,17 @@ public abstract class AbstractController {
 
 //    Note[] theirMelodyAnswer;
     Note[] scaleChord1 = new Note[3];
+    Note[] scaleChord1RemovedFifth = new Note[3];
     Note[] scaleChord2 = new Note[3];
     Note[] scaleChord3 = new Note[3];
     Note[] scaleChord4 = new Note[3];
     Note[] scaleChord5 = new Note[3];
     Note[] scaleChord5MelodicMinor = new Note[3];
+    Note[] scaleChord5Seventh = new Note[4];
+    Note[] scaleChord5Inverted = new Note[3];
     Note[] scaleChord6 = new Note[3];
     Note[] scaleChord7 = new Note[3];
+
     Note[] bottomNotesArray = new Note[4];
     Note[] middleNotesArray = new Note[4];
     Note[] topNotesArray = new Note[4];
@@ -99,6 +103,7 @@ public abstract class AbstractController {
     Note[] usedChord6;
     Note[] usedChord7;
     Note[] usedChord8;
+    Note[] usedChord9;
 
     Note[][] scaleChords = {scaleChord1, scaleChord2, scaleChord3, scaleChord4, scaleChord5, scaleChord6, scaleChord7};
     Note[][] scaleChords1And6 = {scaleChord1, scaleChord6};
@@ -127,6 +132,9 @@ public abstract class AbstractController {
     @FXML Pane scorePane;
 
     JGrandStave jScore = new JGrandStave();
+    JGrandStave jScoreBottom = new JGrandStave();
+    JGrandStave jScoreTop = new JGrandStave();
+
     Phrase phrase = new Phrase();
 
     String strSecs;
@@ -309,6 +317,7 @@ public abstract class AbstractController {
 
     private void makeChords(int[] scale) {
         scaleChord1 = new Note[]{new Note(scale[0], C), new Note(scale[2], C), new Note(scale[4], C)};
+        scaleChord1RemovedFifth = new Note[]{new Note(scale[0], C), new Note(scale[2], C), new Note(scale[0]+12, C)};
 
         //If minor, diminished, invert, 3-5-8
         if (minor) {
@@ -324,6 +333,9 @@ public abstract class AbstractController {
         //Minor 5 chord, make major if doing cadence into tonic, 7#, melodic minor scale
         scaleChord5 = new Note[]{new Note(scale[4], C), new Note(scale[6], C), new Note(scale[8], C)};
         scaleChord5MelodicMinor = new Note[]{new Note(scale[4], C), new Note(sharpen(scale[6]), C), new Note(scale[8], C)};
+        scaleChord5Seventh = new Note[]{new Note(scale[4], C), new Note(scale[6], C), new Note(scale[8], C), new Note(scale[10], C), };
+        scaleChord5Inverted = new Note[]{new Note(scale[1], C), new Note(scale[4], C), new Note(scale[6], C)};
+
 
         scaleChord6 = new Note[]{new Note(scale[5], C), new Note(scale[7], C), new Note(scale[9], C)};
 
@@ -488,14 +500,14 @@ public abstract class AbstractController {
 
 
     @FXML
-    private void BackButtonClicked(ActionEvent event) throws IOException {
+    private void backButtonClicked(ActionEvent event) throws IOException {
         Stage stage = (Stage) stackPane.getScene().getWindow();
         stage.hide();
     }
 
 
     @FXML
-    void StartButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException, LineUnavailableException, UnsupportedAudioFileException {
+    void startButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException, LineUnavailableException, UnsupportedAudioFileException {
         startClicked = true;
         questionNumber = 1;
         numberOfCorrectAnswers = 0;
@@ -511,7 +523,7 @@ public abstract class AbstractController {
 
 
     @FXML
-    void NextQuestionButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException, LineUnavailableException, UnsupportedAudioFileException {
+    void nextQuestionButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException, LineUnavailableException, UnsupportedAudioFileException {
         sequencer.stop();
         sequencer.close();
         correctIncorrectLabel.setText("");
@@ -524,7 +536,7 @@ public abstract class AbstractController {
             questionAnswered = false;
             nextQuestionButton.setDisable(true);
             resetButtonColours();
-//        setScore(phrase);
+//            setScore(phrase);
             generateQuestion();
         } else {
             nextQuestionButton.setText("Next Question");
@@ -563,6 +575,10 @@ public abstract class AbstractController {
         radioButtonsGroup.setDisable(false);
 
         PopupScoreController controller = loader.<PopupScoreController>getController();
+        controller.setScore(jScore);
+        controller.setScoreBottom(jScoreBottom);
+        controller.setScoreTop(jScoreTop);
+        controller.setEmptyPhr(emptyPhr);
         controller.setNumberOfCorrectAnswers(numberOfCorrectAnswers);
         controller.setTime(strMins, strSecs);
         controller.setStackPane(stackPane);

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_eartrainerproject" default="compile.module.eartrainerproject">
+  <dirname property="module.eartrainerproject.basedir" file="${ant.file.module_eartrainerproject}"/>
+  
+  <property name="module.jdk.home.eartrainerproject" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.eartrainerproject" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.eartrainerproject" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.eartrainerproject" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="eartrainerproject.output.dir" value="${module.eartrainerproject.basedir}/out/production/EarTrainerProject"/>
+  <property name="eartrainerproject.testoutput.dir" value="${module.eartrainerproject.basedir}/out/test/EarTrainerProject"/>
+  
+  <path id="eartrainerproject.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="eartrainerproject.module.production.classpath">
+    <path refid="${module.jdk.classpath.eartrainerproject}"/>
+    <pathelement location="${basedir}/../../../../../Downloads/PitchDetector-latest.jar"/>
+    <pathelement location="${basedir}/../../../../../Downloads/TarsosDSP-latest.jar"/>
+    <pathelement location="${basedir}/../../../../../jMusic/jMusic1.6.4.jar"/>
+    <pathelement location="${basedir}/../../../../../Downloads/commons-lang3-3.5/apidocs/org/apache/commons/lang3"/>
+    <path refid="library.lang3.classpath"/>
+    <pathelement location="${basedir}/../../../../../../../Applications/JavaFX Scene Builder 2.0.app/Contents/Java/SceneBuilderApp.jar"/>
+    <pathelement location="${basedir}/../../../../../../../Applications/JavaFX Scene Builder 2.0.app/Contents/Java/SceneBuilderKit.jar"/>
+  </path>
+  
+  <path id="eartrainerproject.runtime.production.module.classpath">
+    <pathelement location="${eartrainerproject.output.dir}"/>
+    <pathelement location="${basedir}/../../../../../Downloads/PitchDetector-latest.jar"/>
+    <pathelement location="${basedir}/../../../../../Downloads/TarsosDSP-latest.jar"/>
+    <pathelement location="${basedir}/../../../../../jMusic/jMusic1.6.4.jar"/>
+    <pathelement location="${basedir}/../../../../../Downloads/commons-lang3-3.5/apidocs/org/apache/commons/lang3"/>
+    <path refid="library.lang3.classpath"/>
+    <pathelement location="${basedir}/../../../../../../../Applications/JavaFX Scene Builder 2.0.app/Contents/Java/SceneBuilderApp.jar"/>
+    <pathelement location="${basedir}/../../../../../../../Applications/JavaFX Scene Builder 2.0.app/Contents/Java/SceneBuilderKit.jar"/>
+  </path>
+  
+  <path id="eartrainerproject.module.classpath">
+    <path refid="${module.jdk.classpath.eartrainerproject}"/>
+    <pathelement location="${eartrainerproject.output.dir}"/>
+    <pathelement location="${basedir}/../../../../../Downloads/PitchDetector-latest.jar"/>
+    <pathelement location="${basedir}/../../../../../Downloads/TarsosDSP-latest.jar"/>
+    <pathelement location="${basedir}/../../../../../jMusic/jMusic1.6.4.jar"/>
+    <pathelement location="${basedir}/../../../../../Downloads/commons-lang3-3.5/apidocs/org/apache/commons/lang3"/>
+    <path refid="library.lang3.classpath"/>
+    <pathelement location="${basedir}/../../../../../../../Applications/JavaFX Scene Builder 2.0.app/Contents/Java/SceneBuilderApp.jar"/>
+    <pathelement location="${basedir}/../../../../../../../Applications/JavaFX Scene Builder 2.0.app/Contents/Java/SceneBuilderKit.jar"/>
+  </path>
+  
+  <path id="eartrainerproject.runtime.module.classpath">
+    <pathelement location="${eartrainerproject.testoutput.dir}"/>
+    <pathelement location="${eartrainerproject.output.dir}"/>
+    <pathelement location="${basedir}/../../../../../Downloads/PitchDetector-latest.jar"/>
+    <pathelement location="${basedir}/../../../../../Downloads/TarsosDSP-latest.jar"/>
+    <pathelement location="${basedir}/../../../../../jMusic/jMusic1.6.4.jar"/>
+    <pathelement location="${basedir}/../../../../../Downloads/commons-lang3-3.5/apidocs/org/apache/commons/lang3"/>
+    <path refid="library.lang3.classpath"/>
+    <pathelement location="${basedir}/../../../../../../../Applications/JavaFX Scene Builder 2.0.app/Contents/Java/SceneBuilderApp.jar"/>
+    <pathelement location="${basedir}/../../../../../../../Applications/JavaFX Scene Builder 2.0.app/Contents/Java/SceneBuilderKit.jar"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.eartrainerproject">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.eartrainerproject">
+    <patternset refid="excluded.from.module.eartrainerproject"/>
+  </patternset>
+  
+  <path id="eartrainerproject.module.sourcepath">
+    <dirset dir="${module.eartrainerproject.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.eartrainerproject" depends="compile.module.eartrainerproject.production,compile.module.eartrainerproject.tests" description="Compile module EarTrainerProject"/>
+  
+  <target name="compile.module.eartrainerproject.production" depends="register.custom.compilers" description="Compile module EarTrainerProject; production classes">
+    <mkdir dir="${eartrainerproject.output.dir}"/>
+    <javac2 destdir="${eartrainerproject.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.eartrainerproject}/javac">
+      <compilerarg line="${compiler.args.eartrainerproject}"/>
+      <bootclasspath refid="eartrainerproject.module.bootclasspath"/>
+      <classpath refid="eartrainerproject.module.production.classpath"/>
+      <src refid="eartrainerproject.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.eartrainerproject"/>
+    </javac2>
+    
+    <copy todir="${eartrainerproject.output.dir}">
+      <fileset dir="${module.eartrainerproject.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.eartrainerproject.tests" depends="register.custom.compilers,compile.module.eartrainerproject.production" description="compile module EarTrainerProject; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.eartrainerproject" description="cleanup module">
+    <delete dir="${eartrainerproject.output.dir}"/>
+    <delete dir="${eartrainerproject.testoutput.dir}"/>
+  </target>
+</project>

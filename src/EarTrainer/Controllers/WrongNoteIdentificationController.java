@@ -98,7 +98,7 @@ public class WrongNoteIdentificationController extends AbstractController{
 
     @Override
     @FXML
-    void NextQuestionButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException {
+    void nextQuestionButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException {
         sequencer.stop();
         sequencer.close();
 
@@ -165,7 +165,8 @@ public class WrongNoteIdentificationController extends AbstractController{
                     if (((Note)theirMelodyAnswer.get(i)).getPitch() != correctMelody[i].getPitch()) {
                         makeButtonRed(submitButton);
                         correctIncorrectText.setTextFill(Color.web("#da4343"));
-                        correctIncorrectText.setText("Incorrect. You moved the wrong note.");
+//                        correctIncorrectText.setText("Incorrect. You moved the wrong note.");
+                        correctIncorrectText.setText("Incorrect.");
                         break;
                     }
                 } else {
@@ -177,7 +178,8 @@ public class WrongNoteIdentificationController extends AbstractController{
                     } else {
                         makeButtonRed(submitButton);
                         correctIncorrectText.setTextFill(Color.web("#da4343"));
-                        correctIncorrectText.setText("Incorrect. You moved the correct note to an incorrect place.");
+//                        correctIncorrectText.setText("Incorrect. You moved the correct note to an incorrect place.");
+                        correctIncorrectText.setText("Incorrect.");
                         break;
                     }
                 }
@@ -188,7 +190,8 @@ public class WrongNoteIdentificationController extends AbstractController{
                     if (((Note)theirMelodyAnswer.get(i)).getPitch() != correctMelody[i].getPitch()) {
                         makeButtonRed(submitButton);
                         correctIncorrectText.setTextFill(Color.web("#da4343"));
-                        correctIncorrectText.setText("Incorrect. You moved the wrong note.");
+//                        correctIncorrectText.setText("Incorrect. You moved the wrong note.");
+                        correctIncorrectText.setText("Incorrect.");
                         break;
                     }
                 } else {
@@ -200,7 +203,8 @@ public class WrongNoteIdentificationController extends AbstractController{
                     } else {
                         makeButtonRed(submitButton);
                         correctIncorrectText.setTextFill(Color.web("#da4343"));
-                        correctIncorrectText.setText("Incorrect. You moved the correct note to an incorrect place.");
+//                        correctIncorrectText.setText("Incorrect. You moved the correct note to an incorrect place.");
+                        correctIncorrectText.setText("Incorrect.");
                         break;
                     }
                 }

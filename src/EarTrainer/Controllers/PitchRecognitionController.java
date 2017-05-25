@@ -68,13 +68,6 @@ public class PitchRecognitionController extends AbstractController{
     }
 
 
-    @FXML
-    private void BackButtonClicked(ActionEvent event) throws IOException {
-        Stage stage = (Stage) stackPane.getScene().getWindow();
-        stage.hide();
-    }
-
-
 
     protected void resetButtonColours() {
         cButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");

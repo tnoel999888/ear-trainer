@@ -25,9 +25,6 @@ public class CadenceRecognitionController extends AbstractController{
     @FXML private Pane scorePaneLeft;
     @FXML private Pane scorePaneRight;
 
-    private JGrandStave jScoreLeft = new JGrandStave();
-    private JGrandStave jScoreRight = new JGrandStave();
-
 
 
     @Override
@@ -41,15 +38,15 @@ public class CadenceRecognitionController extends AbstractController{
         jScore.removeTitle();
         jScore.setEditable(false);
 
-        jScoreLeft.setPreferredSize(d);
-        jScoreLeft.setMaximumSize(d);
-        jScoreLeft.removeTitle();
-        jScoreLeft.setEditable(false);
+        jScoreBottom.setPreferredSize(d);
+        jScoreBottom.setMaximumSize(d);
+        jScoreBottom.removeTitle();
+        jScoreBottom.setEditable(false);
 
-        jScoreRight.setPreferredSize(d);
-        jScoreRight.setMaximumSize(d);
-        jScoreRight.removeTitle();
-        jScoreRight.setEditable(false);
+        jScoreTop.setPreferredSize(d);
+        jScoreTop.setMaximumSize(d);
+        jScoreTop.removeTitle();
+        jScoreTop.setEditable(false);
 
         SwingNode swingNode = new SwingNode();
         SwingNode swingNodeLeft = new SwingNode();
@@ -97,8 +94,8 @@ public class CadenceRecognitionController extends AbstractController{
 
 
         swingNode.setContent(jScore);
-        swingNodeLeft.setContent(jScoreLeft);
-        swingNodeRight.setContent(jScoreRight);
+        swingNodeLeft.setContent(jScoreBottom);
+        swingNodeRight.setContent(jScoreTop);
 
         scorePane.getChildren().add(swingNode);
         scorePaneLeft.getChildren().add(swingNodeLeft);
@@ -185,9 +182,9 @@ public class CadenceRecognitionController extends AbstractController{
         nextQuestionButton.setDisable(false);
 
         //Set the scores
-        setScoreSpecific(bottomNotes, "left");
-        setScoreSpecific(middleNotes, "middle");
-        setScoreSpecific(topNotes, "right");
+//        setScoreSpecific(bottomNotes, "left");
+//        setScoreSpecific(middleNotes, "middle");
+//        setScoreSpecific(topNotes, "right");
     }
 
 
@@ -607,7 +604,7 @@ public class CadenceRecognitionController extends AbstractController{
 
     @FXML
     protected void generateQuestion() throws IOException, MidiUnavailableException, InvalidMidiDataException {
-//        musicCreator = new JMMusicCreator(jScore, jScoreLeft, jScoreRight);
+//        musicCreator = new JMMusicCreator(jScore, jScoreBottom, jScoreTop);
         phr1 = new Phrase();
         phr2 = new Phrase();
         bottomNotes = new Phrase();
@@ -650,11 +647,11 @@ public class CadenceRecognitionController extends AbstractController{
         JGrandStave scoreToUse;
 
         if(score.equals("left")){
-            scoreToUse = jScoreLeft;
+            scoreToUse = jScoreBottom;
         } else if(score.equals("middle")){
             scoreToUse = jScore;
         } else {
-            scoreToUse = jScoreRight;
+            scoreToUse = jScoreTop;
         }
 
         scoreToUse.setPhrase(phr);

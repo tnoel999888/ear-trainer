@@ -49,16 +49,9 @@ public class SharpFlatRecognitionController extends AbstractController {
     }
 
 
-    @FXML
-    private void BackButtonClicked(ActionEvent event) throws IOException {
-        Stage stage = (Stage) stackPane.getScene().getWindow();
-        stage.hide();
-    }
-
-
     @Override
     @FXML
-    void NextQuestionButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException, LineUnavailableException, UnsupportedAudioFileException {
+    void nextQuestionButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException, LineUnavailableException, UnsupportedAudioFileException {
         correctIncorrectLabel.setText("");
 
         if (questionNumber != TOTAL_QUESTIONS) {
