@@ -316,36 +316,49 @@ public abstract class AbstractController {
 
 
     private void makeChords(int[] scale) {
-        scaleChord1 = new Note[]{new Note(scale[0], C), new Note(scale[2], C), new Note(scale[4], C)};
-        scaleChord1RemovedFifth = new Note[]{new Note(scale[0], C), new Note(scale[2], C), new Note(scale[0]+12, C)};
+        Note note1 = new Note(scale[0], C);
+        Note note2 = new Note(scale[1], C);
+        Note note3 = new Note(scale[2], C);
+        Note note4 = new Note(scale[3], C);
+        Note note5 = new Note(scale[4], C);
+        Note note6 = new Note(scale[5], C);
+        Note note7 = new Note(scale[6], C);
+        Note note8 = new Note(scale[7], C);
+        Note note9 = new Note(scale[8], C);
+        Note note10 = new Note(scale[9], C);
+        Note note11 = new Note(scale[10], C);
+        Note note12 = new Note(scale[11], C);
+        Note note13 = new Note(scale[12], C);
+        Note note14 = new Note(scale[13], C);
 
-        //If minor, diminished, invert, 3-5-8
+        scaleChord1 = new Note[]{note1, note3, note5};
+        scaleChord1RemovedFifth = new Note[]{note1, note3, note8};
+
+        //If minor, diminished, invert
         if (minor) {
-            scaleChord2 = new Note[]{new Note(scale[3], C), new Note(scale[5], C), new Note(scale[8], C)};
+            scaleChord2 = new Note[]{note4, note6, note9};
         } else {
-            scaleChord2 = new Note[]{new Note(scale[1], C), new Note(scale[3], C), new Note(scale[5], C)};
+            scaleChord2 = new Note[]{note2, note4, note6};
         }
 
-        scaleChord3 = new Note[]{new Note(scale[2], C), new Note(scale[4], C), new Note(scale[6], C)};
+        scaleChord3 = new Note[]{note3, note5, note7};
 
-        scaleChord4 = new Note[]{new Note(scale[3], C), new Note(scale[5], C), new Note(scale[7], C)};
+        scaleChord4 = new Note[]{note4, note6, note8};
 
         //Minor 5 chord, make major if doing cadence into tonic, 7#, melodic minor scale
-        scaleChord5 = new Note[]{new Note(scale[4], C), new Note(scale[6], C), new Note(scale[8], C)};
-        scaleChord5MelodicMinor = new Note[]{new Note(scale[4], C), new Note(sharpen(scale[6]), C), new Note(scale[8], C)};
-        scaleChord5Seventh = new Note[]{new Note(scale[4], C), new Note(scale[6], C), new Note(scale[8], C), new Note(scale[10], C), };
-        scaleChord5Inverted = new Note[]{new Note(scale[1], C), new Note(scale[4], C), new Note(scale[6], C)};
+        scaleChord5 = new Note[]{note5, note7, note9};
+        scaleChord5MelodicMinor = new Note[]{note5, new Note(sharpen(scale[6]), C), note9};
+        scaleChord5Seventh = new Note[]{note5, note7, note9, note11};
+        scaleChord5Inverted = new Note[]{note2, note5, note7};
 
-
-        scaleChord6 = new Note[]{new Note(scale[5], C), new Note(scale[7], C), new Note(scale[9], C)};
+        scaleChord6 = new Note[]{note6, note8, note10};
 
         //For major and minor 1st inversion
-        scaleChord7 = new Note[]{new Note(scale[8], C), new Note(scale[10], C), new Note(scale[13], C)};
+        scaleChord7 = new Note[]{note9, note11, note14};
     }
 
 
     void makeMinorScale(int root) {
-
         for (int i = 0; i < notes.length; i++) {
             if (notes[i] == root) {
                 minorScale[0] = notes[i];
@@ -508,17 +521,33 @@ public abstract class AbstractController {
 
     @FXML
     void startButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException, LineUnavailableException, UnsupportedAudioFileException {
-        startClicked = true;
-        questionNumber = 1;
-        numberOfCorrectAnswers = 0;
-        startTimer();
-        questionLabel.setVisible(true);
-        startButton.setDisable(true);
-        timerLabel.setVisible(true);
-        radioButtonsGroup.setDisable(true);
-        questionLabel.setText("Question 1");
+        if(!startClicked) {
+            startClicked = true;
+            questionNumber = 1;
+            numberOfCorrectAnswers = 0;
+            startTimer();
+            questionLabel.setVisible(true);
+            timerLabel.setVisible(true);
+            radioButtonsGroup.setDisable(true);
+            questionLabel.setText("Question 1");
+            startButton.setText("Stop");
+            startButton.setStyle("-fx-background-color: rgba(0,0,0,0.08), linear-gradient(#af595f, #754e53), linear-gradient(#ffd5de 0%, #facdd0 10%, #f9cdd6 50%, #fc8f9b 51%, #ffddeb 100%)");
 
-        generateQuestion();
+            generateQuestion();
+        } else {
+            if(sequencer != null) {
+                sequencer.stop();
+                sequencer.close();
+            }
+            startButton.setStyle("-fx-background-color: rgba(0,0,0,0.08), linear-gradient(#5a61af, #51536d), linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%)");
+            startClicked = false;
+            numberOfCorrectAnswers = 0;
+            stopTimer();
+            questionLabel.setVisible(false);
+            timerLabel.setVisible(false);
+            radioButtonsGroup.setDisable(false);
+            startButton.setText("Start");
+        }
     }
 
 
@@ -620,7 +649,7 @@ public abstract class AbstractController {
             correctIncorrectLabel.setText("Incorrect.");
             makeButtonRed(button);
         } else {
-            correctIncorrectLabel.setTextFill(javafx.scene.paint.Color.web("#3abf4c"));
+            correctIncorrectLabel.setTextFill(Color.web("#3abf4c"));
             correctIncorrectLabel.setText("Correct!");
             numberOfCorrectAnswers++;
         }

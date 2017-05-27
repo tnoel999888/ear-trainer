@@ -171,6 +171,7 @@
                   <Pane fx:id="inputPane" prefHeight="150.0" prefWidth="220.0" />
                </children>
             </HBox>
+            <Region maxHeight="20.0" minHeight="20.0" prefHeight="20.0" prefWidth="200.0" />
             <HBox alignment="CENTER" fillHeight="false" maxHeight="65.0" minHeight="65.0" prefHeight="65.0" spacing="45.0" VBox.vgrow="ALWAYS">
                <children>
                   <Button id="lion-default" fx:id="startButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#startButtonClicked" prefHeight="64.0" prefWidth="302.0" text="Start" VBox.vgrow="ALWAYS">
@@ -190,7 +191,7 @@
             </HBox>
             <GridPane alignment="BOTTOM_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="170.0" prefWidth="692.0">
                <children>
-                  <Button fx:id="recordButton" maxHeight="90.0" maxWidth="274.0" minHeight="50.0" minWidth="130.0" mnemonicParsing="false" onAction="#RecordButtonClicked" prefHeight="90.0" prefWidth="274.0" text="Record" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                  <Button fx:id="recordButton" maxHeight="90.0" maxWidth="274.0" minHeight="50.0" minWidth="130.0" mnemonicParsing="false" onAction="#recordButtonClicked" prefHeight="90.0" prefWidth="274.0" text="Record" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                      <font>
                         <Font size="26.0" />
                      </font>

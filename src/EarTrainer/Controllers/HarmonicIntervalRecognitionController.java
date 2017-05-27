@@ -38,8 +38,6 @@ public class HarmonicIntervalRecognitionController extends AbstractController {
 
     @FXML private Pane scorePaneTop;
 
-//    private JGrandStave jScoreTop = new JGrandStave();
-
 
 
 

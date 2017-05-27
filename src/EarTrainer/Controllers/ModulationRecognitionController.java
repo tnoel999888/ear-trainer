@@ -514,7 +514,7 @@ public class ModulationRecognitionController extends AbstractController{
         }
 
 
-        //7th Chord. Add the 3rd inverted dominant of the new key
+        //7th Chord. Add the 2nd inverted dominant of the new key
         bottomNotes.add(scaleChord5Inverted[0]);
         middleNotes.add(scaleChord5Inverted[1]);
         topNotes.add(scaleChord5Inverted[2]);

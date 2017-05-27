@@ -359,7 +359,6 @@ public class MelodicIntervalRecognitionController extends AbstractController{
 
     @FXML
     protected void generateQuestion() throws IOException, MidiUnavailableException, InvalidMidiDataException {
-//        musicCreator = new JMMusicCreator(jScore);
         phr1 = new Phrase();
         phr2 = new Phrase();
         p = new Part();

@@ -68,7 +68,6 @@ public class PitchRecognitionController extends AbstractController{
     }
 
 
-
     protected void resetButtonColours() {
         cButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
         cSharpButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
@@ -226,7 +225,6 @@ public class PitchRecognitionController extends AbstractController{
 
 
     private String makeMIDIEasyPitch() {
-        Random rn = new Random();
         int i = rn.nextInt(7);
         int[] array = {0, 2, 4, 5, 7, 9, 11};
         int interval = array[i];
@@ -247,15 +245,7 @@ public class PitchRecognitionController extends AbstractController{
 
 
     private String makeMIDIMediumPitch() {
-        Random rn = new Random();
-        int i = rn.nextInt(12);
-        int[] array = new int[12];
-
-        for (int j = 0; j < 12; j++) {
-            array[j] = j;
-        }
-
-        int interval = array[i];
+        int interval = rn.nextInt(12);
 
         setScore(phr1);
 
@@ -273,15 +263,7 @@ public class PitchRecognitionController extends AbstractController{
 
 
     private String makeMIDIHardPitch() {
-        Random rn = new Random();
-        int i = rn.nextInt(36);
-        int[] array = new int[36];
-
-        for (int j = 0; j < 36; j++) {
-            array[j] = j;
-        }
-
-        int interval = array[i];
+        int interval = rn.nextInt(36);
 
         setScore(phr1);
 
@@ -300,7 +282,6 @@ public class PitchRecognitionController extends AbstractController{
 
     @FXML
     protected void generateQuestion() throws IOException, MidiUnavailableException, InvalidMidiDataException {
-//        musicCreator = new JMMusicCreator(jScore);
         phr1 = new Phrase();
         phr2 = new Phrase();
         p = new Part();
@@ -321,7 +302,6 @@ public class PitchRecognitionController extends AbstractController{
     }
 
 
-
     protected void playSound() throws MidiUnavailableException, IOException, InvalidMidiDataException {
         final String MEDIA_URL = "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Pitch.mid";
 
@@ -331,7 +311,6 @@ public class PitchRecognitionController extends AbstractController{
         sequencer.setSequence(is);
         sequencer.start();
     }
-
 }
 
 
