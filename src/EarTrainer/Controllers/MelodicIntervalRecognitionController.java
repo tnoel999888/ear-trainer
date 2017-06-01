@@ -256,7 +256,6 @@ public class MelodicIntervalRecognitionController extends AbstractController{
 
         setScore(phr1);
 
-        Random rn = new Random();
         int i = rn.nextInt(5);
         int[] array = {0, 3, 4, 7, 12};
         int interval = array[i];
@@ -278,7 +277,6 @@ public class MelodicIntervalRecognitionController extends AbstractController{
 
 
     private String makeMIDIMediumMelodic() {
-        Random rn = new Random();
         int i = rn.nextInt(7);
         int[] array = {0, 1, 2, 3, 4, 7, 12};
         int interval = array[i];
@@ -316,13 +314,11 @@ public class MelodicIntervalRecognitionController extends AbstractController{
 
 
     private String makeMIDIHardMelodic() {
-        Random rn = new Random();
         int interval = rn.nextInt(25) - 12;
 
         System.out.println(interval);
 
-        Random r2n = new Random();
-        int i2 = r2n.nextInt(21);
+        int i2 = rn.nextInt(21);
         int[] roots = {C3, C4, C5,
                 CS3, CS4, CS5,
                 D3, D4, D5,

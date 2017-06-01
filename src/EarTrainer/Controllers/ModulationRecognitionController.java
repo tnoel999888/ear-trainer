@@ -3,15 +3,24 @@ package EarTrainer.Controllers;
 import javafx.embed.swing.SwingNode;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.effect.ColorAdjust;
+import javafx.scene.effect.GaussianBlur;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import jm.gui.cpn.JGrandStave;
 import jm.music.data.*;
 import jm.util.Write;
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.MidiUnavailableException;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
@@ -146,6 +155,55 @@ public class ModulationRecognitionController extends AbstractController{
     }
 
 
+    @Override
+    void loadScore() {
+        Button[] buttons = {similarKey0Button, similarKey1Button, similarKey2Button, similarKey3Button, similarKey4Button};
+
+        ColorAdjust adj = new ColorAdjust(0, 0, -0.2, 0);
+        GaussianBlur blur = new GaussianBlur(10);
+        adj.setInput(blur);
+        stackPane.setEffect(adj);
+        stackPane.setDisable(true);
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/PopupScore.fxml"));
+        Parent root = null;
+        try {
+            root = (Parent)loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        startButton.setDisable(false);
+        radioButtonsGroup.setDisable(false);
+
+        PopupScoreController controller = loader.<PopupScoreController>getController();
+        controller.setScore(jScore);
+        controller.setScoreBottom(jScoreBottom);
+        controller.setScoreTop(jScoreTop);
+        controller.setEmptyPhr(emptyPhr);
+        controller.setNumberOfCorrectAnswers(numberOfCorrectAnswers);
+        controller.setTime(strMins, strSecs);
+        controller.setStackPane(stackPane);
+
+        controller.setRootKeyLabel(rootKeyLabel);
+        controller.setButtons(buttons);
+
+        if(numberOfCorrectAnswers >= 0 && numberOfCorrectAnswers <= 3){
+            controller.setImageToUse("../Images/ScoreRed.png");
+        } else if(numberOfCorrectAnswers > 3 && numberOfCorrectAnswers <= 6) {
+            controller.setImageToUse("../Images/ScoreAmber.png");
+        } else {
+            controller.setImageToUse("../Images/ScoreGreen.png");
+        }
+
+        Stage newStage = new Stage();
+        newStage.initStyle(StageStyle.UNDECORATED);
+        Scene scene = new Scene(root);
+        newStage.setScene(scene);
+        newStage.show();
+    }
+
+
     @FXML
     private void similarKey0ButtonClicked(ActionEvent event) throws IOException {
         if(!questionAnswered && startClicked) {
@@ -187,6 +245,48 @@ public class ModulationRecognitionController extends AbstractController{
         if(!questionAnswered && startClicked) {
             answerButtonClicked();
             checkAnswer(similarKey4Button.getText(), similarKey4Button);
+        }
+    }
+
+
+    @Override
+    @FXML
+    void startButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException, LineUnavailableException, UnsupportedAudioFileException {
+        Button[] buttons = {similarKey0Button, similarKey1Button, similarKey2Button, similarKey3Button, similarKey4Button};
+
+        if(!startClicked) {
+            startClicked = true;
+            questionNumber = 1;
+            numberOfCorrectAnswers = 0;
+            startTimer();
+            questionLabel.setVisible(true);
+            timerLabel.setVisible(true);
+            radioButtonsGroup.setDisable(true);
+            questionLabel.setText("Question 1");
+            startButton.setText("Stop");
+            startButton.setStyle("-fx-background-color: rgba(0,0,0,0.08), linear-gradient(#af595f, #754e53), linear-gradient(#ffd5de 0%, #facdd0 10%, #f9cdd6 50%, #fc8f9b 51%, #ffddeb 100%)");
+            generateQuestion();
+        } else {
+            if(sequencer != null) {
+                sequencer.stop();
+                sequencer.close();
+            }
+
+            for(Button button : buttons){
+                button.setText("");
+            }
+
+            rootKeyLabel.setText("");
+
+            startButton.setStyle("-fx-background-color: rgba(0,0,0,0.08), linear-gradient(#5a61af, #51536d), linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%)");
+            startClicked = false;
+            numberOfCorrectAnswers = 0;
+            stopTimer();
+            questionLabel.setVisible(false);
+            timerLabel.setVisible(false);
+            radioButtonsGroup.setDisable(false);
+            startButton.setText("Start");
+            correctIncorrectLabel.setText("");
         }
     }
 
@@ -393,12 +493,12 @@ public class ModulationRecognitionController extends AbstractController{
 
 
         //Rearrange voices to minimise movement
-        placeCommonNotesInSameVoice(usedChord1, usedChord2);
-        placeCommonNotesInSameVoice(usedChord2, usedChord3);
-        placeCommonNotesInSameVoice(usedChord3, usedChord4);
-        placeCommonNotesInSameVoice(usedChord4, usedChord5);
-        placeCommonNotesInSameVoice(usedChord5, usedChord6);
-        placeCommonNotesInSameVoice(usedChord6, usedChord7);
+//        placeCommonNotesInSameVoice(usedChord1, usedChord2);
+//        placeCommonNotesInSameVoice(usedChord2, usedChord3);
+//        placeCommonNotesInSameVoice(usedChord3, usedChord4);
+//        placeCommonNotesInSameVoice(usedChord4, usedChord5);
+//        placeCommonNotesInSameVoice(usedChord5, usedChord6);
+//        placeCommonNotesInSameVoice(usedChord6, usedChord7);
 
 
         //Add the selected chords to the CPhrases
@@ -542,14 +642,14 @@ public class ModulationRecognitionController extends AbstractController{
 
 
         //Rearrange voices to minimise movement
-        placeCommonNotesInSameVoice(usedChord1, usedChord2);
-        placeCommonNotesInSameVoice(usedChord2, usedChord3);
-        placeCommonNotesInSameVoice(usedChord3, usedChord4);
-        placeCommonNotesInSameVoice(usedChord4, usedChord5);
+//        placeCommonNotesInSameVoice(usedChord1, usedChord2);
+//        placeCommonNotesInSameVoice(usedChord2, usedChord3);
+//        placeCommonNotesInSameVoice(usedChord3, usedChord4);
+//        placeCommonNotesInSameVoice(usedChord4, usedChord5);
 //        placeCommonNotesInSameVoice(usedChord5, usedChord6);
-        placeCommonNotesInSameVoice(usedChord6, usedChord7);
-        placeCommonNotesInSameVoice(usedChord7, usedChord8);
-        placeCommonNotesInSameVoice(usedChord8, usedChord9);
+//        placeCommonNotesInSameVoice(usedChord6, usedChord7);
+//        placeCommonNotesInSameVoice(usedChord7, usedChord8);
+//        placeCommonNotesInSameVoice(usedChord8, usedChord9);
 
 
         //Add the selected chords to the CPhrases
@@ -626,6 +726,7 @@ public class ModulationRecognitionController extends AbstractController{
     @Override
     @FXML
     protected void generateQuestion() throws IOException, MidiUnavailableException, InvalidMidiDataException {
+        Button[] buttons = {similarKey0Button, similarKey1Button, similarKey2Button, similarKey3Button, similarKey4Button};
         phr1 = new Phrase();
         phr2 = new Phrase();
         bottomNotes = new Phrase();
@@ -696,6 +797,34 @@ public class ModulationRecognitionController extends AbstractController{
         similarKey4Button.setText(similarKey4Text);
 
         correctButton = getCorrectButton(correctAnswer);
+
+        for(Button button : buttons){
+            button.setDisable(false);
+        }
+
+        if(easyRadioButton.isSelected()){
+            int numberToDisable = 2;
+
+            do {
+                int i = rn.nextInt(5);
+                if(!buttons[i].equals(correctButton) && !buttons[i].isDisabled()){
+                    buttons[i].setDisable(true);
+                    numberToDisable--;
+                }
+            } while(numberToDisable != 0);
+
+        } else if(mediumRadioButton.isSelected()){
+            int numberToDisable = 1;
+
+            do {
+                int i = rn.nextInt(5);
+                if(!buttons[i].equals(correctButton) && !buttons[i].isDisabled()){
+                    buttons[i].setDisable(true);
+                    numberToDisable--;
+                }
+            } while(numberToDisable != 0);
+        }
+
 
         playSound();
     }

@@ -164,7 +164,6 @@ public class VoiceTunerController extends AbstractController implements PitchDet
             recordButton.setDisable(false);
             startButton.setText("Stop");
             startButton.setStyle("-fx-background-color: rgba(0,0,0,0.08), linear-gradient(#af595f, #754e53), linear-gradient(#ffd5de 0%, #facdd0 10%, #f9cdd6 50%, #fc8f9b 51%, #ffddeb 100%)");
-
             generateQuestion();
         } else {
             if(sequencer != null) {
@@ -179,6 +178,7 @@ public class VoiceTunerController extends AbstractController implements PitchDet
             timerLabel.setVisible(false);
             radioButtonsGroup.setDisable(false);
             startButton.setText("Start");
+            correctIncorrectLabel.setText("");
         }
     }
 
@@ -284,19 +284,19 @@ public class VoiceTunerController extends AbstractController implements PitchDet
     }
 
 
-    private String getMeanPitch(List pitches){
-        float totalPitch = 0;
-
-        for (int i = 0; i < pitches.size(); i++) {
-            totalPitch += (float) pitches.get(i);
-        }
-
-        float avgPitch = totalPitch / pitches.size();
-
-        String note = getNote(calculateNoteFromPitch(avgPitch));
-
-        return note;
-    }
+//    private String getMeanPitch(List pitches){
+//        float totalPitch = 0;
+//
+//        for (int i = 0; i < pitches.size(); i++) {
+//            totalPitch += (float) pitches.get(i);
+//        }
+//
+//        float avgPitch = totalPitch / pitches.size();
+//
+//        String note = getNote(calculateNoteFromPitch(avgPitch));
+//
+//        return note;
+//    }
 
 
     private String getModePitch(List pitches){
@@ -331,10 +331,10 @@ public class VoiceTunerController extends AbstractController implements PitchDet
         firstTimeStampCounter = 1;
 
         if(easyRadioButton.isSelected()) {
-            String noteMean = getMeanPitch(pitches);
+//            String noteMean = getMeanPitch(pitches);
             String noteMode = getModePitch(pitches);
 
-            if (noteMean.equals(correctAnswer) && noteMode.equals(correctAnswer)) {
+            if (noteMode.equals(correctAnswer)) {
                 makeButtonGreen(recordButton);
                 numberOfCorrectAnswers++;
                 correctIncorrectLabel.setTextFill(Color.web("#3abf4c"));
@@ -361,21 +361,20 @@ public class VoiceTunerController extends AbstractController implements PitchDet
             String note1String = getNote(melodyArray[0]);
             String note2String = getNote(melodyArray[1]);
 
-            String theirNote1Mean = getMeanPitch(note1Pitches);
+//            String theirNote1Mean = getMeanPitch(note1Pitches);
             String theirNote1Mode = getModePitch(note1Pitches);
 
-            String theirNote2Mean = getMeanPitch(note2Pitches);
+//            String theirNote2Mean = getMeanPitch(note2Pitches);
             String theirNote2Mode = getModePitch(note2Pitches);
 
-            boolean note1CorrectMean = theirNote1Mean.equals(note1String);
+//            boolean note1CorrectMean = theirNote1Mean.equals(note1String);
             boolean note1CorrectMode = theirNote1Mode.equals(note1String);
 
-            boolean note2CorrectMean = theirNote2Mean.equals(note2String);
+//            boolean note2CorrectMean = theirNote2Mean.equals(note2String);
             boolean note2CorrectMode = theirNote2Mode.equals(note2String);
 
 
-            if (note1CorrectMean && note1CorrectMode &&
-                note2CorrectMean && note2CorrectMode) {
+            if (note1CorrectMode && note2CorrectMode) {
                 makeButtonGreen(recordButton);
                 numberOfCorrectAnswers++;
                 correctIncorrectLabel.setTextFill(Color.web("#3abf4c"));
@@ -408,28 +407,26 @@ public class VoiceTunerController extends AbstractController implements PitchDet
             String note3String = getNote(melodyArray[2]);
 
 
-            String theirNote1Mean = getMeanPitch(note1Pitches);
+//            String theirNote1Mean = getMeanPitch(note1Pitches);
             String theirNote1Mode = getModePitch(note1Pitches);
 
-            String theirNote2Mean = getMeanPitch(note2Pitches);
+//            String theirNote2Mean = getMeanPitch(note2Pitches);
             String theirNote2Mode = getModePitch(note2Pitches);
 
-            String theirNote3Mean = getMeanPitch(note3Pitches);
+//            String theirNote3Mean = getMeanPitch(note3Pitches);
             String theirNote3Mode = getModePitch(note3Pitches);
 
-            boolean note1CorrectMean = theirNote1Mean.equals(note1String);
+//            boolean note1CorrectMean = theirNote1Mean.equals(note1String);
             boolean note1CorrectMode = theirNote1Mode.equals(note1String);
 
-            boolean note2CorrectMean = theirNote2Mean.equals(note2String);
+//            boolean note2CorrectMean = theirNote2Mean.equals(note2String);
             boolean note2CorrectMode = theirNote2Mode.equals(note2String);
 
-            boolean note3CorrectMean = theirNote3Mean.equals(note3String);
+//            boolean note3CorrectMean = theirNote3Mean.equals(note3String);
             boolean note3CorrectMode = theirNote3Mode.equals(note3String);
 
 
-            if (note1CorrectMean && note1CorrectMode &&
-                note2CorrectMean && note2CorrectMode &&
-                note3CorrectMean && note3CorrectMode) {
+            if (note1CorrectMode && note2CorrectMode && note3CorrectMode) {
                 makeButtonGreen(recordButton);
                 numberOfCorrectAnswers++;
                 correctIncorrectLabel.setTextFill(Color.web("#3abf4c"));
@@ -608,7 +605,6 @@ public class VoiceTunerController extends AbstractController implements PitchDet
         sequencer.setSequence(is);
         sequencer.start();
     }
-
 
 
     private void setNewMixer(Mixer mixer) throws LineUnavailableException,

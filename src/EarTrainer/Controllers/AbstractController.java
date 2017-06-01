@@ -95,15 +95,15 @@ public abstract class AbstractController {
     Note[] middleNotesArray = new Note[4];
     Note[] topNotesArray = new Note[4];
 
-    Note[] usedChord1;
-    Note[] usedChord2;
-    Note[] usedChord3;
-    Note[] usedChord4;
-    Note[] usedChord5;
-    Note[] usedChord6;
-    Note[] usedChord7;
-    Note[] usedChord8;
-    Note[] usedChord9;
+    Note[] usedChord1 = new Note[3];
+    Note[] usedChord2 = new Note[3];
+    Note[] usedChord3 = new Note[3];
+    Note[] usedChord4 = new Note[3];
+    Note[] usedChord5 = new Note[3];
+    Note[] usedChord6 = new Note[3];
+    Note[] usedChord7 = new Note[3];
+    Note[] usedChord8 = new Note[3];
+    Note[] usedChord9 = new Note[3];
 
     Note[][] scaleChords = {scaleChord1, scaleChord2, scaleChord3, scaleChord4, scaleChord5, scaleChord6, scaleChord7};
     Note[][] scaleChords1And6 = {scaleChord1, scaleChord6};
@@ -149,6 +149,8 @@ public abstract class AbstractController {
     boolean startClicked = false;
 
     Sequencer sequencer;
+
+
 
 
 
@@ -451,21 +453,41 @@ public abstract class AbstractController {
     }
 
 
-    void placeCommonNotesInSameVoice(Note[] chord1, Note[] chord2){
-        for(int i = 0; i < chord1.length; i++){
-            int pitch1 = chord1[i].getPitch();
-
-            for(int j = 0; j < chord2.length; j++){
-                int pitch2 = chord2[j].getPitch();
-
-                if(pitch1 + 12 == pitch2 || pitch1 + 24 == pitch2 || pitch1 + 36 == pitch2
-                        ||pitch1 - 12 == pitch2 || pitch1 - 24 == pitch2 || pitch1 - 36 == pitch2) {
-                    chord2[j].setPitch(chord2[i].getPitch());
-                    chord2[i].setPitch(pitch1);
-                }
-            }
-        }
-    }
+//    void placeCommonNotesInSameVoice(Note[] chord1, Note[] chord2){
+//        for(int i = 0; i < chord1.length; i++){
+//            int pitch1 = chord1[i].getPitch();
+//
+//            for(int j = 0; j < chord2.length; j++){
+//                int pitch2 = chord2[j].getPitch();
+//
+//                if(pitch2 == pitch1 || pitch2 + 12 == pitch1 || pitch2 + 24 == pitch1 || pitch2 + 36 == pitch1
+//                        ||pitch2 - 12 == pitch1 || pitch2 - 24 == pitch1 || pitch2 - 36 == pitch1) {
+//                    System.out.println("Here");
+//                    chord2[j].setPitch(chord2[i].getPitch());
+//                    chord2[i].setPitch(pitch1);
+//                }
+//            }
+//        }
+//    }
+//
+//
+//    Note[] putNotesInVoicesInAscendingOrder(Note[] chord1){
+//        int bottomPitch = chord1[0].getPitch();
+//        int middlePitch = chord1[1].getPitch();
+//        int topPitch = chord1[2].getPitch();
+//
+//        int[] pitches = {bottomPitch, middlePitch, topPitch};
+//
+//        Arrays.sort(pitches);
+//
+//        Note note1 = new Note(pitches[0], C);
+//        Note note2 = new Note(pitches[1], C);
+//        Note note3 = new Note(pitches[2], C);
+//
+//        Note[] newChord = {note1, note2, note3};
+//
+//        return newChord;
+//    }
 
 
     @FXML
@@ -532,7 +554,6 @@ public abstract class AbstractController {
             questionLabel.setText("Question 1");
             startButton.setText("Stop");
             startButton.setStyle("-fx-background-color: rgba(0,0,0,0.08), linear-gradient(#af595f, #754e53), linear-gradient(#ffd5de 0%, #facdd0 10%, #f9cdd6 50%, #fc8f9b 51%, #ffddeb 100%)");
-
             generateQuestion();
         } else {
             if(sequencer != null) {
@@ -547,6 +568,7 @@ public abstract class AbstractController {
             timerLabel.setVisible(false);
             radioButtonsGroup.setDisable(false);
             startButton.setText("Start");
+            correctIncorrectLabel.setText("");
         }
     }
 
@@ -568,6 +590,9 @@ public abstract class AbstractController {
 //            setScore(phrase);
             generateQuestion();
         } else {
+            startButton.setStyle("-fx-background-color: rgba(0,0,0,0.08), linear-gradient(#5a61af, #51536d), linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%)");
+            startButton.setText("Start");
+            startClicked = false;
             nextQuestionButton.setText("Next Question");
             questionLabel.setVisible(false);
             nextQuestionButton.setDisable(true);

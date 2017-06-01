@@ -50,6 +50,8 @@ public class Shared {
         }
         return infos;
     }
+
+
     public static String toLocalString(Object info)
     {
         if(!isWindows())
@@ -64,7 +66,11 @@ public class Shared {
             return info.toString();
         }
     }
+
+
     private static String OS = null;
+
+
     public static String getOsName()
     {
         if(OS == null)

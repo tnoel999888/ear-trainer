@@ -11,10 +11,9 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import jm.gui.cpn.JGrandStave;
 import jm.music.data.Phrase;
-
-import javax.sound.midi.Sequencer;
 import java.awt.*;
 import java.io.IOException;
+import javafx.scene.control.Button;
 
 
 
@@ -34,6 +33,8 @@ public class PopupScoreController {
     private JGrandStave score;
     private JGrandStave scoreBottom;
     private JGrandStave scoreTop;
+    private Label rootKeyLabel;
+    @FXML private Button[] buttons;
 
 
     @FXML
@@ -70,6 +71,16 @@ public class PopupScoreController {
         scoreTop.setMaximumSize(d);
         scoreTop.removeTitle();
         scoreTop.setEditable(true);
+
+        if(rootKeyLabel != null) {
+            rootKeyLabel.setText("");
+        }
+
+        if(buttons != null) {
+            for (Button button : buttons) {
+                button.setText("");
+            }
+        }
     }
 
 
@@ -111,5 +122,15 @@ public class PopupScoreController {
 
     public void setScoreTop(JGrandStave scoreTop) {
         this.scoreTop = scoreTop;
+    }
+
+
+    public void setRootKeyLabel(Label rootKeyLabel){
+        this.rootKeyLabel = rootKeyLabel;
+    }
+
+
+    public void setButtons(Button[] buttons){
+        this.buttons = buttons;
     }
 }

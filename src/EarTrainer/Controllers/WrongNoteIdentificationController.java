@@ -38,7 +38,7 @@ public class WrongNoteIdentificationController extends AbstractController{
 
     private String filePath = "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/WrongNote.mid";
 
-    MouseListener ml = new MouseListener() {
+    private MouseListener ml = new MouseListener() {
         @Override
         public void mouseClicked(MouseEvent e) {
 
