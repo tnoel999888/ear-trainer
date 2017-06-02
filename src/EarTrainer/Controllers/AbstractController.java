@@ -49,6 +49,7 @@ public abstract class AbstractController {
 
     Phrase phr1 = new Phrase(0.0);
     Phrase phr2 = new Phrase(0.0);
+    Phrase bottomBottomNotes = new Phrase();
     Phrase bottomNotes = new Phrase();
     Phrase middleNotes = new Phrase();
     Phrase topNotes = new Phrase();
@@ -79,31 +80,31 @@ public abstract class AbstractController {
                                                                     HALF_NOTE));
 
 //    Note[] theirMelodyAnswer;
-    Note[] scaleChord1 = new Note[3];
-    Note[] scaleChord1RemovedFifth = new Note[3];
-    Note[] scaleChord2 = new Note[3];
-    Note[] scaleChord3 = new Note[3];
-    Note[] scaleChord4 = new Note[3];
-    Note[] scaleChord5 = new Note[3];
-    Note[] scaleChord5MelodicMinor = new Note[3];
+    Note[] scaleChord1 = new Note[4];
+    Note[] scaleChord1RemovedFifth = new Note[4];
+    Note[] scaleChord2 = new Note[4];
+    Note[] scaleChord3 = new Note[4];
+    Note[] scaleChord4 = new Note[4];
+    Note[] scaleChord5 = new Note[4];
+    Note[] scaleChord5MelodicMinor = new Note[4];
     Note[] scaleChord5Seventh = new Note[4];
-    Note[] scaleChord5Inverted = new Note[3];
-    Note[] scaleChord6 = new Note[3];
-    Note[] scaleChord7 = new Note[3];
+    Note[] scaleChord5Inverted = new Note[4];
+    Note[] scaleChord6 = new Note[4];
+    Note[] scaleChord7 = new Note[4];
 
     Note[] bottomNotesArray = new Note[4];
     Note[] middleNotesArray = new Note[4];
     Note[] topNotesArray = new Note[4];
 
-    Note[] usedChord1 = new Note[3];
-    Note[] usedChord2 = new Note[3];
-    Note[] usedChord3 = new Note[3];
-    Note[] usedChord4 = new Note[3];
-    Note[] usedChord5 = new Note[3];
-    Note[] usedChord6 = new Note[3];
-    Note[] usedChord7 = new Note[3];
-    Note[] usedChord8 = new Note[3];
-    Note[] usedChord9 = new Note[3];
+    Note[] usedChord1 = new Note[4];
+    Note[] usedChord2 = new Note[4];
+    Note[] usedChord3 = new Note[4];
+    Note[] usedChord4 = new Note[4];
+    Note[] usedChord5 = new Note[4];
+    Note[] usedChord6 = new Note[4];
+    Note[] usedChord7 = new Note[4];
+    Note[] usedChord8 = new Note[4];
+    Note[] usedChord9 = new Note[4];
 
     Note[][] scaleChords = {scaleChord1, scaleChord2, scaleChord3, scaleChord4, scaleChord5, scaleChord6, scaleChord7};
     Note[][] scaleChords1And6 = {scaleChord1, scaleChord6};
@@ -333,30 +334,30 @@ public abstract class AbstractController {
         Note note13 = new Note(scale[12], C);
         Note note14 = new Note(scale[13], C);
 
-        scaleChord1 = new Note[]{note1, note3, note5};
-        scaleChord1RemovedFifth = new Note[]{note1, note3, note8};
+        scaleChord1 = new Note[]{new Note(note1.getPitch() - 12, C), note1, note3, note5};
+        scaleChord1RemovedFifth = new Note[]{new Note(note1.getPitch() - 12, C), note1, note3, note8};
 
         //If minor, diminished, invert
         if (minor) {
-            scaleChord2 = new Note[]{note4, note6, note9};
+            scaleChord2 = new Note[]{new Note(note4.getPitch() - 12, C), note4, note6, note9};
         } else {
-            scaleChord2 = new Note[]{note2, note4, note6};
+            scaleChord2 = new Note[]{new Note(note2.getPitch() - 12, C), note2, note4, note6};
         }
 
-        scaleChord3 = new Note[]{note3, note5, note7};
+        scaleChord3 = new Note[]{new Note(note3.getPitch() - 12, C), note3, note5, note7};
 
-        scaleChord4 = new Note[]{note4, note6, note8};
+        scaleChord4 = new Note[]{new Note(note4.getPitch() - 12, C), note4, note6, note8};
 
         //Minor 5 chord, make major if doing cadence into tonic, 7#, melodic minor scale
-        scaleChord5 = new Note[]{note5, note7, note9};
-        scaleChord5MelodicMinor = new Note[]{note5, new Note(sharpen(scale[6]), C), note9};
-        scaleChord5Seventh = new Note[]{note5, note7, note9, note11};
-        scaleChord5Inverted = new Note[]{note2, note5, note7};
+        scaleChord5 = new Note[]{new Note(note5.getPitch() - 12, C), note5, note7, note9};
+        scaleChord5MelodicMinor = new Note[]{new Note(note5.getPitch() - 12, C), note5, new Note(sharpen(scale[6]), C), note9};
+        scaleChord5Seventh = new Note[]{new Note(note5.getPitch() - 12, C), note5, note7, note9, note11};
+        scaleChord5Inverted = new Note[]{new Note(note2.getPitch() - 12, C), note2, note5, note7};
 
-        scaleChord6 = new Note[]{note6, note8, note10};
+        scaleChord6 = new Note[]{new Note(note6.getPitch() - 12, C), note6, note8, note10};
 
         //For major and minor 1st inversion
-        scaleChord7 = new Note[]{note9, note11, note14};
+        scaleChord7 = new Note[]{new Note(note9.getPitch() - 12, C), note9, note11, note14};
     }
 
 
@@ -453,41 +454,43 @@ public abstract class AbstractController {
     }
 
 
-//    void placeCommonNotesInSameVoice(Note[] chord1, Note[] chord2){
-//        for(int i = 0; i < chord1.length; i++){
-//            int pitch1 = chord1[i].getPitch();
-//
-//            for(int j = 0; j < chord2.length; j++){
-//                int pitch2 = chord2[j].getPitch();
-//
-//                if(pitch2 == pitch1 || pitch2 + 12 == pitch1 || pitch2 + 24 == pitch1 || pitch2 + 36 == pitch1
-//                        ||pitch2 - 12 == pitch1 || pitch2 - 24 == pitch1 || pitch2 - 36 == pitch1) {
-//                    System.out.println("Here");
-//                    chord2[j].setPitch(chord2[i].getPitch());
-//                    chord2[i].setPitch(pitch1);
-//                }
-//            }
-//        }
-//    }
-//
-//
-//    Note[] putNotesInVoicesInAscendingOrder(Note[] chord1){
-//        int bottomPitch = chord1[0].getPitch();
-//        int middlePitch = chord1[1].getPitch();
-//        int topPitch = chord1[2].getPitch();
-//
-//        int[] pitches = {bottomPitch, middlePitch, topPitch};
-//
-//        Arrays.sort(pitches);
-//
-//        Note note1 = new Note(pitches[0], C);
-//        Note note2 = new Note(pitches[1], C);
-//        Note note3 = new Note(pitches[2], C);
-//
-//        Note[] newChord = {note1, note2, note3};
-//
-//        return newChord;
-//    }
+    void placeCommonNotesInSameVoice(Note[] chord1, Note[] chord2){
+        for(int i = 1; i < chord1.length; i++){
+            int pitch1 = chord1[i].getPitch();
+
+            for(int j = 1; j < chord2.length; j++){
+                int pitch2 = chord2[j].getPitch();
+
+                if(pitch2 + 12 == pitch1 || pitch2 + 24 == pitch1 || pitch2 + 36 == pitch1
+                        ||pitch2 - 12 == pitch1 || pitch2 - 24 == pitch1 || pitch2 - 36 == pitch1) {
+                    System.out.println("Here");
+                    chord2[j].setPitch(chord2[i].getPitch());
+                    chord2[i].setPitch(pitch1);
+                }
+            }
+        }
+    }
+
+
+    Note[] putNotesInVoicesInAscendingOrder(Note[] chord1){
+        int bassPitch = chord1[0].getPitch();
+        int bottomPitch = chord1[1].getPitch();
+        int middlePitch = chord1[2].getPitch();
+        int topPitch = chord1[3].getPitch();
+
+        int[] pitches = {bassPitch, bottomPitch, middlePitch, topPitch};
+
+        Arrays.sort(pitches);
+
+        Note note0 = new Note(pitches[0], C);
+        Note note1 = new Note(pitches[1], C);
+        Note note2 = new Note(pitches[2], C);
+        Note note3 = new Note(pitches[3], C);
+
+        Note[] newChord = {note0, note1, note2, note3};
+
+        return newChord;
+    }
 
 
     @FXML
