@@ -159,57 +159,32 @@ public class WrongNoteIdentificationController extends AbstractController{
             System.out.println("");
         }
 
-        if(easyRadioButton.isSelected()) {
-            for (int i = 0; i < theirMelodyAnswer.size(); i++) {
-                if (i != indexOfChangedNote) {
-                    if (((Note)theirMelodyAnswer.get(i)).getPitch() != correctMelody[i].getPitch()) {
-                        makeButtonRed(submitButton);
-                        correctIncorrectText.setTextFill(Color.web("#da4343"));
+
+        for (int i = 0; i < theirMelodyAnswer.size(); i++) {
+            if (i != indexOfChangedNote) {
+                if (((Note)theirMelodyAnswer.get(i)).getPitch() != correctMelody[i].getPitch()) {
+                    makeButtonRed(submitButton);
+                    correctIncorrectText.setTextFill(Color.web("#da4343"));
 //                        correctIncorrectText.setText("Incorrect. You moved the wrong note.");
-                        correctIncorrectText.setText("Incorrect.");
-                        break;
-                    }
-                } else {
-                    if (contains(scaleNotes, ((Note)theirMelodyAnswer.get(i)).getPitch())){
-                        makeButtonGreen(submitButton);
-                        numberOfCorrectAnswers++;
-                        correctIncorrectText.setTextFill(Color.web("#3abf4c"));
-                        correctIncorrectText.setText("Correct!");
-                    } else {
-                        makeButtonRed(submitButton);
-                        correctIncorrectText.setTextFill(Color.web("#da4343"));
-//                        correctIncorrectText.setText("Incorrect. You moved the correct note to an incorrect place.");
-                        correctIncorrectText.setText("Incorrect.");
-                        break;
-                    }
+                    correctIncorrectText.setText("Incorrect.");
+                    break;
                 }
-            }
-        } else if((mediumRadioButton.isSelected()) || (hardRadioButton.isSelected())) {
-            for (int i = 0; i < theirMelodyAnswer.size(); i++) {
-                if (i != indexOfChangedNote) {
-                    if (((Note)theirMelodyAnswer.get(i)).getPitch() != correctMelody[i].getPitch()) {
-                        makeButtonRed(submitButton);
-                        correctIncorrectText.setTextFill(Color.web("#da4343"));
-//                        correctIncorrectText.setText("Incorrect. You moved the wrong note.");
-                        correctIncorrectText.setText("Incorrect.");
-                        break;
-                    }
+            } else {
+                if (((Note)theirMelodyAnswer.get(i)).getPitch() == correctMelody[i].getPitch()) {
+                    makeButtonGreen(submitButton);
+                    numberOfCorrectAnswers++;
+                    correctIncorrectText.setTextFill(Color.web("#3abf4c"));
+                    correctIncorrectText.setText("Correct!");
                 } else {
-                    if (((Note)theirMelodyAnswer.get(i)).getPitch() == correctMelody[i].getPitch()) {
-                        makeButtonGreen(submitButton);
-                        numberOfCorrectAnswers++;
-                        correctIncorrectText.setTextFill(Color.web("#3abf4c"));
-                        correctIncorrectText.setText("Correct!");
-                    } else {
-                        makeButtonRed(submitButton);
-                        correctIncorrectText.setTextFill(Color.web("#da4343"));
+                    makeButtonRed(submitButton);
+                    correctIncorrectText.setTextFill(Color.web("#da4343"));
 //                        correctIncorrectText.setText("Incorrect. You moved the correct note to an incorrect place.");
-                        correctIncorrectText.setText("Incorrect.");
-                        break;
-                    }
+                    correctIncorrectText.setText("Incorrect.");
+                    break;
                 }
             }
         }
+//        }
 
         theirMelodyAnswer.clear();
 
@@ -250,7 +225,6 @@ public class WrongNoteIdentificationController extends AbstractController{
 
 
     private int makeMIDIEasyWrongNote(){
-
         //Make major or minor scale
         chooseRandomRootAndMakeMinorOrMajorScale();
 
@@ -272,64 +246,32 @@ public class WrongNoteIdentificationController extends AbstractController{
 
         //Add melody array to phrase
         phr2.addNoteList(melodyArray);
-        originalPhr2.addNoteList(melodyArray2);
-
-
-        System.out.println("melodyArray and melodyArray2 should be same:");
-
-        for(int j = 0; j < melodyArray.length; j++){
-            System.out.println("melodyArray2, Note " + j + ": " + melodyArray2[j].getPitch());
-            System.out.println("melodyArray,  Note " + j + ": " + melodyArray[j].getPitch());
-            System.out.println("");
-        }
-
-        //Find notes which do not belong to this scale
-        LinkedList nonScaleNotes = new LinkedList();
-
-        for(int n : notes) {
-            if (!(Arrays.asList(scaleNotes).contains(n))) {
-                nonScaleNotes.add(n);
-            }
-        }
+        originalPhr2.addNoteList(melodyArray);
 
 
         //Find random note in melody to change
         int i2 = rn.nextInt(melodyArray.length);
-        int i3 = rn.nextInt(nonScaleNotes.size());
+        int i3 = rn.nextInt(2);
 
         double duration = melodyArray[i2].getDuration();
-        int pitch = (int)nonScaleNotes.get(i3);
-        int originalPitch = melodyArray[i2].getPitch();
+        int pitch = melodyArray[i2].getPitch();
 
+        int[] upOrDown = {-3,3};
+        int newPitch = pitch + upOrDown[i3];
 
-        //Ensure new note is maximum of 3 semitones from original so it's not too obvious
-        while(Math.abs(originalPitch - pitch) > 3){
-            i3 = rn.nextInt(nonScaleNotes.size());
-            pitch = (int)nonScaleNotes.get(i3);
-        }
+        System.out.println("Wrong note: " + i2);
+        System.out.println("Down or up: " + i3);
 
-        melodyArray[i2] = new Note(pitch, duration);
-
-        System.out.println("Incorrect note index: " + i2);
-
-
-        //Add melody array to phrase
+        melodyArray[i2] = new Note(newPitch, duration);
         phr1.addNoteList(melodyArray);
-//        theirMelodyAnswer = Arrays.asList(melodyArray);
+
         setScoreEditable(phr1);
 
-        p.add(phr1);
+
+        p.add(phr2);
         s.addPart(p);
 
         Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/WrongNote.mid");
-
-        System.out.println("melodyArray should be different:");
-
-        for(int j = 0; j < melodyArray.length; j++){
-            System.out.println("melodyArray2, Note " + j + ": " + melodyArray2[j].getPitch());
-            System.out.println("melodyArray,  Note " + j + ": " + melodyArray[j].getPitch());
-            System.out.println("");
-        }
 
         return i2;
     }
@@ -368,7 +310,7 @@ public class WrongNoteIdentificationController extends AbstractController{
         double duration = melodyArray[i2].getDuration();
         int pitch = melodyArray[i2].getPitch();
 
-        int[] upOrDown = {-3,3};
+        int[] upOrDown = {-2,2};
         int newPitch = pitch + upOrDown[i3];
 
         System.out.println("Wrong note: " + i2);
