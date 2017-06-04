@@ -437,7 +437,7 @@ public abstract class AbstractController {
     }
 
 
-    void chooseRandomRootAndMakeMinorOrMajorScale(){
+    void chooseRandomRootAndMakeScale(){
         int i = rn.nextInt(12);
         int rootNote = notes[i];
         int minorOrMajor = rn.nextInt(2);
@@ -454,21 +454,94 @@ public abstract class AbstractController {
     }
 
 
-    void placeCommonNotesInSameVoice(Note[] chord1, Note[] chord2){
+    boolean placeCommonNotesInSameVoice(Note[] chord1, Note[] chord2){
+        boolean changed = false;
+
+        System.out.println("Before in function");
+
+        for(Note n : usedChord1){
+            System.out.println(n.getPitch());
+        }
+
+        System.out.println("");
+
+
+        for(Note n : usedChord2){
+            System.out.println(n.getPitch());
+        }
+
+        System.out.println("");
+
+
+        for(Note n : usedChord3){
+            System.out.println(n.getPitch());
+        }
+
+        System.out.println("");
+
+
+        for(Note n : usedChord4){
+            System.out.println(n.getPitch());
+        }
+
+        System.out.println("");
+
+
+
+        int pitch1;
+        int pitch2;
+
         for(int i = 1; i < chord1.length; i++){
-            int pitch1 = chord1[i].getPitch();
+            pitch1 = chord1[i].getPitch();
 
             for(int j = 1; j < chord2.length; j++){
-                int pitch2 = chord2[j].getPitch();
+                pitch2 = chord2[j].getPitch();
 
                 if(pitch2 + 12 == pitch1 || pitch2 + 24 == pitch1 || pitch2 + 36 == pitch1
                         ||pitch2 - 12 == pitch1 || pitch2 - 24 == pitch1 || pitch2 - 36 == pitch1) {
                     System.out.println("Here");
                     chord2[j].setPitch(chord2[i].getPitch());
                     chord2[i].setPitch(pitch1);
+
+                    changed = true;
                 }
             }
         }
+
+
+
+
+
+        System.out.println("After in function");
+
+        for(Note n : usedChord1){
+            System.out.println(n.getPitch());
+        }
+
+        System.out.println("");
+
+
+        for(Note n : usedChord2){
+            System.out.println(n.getPitch());
+        }
+
+        System.out.println("");
+
+
+        for(Note n : usedChord3){
+            System.out.println(n.getPitch());
+        }
+
+        System.out.println("");
+
+
+        for(Note n : usedChord4){
+            System.out.println(n.getPitch());
+        }
+
+        System.out.println("");
+
+        return changed;
     }
 
 
@@ -490,6 +563,31 @@ public abstract class AbstractController {
         Note[] newChord = {note0, note1, note2, note3};
 
         return newChord;
+    }
+
+
+    Phrase removeOctaveJumps(Phrase notePhrase) {
+        Note[] notes = notePhrase.getNoteArray();
+
+        for(int i = 0; i < notes.length - 1; i++){
+            if(notes[i+1].getPitch() >= notes[i].getPitch() + 12){
+                System.out.println("Removing octave jump up");
+                notes[i+1].setPitch(notes[i+1].getPitch() - 12);
+            }
+
+            if(notes[i+1].getPitch() <= notes[i].getPitch() - 12){
+                System.out.println("Removing octave jump down");
+                notes[i+1].setPitch(notes[i+1].getPitch() + 12);
+            }
+        }
+
+        return new Phrase(notes);
+    }
+
+
+    void removeFifth(Note[] chord2){
+        System.out.println("removing fifth");
+        chord2[3] = chord2[2];
     }
 
 
@@ -541,12 +639,17 @@ public abstract class AbstractController {
     private void backButtonClicked(ActionEvent event) throws IOException {
         Stage stage = (Stage) stackPane.getScene().getWindow();
         stage.hide();
+
+        if(sequencer != null) {
+            sequencer.stop();
+            sequencer.close();
+        }
     }
 
 
     @FXML
     void startButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException, LineUnavailableException, UnsupportedAudioFileException {
-        if(!startClicked) {
+        if(!startClicked) { //Start
             startClicked = true;
             questionNumber = 1;
             numberOfCorrectAnswers = 0;
@@ -558,7 +661,7 @@ public abstract class AbstractController {
             startButton.setText("Stop");
             startButton.setStyle("-fx-background-color: rgba(0,0,0,0.08), linear-gradient(#af595f, #754e53), linear-gradient(#ffd5de 0%, #facdd0 10%, #f9cdd6 50%, #fc8f9b 51%, #ffddeb 100%)");
             generateQuestion();
-        } else {
+        } else { //Stop
             if(sequencer != null) {
                 sequencer.stop();
                 sequencer.close();
@@ -572,6 +675,12 @@ public abstract class AbstractController {
             radioButtonsGroup.setDisable(false);
             startButton.setText("Start");
             correctIncorrectLabel.setText("");
+            resetButtonColours();
+            nextQuestionButton.setDisable(true);
+            jScore.setPhrase(emptyPhr);
+            jScoreBottom.setPhrase(emptyPhr);
+            jScoreTop.setPhrase(emptyPhr);
+            questionAnswered = false;
         }
     }
 

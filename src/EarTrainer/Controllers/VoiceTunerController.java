@@ -472,7 +472,7 @@ public class VoiceTunerController extends AbstractController implements PitchDet
     private Note[] makeMIDIMediumVoiceTuner(){
 
         //Make minor or major scale
-        chooseRandomRootAndMakeMinorOrMajorScale();
+        chooseRandomRootAndMakeScale();
 
 
         //Set scale notesStrings
@@ -515,7 +515,7 @@ public class VoiceTunerController extends AbstractController implements PitchDet
     private Note[] makeMIDIHardVoiceTuner(){
 
         //Make minor or major scale
-        chooseRandomRootAndMakeMinorOrMajorScale();
+        chooseRandomRootAndMakeScale();
 
 
         //Set scale notesStrings

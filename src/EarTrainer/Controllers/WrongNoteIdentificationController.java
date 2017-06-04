@@ -138,15 +138,15 @@ public class WrongNoteIdentificationController extends AbstractController{
     }
 
 
-    private boolean contains(int[] scale, int note){
-        for(int n : scale){
-            if(n == note){
-                return true;
-            }
-        }
-
-        return false;
-    }
+//    private boolean contains(int[] scale, int note){
+//        for(int n : scale){
+//            if(n == note){
+//                return true;
+//            }
+//        }
+//
+//        return false;
+//    }
 
 
     private void checkAnswer(List theirMelodyAnswer, Note[] correctMelody) {
@@ -226,7 +226,7 @@ public class WrongNoteIdentificationController extends AbstractController{
 
     private int makeMIDIEasyWrongNote(){
         //Make major or minor scale
-        chooseRandomRootAndMakeMinorOrMajorScale();
+        chooseRandomRootAndMakeScale();
 
 
         //Make melody
@@ -280,7 +280,7 @@ public class WrongNoteIdentificationController extends AbstractController{
     private int makeMIDIMediumWrongNote(){
 
         //Make major or minor scale
-        chooseRandomRootAndMakeMinorOrMajorScale();
+        chooseRandomRootAndMakeScale();
 
 
         //Make melody
@@ -334,7 +334,7 @@ public class WrongNoteIdentificationController extends AbstractController{
     private int makeMIDIHardWrongNote(){
 
         //Make major or minor scale
-        chooseRandomRootAndMakeMinorOrMajorScale();
+        chooseRandomRootAndMakeScale();
 
 
         //Make melody

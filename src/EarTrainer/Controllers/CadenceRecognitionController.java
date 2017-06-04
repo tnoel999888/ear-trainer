@@ -13,8 +13,6 @@ import javax.sound.midi.MidiSystem;
 import javax.sound.midi.MidiUnavailableException;
 import java.awt.*;
 import java.io.*;
-import java.util.Arrays;
-import static jm.constants.Durations.C;
 
 
 public class CadenceRecognitionController extends AbstractController{
@@ -30,6 +28,12 @@ public class CadenceRecognitionController extends AbstractController{
     private boolean chord2Changed;
     private boolean chord3Changed;
     private boolean chord4Changed;
+
+    private Note[] usedChord1Copy = new Note[4];
+    private Note[] usedChord2Copy = new Note[4];
+    private Note[] usedChord3Copy = new Note[4];
+    private Note[] usedChord4Copy = new Note[4];
+
 
 
 
@@ -240,90 +244,58 @@ public class CadenceRecognitionController extends AbstractController{
 
 
 
-        System.out.println("Before");
-
-
-        for(Note n : usedChord1){
-            System.out.println(n.getPitch());
+        for(int i = 0; i < usedChord1.length; i++){
+            usedChord1Copy[i] = new Note(usedChord1[i].getPitch(), usedChord1[i].getRhythmValue());
+            usedChord2Copy[i] = new Note(usedChord2[i].getPitch(), usedChord2[i].getRhythmValue());
+            usedChord3Copy[i] = new Note(usedChord3[i].getPitch(), usedChord3[i].getRhythmValue());
+            usedChord4Copy[i] = new Note(usedChord4[i].getPitch(), usedChord4[i].getRhythmValue());
         }
-
-        System.out.println("");
-
-
-        for(Note n : usedChord2){
-            System.out.println(n.getPitch());
-        }
-
-        System.out.println("");
-
-
-        for(Note n : usedChord3){
-            System.out.println(n.getPitch());
-        }
-
-        System.out.println("");
-
-
-        for(Note n : usedChord4){
-            System.out.println(n.getPitch());
-        }
-
-        System.out.println("");
-
-
 
 
         //Rearrange voices to minimise movement
-        System.out.println("2:");
-        placeCommonNotesInSameVoice(usedChord1, usedChord2);
+        chord2Changed = placeCommonNotesInSameVoice(usedChord1, usedChord2);
+        chord3Changed = placeCommonNotesInSameVoice(usedChord2, usedChord3);
+        chord4Changed = placeCommonNotesInSameVoice(usedChord3, usedChord4);
 
-        System.out.println("3:");
-        placeCommonNotesInSameVoice(usedChord2, usedChord3);
 
-        System.out.println("4:");
-        placeCommonNotesInSameVoice(usedChord3, usedChord4);
-        System.out.println("");
+
+        usedChord1 = usedChord1Copy;
+
+
+        if(!chord2Changed){
+            usedChord2 = usedChord2Copy;
+
+            int removeFifth = rn.nextInt(2);
+            if(removeFifth == 0){
+                removeFifth(usedChord2);
+            }
+        }
+
+
+        if(!chord3Changed){
+            usedChord3 = usedChord3Copy;
+
+            int removeFifth = rn.nextInt(2);
+            if(removeFifth == 0){
+                removeFifth(usedChord3);
+            }
+        }
+
+
+        if(!chord4Changed){
+            usedChord4 = usedChord4Copy;
+
+            int removeFifth = rn.nextInt(2);
+            if(removeFifth == 0){
+                removeFifth(usedChord4);
+            }
+        }
 
 
         usedChord1 = putNotesInVoicesInAscendingOrder(usedChord1);
         usedChord2 = putNotesInVoicesInAscendingOrder(usedChord2);
         usedChord3 = putNotesInVoicesInAscendingOrder(usedChord3);
         usedChord4 = putNotesInVoicesInAscendingOrder(usedChord4);
-
-
-
-
-        System.out.println("Edited");
-
-        for(Note n : usedChord1){
-            System.out.println(n.getPitch());
-        }
-
-        System.out.println("");
-
-
-        for(Note n : usedChord2){
-            System.out.println(n.getPitch());
-        }
-
-        System.out.println("");
-
-
-        for(Note n : usedChord3){
-            System.out.println(n.getPitch());
-        }
-
-        System.out.println("");
-
-
-        for(Note n : usedChord4){
-            System.out.println(n.getPitch());
-        }
-
-        System.out.println("");
-
-
-
 
 
         bottomNotesArray[0] = usedChord1[1];
@@ -347,6 +319,12 @@ public class CadenceRecognitionController extends AbstractController{
         bottomNotes.addNoteList(bottomNotesArray);
         middleNotes.addNoteList(middleNotesArray);
         topNotes.addNoteList(topNotesArray);
+
+
+        bottomBottomNotes = removeOctaveJumps(bottomBottomNotes);
+        bottomNotes = removeOctaveJumps(bottomNotes);
+        middleNotes = removeOctaveJumps(middleNotes);
+        topNotes = removeOctaveJumps(topNotes);
 
 
         //Set the scores
@@ -383,7 +361,6 @@ public class CadenceRecognitionController extends AbstractController{
         //1st Chord. Add I chord
         usedChord1 = scaleChord1.clone();
 
-
         //2nd Chord. Add II or IV chord
         int IIOrIVChord = rn.nextInt(2);
         if (IIOrIVChord == 0) {
@@ -392,102 +369,62 @@ public class CadenceRecognitionController extends AbstractController{
             usedChord2 = scaleChord4.clone();
         }
 
-
         //3rd Chord. Add V chord
         usedChord3 = scaleChord5.clone();
-
 
         //4th Chord. Add VI chord
         usedChord4 = scaleChord6.clone();
 
 
 
-
-
-        System.out.println("Before");
-
-
-        for(Note n : usedChord1){
-            System.out.println(n.getPitch());
+        for(int i = 0; i < usedChord1.length; i++){
+            usedChord1Copy[i] = new Note(usedChord1[i].getPitch(), usedChord1[i].getRhythmValue());
+            usedChord2Copy[i] = new Note(usedChord2[i].getPitch(), usedChord2[i].getRhythmValue());
+            usedChord3Copy[i] = new Note(usedChord3[i].getPitch(), usedChord3[i].getRhythmValue());
+            usedChord4Copy[i] = new Note(usedChord4[i].getPitch(), usedChord4[i].getRhythmValue());
         }
-
-        System.out.println("");
-
-
-        for(Note n : usedChord2){
-            System.out.println(n.getPitch());
-        }
-
-        System.out.println("");
-
-
-        for(Note n : usedChord3){
-            System.out.println(n.getPitch());
-        }
-
-        System.out.println("");
-
-
-        for(Note n : usedChord4){
-            System.out.println(n.getPitch());
-        }
-
-        System.out.println("");
-
-
-
 
 
         //Rearrange voices to minimise movement
-        System.out.println("2:");
-        placeCommonNotesInSameVoice(usedChord1, usedChord2);
+        chord2Changed = placeCommonNotesInSameVoice(usedChord1, usedChord2);
+        chord3Changed = placeCommonNotesInSameVoice(usedChord2, usedChord3);
+        chord4Changed = placeCommonNotesInSameVoice(usedChord3, usedChord4);
 
-        System.out.println("3:");
-        placeCommonNotesInSameVoice(usedChord2, usedChord3);
 
-        System.out.println("4:");
-        placeCommonNotesInSameVoice(usedChord3, usedChord4);
-        System.out.println("");
+        usedChord1 = usedChord1Copy;
 
+        if(!chord2Changed){
+            usedChord2 = usedChord2Copy;
+
+            int removeFifth = rn.nextInt(2);
+            if(removeFifth == 0){
+                removeFifth(usedChord2);
+            }
+        }
+
+        if(!chord3Changed){
+            usedChord3 = usedChord3Copy;
+
+            int removeFifth = rn.nextInt(2);
+            if(removeFifth == 0){
+                removeFifth(usedChord3);
+            }
+        }
+
+        if(!chord4Changed){
+            usedChord4 = usedChord4Copy;
+
+            int removeFifth = rn.nextInt(2);
+            if(removeFifth == 0){
+                removeFifth(usedChord4);
+            }
+        }
 
 
         usedChord1 = putNotesInVoicesInAscendingOrder(usedChord1);
         usedChord2 = putNotesInVoicesInAscendingOrder(usedChord2);
         usedChord3 = putNotesInVoicesInAscendingOrder(usedChord3);
         usedChord4 = putNotesInVoicesInAscendingOrder(usedChord4);
-
-
-
-
-        System.out.println("Edited");
-
-        for(Note n : usedChord1){
-            System.out.println(n.getPitch());
-        }
-
-        System.out.println("");
-
-
-        for(Note n : usedChord2){
-            System.out.println(n.getPitch());
-        }
-
-        System.out.println("");
-
-
-        for(Note n : usedChord3){
-            System.out.println(n.getPitch());
-        }
-
-        System.out.println("");
-
-
-        for(Note n : usedChord4){
-            System.out.println(n.getPitch());
-        }
-
-        System.out.println("");
-
 
 
 
@@ -556,7 +493,6 @@ public class CadenceRecognitionController extends AbstractController{
         //1st Chord. Add I chord
         usedChord1 = scaleChord1;
 
-
         //2nd Chord. Add II or IV chord
         int IIOrIVChord = rn.nextInt(2);
         if (IIOrIVChord == 0) {
@@ -565,13 +501,61 @@ public class CadenceRecognitionController extends AbstractController{
             usedChord2 = scaleChord4;
         }
 
-
         //3rd Chord. Add random chord (not V)
         usedChord3 = scaleChords[i3];
 
-
         //4th Chord. Add V chord
         usedChord4 = scaleChord5;
+
+
+        for(int i = 0; i < usedChord1.length; i++){
+            usedChord1Copy[i] = new Note(usedChord1[i].getPitch(), usedChord1[i].getRhythmValue());
+            usedChord2Copy[i] = new Note(usedChord2[i].getPitch(), usedChord2[i].getRhythmValue());
+            usedChord3Copy[i] = new Note(usedChord3[i].getPitch(), usedChord3[i].getRhythmValue());
+            usedChord4Copy[i] = new Note(usedChord4[i].getPitch(), usedChord4[i].getRhythmValue());
+        }
+
+
+        //Rearrange voices to minimise movement
+        placeCommonNotesInSameVoice(usedChord1, usedChord2);
+        placeCommonNotesInSameVoice(usedChord2, usedChord3);
+        placeCommonNotesInSameVoice(usedChord3, usedChord4);
+
+
+        usedChord1 = usedChord1Copy;
+
+        if(!chord2Changed){
+            usedChord2 = usedChord2Copy;
+
+            int removeFifth = rn.nextInt(2);
+            if(removeFifth == 0){
+                removeFifth(usedChord2);
+            }
+        }
+
+        if(!chord3Changed){
+            usedChord3 = usedChord3Copy;
+
+            int removeFifth = rn.nextInt(2);
+            if(removeFifth == 0){
+                removeFifth(usedChord3);
+            }
+        }
+
+        if(!chord4Changed){
+            usedChord4 = usedChord4Copy;
+
+            int removeFifth = rn.nextInt(2);
+            if(removeFifth == 0){
+                removeFifth(usedChord4);
+            }
+        }
+
+
+        usedChord1 = putNotesInVoicesInAscendingOrder(usedChord1);
+        usedChord2 = putNotesInVoicesInAscendingOrder(usedChord2);
+        usedChord3 = putNotesInVoicesInAscendingOrder(usedChord3);
+        usedChord4 = putNotesInVoicesInAscendingOrder(usedChord4);
 
 
         bottomNotesArray[0] = usedChord1[1];
@@ -601,12 +585,6 @@ public class CadenceRecognitionController extends AbstractController{
         setScoreSpecific(bottomNotes, "left");
         setScoreSpecific(middleNotes, "middle");
         setScoreSpecific(topNotes, "right");
-
-
-        //Rearrange voices to minimise movement
-        placeCommonNotesInSameVoice(usedChord1, usedChord2);
-        placeCommonNotesInSameVoice(usedChord2, usedChord3);
-        placeCommonNotesInSameVoice(usedChord3, usedChord4);
 
 
         //Add the selected chords to the CPhrases
@@ -645,18 +623,64 @@ public class CadenceRecognitionController extends AbstractController{
         //1st Chord. Add I chord
         usedChord1 = scaleChord1;
 
-
         //2nd Chord. Add random chord, (6, 1 1st Inversion)
         usedChord2 = scaleChords[i2];
-
 
         //3rd Chord. Add IV chord
         usedChord3 = scaleChord4;
 
-
         //4th Chord. Add I chord
         usedChord4 = scaleChord1;
 
+
+        for(int i = 0; i < usedChord1.length; i++){
+            usedChord1Copy[i] = new Note(usedChord1[i].getPitch(), usedChord1[i].getRhythmValue());
+            usedChord2Copy[i] = new Note(usedChord2[i].getPitch(), usedChord2[i].getRhythmValue());
+            usedChord3Copy[i] = new Note(usedChord3[i].getPitch(), usedChord3[i].getRhythmValue());
+            usedChord4Copy[i] = new Note(usedChord4[i].getPitch(), usedChord4[i].getRhythmValue());
+        }
+
+
+        //Rearrange voices to minimise movement
+        placeCommonNotesInSameVoice(usedChord1, usedChord2);
+        placeCommonNotesInSameVoice(usedChord2, usedChord3);
+        placeCommonNotesInSameVoice(usedChord3, usedChord4);
+
+
+        usedChord1 = usedChord1Copy;
+
+        if(!chord2Changed){
+            usedChord2 = usedChord2Copy;
+
+            int removeFifth = rn.nextInt(2);
+            if(removeFifth == 0){
+                removeFifth(usedChord2);
+            }
+        }
+
+        if(!chord3Changed){
+            usedChord3 = usedChord3Copy;
+
+            int removeFifth = rn.nextInt(2);
+            if(removeFifth == 0){
+                removeFifth(usedChord3);
+            }
+        }
+
+        if(!chord4Changed){
+            usedChord4 = usedChord4Copy;
+
+            int removeFifth = rn.nextInt(2);
+            if(removeFifth == 0){
+                removeFifth(usedChord4);
+            }
+        }
+
+
+        usedChord1 = putNotesInVoicesInAscendingOrder(usedChord1);
+        usedChord2 = putNotesInVoicesInAscendingOrder(usedChord2);
+        usedChord3 = putNotesInVoicesInAscendingOrder(usedChord3);
+        usedChord4 = putNotesInVoicesInAscendingOrder(usedChord4);
 
 
         bottomNotesArray[0] = usedChord1[1];
@@ -689,12 +713,6 @@ public class CadenceRecognitionController extends AbstractController{
         setScoreSpecific(topNotes, "right");
 
 
-        //Rearrange voices to minimise movement
-        placeCommonNotesInSameVoice(usedChord1, usedChord2);
-        placeCommonNotesInSameVoice(usedChord2, usedChord3);
-        placeCommonNotesInSameVoice(usedChord3, usedChord4);
-
-
         //Add the selected chords to the CPhrases
         cphr1.addChord(usedChord1);
         cphr2.addChord(usedChord2);
@@ -720,7 +738,7 @@ public class CadenceRecognitionController extends AbstractController{
 
     private String makeMIDIEasyCadence() {
 
-        chooseRandomRootAndMakeMinorOrMajorScale();
+        chooseRandomRootAndMakeScale();
 
         //Randomly make Perfect or Interruptive cadence
         int i2 = rn.nextInt(2);
@@ -744,7 +762,7 @@ public class CadenceRecognitionController extends AbstractController{
 
     private String makeMIDIMediumCadence() {
 
-        chooseRandomRootAndMakeMinorOrMajorScale();
+        chooseRandomRootAndMakeScale();
 
         //Randomly make Perfect, Interruptive or Imperfect cadence
         int i2 = rn.nextInt(3);
@@ -773,7 +791,7 @@ public class CadenceRecognitionController extends AbstractController{
 
     private String makeMIDIHardCadence() {
 
-        chooseRandomRootAndMakeMinorOrMajorScale();
+        chooseRandomRootAndMakeScale();
 
         //Randomly make Perfect, Interruptive, Imperfect or Plagal cadence
         int i2 = rn.nextInt(4);

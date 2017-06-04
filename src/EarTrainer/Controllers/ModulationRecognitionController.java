@@ -379,23 +379,6 @@ public class ModulationRecognitionController extends AbstractController{
     }
 
 
-    private Phrase removeOctaveJumps(Phrase notePhrase) {
-        Note[] notes = notePhrase.getNoteArray();
-
-        for(int i = 0; i < notes.length - 1; i++){
-            if(notes[i+1].getPitch() >= notes[i].getPitch() + 12){
-                notes[i+1].setPitch(notes[i+1].getPitch() - 12);
-            }
-
-            if(notes[i+1].getPitch() <= notes[i].getPitch() - 12){
-                notes[i+1].setPitch(notes[i+1].getPitch() + 12);
-            }
-        }
-
-        return new Phrase(notes);
-    }
-
-
     private String modulateFromMajor(int i, int root) {
         Note[][] rootKeyChords = scaleChords;
 
