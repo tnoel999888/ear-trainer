@@ -42,7 +42,7 @@ public class CadenceRecognitionController extends AbstractController{
     @FXML
     public void initialize() {
         Dimension d = new Dimension();
-        d.setSize(475,170);
+        d.setSize(475,300);
 
         jScore.setPreferredSize(d);
         jScore.setMaximumSize(d);
@@ -253,8 +253,13 @@ public class CadenceRecognitionController extends AbstractController{
 
 
         //Rearrange voices to minimise movement
+        System.out.println("2:");
         chord2Changed = placeCommonNotesInSameVoice(usedChord1, usedChord2);
+
+        System.out.println("3:");
         chord3Changed = placeCommonNotesInSameVoice(usedChord2, usedChord3);
+
+        System.out.println("4:");
         chord4Changed = placeCommonNotesInSameVoice(usedChord3, usedChord4);
 
 
@@ -298,29 +303,36 @@ public class CadenceRecognitionController extends AbstractController{
         usedChord4 = putNotesInVoicesInAscendingOrder(usedChord4);
 
 
+        //Populate voice arrays with respective parts of chords
+        bottomBottomNotesArray[0] = usedChord1[0];
         bottomNotesArray[0] = usedChord1[1];
         middleNotesArray[0] = usedChord1[2];
         topNotesArray[0] = usedChord1[3];
 
+        bottomBottomNotesArray[1] = usedChord2[0];
         bottomNotesArray[1] = usedChord2[1];
         middleNotesArray[1] = usedChord2[2];
         topNotesArray[1] = usedChord2[3];
 
+        bottomBottomNotesArray[2] = usedChord3[0];
         bottomNotesArray[2] = usedChord3[1];
         middleNotesArray[2] = usedChord3[2];
         topNotesArray[2] = usedChord3[3];
 
+        bottomBottomNotesArray[3] = usedChord4[0];
         bottomNotesArray[3] = usedChord4[1];
         middleNotesArray[3] = usedChord4[2];
         topNotesArray[3] = usedChord4[3];
 
 
         //Add note arrays to the phrases
+        bottomBottomNotes.addNoteList(bottomBottomNotesArray);
         bottomNotes.addNoteList(bottomNotesArray);
         middleNotes.addNoteList(middleNotesArray);
         topNotes.addNoteList(topNotesArray);
 
 
+        //Remove jumps of an octave or more in each voice
         bottomBottomNotes = removeOctaveJumps(bottomBottomNotes);
         bottomNotes = removeOctaveJumps(bottomNotes);
         middleNotes = removeOctaveJumps(middleNotes);
@@ -386,8 +398,13 @@ public class CadenceRecognitionController extends AbstractController{
 
 
         //Rearrange voices to minimise movement
+        System.out.println("2:");
         chord2Changed = placeCommonNotesInSameVoice(usedChord1, usedChord2);
+
+        System.out.println("3:");
         chord3Changed = placeCommonNotesInSameVoice(usedChord2, usedChord3);
+
+        System.out.println("4:");
         chord4Changed = placeCommonNotesInSameVoice(usedChord3, usedChord4);
 
 
@@ -427,28 +444,40 @@ public class CadenceRecognitionController extends AbstractController{
         usedChord4 = putNotesInVoicesInAscendingOrder(usedChord4);
 
 
-
+        //Populate voice arrays with respective parts of chords
+        bottomBottomNotesArray[0] = usedChord1[0];
         bottomNotesArray[0] = usedChord1[1];
         middleNotesArray[0] = usedChord1[2];
         topNotesArray[0] = usedChord1[3];
 
+        bottomBottomNotesArray[1] = usedChord2[0];
         bottomNotesArray[1] = usedChord2[1];
         middleNotesArray[1] = usedChord2[2];
         topNotesArray[1] = usedChord2[3];
 
+        bottomBottomNotesArray[2] = usedChord3[0];
         bottomNotesArray[2] = usedChord3[1];
         middleNotesArray[2] = usedChord3[2];
         topNotesArray[2] = usedChord3[3];
 
+        bottomBottomNotesArray[3] = usedChord4[0];
         bottomNotesArray[3] = usedChord4[1];
         middleNotesArray[3] = usedChord4[2];
         topNotesArray[3] = usedChord4[3];
 
 
         //Add note arrays to the phrases
+        bottomBottomNotes.addNoteList(bottomBottomNotesArray);
         bottomNotes.addNoteList(bottomNotesArray);
         middleNotes.addNoteList(middleNotesArray);
         topNotes.addNoteList(topNotesArray);
+
+
+        //Remove jumps of an octave or more in each voice
+        bottomBottomNotes = removeOctaveJumps(bottomBottomNotes);
+        bottomNotes = removeOctaveJumps(bottomNotes);
+        middleNotes = removeOctaveJumps(middleNotes);
+        topNotes = removeOctaveJumps(topNotes);
 
 
         //Set the scores
@@ -517,8 +546,13 @@ public class CadenceRecognitionController extends AbstractController{
 
 
         //Rearrange voices to minimise movement
+        System.out.println("1");
         placeCommonNotesInSameVoice(usedChord1, usedChord2);
+
+        System.out.println("2");
         placeCommonNotesInSameVoice(usedChord2, usedChord3);
+
+        System.out.println("3");
         placeCommonNotesInSameVoice(usedChord3, usedChord4);
 
 
@@ -558,27 +592,40 @@ public class CadenceRecognitionController extends AbstractController{
         usedChord4 = putNotesInVoicesInAscendingOrder(usedChord4);
 
 
+        //Populate voice arrays with respective parts of chords
+        bottomBottomNotesArray[0] = usedChord1[0];
         bottomNotesArray[0] = usedChord1[1];
         middleNotesArray[0] = usedChord1[2];
         topNotesArray[0] = usedChord1[3];
 
+        bottomBottomNotesArray[1] = usedChord2[0];
         bottomNotesArray[1] = usedChord2[1];
         middleNotesArray[1] = usedChord2[2];
         topNotesArray[1] = usedChord2[3];
 
+        bottomBottomNotesArray[2] = usedChord3[0];
         bottomNotesArray[2] = usedChord3[1];
         middleNotesArray[2] = usedChord3[2];
         topNotesArray[2] = usedChord3[3];
 
+        bottomBottomNotesArray[3] = usedChord4[0];
         bottomNotesArray[3] = usedChord4[1];
         middleNotesArray[3] = usedChord4[2];
         topNotesArray[3] = usedChord4[3];
 
 
         //Add note arrays to the phrases
+        bottomBottomNotes.addNoteList(bottomBottomNotesArray);
         bottomNotes.addNoteList(bottomNotesArray);
         middleNotes.addNoteList(middleNotesArray);
         topNotes.addNoteList(topNotesArray);
+
+
+        //Remove jumps of an octave or more in each voice
+        bottomBottomNotes = removeOctaveJumps(bottomBottomNotes);
+        bottomNotes = removeOctaveJumps(bottomNotes);
+        middleNotes = removeOctaveJumps(middleNotes);
+        topNotes = removeOctaveJumps(topNotes);
 
 
         //Set the scores
@@ -642,8 +689,13 @@ public class CadenceRecognitionController extends AbstractController{
 
 
         //Rearrange voices to minimise movement
+        System.out.println("1");
         placeCommonNotesInSameVoice(usedChord1, usedChord2);
+
+        System.out.println("2");
         placeCommonNotesInSameVoice(usedChord2, usedChord3);
+
+        System.out.println("3");
         placeCommonNotesInSameVoice(usedChord3, usedChord4);
 
 
@@ -683,28 +735,40 @@ public class CadenceRecognitionController extends AbstractController{
         usedChord4 = putNotesInVoicesInAscendingOrder(usedChord4);
 
 
+        //Populate voice arrays with respective parts of chords
+        bottomBottomNotesArray[0] = usedChord1[0];
         bottomNotesArray[0] = usedChord1[1];
         middleNotesArray[0] = usedChord1[2];
         topNotesArray[0] = usedChord1[3];
 
+        bottomBottomNotesArray[1] = usedChord2[0];
         bottomNotesArray[1] = usedChord2[1];
         middleNotesArray[1] = usedChord2[2];
         topNotesArray[1] = usedChord2[3];
 
+        bottomBottomNotesArray[2] = usedChord3[0];
         bottomNotesArray[2] = usedChord3[1];
         middleNotesArray[2] = usedChord3[2];
         topNotesArray[2] = usedChord3[3];
 
+        bottomBottomNotesArray[3] = usedChord4[0];
         bottomNotesArray[3] = usedChord4[1];
         middleNotesArray[3] = usedChord4[2];
         topNotesArray[3] = usedChord4[3];
 
 
-
         //Add note arrays to the phrases
+        bottomBottomNotes.addNoteList(bottomBottomNotesArray);
         bottomNotes.addNoteList(bottomNotesArray);
         middleNotes.addNoteList(middleNotesArray);
         topNotes.addNoteList(topNotesArray);
+
+
+        //Remove jumps of an octave or more in each voice
+        bottomBottomNotes = removeOctaveJumps(bottomBottomNotes);
+        bottomNotes = removeOctaveJumps(bottomNotes);
+        middleNotes = removeOctaveJumps(middleNotes);
+        topNotes = removeOctaveJumps(topNotes);
 
 
         //Set the scores

@@ -47,7 +47,27 @@ public class ModulationRecognitionController extends AbstractController{
 
     private int[] similarKeys = new int[5];
 
+    private Note[] usedChord1Copy = new Note[4];
+    private Note[] usedChord2Copy = new Note[4];
+    private Note[] usedChord3Copy = new Note[4];
+    private Note[] usedChord4Copy = new Note[4];
+    private Note[] usedChord5Copy = new Note[4];
+    private Note[] usedChord6Copy = new Note[4];
+    private Note[] usedChord7Copy = new Note[4];
+    private Note[] usedChord8Copy = new Note[4];
+    private Note[] usedChord9Copy = new Note[4];
+
+    private boolean chord2Changed;
+    private boolean chord3Changed;
+    private boolean chord4Changed;
+    private boolean chord5Changed;
+    private boolean chord6Changed;
+    private boolean chord7Changed;
+    private boolean chord8Changed;
+    private boolean chord9Changed;
+
     private String rootKeyString;
+
 
 
 
@@ -447,22 +467,123 @@ public class ModulationRecognitionController extends AbstractController{
         //5th Chord. Add the tonic of the new key
         usedChord5 = scaleChord1;
 
-
         //6th Chord. Add the dominant 7 of new key
         usedChord6 = scaleChord5Inverted;
-
 
         //7th Chord. Add the dominant 7 of new key
         usedChord7 = scaleChord1;
 
 
-//        bottomBottomNotes.add(new Note(usedChord1[0].getPitch() - 12, C));
-//        bottomBottomNotes.add(new Note(usedChord2[0].getPitch() - 12, C));
-//        bottomBottomNotes.add(new Note(usedChord3[0].getPitch() - 12, C));
-//        bottomBottomNotes.add(new Note(usedChord4[0].getPitch() - 12, C));
-//        bottomBottomNotes.add(new Note(usedChord5[0].getPitch() - 12, C));
-//        bottomBottomNotes.add(new Note(usedChord6[0].getPitch() - 12, C));
-//        bottomBottomNotes.add(new Note(usedChord7[0].getPitch() - 12, C));
+        //Make copies of the original chords
+        for(int j = 0; j < usedChord1.length; j++){
+            usedChord1Copy[j] = new Note(usedChord1[j].getPitch(), usedChord1[j].getRhythmValue());
+            usedChord2Copy[j] = new Note(usedChord2[j].getPitch(), usedChord2[j].getRhythmValue());
+            usedChord3Copy[j] = new Note(usedChord3[j].getPitch(), usedChord3[j].getRhythmValue());
+            usedChord4Copy[j] = new Note(usedChord4[j].getPitch(), usedChord4[j].getRhythmValue());
+            usedChord5Copy[j] = new Note(usedChord5[j].getPitch(), usedChord5[j].getRhythmValue());
+            usedChord6Copy[j] = new Note(usedChord6[j].getPitch(), usedChord6[j].getRhythmValue());
+            usedChord7Copy[j] = new Note(usedChord7[j].getPitch(), usedChord7[j].getRhythmValue());
+        }
+
+
+        //Rearrange voices to minimise movement
+        System.out.println("2:");
+        chord2Changed = placeCommonNotesInSameVoice(usedChord1, usedChord2);
+
+        System.out.println("3:");
+        chord3Changed = placeCommonNotesInSameVoice(usedChord2, usedChord3);
+
+        System.out.println("4:");
+        chord4Changed = placeCommonNotesInSameVoice(usedChord3, usedChord4);
+
+        System.out.println("5:");
+        chord5Changed = placeCommonNotesInSameVoice(usedChord4, usedChord5);
+
+        System.out.println("6:");
+        chord6Changed = placeCommonNotesInSameVoice(usedChord5, usedChord6);
+
+        System.out.println("7:");
+        chord7Changed = placeCommonNotesInSameVoice(usedChord6, usedChord7);
+
+
+
+        usedChord1 = usedChord1Copy;
+        int removeFifth;
+
+        //If chords not changed then use the copy
+        if(!chord2Changed){
+            usedChord2 = usedChord2Copy;
+
+            removeFifth = rn.nextInt(2);
+            if(removeFifth == 0){
+                removeFifth(usedChord2);
+            }
+        }
+
+        if(!chord3Changed){
+            usedChord3 = usedChord3Copy;
+
+            removeFifth = rn.nextInt(2);
+            if(removeFifth == 0){
+                removeFifth(usedChord3);
+            }
+        }
+
+        if(!chord4Changed){
+            usedChord4 = usedChord4Copy;
+
+            removeFifth = rn.nextInt(2);
+            if(removeFifth == 0){
+                removeFifth(usedChord4);
+            }
+        }
+
+        if(!chord5Changed){
+            usedChord5 = usedChord5Copy;
+
+            removeFifth = rn.nextInt(2);
+            if(removeFifth == 0){
+                removeFifth(usedChord5);
+            }
+        }
+
+        if(!chord6Changed){
+            usedChord6 = usedChord6Copy;
+
+            removeFifth = rn.nextInt(2);
+            if(removeFifth == 0){
+                removeFifth(usedChord6);
+            }
+        }
+
+        if(!chord7Changed){
+            usedChord7 = usedChord7Copy;
+
+            removeFifth = rn.nextInt(2);
+            if(removeFifth == 0){
+                removeFifth(usedChord7);
+            }
+        }
+
+
+        //Put notes in chords in ascending order
+        usedChord1 = putNotesInVoicesInAscendingOrder(usedChord1);
+        usedChord2 = putNotesInVoicesInAscendingOrder(usedChord2);
+        usedChord3 = putNotesInVoicesInAscendingOrder(usedChord3);
+        usedChord4 = putNotesInVoicesInAscendingOrder(usedChord4);
+        usedChord5 = putNotesInVoicesInAscendingOrder(usedChord5);
+        usedChord6 = putNotesInVoicesInAscendingOrder(usedChord6);
+        usedChord7 = putNotesInVoicesInAscendingOrder(usedChord7);
+
+
+        //Add the relevant parts of each chord to the different voices
+        bottomBottomNotes.add(usedChord1[0]);
+        bottomBottomNotes.add(usedChord2[0]);
+        bottomBottomNotes.add(usedChord3[0]);
+        bottomBottomNotes.add(usedChord4[0]);
+        bottomBottomNotes.add(usedChord5[0]);
+        bottomBottomNotes.add(usedChord6[0]);
+        bottomBottomNotes.add(usedChord7[0]);
 
         bottomNotes.add(usedChord1[1]);
         bottomNotes.add(usedChord2[1]);
@@ -489,6 +610,7 @@ public class ModulationRecognitionController extends AbstractController{
         topNotes.add(usedChord7[3]);
 
 
+        //Remove jumps of an octave or more
         bottomBottomNotes = removeOctaveJumps(bottomBottomNotes);
         bottomNotes = removeOctaveJumps(bottomNotes);
         middleNotes = removeOctaveJumps(middleNotes);
@@ -499,15 +621,6 @@ public class ModulationRecognitionController extends AbstractController{
         setScoreSpecific(bottomNotes, "left");
         setScoreSpecific(middleNotes, "middle");
         setScoreSpecific(topNotes, "right");
-
-
-        //Rearrange voices to minimise movement
-        placeCommonNotesInSameVoice(usedChord1, usedChord2);
-        placeCommonNotesInSameVoice(usedChord2, usedChord3);
-        placeCommonNotesInSameVoice(usedChord3, usedChord4);
-        placeCommonNotesInSameVoice(usedChord4, usedChord5);
-        placeCommonNotesInSameVoice(usedChord5, usedChord6);
-        placeCommonNotesInSameVoice(usedChord6, usedChord7);
 
 
         //Add the selected chords to the CPhrases
@@ -521,7 +634,6 @@ public class ModulationRecognitionController extends AbstractController{
 
 
         //Add CPhrases to Part p
-        p.add(bottomBottomNotes);
         p.addCPhrase(cphr1);
         p.addCPhrase(cphr2);
         p.addCPhrase(cphr3);
@@ -576,14 +688,11 @@ public class ModulationRecognitionController extends AbstractController{
         //3rd Chord. Add II of original key
         usedChord3 = scaleChord2;
 
-
         //4th Chord. Add V of original key
         usedChord4 = scaleChord5MelodicMinor;
 
-
         //5th Chord. Add tonic of original key as common key
         usedChord5 = scaleChord1;
-
 
         //6th Chord. Add tonic of original key as common key
         usedChord6 = scaleChord1RemovedFifth;
@@ -606,14 +715,152 @@ public class ModulationRecognitionController extends AbstractController{
         //7th Chord. Add the 2nd inverted dominant of the new key
         usedChord7 = scaleChord5Inverted;
 
-
         //8th Chord. Add the dominant 7 of new key
         usedChord8 = scaleChord5Seventh;
-
 
         //9th Chord. Add the tonic of the new key
         usedChord9 = scaleChord1;
 
+
+        //Make copies of the original chords
+        for(int j = 0; j < usedChord1.length; j++){
+            usedChord1Copy[j] = new Note(usedChord1[j].getPitch(), usedChord1[j].getRhythmValue());
+            usedChord2Copy[j] = new Note(usedChord2[j].getPitch(), usedChord2[j].getRhythmValue());
+            usedChord3Copy[j] = new Note(usedChord3[j].getPitch(), usedChord3[j].getRhythmValue());
+            usedChord4Copy[j] = new Note(usedChord4[j].getPitch(), usedChord4[j].getRhythmValue());
+            usedChord5Copy[j] = new Note(usedChord5[j].getPitch(), usedChord5[j].getRhythmValue());
+            usedChord6Copy[j] = new Note(usedChord6[j].getPitch(), usedChord6[j].getRhythmValue());
+            usedChord7Copy[j] = new Note(usedChord7[j].getPitch(), usedChord7[j].getRhythmValue());
+            usedChord8Copy[j] = new Note(usedChord8[j].getPitch(), usedChord8[j].getRhythmValue());
+            usedChord9Copy[j] = new Note(usedChord9[j].getPitch(), usedChord9[j].getRhythmValue());
+        }
+
+
+        //Rearrange voices to minimise movement
+        System.out.println("2:");
+        chord2Changed = placeCommonNotesInSameVoice(usedChord1, usedChord2);
+
+        System.out.println("3:");
+        chord3Changed = placeCommonNotesInSameVoice(usedChord2, usedChord3);
+
+        System.out.println("4:");
+        chord4Changed = placeCommonNotesInSameVoice(usedChord3, usedChord4);
+
+        System.out.println("5:");
+        chord5Changed = placeCommonNotesInSameVoice(usedChord4, usedChord5);
+
+        System.out.println("6:");
+        chord6Changed = placeCommonNotesInSameVoice(usedChord5, usedChord6);
+
+        System.out.println("7:");
+        chord7Changed = placeCommonNotesInSameVoice(usedChord6, usedChord7);
+
+        System.out.println("8:");
+        chord8Changed = placeCommonNotesInSameVoice(usedChord7, usedChord8);
+
+        System.out.println("9:");
+        chord9Changed = placeCommonNotesInSameVoice(usedChord8, usedChord9);
+
+
+        usedChord1 = usedChord1Copy;
+        int removeFifth;
+
+        //If chords not changed then use the copy
+        if(!chord2Changed){
+            usedChord2 = usedChord2Copy;
+
+            removeFifth = rn.nextInt(2);
+            if(removeFifth == 0){
+                removeFifth(usedChord2);
+            }
+        }
+
+        if(!chord3Changed){
+            usedChord3 = usedChord3Copy;
+
+            removeFifth = rn.nextInt(2);
+            if(removeFifth == 0){
+                removeFifth(usedChord3);
+            }
+        }
+
+        if(!chord4Changed){
+            usedChord4 = usedChord4Copy;
+
+            removeFifth = rn.nextInt(2);
+            if(removeFifth == 0){
+                removeFifth(usedChord4);
+            }
+        }
+
+        if(!chord5Changed){
+            usedChord5 = usedChord5Copy;
+
+            removeFifth = rn.nextInt(2);
+            if(removeFifth == 0){
+                removeFifth(usedChord5);
+            }
+        }
+
+        if(!chord6Changed){
+            usedChord6 = usedChord6Copy;
+
+            removeFifth = rn.nextInt(2);
+            if(removeFifth == 0){
+                removeFifth(usedChord6);
+            }
+        }
+
+        if(!chord7Changed){
+            usedChord7 = usedChord7Copy;
+
+            removeFifth = rn.nextInt(2);
+            if(removeFifth == 0){
+                removeFifth(usedChord7);
+            }
+        }
+
+        if(!chord8Changed){
+            usedChord8 = usedChord8Copy;
+
+            removeFifth = rn.nextInt(2);
+            if(removeFifth == 0){
+                removeFifth(usedChord8);
+            }
+        }
+
+        if(!chord9Changed){
+            usedChord9 = usedChord9Copy;
+
+            removeFifth = rn.nextInt(2);
+            if(removeFifth == 0){
+                removeFifth(usedChord9);
+            }
+        }
+
+
+        //Put notes in chords in ascending order
+        usedChord1 = putNotesInVoicesInAscendingOrder(usedChord1);
+        usedChord2 = putNotesInVoicesInAscendingOrder(usedChord2);
+        usedChord3 = putNotesInVoicesInAscendingOrder(usedChord3);
+        usedChord4 = putNotesInVoicesInAscendingOrder(usedChord4);
+        usedChord5 = putNotesInVoicesInAscendingOrder(usedChord5);
+        usedChord6 = putNotesInVoicesInAscendingOrder(usedChord6);
+        usedChord7 = putNotesInVoicesInAscendingOrder(usedChord7);
+        usedChord8 = putNotesInVoicesInAscendingOrder(usedChord8);
+        usedChord9 = putNotesInVoicesInAscendingOrder(usedChord9);
+
+
+        //Add the relevant parts of each chord to the different voices
+        bottomBottomNotes.add(usedChord1[0]);
+        bottomBottomNotes.add(usedChord2[0]);
+        bottomBottomNotes.add(usedChord3[0]);
+        bottomBottomNotes.add(usedChord4[0]);
+        bottomBottomNotes.add(usedChord5[0]);
+        bottomBottomNotes.add(usedChord6[0]);
+        bottomBottomNotes.add(usedChord7[0]);
+        bottomBottomNotes.add(usedChord8[0]);
+        bottomBottomNotes.add(usedChord9[0]);
 
         bottomNotes.add(usedChord1[1]);
         bottomNotes.add(usedChord2[1]);
@@ -646,6 +893,8 @@ public class ModulationRecognitionController extends AbstractController{
         topNotes.add(usedChord9[3]);
 
 
+        //Remove jumps of an octave or more
+        bottomBottomNotes = removeOctaveJumps(bottomBottomNotes);
         bottomNotes = removeOctaveJumps(bottomNotes);
         middleNotes = removeOctaveJumps(middleNotes);
         topNotes = removeOctaveJumps(topNotes);
@@ -655,17 +904,6 @@ public class ModulationRecognitionController extends AbstractController{
         setScoreSpecific(bottomNotes, "left");
         setScoreSpecific(middleNotes, "middle");
         setScoreSpecific(topNotes, "right");
-
-
-        //Rearrange voices to minimise movement
-        placeCommonNotesInSameVoice(usedChord1, usedChord2);
-        placeCommonNotesInSameVoice(usedChord2, usedChord3);
-        placeCommonNotesInSameVoice(usedChord3, usedChord4);
-        placeCommonNotesInSameVoice(usedChord4, usedChord5);
-        placeCommonNotesInSameVoice(usedChord5, usedChord6);
-        placeCommonNotesInSameVoice(usedChord6, usedChord7);
-        placeCommonNotesInSameVoice(usedChord7, usedChord8);
-        placeCommonNotesInSameVoice(usedChord8, usedChord9);
 
 
         //Add the selected chords to the CPhrases

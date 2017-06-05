@@ -373,7 +373,7 @@ public class HarmonicIntervalRecognitionController extends AbstractController {
         phr1.addNote(n1);
 
         setScore(phr1);
-        jScoreTop.setPhrase(phr2);
+        jScoreTop.setPhrase(emptyPhr);
 
         Note n2 = new Note(chosenRoot + interval, C);
         phr2.addNote(n2);
@@ -415,7 +415,7 @@ public class HarmonicIntervalRecognitionController extends AbstractController {
         phr1.addNote(n1);
 
         setScore(phr1);
-        jScoreTop.setPhrase(phr2);
+        jScoreTop.setPhrase(emptyPhr);
 
         Note n2 = new Note(chosenRoot + i, C);
         phr2.addNote(n2);

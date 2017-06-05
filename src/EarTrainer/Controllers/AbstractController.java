@@ -75,11 +75,10 @@ public abstract class AbstractController {
     int[] scaleNotes = new int[22];
 
     List noteLengthsList = new LinkedList(Arrays.asList(SIXTEENTH_NOTE, DOTTED_SIXTEENTH_NOTE,
-                                                                    EIGHTH_NOTE, DOTTED_EIGHTH_NOTE,
-                                                                    QUARTER_NOTE, DOTTED_QUARTER_NOTE,
-                                                                    HALF_NOTE));
+                                                        EIGHTH_NOTE, DOTTED_EIGHTH_NOTE,
+                                                        QUARTER_NOTE, DOTTED_QUARTER_NOTE,
+                                                        HALF_NOTE));
 
-//    Note[] theirMelodyAnswer;
     Note[] scaleChord1 = new Note[4];
     Note[] scaleChord1RemovedFifth = new Note[4];
     Note[] scaleChord2 = new Note[4];
@@ -92,6 +91,7 @@ public abstract class AbstractController {
     Note[] scaleChord6 = new Note[4];
     Note[] scaleChord7 = new Note[4];
 
+    Note[] bottomBottomNotesArray = new Note[4];
     Note[] bottomNotesArray = new Note[4];
     Note[] middleNotesArray = new Note[4];
     Note[] topNotesArray = new Note[4];
@@ -457,36 +457,6 @@ public abstract class AbstractController {
     boolean placeCommonNotesInSameVoice(Note[] chord1, Note[] chord2){
         boolean changed = false;
 
-        System.out.println("Before in function");
-
-        for(Note n : usedChord1){
-            System.out.println(n.getPitch());
-        }
-
-        System.out.println("");
-
-
-        for(Note n : usedChord2){
-            System.out.println(n.getPitch());
-        }
-
-        System.out.println("");
-
-
-        for(Note n : usedChord3){
-            System.out.println(n.getPitch());
-        }
-
-        System.out.println("");
-
-
-        for(Note n : usedChord4){
-            System.out.println(n.getPitch());
-        }
-
-        System.out.println("");
-
-
 
         int pitch1;
         int pitch2;
@@ -507,39 +477,6 @@ public abstract class AbstractController {
                 }
             }
         }
-
-
-
-
-
-        System.out.println("After in function");
-
-        for(Note n : usedChord1){
-            System.out.println(n.getPitch());
-        }
-
-        System.out.println("");
-
-
-        for(Note n : usedChord2){
-            System.out.println(n.getPitch());
-        }
-
-        System.out.println("");
-
-
-        for(Note n : usedChord3){
-            System.out.println(n.getPitch());
-        }
-
-        System.out.println("");
-
-
-        for(Note n : usedChord4){
-            System.out.println(n.getPitch());
-        }
-
-        System.out.println("");
 
         return changed;
     }
