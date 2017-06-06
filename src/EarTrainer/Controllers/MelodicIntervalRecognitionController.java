@@ -46,7 +46,7 @@ public class MelodicIntervalRecognitionController extends AbstractController{
         minorSeventhButton.setDisable(true);
         majorSeventhButton.setDisable(true);
 
-        difficultyDescriptionLabel.setText("Middle C as root note. Only Unisons, Thirds, Perfect Fifths and Octaves. Only 1 Octave.");
+        difficultyDescriptionLabel.setText("Middle C root note. Only Unisons, Thirds, Perfect Fifths and Octaves. Only 1 Octave.");
     }
 
 

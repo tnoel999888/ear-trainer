@@ -3,9 +3,7 @@ package EarTrainer.Tests;
 /**
  * Created by timannoel on 05/06/2017.
  */
-
 import EarTrainer.Controllers.MelodicIntervalRecognitionController;
-import EarTrainer.Controllers.PitchRecognitionController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,14 +12,13 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import org.junit.Test;
 import org.loadui.testfx.GuiTest;
-
 import java.io.IOException;
 import java.util.Random;
-
 import static com.google.common.base.Verify.verify;
 import static org.hamcrest.Matchers.not;
 import static org.hamcrest.core.Is.is;
 import static org.loadui.testfx.Assertions.verifyThat;
+
 
 
 public class MelodicIntervalRecognitionTests extends GuiTest{
@@ -29,6 +26,8 @@ public class MelodicIntervalRecognitionTests extends GuiTest{
     private MelodicIntervalRecognitionController melodicIntervalRecognitionController;
     private Button[] buttons;
     private Random rn = new Random();
+    private Button nextQuestionButton;
+    private Button startButton;
 
 
 
@@ -44,6 +43,8 @@ public class MelodicIntervalRecognitionTests extends GuiTest{
         }
 
         melodicIntervalRecognitionController = loader.getController();
+        nextQuestionButton = melodicIntervalRecognitionController.nextQuestionButton;
+        startButton = melodicIntervalRecognitionController.startButton;
 
 
         Stage newStage = new Stage();
@@ -130,7 +131,7 @@ public class MelodicIntervalRecognitionTests extends GuiTest{
     @Test
     public void difficultyDescriptionsUpdate() throws InterruptedException {
         String text = ((Label) find("#difficultyDescriptionLabel")).getText();
-        verifyThat(text, is("Middle C as root note. Only Unisons, Thirds, Perfect Fifths and Octaves. Only 1 Octave."));
+        verifyThat(text, is("Middle C root note. Only Unisons, Thirds, Perfect Fifths and Octaves. Only 1 Octave."));
 
         click("#mediumRadioButton");
         text = ((Label) find("#difficultyDescriptionLabel")).getText();
@@ -142,21 +143,21 @@ public class MelodicIntervalRecognitionTests extends GuiTest{
 
         click("#easyRadioButton");
         text = ((Label) find("#difficultyDescriptionLabel")).getText();
-        verifyThat(text, is("Middle C as root note. Only Unisons, Thirds, Perfect Fifths and Octaves. Only 1 Octave."));
+        verifyThat(text, is("Middle C root note. Only Unisons, Thirds, Perfect Fifths and Octaves. Only 1 Octave."));
     }
 
 
     @Test
     public void startButtonTogglesToStopAndBack(){
-        String text = ((Button) find("#lion-default")).getText();
+        String text = startButton.getText();
         verifyThat(text, is("Start"));
 
-        click("#lion-default");
-        text = ((Button) find("#lion-default")).getText();
+        click(startButton);
+        text = startButton.getText();
         verifyThat(text, is("Stop"));
 
-        click("#lion-default");
-        text = ((Button) find("#lion-default")).getText();
+        click(startButton);
+        text = startButton.getText();
         verifyThat(text, is("Start"));
     }
 
@@ -168,7 +169,7 @@ public class MelodicIntervalRecognitionTests extends GuiTest{
 
 
         //Clicking Start sets correctAnswer variable
-        click("#lion-default");
+        click(startButton);
         correctAnswer = melodicIntervalRecognitionController.correctAnswer;
         verifyThat(correctAnswer, not(""));
     }
@@ -176,7 +177,17 @@ public class MelodicIntervalRecognitionTests extends GuiTest{
 
     @Test
     public void clickingCorrectButtonOutputsCorrectAndIncrementsScore(){
-        click("#lion-default");
+        int difficultyMode = rn.nextInt(3);
+
+        if(difficultyMode == 0){
+            click("#easyRadioButton");
+        } else if(difficultyMode == 1){
+            click("#mediumRadioButton");
+        } else {
+            click("#hardRadioButton");
+        }
+
+        click(startButton);
 
         Button correctButton = melodicIntervalRecognitionController.correctButton;
         int numberOfCorrectAnswers = melodicIntervalRecognitionController.numberOfCorrectAnswers;
@@ -194,9 +205,9 @@ public class MelodicIntervalRecognitionTests extends GuiTest{
 
     @Test
     public void clickingStopResetsScore(){
-        String startStopButtonText = ((Button) find("#lion-default")).getText();
+        String startStopButtonText = startButton.getText();
         verifyThat(startStopButtonText, is("Start"));
-        click("#lion-default");
+        click(startButton);
 
         Button correctButton = melodicIntervalRecognitionController.correctButton;
         int numberOfCorrectAnswers = melodicIntervalRecognitionController.numberOfCorrectAnswers;
@@ -210,9 +221,9 @@ public class MelodicIntervalRecognitionTests extends GuiTest{
         verifyThat(numberOfCorrectAnswers, is(1));
 
 
-        startStopButtonText = ((Button) find("#lion-default")).getText();
+        startStopButtonText = startButton.getText();
         verifyThat(startStopButtonText, is("Stop"));
-        click("#lion-default");
+        click(startButton);
         numberOfCorrectAnswers = melodicIntervalRecognitionController.numberOfCorrectAnswers;
         verifyThat(numberOfCorrectAnswers, is(0));
     }
@@ -220,9 +231,9 @@ public class MelodicIntervalRecognitionTests extends GuiTest{
 
     @Test
     public void clickingStopResetsQuestionNumber(){
-        String startStopButtonText = ((Button) find("#lion-default")).getText();
+        String startStopButtonText = startButton.getText();
         verifyThat(startStopButtonText, is("Start"));
-        click("#lion-default");
+        click(startButton);
 
         Button correctButton = melodicIntervalRecognitionController.correctButton;
         int questionNumber = melodicIntervalRecognitionController.questionNumber;
@@ -230,16 +241,15 @@ public class MelodicIntervalRecognitionTests extends GuiTest{
 
         click(correctButton);
 
-        Button nextQuestionButton = melodicIntervalRecognitionController.nextQuestionButton;
         click(nextQuestionButton);
 
         questionNumber = melodicIntervalRecognitionController.questionNumber;
         verifyThat(questionNumber, is(2));
 
 
-        startStopButtonText = ((Button) find("#lion-default")).getText();
+        startStopButtonText = startButton.getText();
         verifyThat(startStopButtonText, is("Stop"));
-        click("#lion-default");
+        click(startButton);
         questionNumber = melodicIntervalRecognitionController.questionNumber;
         verifyThat(questionNumber, is(1));
     }
@@ -261,10 +271,10 @@ public class MelodicIntervalRecognitionTests extends GuiTest{
                                 melodicIntervalRecognitionController.majorSeventhButton,
                                 melodicIntervalRecognitionController.octaveButton};
 
-        click("#hardRadioButton");
-        click("#lion-default");
 
-        Button nextQuestionButton = melodicIntervalRecognitionController.nextQuestionButton;
+        click("#hardRadioButton");
+        click(startButton);
+
 
         for(int i = 1; i < 10; i++){
             int randomButton = rn.nextInt(13);
@@ -293,10 +303,10 @@ public class MelodicIntervalRecognitionTests extends GuiTest{
                                 melodicIntervalRecognitionController.majorSeventhButton,
                                 melodicIntervalRecognitionController.octaveButton};
 
-        click("#hardRadioButton");
-        click("#lion-default");
 
-        Button nextQuestionButton = melodicIntervalRecognitionController.nextQuestionButton;
+        click("#hardRadioButton");
+        click(startButton);
+
 
         for(int i = 0; i < 10; i++){
             int randomButton = rn.nextInt(12);
@@ -313,114 +323,109 @@ public class MelodicIntervalRecognitionTests extends GuiTest{
             click(nextQuestionButton);
         }
     }
-//
-//
-//    @Test
-//    public void clickingIncorrectButtonEasyModeOutputsIncorrectAndDoesNotIncrementScore(){
-//        buttons = new Button[]{melodicIntervalRecognitionController.cButton,
-//                melodicIntervalRecognitionController.dButton,
-//                melodicIntervalRecognitionController.eButton,
-//                melodicIntervalRecognitionController.fButton,
-//                melodicIntervalRecognitionController.gButton,
-//                melodicIntervalRecognitionController.aButton,
-//                melodicIntervalRecognitionController.bButton};
-//
-//        click("#lion-default");
-//
-//        Button correctButton = melodicIntervalRecognitionController.correctButton;
-//        int numberOfCorrectAnswers = melodicIntervalRecognitionController.numberOfCorrectAnswers;
-//
-//        int i = rn.nextInt(buttons.length);
-//
-//        while(buttons[i] == correctButton){
-//            i = rn.nextInt(buttons.length);
-//        }
-//
-//        click(buttons[i]);
-//
-//        int numberOfCorrectAnswersAfterClick = melodicIntervalRecognitionController.numberOfCorrectAnswers;
-//
-//        String text = ((Label) find("#correctIncorrectLabel")).getText();
-//        verifyThat(text, is("Incorrect."));
-//
-//        verifyThat(numberOfCorrectAnswersAfterClick, is(numberOfCorrectAnswers));
-//
-//    }
-//
-//
-//    @Test
-//    public void clickingIncorrectButtonMediumModeOutputsIncorrectAndDoesNotIncrementScore(){
-//        buttons = new Button[]{melodicIntervalRecognitionController.cButton,
-//                melodicIntervalRecognitionController.cSharpButton,
-//                melodicIntervalRecognitionController.dButton,
-//                melodicIntervalRecognitionController.dSharpButton,
-//                melodicIntervalRecognitionController.eButton,
-//                melodicIntervalRecognitionController.fButton,
-//                melodicIntervalRecognitionController.fSharpButton,
-//                melodicIntervalRecognitionController.gButton,
-//                melodicIntervalRecognitionController.gSharpButton,
-//                melodicIntervalRecognitionController.aButton,
-//                melodicIntervalRecognitionController.aSharpButton,
-//                melodicIntervalRecognitionController.bButton};
-//
-//        click("#mediumRadioButton");
-//        click("#lion-default");
-//
-//        Button correctButton = melodicIntervalRecognitionController.correctButton;
-//        int numberOfCorrectAnswers = melodicIntervalRecognitionController.numberOfCorrectAnswers;
-//
-//        int i = rn.nextInt(buttons.length);
-//
-//        while(buttons[i] == correctButton){
-//            i = rn.nextInt(buttons.length);
-//        }
-//
-//        click(buttons[i]);
-//
-//        int numberOfCorrectAnswersAfterClick = melodicIntervalRecognitionController.numberOfCorrectAnswers;
-//
-//        String text = ((Label) find("#correctIncorrectLabel")).getText();
-//        verifyThat(text, is("Incorrect."));
-//
-//        verifyThat(numberOfCorrectAnswersAfterClick, is(numberOfCorrectAnswers));
-//
-//    }
-//
-//
-//    @Test
-//    public void clickingIncorrectButtonHardModeOutputsIncorrectAndDoesNotIncrementScore(){
-//        buttons = new Button[]{melodicIntervalRecognitionController.cButton,
-//                melodicIntervalRecognitionController.cSharpButton,
-//                melodicIntervalRecognitionController.dButton,
-//                melodicIntervalRecognitionController.dSharpButton,
-//                melodicIntervalRecognitionController.eButton,
-//                melodicIntervalRecognitionController.fButton,
-//                melodicIntervalRecognitionController.fSharpButton,
-//                melodicIntervalRecognitionController.gButton,
-//                melodicIntervalRecognitionController.gSharpButton,
-//                melodicIntervalRecognitionController.aButton,
-//                melodicIntervalRecognitionController.aSharpButton,
-//                melodicIntervalRecognitionController.bButton};
-//
-//        click("#hardRadioButton");
-//        click("#lion-default");
-//
-//        Button correctButton = melodicIntervalRecognitionController.correctButton;
-//        int numberOfCorrectAnswers = melodicIntervalRecognitionController.numberOfCorrectAnswers;
-//
-//        int i = rn.nextInt(buttons.length);
-//
-//        while(buttons[i] == correctButton){
-//            i = rn.nextInt(buttons.length);
-//        }
-//
-//        click(buttons[i]);
-//
-//        int numberOfCorrectAnswersAfterClick = melodicIntervalRecognitionController.numberOfCorrectAnswers;
-//
-//        String text = ((Label) find("#correctIncorrectLabel")).getText();
-//        verifyThat(text, is("Incorrect."));
-//
-//        verifyThat(numberOfCorrectAnswersAfterClick, is(numberOfCorrectAnswers));
-//    }
+
+
+    @Test
+    public void clickingIncorrectButtonEasyModeOutputsIncorrectAndDoesNotIncrementScore(){
+        buttons = new Button[]{melodicIntervalRecognitionController.unisonButton,
+                                melodicIntervalRecognitionController.minorThirdButton,
+                                melodicIntervalRecognitionController.majorThirdButton,
+                                melodicIntervalRecognitionController.perfectFifthButton,
+                                melodicIntervalRecognitionController.octaveButton};
+
+
+        click(startButton);
+
+        Button correctButton = melodicIntervalRecognitionController.correctButton;
+        int numberOfCorrectAnswers = melodicIntervalRecognitionController.numberOfCorrectAnswers;
+
+        int i = rn.nextInt(buttons.length);
+
+        while(buttons[i] == correctButton){
+            i = rn.nextInt(buttons.length);
+        }
+
+        click(buttons[i]);
+
+        int numberOfCorrectAnswersAfterClick = melodicIntervalRecognitionController.numberOfCorrectAnswers;
+
+        String text = ((Label) find("#correctIncorrectLabel")).getText();
+        verifyThat(text, is("Incorrect."));
+
+        verifyThat(numberOfCorrectAnswersAfterClick, is(numberOfCorrectAnswers));
+    }
+
+
+    @Test
+    public void clickingIncorrectButtonMediumModeOutputsIncorrectAndDoesNotIncrementScore(){
+        buttons = new Button[]{melodicIntervalRecognitionController.unisonButton,
+                melodicIntervalRecognitionController.minorSecondButton,
+                melodicIntervalRecognitionController.majorSecondButton,
+                melodicIntervalRecognitionController.minorThirdButton,
+                melodicIntervalRecognitionController.majorThirdButton,
+                melodicIntervalRecognitionController.perfectFifthButton,
+                melodicIntervalRecognitionController.octaveButton};
+
+        click("#mediumRadioButton");
+        click(startButton);
+
+        Button correctButton = melodicIntervalRecognitionController.correctButton;
+        int numberOfCorrectAnswers = melodicIntervalRecognitionController.numberOfCorrectAnswers;
+
+        int i = rn.nextInt(buttons.length);
+
+        while(buttons[i] == correctButton){
+            i = rn.nextInt(buttons.length);
+        }
+
+        click(buttons[i]);
+
+        int numberOfCorrectAnswersAfterClick = melodicIntervalRecognitionController.numberOfCorrectAnswers;
+
+        String text = ((Label) find("#correctIncorrectLabel")).getText();
+        verifyThat(text, is("Incorrect."));
+
+        verifyThat(numberOfCorrectAnswersAfterClick, is(numberOfCorrectAnswers));
+
+    }
+
+
+    @Test
+    public void clickingIncorrectButtonHardModeOutputsIncorrectAndDoesNotIncrementScore(){
+        buttons = new Button[]{melodicIntervalRecognitionController.unisonButton,
+                                melodicIntervalRecognitionController.minorSecondButton,
+                                melodicIntervalRecognitionController.majorSecondButton,
+                                melodicIntervalRecognitionController.minorThirdButton,
+                                melodicIntervalRecognitionController.majorThirdButton,
+                                melodicIntervalRecognitionController.perfectFourthButton,
+                                melodicIntervalRecognitionController.tritoneButton,
+                                melodicIntervalRecognitionController.perfectFifthButton,
+                                melodicIntervalRecognitionController.minorSixthButton,
+                                melodicIntervalRecognitionController.majorSixthButton,
+                                melodicIntervalRecognitionController.minorSeventhButton,
+                                melodicIntervalRecognitionController.majorSeventhButton,
+                                melodicIntervalRecognitionController.octaveButton};
+
+
+        click("#hardRadioButton");
+        click(startButton);
+
+        Button correctButton = melodicIntervalRecognitionController.correctButton;
+        int numberOfCorrectAnswers = melodicIntervalRecognitionController.numberOfCorrectAnswers;
+
+        int i = rn.nextInt(buttons.length);
+
+        while(buttons[i] == correctButton){
+            i = rn.nextInt(buttons.length);
+        }
+
+        click(buttons[i]);
+
+        int numberOfCorrectAnswersAfterClick = melodicIntervalRecognitionController.numberOfCorrectAnswers;
+
+        String text = ((Label) find("#correctIncorrectLabel")).getText();
+        verifyThat(text, is("Incorrect."));
+
+        verifyThat(numberOfCorrectAnswersAfterClick, is(numberOfCorrectAnswers));
+    }
 }

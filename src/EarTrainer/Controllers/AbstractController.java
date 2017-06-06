@@ -125,7 +125,7 @@ public abstract class AbstractController {
     @FXML Label difficultyDescriptionLabel;
     @FXML Label correctIncorrectLabel;
 
-    @FXML Button startButton;
+    public @FXML Button startButton;
     public @FXML Button nextQuestionButton;
 
     @FXML Pane scorePane;

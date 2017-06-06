@@ -26,6 +26,8 @@ public class PitchRecognitionTests extends GuiTest{
     private PitchRecognitionController pitchRecognitionController;
     private Button[] buttons;
     private Random rn = new Random();
+    private Button nextQuestionButton;
+    private Button startButton;
 
 
 
@@ -41,6 +43,8 @@ public class PitchRecognitionTests extends GuiTest{
         }
 
         pitchRecognitionController = loader.getController();
+        nextQuestionButton = pitchRecognitionController.nextQuestionButton;
+        startButton = pitchRecognitionController.startButton;
 
 
         Stage newStage = new Stage();
@@ -140,15 +144,15 @@ public class PitchRecognitionTests extends GuiTest{
 
     @Test
     public void startButtonTogglesToStopAndBack(){
-        String text = ((Button) find("#lion-default")).getText();
+        String text = startButton.getText();
         verifyThat(text, is("Start"));
 
-        click("#lion-default");
-        text = ((Button) find("#lion-default")).getText();
+        click(startButton);
+        text = startButton.getText();
         verifyThat(text, is("Stop"));
 
-        click("#lion-default");
-        text = ((Button) find("#lion-default")).getText();
+        click(startButton);
+        text = startButton.getText();
         verifyThat(text, is("Start"));
     }
 
@@ -160,7 +164,7 @@ public class PitchRecognitionTests extends GuiTest{
 
 
         //Clicking Start sets correctAnswer variable
-        click("#lion-default");
+        click(startButton);
         correctAnswer = pitchRecognitionController.correctAnswer;
         verifyThat(correctAnswer, not(""));
     }
@@ -168,7 +172,17 @@ public class PitchRecognitionTests extends GuiTest{
 
     @Test
     public void clickingCorrectButtonOutputsCorrectAndIncrementsScore(){
-        click("#lion-default");
+        int difficultyMode = rn.nextInt(3);
+
+        if(difficultyMode == 0){
+            click("#easyRadioButton");
+        } else if(difficultyMode == 1){
+            click("#mediumRadioButton");
+        } else {
+            click("#hardRadioButton");
+        }
+
+        click(startButton);
 
         Button correctButton = pitchRecognitionController.correctButton;
         int numberOfCorrectAnswers = pitchRecognitionController.numberOfCorrectAnswers;
@@ -186,9 +200,9 @@ public class PitchRecognitionTests extends GuiTest{
 
     @Test
     public void clickingStopResetsScore(){
-        String startStopButtonText = ((Button) find("#lion-default")).getText();
+        String startStopButtonText = startButton.getText();
         verifyThat(startStopButtonText, is("Start"));
-        click("#lion-default");
+        click(startButton);
 
         Button correctButton = pitchRecognitionController.correctButton;
         int numberOfCorrectAnswers = pitchRecognitionController.numberOfCorrectAnswers;
@@ -202,9 +216,9 @@ public class PitchRecognitionTests extends GuiTest{
         verifyThat(numberOfCorrectAnswers, is(1));
 
 
-        startStopButtonText = ((Button) find("#lion-default")).getText();
+        startStopButtonText = startButton.getText();
         verifyThat(startStopButtonText, is("Stop"));
-        click("#lion-default");
+        click(startButton);
         numberOfCorrectAnswers = pitchRecognitionController.numberOfCorrectAnswers;
         verifyThat(numberOfCorrectAnswers, is(0));
     }
@@ -212,9 +226,9 @@ public class PitchRecognitionTests extends GuiTest{
 
     @Test
     public void clickingStopResetsQuestionNumber(){
-        String startStopButtonText = ((Button) find("#lion-default")).getText();
+        String startStopButtonText = startButton.getText();
         verifyThat(startStopButtonText, is("Start"));
-        click("#lion-default");
+        click(startButton);
 
         Button correctButton = pitchRecognitionController.correctButton;
         int questionNumber = pitchRecognitionController.questionNumber;
@@ -222,16 +236,15 @@ public class PitchRecognitionTests extends GuiTest{
 
         click(correctButton);
 
-        Button nextQuestionButton = pitchRecognitionController.nextQuestionButton;
         click(nextQuestionButton);
 
         questionNumber = pitchRecognitionController.questionNumber;
         verifyThat(questionNumber, is(2));
 
 
-        startStopButtonText = ((Button) find("#lion-default")).getText();
+        startStopButtonText = startButton.getText();
         verifyThat(startStopButtonText, is("Stop"));
-        click("#lion-default");
+        click(startButton);
         questionNumber = pitchRecognitionController.questionNumber;
         verifyThat(questionNumber, is(1));
     }
@@ -253,9 +266,8 @@ public class PitchRecognitionTests extends GuiTest{
                 pitchRecognitionController.bButton};
 
         click("#hardRadioButton");
-        click("#lion-default");
+        click(startButton);
 
-        Button nextQuestionButton = pitchRecognitionController.nextQuestionButton;
 
         for(int i = 1; i < 10; i++){
             int randomButton = rn.nextInt(12);
@@ -284,9 +296,8 @@ public class PitchRecognitionTests extends GuiTest{
                 pitchRecognitionController.bButton};
 
         click("#hardRadioButton");
-        click("#lion-default");
+        click(startButton);
 
-        Button nextQuestionButton = pitchRecognitionController.nextQuestionButton;
 
         for(int i = 0; i < 10; i++){
             int randomButton = rn.nextInt(12);
@@ -315,7 +326,7 @@ public class PitchRecognitionTests extends GuiTest{
                 pitchRecognitionController.aButton,
                 pitchRecognitionController.bButton};
 
-        click("#lion-default");
+        click(startButton);
 
         Button correctButton = pitchRecognitionController.correctButton;
         int numberOfCorrectAnswers = pitchRecognitionController.numberOfCorrectAnswers;
@@ -354,7 +365,7 @@ public class PitchRecognitionTests extends GuiTest{
                 pitchRecognitionController.bButton};
 
         click("#mediumRadioButton");
-        click("#lion-default");
+        click(startButton);
 
         Button correctButton = pitchRecognitionController.correctButton;
         int numberOfCorrectAnswers = pitchRecognitionController.numberOfCorrectAnswers;
@@ -393,7 +404,7 @@ public class PitchRecognitionTests extends GuiTest{
                 pitchRecognitionController.bButton};
 
         click("#hardRadioButton");
-        click("#lion-default");
+        click(startButton);
 
         Button correctButton = pitchRecognitionController.correctButton;
         int numberOfCorrectAnswers = pitchRecognitionController.numberOfCorrectAnswers;
