@@ -19,19 +19,19 @@ import static jm.constants.Pitches.*;
 
 public class MelodicIntervalRecognitionController extends AbstractController{
 
-    @FXML private Button unisonButton;
-    @FXML private Button minorSecondButton;
-    @FXML private Button majorSecondButton;
-    @FXML private Button perfectFourthButton;
-    @FXML private Button tritoneButton;
-    @FXML private Button minorThirdButton;
-    @FXML private Button majorThirdButton;
-    @FXML private Button perfectFifthButton;
-    @FXML private Button octaveButton;
-    @FXML private Button minorSixthButton;
-    @FXML private Button majorSixthButton;
-    @FXML private Button minorSeventhButton;
-    @FXML private Button majorSeventhButton;
+    @FXML public Button unisonButton;
+    @FXML public Button minorSecondButton;
+    @FXML public Button majorSecondButton;
+    @FXML public Button perfectFourthButton;
+    @FXML public Button tritoneButton;
+    @FXML public Button minorThirdButton;
+    @FXML public Button majorThirdButton;
+    @FXML public Button perfectFifthButton;
+    @FXML public Button octaveButton;
+    @FXML public Button minorSixthButton;
+    @FXML public Button majorSixthButton;
+    @FXML public Button minorSeventhButton;
+    @FXML public Button majorSeventhButton;
 
 
 

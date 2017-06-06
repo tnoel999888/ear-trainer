@@ -14,6 +14,7 @@ import org.junit.Test;
 import org.loadui.testfx.GuiTest;
 import java.io.IOException;
 import java.util.Random;
+import static com.google.common.base.Verify.verify;
 import static org.hamcrest.Matchers.not;
 import static org.hamcrest.core.Is.is;
 import static org.loadui.testfx.Assertions.verifyThat;
@@ -25,6 +26,7 @@ public class PitchRecognitionTests extends GuiTest{
     private PitchRecognitionController pitchRecognitionController;
     private Button[] buttons;
     private Random rn = new Random();
+
 
 
     @Override
@@ -47,6 +49,73 @@ public class PitchRecognitionTests extends GuiTest{
         newStage.show();
 
         return root;
+    }
+
+
+    @Test
+    public void changingDifficultyDisablesEnablesRelevantButtons() throws InterruptedException {
+        verify(!pitchRecognitionController.cButton.isDisabled());
+        verify(!pitchRecognitionController.dButton.isDisabled());
+        verify(!pitchRecognitionController.eButton.isDisabled());
+        verify(!pitchRecognitionController.fButton.isDisabled());
+        verify(!pitchRecognitionController.gButton.isDisabled());
+        verify(!pitchRecognitionController.aButton.isDisabled());
+        verify(!pitchRecognitionController.bButton.isDisabled());
+
+        verify(pitchRecognitionController.cSharpButton.isDisabled());
+        verify(pitchRecognitionController.dSharpButton.isDisabled());
+        verify(pitchRecognitionController.fSharpButton.isDisabled());
+        verify(pitchRecognitionController.gSharpButton.isDisabled());
+        verify(pitchRecognitionController.aSharpButton.isDisabled());
+
+
+        click("#mediumRadioButton");
+
+        verify(!pitchRecognitionController.cButton.isDisabled());
+        verify(!pitchRecognitionController.dButton.isDisabled());
+        verify(!pitchRecognitionController.eButton.isDisabled());
+        verify(!pitchRecognitionController.fButton.isDisabled());
+        verify(!pitchRecognitionController.gButton.isDisabled());
+        verify(!pitchRecognitionController.aButton.isDisabled());
+        verify(!pitchRecognitionController.bButton.isDisabled());
+        verify(!pitchRecognitionController.cSharpButton.isDisabled());
+        verify(!pitchRecognitionController.dSharpButton.isDisabled());
+        verify(!pitchRecognitionController.fSharpButton.isDisabled());
+        verify(!pitchRecognitionController.gSharpButton.isDisabled());
+        verify(!pitchRecognitionController.aSharpButton.isDisabled());
+
+
+        click("#hardRadioButton");
+
+        verify(!pitchRecognitionController.cButton.isDisabled());
+        verify(!pitchRecognitionController.dButton.isDisabled());
+        verify(!pitchRecognitionController.eButton.isDisabled());
+        verify(!pitchRecognitionController.fButton.isDisabled());
+        verify(!pitchRecognitionController.gButton.isDisabled());
+        verify(!pitchRecognitionController.aButton.isDisabled());
+        verify(!pitchRecognitionController.bButton.isDisabled());
+        verify(!pitchRecognitionController.cSharpButton.isDisabled());
+        verify(!pitchRecognitionController.dSharpButton.isDisabled());
+        verify(!pitchRecognitionController.fSharpButton.isDisabled());
+        verify(!pitchRecognitionController.gSharpButton.isDisabled());
+        verify(!pitchRecognitionController.aSharpButton.isDisabled());
+
+
+        click("#easyRadioButton");
+
+        verify(!pitchRecognitionController.cButton.isDisabled());
+        verify(!pitchRecognitionController.dButton.isDisabled());
+        verify(!pitchRecognitionController.eButton.isDisabled());
+        verify(!pitchRecognitionController.fButton.isDisabled());
+        verify(!pitchRecognitionController.gButton.isDisabled());
+        verify(!pitchRecognitionController.aButton.isDisabled());
+        verify(!pitchRecognitionController.bButton.isDisabled());
+
+        verify(pitchRecognitionController.cSharpButton.isDisabled());
+        verify(pitchRecognitionController.dSharpButton.isDisabled());
+        verify(pitchRecognitionController.fSharpButton.isDisabled());
+        verify(pitchRecognitionController.gSharpButton.isDisabled());
+        verify(pitchRecognitionController.aSharpButton.isDisabled());
     }
 
 
@@ -112,6 +181,127 @@ public class PitchRecognitionTests extends GuiTest{
         verifyThat(text, is("Correct!"));
 
         verifyThat(numberOfCorrectAnswersAfterClick, is(numberOfCorrectAnswers + 1));
+    }
+
+
+    @Test
+    public void clickingStopResetsScore(){
+        String startStopButtonText = ((Button) find("#lion-default")).getText();
+        verifyThat(startStopButtonText, is("Start"));
+        click("#lion-default");
+
+        Button correctButton = pitchRecognitionController.correctButton;
+        int numberOfCorrectAnswers = pitchRecognitionController.numberOfCorrectAnswers;
+        verifyThat(numberOfCorrectAnswers, is(0));
+
+        click(correctButton);
+
+        String text = ((Label) find("#correctIncorrectLabel")).getText();
+        verifyThat(text, is("Correct!"));
+        numberOfCorrectAnswers = pitchRecognitionController.numberOfCorrectAnswers;
+        verifyThat(numberOfCorrectAnswers, is(1));
+
+
+        startStopButtonText = ((Button) find("#lion-default")).getText();
+        verifyThat(startStopButtonText, is("Stop"));
+        click("#lion-default");
+        numberOfCorrectAnswers = pitchRecognitionController.numberOfCorrectAnswers;
+        verifyThat(numberOfCorrectAnswers, is(0));
+    }
+
+
+    @Test
+    public void clickingStopResetsQuestionNumber(){
+        String startStopButtonText = ((Button) find("#lion-default")).getText();
+        verifyThat(startStopButtonText, is("Start"));
+        click("#lion-default");
+
+        Button correctButton = pitchRecognitionController.correctButton;
+        int questionNumber = pitchRecognitionController.questionNumber;
+        verifyThat(questionNumber, is(1));
+
+        click(correctButton);
+
+        Button nextQuestionButton = pitchRecognitionController.nextQuestionButton;
+        click(nextQuestionButton);
+
+        questionNumber = pitchRecognitionController.questionNumber;
+        verifyThat(questionNumber, is(2));
+
+
+        startStopButtonText = ((Button) find("#lion-default")).getText();
+        verifyThat(startStopButtonText, is("Stop"));
+        click("#lion-default");
+        questionNumber = pitchRecognitionController.questionNumber;
+        verifyThat(questionNumber, is(1));
+    }
+
+
+    @Test
+    public void clickingNextButtonIncrementsQuestionNumber(){
+        buttons = new Button[]{pitchRecognitionController.cButton,
+                pitchRecognitionController.cSharpButton,
+                pitchRecognitionController.dButton,
+                pitchRecognitionController.dSharpButton,
+                pitchRecognitionController.eButton,
+                pitchRecognitionController.fButton,
+                pitchRecognitionController.fSharpButton,
+                pitchRecognitionController.gButton,
+                pitchRecognitionController.gSharpButton,
+                pitchRecognitionController.aButton,
+                pitchRecognitionController.aSharpButton,
+                pitchRecognitionController.bButton};
+
+        click("#hardRadioButton");
+        click("#lion-default");
+
+        Button nextQuestionButton = pitchRecognitionController.nextQuestionButton;
+
+        for(int i = 1; i < 10; i++){
+            int randomButton = rn.nextInt(12);
+            int questionNumber = pitchRecognitionController.questionNumber;
+            click(buttons[randomButton]);
+            click(nextQuestionButton);
+            int nextQuestionNumber = pitchRecognitionController.questionNumber;
+            verifyThat(nextQuestionNumber, is(questionNumber + 1));
+        }
+    }
+
+
+    @Test
+    public void nextQuestionButtonTextChangesToScoreOn10thQuestion(){
+        buttons = new Button[]{pitchRecognitionController.cButton,
+                pitchRecognitionController.cSharpButton,
+                pitchRecognitionController.dButton,
+                pitchRecognitionController.dSharpButton,
+                pitchRecognitionController.eButton,
+                pitchRecognitionController.fButton,
+                pitchRecognitionController.fSharpButton,
+                pitchRecognitionController.gButton,
+                pitchRecognitionController.gSharpButton,
+                pitchRecognitionController.aButton,
+                pitchRecognitionController.aSharpButton,
+                pitchRecognitionController.bButton};
+
+        click("#hardRadioButton");
+        click("#lion-default");
+
+        Button nextQuestionButton = pitchRecognitionController.nextQuestionButton;
+
+        for(int i = 0; i < 10; i++){
+            int randomButton = rn.nextInt(12);
+            click(buttons[randomButton]);
+
+            if(i == 9){
+                String nextQuestionButtonText = nextQuestionButton.getText();
+                verifyThat(nextQuestionButtonText, is("Score"));
+            } else {
+                String nextQuestionButtonText = nextQuestionButton.getText();
+                verifyThat(nextQuestionButtonText, is("Next Question"));
+            }
+
+            click(nextQuestionButton);
+        }
     }
 
 

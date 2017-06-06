@@ -126,7 +126,7 @@ public abstract class AbstractController {
     @FXML Label correctIncorrectLabel;
 
     @FXML Button startButton;
-    @FXML Button nextQuestionButton;
+    public @FXML Button nextQuestionButton;
 
     @FXML Pane scorePane;
 
@@ -139,7 +139,7 @@ public abstract class AbstractController {
     String strSecs;
     String strMins;
 
-    int questionNumber;
+    public int questionNumber;
     public int numberOfCorrectAnswers = 0;
 
     public String correctAnswer = "";
@@ -520,7 +520,7 @@ public abstract class AbstractController {
 
 
     void removeFifth(Note[] chord2){
-        chord2[3] = chord2[2];
+        chord2[3] = chord2[1];
     }
 
 
@@ -582,14 +582,15 @@ public abstract class AbstractController {
 
     @FXML
     void startButtonClicked() throws IOException, InvalidMidiDataException, MidiUnavailableException, LineUnavailableException, UnsupportedAudioFileException {
+        questionNumber = 1;
+        numberOfCorrectAnswers = 0;
+        questionLabel.setVisible(!startClicked);
+        timerLabel.setVisible(!startClicked);
+        radioButtonsGroup.setDisable(!startClicked);
+
         if(!startClicked) { //Start
             startClicked = true;
-            questionNumber = 1;
-            numberOfCorrectAnswers = 0;
             startTimer();
-            questionLabel.setVisible(true);
-            timerLabel.setVisible(true);
-            radioButtonsGroup.setDisable(true);
             questionLabel.setText("Question 1");
             startButton.setText("Stop");
             startButton.setStyle("-fx-background-color: rgba(0,0,0,0.08), linear-gradient(#af595f, #754e53), linear-gradient(#ffd5de 0%, #facdd0 10%, #f9cdd6 50%, #fc8f9b 51%, #ffddeb 100%)");
@@ -601,11 +602,7 @@ public abstract class AbstractController {
             }
             startButton.setStyle("-fx-background-color: rgba(0,0,0,0.08), linear-gradient(#5a61af, #51536d), linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%)");
             startClicked = false;
-            numberOfCorrectAnswers = 0;
             stopTimer();
-            questionLabel.setVisible(false);
-            timerLabel.setVisible(false);
-            radioButtonsGroup.setDisable(false);
             startButton.setText("Start");
             correctIncorrectLabel.setText("");
             resetButtonColours();
