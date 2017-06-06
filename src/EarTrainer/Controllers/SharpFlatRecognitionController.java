@@ -20,8 +20,8 @@ import jm.audio.Instrument;
 
 public class SharpFlatRecognitionController extends AbstractController {
 
-    @FXML private Button flatButton;
-    @FXML private Button sharpButton;
+    @FXML public Button flatButton;
+    @FXML public Button sharpButton;
 
     private final double ONE_CENT_RATIO = 1.000578;
     private final double FIVE_CENTS_RATIO = 1.002892;

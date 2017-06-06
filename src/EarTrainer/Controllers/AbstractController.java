@@ -213,7 +213,7 @@ public abstract class AbstractController {
     }
 
 
-    String getNote(Note n2) {
+    public String getNote(Note n2) {
         switch (n2.getPitch()) {
             case C3:
             case C4:

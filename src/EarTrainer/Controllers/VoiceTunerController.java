@@ -53,7 +53,7 @@ public class VoiceTunerController extends AbstractController implements PitchDet
     @FXML private Label noteLabelp3;
     @FXML private Label noteLabelp4;
 
-    @FXML private Button recordButton;
+    @FXML public Button recordButton;
 
     @FXML private Pane inputPane;
 
@@ -74,7 +74,7 @@ public class VoiceTunerController extends AbstractController implements PitchDet
     private Note[] melodyArray;
 
     private double QUARTER_NOTE_LENGTH_IN_SECONDS = 2.2291157245635986 - 1.0448979139328003;
-
+    public JPanel inputPanel;
 
 
     @Override
@@ -103,7 +103,7 @@ public class VoiceTunerController extends AbstractController implements PitchDet
 //        dropDownBox.getSelectionModel().selectFirst();
 
 
-        JPanel inputPanel = new InputPanel();
+        inputPanel = new InputPanel();
 
         SwingNode swingNode2 = new SwingNode();
         swingNode2.setContent(inputPanel);
@@ -284,21 +284,6 @@ public class VoiceTunerController extends AbstractController implements PitchDet
     }
 
 
-//    private String getMeanPitch(List pitches){
-//        float totalPitch = 0;
-//
-//        for (int i = 0; i < pitches.size(); i++) {
-//            totalPitch += (float) pitches.get(i);
-//        }
-//
-//        float avgPitch = totalPitch / pitches.size();
-//
-//        String note = getNote(calculateNoteFromPitch(avgPitch));
-//
-//        return note;
-//    }
-
-
     private String getModePitch(List pitches){
         Map<String, Integer> map = new HashMap<String, Integer>();
 
@@ -331,10 +316,9 @@ public class VoiceTunerController extends AbstractController implements PitchDet
         firstTimeStampCounter = 1;
 
         if(easyRadioButton.isSelected()) {
-//            String noteMean = getMeanPitch(pitches);
             String noteMode = getModePitch(pitches);
 
-            if (noteMode.equals(correctAnswer)) {
+            if(noteMode.equals(correctAnswer)) {
                 makeButtonGreen(recordButton);
                 numberOfCorrectAnswers++;
                 correctIncorrectLabel.setTextFill(Color.web("#3abf4c"));
@@ -361,16 +345,10 @@ public class VoiceTunerController extends AbstractController implements PitchDet
             String note1String = getNote(melodyArray[0]);
             String note2String = getNote(melodyArray[1]);
 
-//            String theirNote1Mean = getMeanPitch(note1Pitches);
             String theirNote1Mode = getModePitch(note1Pitches);
-
-//            String theirNote2Mean = getMeanPitch(note2Pitches);
             String theirNote2Mode = getModePitch(note2Pitches);
 
-//            boolean note1CorrectMean = theirNote1Mean.equals(note1String);
             boolean note1CorrectMode = theirNote1Mode.equals(note1String);
-
-//            boolean note2CorrectMean = theirNote2Mean.equals(note2String);
             boolean note2CorrectMode = theirNote2Mode.equals(note2String);
 
 
@@ -407,22 +385,12 @@ public class VoiceTunerController extends AbstractController implements PitchDet
             String note3String = getNote(melodyArray[2]);
 
 
-//            String theirNote1Mean = getMeanPitch(note1Pitches);
             String theirNote1Mode = getModePitch(note1Pitches);
-
-//            String theirNote2Mean = getMeanPitch(note2Pitches);
             String theirNote2Mode = getModePitch(note2Pitches);
-
-//            String theirNote3Mean = getMeanPitch(note3Pitches);
             String theirNote3Mode = getModePitch(note3Pitches);
 
-//            boolean note1CorrectMean = theirNote1Mean.equals(note1String);
             boolean note1CorrectMode = theirNote1Mode.equals(note1String);
-
-//            boolean note2CorrectMean = theirNote2Mean.equals(note2String);
             boolean note2CorrectMode = theirNote2Mode.equals(note2String);
-
-//            boolean note3CorrectMean = theirNote3Mean.equals(note3String);
             boolean note3CorrectMode = theirNote3Mode.equals(note3String);
 
 

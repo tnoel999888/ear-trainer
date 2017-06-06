@@ -40,17 +40,17 @@ import javax.swing.border.TitledBorder;
 
 public class InputPanel extends JPanel {
 
-    /**
-     *
-     */
     private static final long serialVersionUID = 1L;
 
     Mixer mixer = null;
+    public JPanel buttonPanel;
+
+
 
     public InputPanel(){
         super(new BorderLayout());
         this.setBorder(new TitledBorder("Choose a microphone input"));
-        JPanel buttonPanel = new JPanel(new GridLayout(0,1));
+        buttonPanel = new JPanel(new GridLayout(0,1));
         ButtonGroup group = new ButtonGroup();
         for(Mixer.Info info : Shared.getMixerInfo(false, true)){
             List<String> list = Arrays.asList(Shared.toLocalString(info).split(","));
