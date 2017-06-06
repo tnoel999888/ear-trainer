@@ -70,13 +70,13 @@ public class WrongNoteIdentificationController extends AbstractController{
 
     @FXML
     private void easyRadioButtonSelected(ActionEvent event) throws IOException {
-        difficultyDescriptionLabel.setText("Identify the note which is out of key and drag it into a position which is in key.");
+        difficultyDescriptionLabel.setText("Identify the note on the stave that does not correspond to the respective note that was played. Drag the note to match the note that was played. +/- 3 semitones.");
     }
 
 
     @FXML
     private void mediumRadioButtonSelected(ActionEvent event) throws IOException {
-        difficultyDescriptionLabel.setText("Identify the note on the stave that does not correspond to the respective note that was played. Drag the note to match the note that was played. +/- 3 semitones.");
+        difficultyDescriptionLabel.setText("Identify the note on the stave that does not correspond to the respective note that was played. Drag the note to match the note that was played. +/- 2 semitones.");
     }
 
 

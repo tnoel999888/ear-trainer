@@ -253,13 +253,8 @@ public class CadenceRecognitionController extends AbstractController{
 
 
         //Rearrange voices to minimise movement
-        System.out.println("2:");
         chord2Changed = placeCommonNotesInSameVoice(usedChord1, usedChord2);
-
-        System.out.println("3:");
         chord3Changed = placeCommonNotesInSameVoice(usedChord2, usedChord3);
-
-        System.out.println("4:");
         chord4Changed = placeCommonNotesInSameVoice(usedChord3, usedChord4);
 
 
@@ -398,13 +393,8 @@ public class CadenceRecognitionController extends AbstractController{
 
 
         //Rearrange voices to minimise movement
-        System.out.println("2:");
         chord2Changed = placeCommonNotesInSameVoice(usedChord1, usedChord2);
-
-        System.out.println("3:");
         chord3Changed = placeCommonNotesInSameVoice(usedChord2, usedChord3);
-
-        System.out.println("4:");
         chord4Changed = placeCommonNotesInSameVoice(usedChord3, usedChord4);
 
 
@@ -546,13 +536,8 @@ public class CadenceRecognitionController extends AbstractController{
 
 
         //Rearrange voices to minimise movement
-        System.out.println("1");
         placeCommonNotesInSameVoice(usedChord1, usedChord2);
-
-        System.out.println("2");
         placeCommonNotesInSameVoice(usedChord2, usedChord3);
-
-        System.out.println("3");
         placeCommonNotesInSameVoice(usedChord3, usedChord4);
 
 
@@ -689,13 +674,8 @@ public class CadenceRecognitionController extends AbstractController{
 
 
         //Rearrange voices to minimise movement
-        System.out.println("1");
         placeCommonNotesInSameVoice(usedChord1, usedChord2);
-
-        System.out.println("2");
         placeCommonNotesInSameVoice(usedChord2, usedChord3);
-
-        System.out.println("3");
         placeCommonNotesInSameVoice(usedChord3, usedChord4);
 
 

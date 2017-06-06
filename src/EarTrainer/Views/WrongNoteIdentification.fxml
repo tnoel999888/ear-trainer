@@ -129,7 +129,7 @@
                   <Insets />
                </VBox.margin>
             </VBox>
-            <Label fx:id="difficultyDescriptionLabel" text="Identify the note which is out of key and drag it into a position which is in key." VBox.vgrow="ALWAYS">
+            <Label fx:id="difficultyDescriptionLabel" text="Identify the note on the stave that does not correspond to the respective note that was played. Drag the note to match the note that was played. +/- 3 semitones." VBox.vgrow="ALWAYS">
                <padding>
                   <Insets bottom="10.0" top="5.0" />
                </padding></Label>

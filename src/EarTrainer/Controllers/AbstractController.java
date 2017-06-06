@@ -67,8 +67,6 @@ public abstract class AbstractController {
 
     int[] notes = {A3, AS3, B3, C4, CS4, D4, DS4, E4, F4, FS4, G4, GS4, A4, AS4, B4, C5, CS5, D5, DS5, E5, F5, FS5, G5, GS5, A5, AS5, B5, C6, CS6, D6, DS6, E6, F6, FS6, G6, GS6};
     int SIZE_OF_NOTES_ARRAY = notes.length;
-    int[] circleOfFifthsMajor = {C4, G4, D4, A4, E4, B4, FS4, DF4, AF4, EF4, BF4, F4};
-    int[] circleOfFifthsMinor = {A4, E4, B4, FS4, CS4, GS4, DS4, BF4, F4, C4, G4, D4};
 
     int[] minorScale = new int[22];
     int[] majorScale = new int[22];
@@ -120,7 +118,7 @@ public abstract class AbstractController {
     @FXML RadioButton mediumRadioButton;
     @FXML RadioButton hardRadioButton;
 
-    @FXML Button correctButton = new Button();
+    public @FXML Button correctButton;
 
     @FXML Label timerLabel;
     @FXML Label questionLabel;
@@ -142,9 +140,9 @@ public abstract class AbstractController {
     String strMins;
 
     int questionNumber;
-    int numberOfCorrectAnswers = 0;
+    public int numberOfCorrectAnswers = 0;
 
-    String correctAnswer = "unison";
+    public String correctAnswer = "";
     boolean questionAnswered;
     Timeline timeline;
     boolean startClicked = false;
@@ -469,7 +467,6 @@ public abstract class AbstractController {
 
                 if(pitch2 + 12 == pitch1 || pitch2 + 24 == pitch1 || pitch2 + 36 == pitch1
                         ||pitch2 - 12 == pitch1 || pitch2 - 24 == pitch1 || pitch2 - 36 == pitch1) {
-                    System.out.println("Here");
                     chord2[j].setPitch(chord2[i].getPitch());
                     chord2[i].setPitch(pitch1);
 
@@ -523,7 +520,6 @@ public abstract class AbstractController {
 
 
     void removeFifth(Note[] chord2){
-        System.out.println("removing fifth");
         chord2[3] = chord2[2];
     }
 
@@ -585,7 +581,7 @@ public abstract class AbstractController {
 
 
     @FXML
-    void startButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException, LineUnavailableException, UnsupportedAudioFileException {
+    void startButtonClicked() throws IOException, InvalidMidiDataException, MidiUnavailableException, LineUnavailableException, UnsupportedAudioFileException {
         if(!startClicked) { //Start
             startClicked = true;
             questionNumber = 1;

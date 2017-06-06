@@ -150,7 +150,7 @@ public class VoiceTunerController extends AbstractController implements PitchDet
 
     @Override
     @FXML
-    void startButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException {
+    void startButtonClicked() throws IOException, InvalidMidiDataException, MidiUnavailableException {
         if(!startClicked) {
             startClicked = true;
             questionNumber = 1;

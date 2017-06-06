@@ -24,6 +24,10 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
+
+import static jm.constants.Pitches.*;
+import static jm.constants.Pitches.D4;
+import static jm.constants.Pitches.G4;
 import static jm.constants.RhythmValues.*;
 
 
@@ -56,6 +60,9 @@ public class ModulationRecognitionController extends AbstractController{
     private Note[] usedChord7Copy = new Note[4];
     private Note[] usedChord8Copy = new Note[4];
     private Note[] usedChord9Copy = new Note[4];
+
+    private int[] circleOfFifthsMajor = {C4, G4, D4, A4, E4, B4, FS4, DF4, AF4, EF4, BF4, F4};
+    private int[] circleOfFifthsMinor = {A4, E4, B4, FS4, CS4, GS4, DS4, BF4, F4, C4, G4, D4};
 
     private boolean chord2Changed;
     private boolean chord3Changed;
@@ -271,7 +278,7 @@ public class ModulationRecognitionController extends AbstractController{
 
     @Override
     @FXML
-    void startButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException, LineUnavailableException, UnsupportedAudioFileException {
+    void startButtonClicked() throws IOException, InvalidMidiDataException, MidiUnavailableException, LineUnavailableException, UnsupportedAudioFileException {
         Button[] buttons = {similarKey0Button, similarKey1Button, similarKey2Button, similarKey3Button, similarKey4Button};
 
         if(!startClicked) {
@@ -487,22 +494,11 @@ public class ModulationRecognitionController extends AbstractController{
 
 
         //Rearrange voices to minimise movement
-        System.out.println("2:");
         chord2Changed = placeCommonNotesInSameVoice(usedChord1, usedChord2);
-
-        System.out.println("3:");
         chord3Changed = placeCommonNotesInSameVoice(usedChord2, usedChord3);
-
-        System.out.println("4:");
         chord4Changed = placeCommonNotesInSameVoice(usedChord3, usedChord4);
-
-        System.out.println("5:");
         chord5Changed = placeCommonNotesInSameVoice(usedChord4, usedChord5);
-
-        System.out.println("6:");
         chord6Changed = placeCommonNotesInSameVoice(usedChord5, usedChord6);
-
-        System.out.println("7:");
         chord7Changed = placeCommonNotesInSameVoice(usedChord6, usedChord7);
 
 
@@ -737,28 +733,13 @@ public class ModulationRecognitionController extends AbstractController{
 
 
         //Rearrange voices to minimise movement
-        System.out.println("2:");
         chord2Changed = placeCommonNotesInSameVoice(usedChord1, usedChord2);
-
-        System.out.println("3:");
         chord3Changed = placeCommonNotesInSameVoice(usedChord2, usedChord3);
-
-        System.out.println("4:");
         chord4Changed = placeCommonNotesInSameVoice(usedChord3, usedChord4);
-
-        System.out.println("5:");
         chord5Changed = placeCommonNotesInSameVoice(usedChord4, usedChord5);
-
-        System.out.println("6:");
         chord6Changed = placeCommonNotesInSameVoice(usedChord5, usedChord6);
-
-        System.out.println("7:");
         chord7Changed = placeCommonNotesInSameVoice(usedChord6, usedChord7);
-
-        System.out.println("8:");
         chord8Changed = placeCommonNotesInSameVoice(usedChord7, usedChord8);
-
-        System.out.println("9:");
         chord9Changed = placeCommonNotesInSameVoice(usedChord8, usedChord9);
 
 

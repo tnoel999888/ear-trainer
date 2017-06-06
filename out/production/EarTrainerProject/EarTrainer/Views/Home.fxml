@@ -28,7 +28,7 @@
             <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="ALWAYS" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" onAction="#PitchRecognitionButtonClicked" prefHeight="69.0" prefWidth="428.0" text="Pitch Recognition&#10;" textAlignment="CENTER">
+            <Button fx:id="pitchRecognitionButton" mnemonicParsing="false" onAction="#PitchRecognitionButtonClicked" prefHeight="69.0" prefWidth="428.0" text="Pitch Recognition&#10;" textAlignment="CENTER">
                <GridPane.margin>
                   <Insets right="10.0" />
                </GridPane.margin>

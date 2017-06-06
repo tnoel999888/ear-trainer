@@ -15,20 +15,21 @@ import static jm.constants.Pitches.*;
 import static jm.constants.RhythmValues.*;
 
 
+
 public class PitchRecognitionController extends AbstractController{
 
-    @FXML private Button cButton;
-    @FXML private Button cSharpButton;
-    @FXML private Button dButton;
-    @FXML private Button dSharpButton;
-    @FXML private Button eButton;
-    @FXML private Button fButton;
-    @FXML private Button fSharpButton;
-    @FXML private Button gButton;
-    @FXML private Button gSharpButton;
-    @FXML private Button aButton;
-    @FXML private Button aSharpButton;
-    @FXML private Button bButton;
+    @FXML public Button cButton;
+    @FXML public Button cSharpButton;
+    @FXML public Button dButton;
+    @FXML public Button dSharpButton;
+    @FXML public Button eButton;
+    @FXML public Button fButton;
+    @FXML public Button fSharpButton;
+    @FXML public Button gButton;
+    @FXML public Button gSharpButton;
+    @FXML public Button aButton;
+    @FXML public Button aSharpButton;
+    @FXML public Button bButton;
 
 
 
@@ -85,7 +86,7 @@ public class PitchRecognitionController extends AbstractController{
 
 
     @FXML
-    private void cButtonClicked(ActionEvent event) throws IOException {
+    void cButtonClicked() throws IOException {
         if(!questionAnswered && startClicked) {
             answerButtonClicked();
             checkAnswer("C", cButton);
@@ -192,7 +193,7 @@ public class PitchRecognitionController extends AbstractController{
     }
 
 
-    private Button getCorrectButton(String correctAnswer) {
+    Button getCorrectButton(String correctAnswer) {
         switch(correctAnswer){
             case "C":
                 return cButton;
