@@ -7,36 +7,70 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d85771c-314b-47ed-90aa-8d9f517ced78" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/AbstractController$1.class" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/AbstractController$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/AbstractController.class" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/AbstractController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/HomeController.class" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/HomeController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/Main.class" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/ModulationRecognitionController.class" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/ModulationRecognitionController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/PitchRecognitionController.class" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/PitchRecognitionController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/VoiceTunerController.class" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/VoiceTunerController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/WrongNoteIdentificationController.class" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/WrongNoteIdentificationController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Music/Cadence.mid" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Music/Cadence.mid" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Music/Modulation.mid" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Music/Modulation.mid" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Music/Pitch.mid" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Music/Pitch.mid" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Music/Cadence.mid" afterPath="$PROJECT_DIR$/src/EarTrainer/Music/Cadence.mid" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Music/Modulation.mid" afterPath="$PROJECT_DIR$/src/EarTrainer/Music/Modulation.mid" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Music/Pitch.mid" afterPath="$PROJECT_DIR$/src/EarTrainer/Music/Pitch.mid" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EarTrainerProject.iml" afterPath="$PROJECT_DIR$/EarTrainerProject.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Views/Home.fxml" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Views/Home.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Views/WrongNoteIdentification.fxml" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Views/WrongNoteIdentification.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/AbstractController.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/AbstractController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/CadenceRecognitionController.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/CadenceRecognitionController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/HomeController.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/HomeController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/Main.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/ModulationRecognitionController.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/ModulationRecognitionController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/PitchRecognitionController.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/PitchRecognitionController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/VoiceTunerController.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/VoiceTunerController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/WrongNoteIdentificationController.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/WrongNoteIdentificationController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Views/Home.fxml" afterPath="$PROJECT_DIR$/src/EarTrainer/Views/Home.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Views/WrongNoteIdentification.fxml" afterPath="$PROJECT_DIR$/src/EarTrainer/Views/WrongNoteIdentification.fxml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496756083219.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496756683884.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496756828977.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496756929946.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496757047827.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496757328122.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496757329121.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496757329938.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496757330807.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496757331547.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496757332197.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496757332809.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496757333288.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496757333883.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496757334379.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496757334865.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496757335324.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496757335804.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496757336329.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496757336775.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496757337175.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496757337749.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496757356347.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496757357098.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496757357805.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496757359230.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496757359798.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496757360396.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496757361139.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496757361849.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496757362657.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496757363234.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496757363861.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496757364290.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496757364834.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496757365380.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496757365957.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496757432661.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496758451738.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496759166640.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496759181332.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496759192110.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496759232174.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496759277827.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496759350691.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496759383131.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496759445119.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496759481290.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496759667521.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496760281082.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496760302730.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496760465385.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496761712082.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496761737397.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496761958385.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496762193281.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496762305251.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496762406543.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496762652502.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496762676167.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496762694527.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496763005812.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496763055948.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496763430663.png" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/IP/target/" />
@@ -1094,7 +1128,7 @@
       <workItem from="1496573920438" duration="12927000" />
       <workItem from="1496659295323" duration="6962000" />
       <workItem from="1496685372791" duration="13061000" />
-      <workItem from="1496754225140" duration="9042000" />
+      <workItem from="1496754225140" duration="9115000" />
     </task>
     <servers />
   </component>
@@ -1131,11 +1165,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="180921000" />
+    <option name="totallyTimeSpent" value="180994000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="131" y="1080" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1152,7 +1185,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901296" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26904762" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26904762" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15885417" sideWeight="0.49565217" order="1" side_tool="false" content_ui="tabs" />
