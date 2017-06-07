@@ -242,7 +242,7 @@ public class PitchRecognitionTests extends GuiTest{
 
 
         for(int i = 1; i < 10; i++){
-            int randomButton = rn.nextInt(12);
+            int randomButton = rn.nextInt(buttons.length);
             int questionNumber = pitchRecognitionController.questionNumber;
             click(buttons[randomButton]);
             click(nextQuestionButton);
@@ -272,7 +272,7 @@ public class PitchRecognitionTests extends GuiTest{
 
 
         for(int i = 0; i < 10; i++){
-            int randomButton = rn.nextInt(12);
+            int randomButton = rn.nextInt(buttons.length);
             click(buttons[randomButton]);
 
             if(i == 9){

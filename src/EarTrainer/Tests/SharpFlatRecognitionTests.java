@@ -161,7 +161,7 @@ public class SharpFlatRecognitionTests extends GuiTest{
         click(startButton);
 
         for(int i = 1; i < 10; i++){
-            int randomButton = rn.nextInt(2);
+            int randomButton = rn.nextInt(buttons.length);
             int questionNumber = sharpFlatRecognitionController.questionNumber;
             click(buttons[randomButton]);
             click(nextQuestionButton);
@@ -176,7 +176,7 @@ public class SharpFlatRecognitionTests extends GuiTest{
         click(startButton);
 
         for(int i = 0; i < 10; i++){
-            int randomButton = rn.nextInt(2);
+            int randomButton = rn.nextInt(buttons.length);
             click(buttons[randomButton]);
 
             if(i == 9){

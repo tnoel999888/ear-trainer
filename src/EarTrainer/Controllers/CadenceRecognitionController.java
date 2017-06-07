@@ -17,10 +17,10 @@ import java.io.*;
 
 public class CadenceRecognitionController extends AbstractController{
 
-    @FXML private Button perfectButton;
-    @FXML private Button interruptiveButton;
-    @FXML private Button imperfectButton;
-    @FXML private Button plagalButton;
+    @FXML public Button perfectButton;
+    @FXML public Button interruptiveButton;
+    @FXML public Button imperfectButton;
+    @FXML public Button plagalButton;
 
     @FXML private Pane scorePaneLeft;
     @FXML private Pane scorePaneRight;

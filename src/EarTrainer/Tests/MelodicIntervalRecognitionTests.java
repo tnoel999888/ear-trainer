@@ -249,7 +249,7 @@ public class MelodicIntervalRecognitionTests extends GuiTest{
 
 
         for(int i = 1; i < 10; i++){
-            int randomButton = rn.nextInt(13);
+            int randomButton = rn.nextInt(buttons.length);
             int questionNumber = melodicIntervalRecognitionController.questionNumber;
             click(buttons[randomButton]);
             click(nextQuestionButton);
@@ -281,7 +281,7 @@ public class MelodicIntervalRecognitionTests extends GuiTest{
 
 
         for(int i = 0; i < 10; i++){
-            int randomButton = rn.nextInt(12);
+            int randomButton = rn.nextInt(buttons.length);
             click(buttons[randomButton]);
 
             if(i == 9){
