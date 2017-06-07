@@ -298,7 +298,7 @@ public class MelodicIntervalRecognitionTests extends GuiTest{
 
 
     @Test
-    public void clickingCorrectButtonOutputsCorrectAndIncrementsScore(){
+    public void answeringCorrectlyOutputsCorrectAndIncrementsScore(){
         int difficultyMode = rn.nextInt(3);
 
         if(difficultyMode == 0){
@@ -326,7 +326,7 @@ public class MelodicIntervalRecognitionTests extends GuiTest{
 
 
     @Test
-    public void clickingIncorrectButtonOutputsIncorrectAndDoesNotIncrementScore(){
+    public void answeringIncorrectlyOutputsIncorrectAndDoesNotIncrementScore(){
         int difficultyMode = rn.nextInt(3);
 
         if(difficultyMode == 0){

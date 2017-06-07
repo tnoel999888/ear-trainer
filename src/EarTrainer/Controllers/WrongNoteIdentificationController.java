@@ -24,17 +24,17 @@ import javafx.scene.paint.Color;
 
 public class WrongNoteIdentificationController extends AbstractController{
 
-    @FXML private Button submitButton;
+    @FXML public Button submitButton;
     @FXML private Button playChangedButton;
 
     @FXML private Label correctIncorrectText;
 
     private int indexOfChangedNote = 0;
-    private List theirMelodyAnswer;
+    public List theirMelodyAnswer;
 
     private Phrase originalPhr2 = new Phrase();
     private Note[] melodyArray;
-    private Note[] melodyArray2;
+    public Note[] melodyArray2;
 
     private String filePath = "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/WrongNote.mid";
 
@@ -101,52 +101,36 @@ public class WrongNoteIdentificationController extends AbstractController{
     void nextQuestionButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException {
         sequencer.stop();
         sequencer.close();
+        correctIncorrectText.setText("");
+
 
         if (questionNumber != TOTAL_QUESTIONS) {
             questionNumber++;
             questionLabel.setText("Question " + Integer.toString(questionNumber));
-
             questionAnswered = false;
             nextQuestionButton.setDisable(true);
             resetButtonColours();
-            correctIncorrectText.setText("");
-//            setScore(phrase);
-
             jScore.removeMouseListener(ml);
             generateQuestion();
         } else {
+            startButton.setStyle("-fx-background-color: rgba(0,0,0,0.08), linear-gradient(#5a61af, #51536d), linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%)");
+            startButton.setText("Start");
             nextQuestionButton.setText("Next Question");
             questionLabel.setVisible(false);
             nextQuestionButton.setDisable(true);
             startClicked = false;
             stopTimer();
             loadScore();
-
             questionAnswered = false;
             nextQuestionButton.setDisable(true);
             resetButtonColours();
-            correctIncorrectText.setText("");
-//            setScore(phrase);
         }
-
-
     }
 
 
     protected void resetButtonColours() {
         submitButton.setStyle("-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;");
     }
-
-
-//    private boolean contains(int[] scale, int note){
-//        for(int n : scale){
-//            if(n == note){
-//                return true;
-//            }
-//        }
-//
-//        return false;
-//    }
 
 
     private void checkAnswer(List theirMelodyAnswer, Note[] correctMelody) {
@@ -165,7 +149,6 @@ public class WrongNoteIdentificationController extends AbstractController{
                 if (((Note)theirMelodyAnswer.get(i)).getPitch() != correctMelody[i].getPitch()) {
                     makeButtonRed(submitButton);
                     correctIncorrectText.setTextFill(Color.web("#da4343"));
-//                        correctIncorrectText.setText("Incorrect. You moved the wrong note.");
                     correctIncorrectText.setText("Incorrect.");
                     break;
                 }
@@ -178,13 +161,11 @@ public class WrongNoteIdentificationController extends AbstractController{
                 } else {
                     makeButtonRed(submitButton);
                     correctIncorrectText.setTextFill(Color.web("#da4343"));
-//                        correctIncorrectText.setText("Incorrect. You moved the correct note to an incorrect place.");
                     correctIncorrectText.setText("Incorrect.");
                     break;
                 }
             }
         }
-//        }
 
         theirMelodyAnswer.clear();
 
