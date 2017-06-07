@@ -176,34 +176,6 @@ public class HarmonicIntervalRecognitionTests extends GuiTest{
 
 
     @Test
-    public void clickingCorrectButtonOutputsCorrectAndIncrementsScore(){
-        int difficultyMode = rn.nextInt(3);
-
-        if(difficultyMode == 0){
-            click("#easyRadioButton");
-        } else if(difficultyMode == 1){
-            click("#mediumRadioButton");
-        } else {
-            click("#hardRadioButton");
-        }
-
-        click(startButton);
-
-        Button correctButton = harmonicIntervalRecognitionController.correctButton;
-        int numberOfCorrectAnswers = harmonicIntervalRecognitionController.numberOfCorrectAnswers;
-
-        click(correctButton);
-
-        int numberOfCorrectAnswersAfterClick = harmonicIntervalRecognitionController.numberOfCorrectAnswers;
-
-        String text = ((Label) find("#correctIncorrectLabel")).getText();
-        verifyThat(text, is("Correct!"));
-
-        verifyThat(numberOfCorrectAnswersAfterClick, is(numberOfCorrectAnswers + 1));
-    }
-
-
-    @Test
     public void clickingStopResetsScore(){
         String startStopButtonText = startButton.getText();
         verifyThat(startStopButtonText, is("Start"));
@@ -287,7 +259,7 @@ public class HarmonicIntervalRecognitionTests extends GuiTest{
     }
 
 
-   @Test
+    @Test
     public void nextQuestionButtonTextChangesToScoreOn10thQuestion(){
         buttons = new Button[]{harmonicIntervalRecognitionController.unisonButton,
                                 harmonicIntervalRecognitionController.minorSecondButton,
@@ -326,88 +298,71 @@ public class HarmonicIntervalRecognitionTests extends GuiTest{
 
 
     @Test
-    public void clickingIncorrectButtonEasyModeOutputsIncorrectAndDoesNotIncrementScore(){
-        buttons = new Button[]{harmonicIntervalRecognitionController.unisonButton,
-                                harmonicIntervalRecognitionController.minorThirdButton,
-                                harmonicIntervalRecognitionController.majorThirdButton,
-                                harmonicIntervalRecognitionController.perfectFifthButton,
-                                harmonicIntervalRecognitionController.octaveButton};
+    public void clickingCorrectButtonOutputsCorrectAndIncrementsScore(){
+        int difficultyMode = rn.nextInt(3);
 
+        if(difficultyMode == 0){
+            click("#easyRadioButton");
+        } else if(difficultyMode == 1){
+            click("#mediumRadioButton");
+        } else {
+            click("#hardRadioButton");
+        }
 
         click(startButton);
 
         Button correctButton = harmonicIntervalRecognitionController.correctButton;
         int numberOfCorrectAnswers = harmonicIntervalRecognitionController.numberOfCorrectAnswers;
 
-        int i = rn.nextInt(buttons.length);
-
-        while(buttons[i] == correctButton){
-            i = rn.nextInt(buttons.length);
-        }
-
-        click(buttons[i]);
+        click(correctButton);
 
         int numberOfCorrectAnswersAfterClick = harmonicIntervalRecognitionController.numberOfCorrectAnswers;
 
         String text = ((Label) find("#correctIncorrectLabel")).getText();
-        verifyThat(text, is("Incorrect."));
+        verifyThat(text, is("Correct!"));
 
-        verifyThat(numberOfCorrectAnswersAfterClick, is(numberOfCorrectAnswers));
+        verifyThat(numberOfCorrectAnswersAfterClick, is(numberOfCorrectAnswers + 1));
     }
 
 
     @Test
-    public void clickingIncorrectButtonMediumModeOutputsIncorrectAndDoesNotIncrementScore(){
-        buttons = new Button[]{harmonicIntervalRecognitionController.unisonButton,
-                harmonicIntervalRecognitionController.minorSecondButton,
-                harmonicIntervalRecognitionController.majorSecondButton,
-                harmonicIntervalRecognitionController.minorThirdButton,
-                harmonicIntervalRecognitionController.majorThirdButton,
-                harmonicIntervalRecognitionController.perfectFifthButton,
-                harmonicIntervalRecognitionController.octaveButton};
+    public void clickingIncorrectButtonOutputsIncorrectAndDoesNotIncrementScore(){
+        int difficultyMode = rn.nextInt(3);
 
-        click("#mediumRadioButton");
-        click(startButton);
-
-        Button correctButton = harmonicIntervalRecognitionController.correctButton;
-        int numberOfCorrectAnswers = harmonicIntervalRecognitionController.numberOfCorrectAnswers;
-
-        int i = rn.nextInt(buttons.length);
-
-        while(buttons[i] == correctButton){
-            i = rn.nextInt(buttons.length);
+        if(difficultyMode == 0){
+            click("#easyRadioButton");
+            buttons = new Button[]{harmonicIntervalRecognitionController.unisonButton,
+                    harmonicIntervalRecognitionController.minorThirdButton,
+                    harmonicIntervalRecognitionController.majorThirdButton,
+                    harmonicIntervalRecognitionController.perfectFifthButton,
+                    harmonicIntervalRecognitionController.octaveButton};
+        } else if(difficultyMode == 1){
+            click("#mediumRadioButton");
+            buttons = new Button[]{harmonicIntervalRecognitionController.unisonButton,
+                    harmonicIntervalRecognitionController.minorSecondButton,
+                    harmonicIntervalRecognitionController.majorSecondButton,
+                    harmonicIntervalRecognitionController.minorThirdButton,
+                    harmonicIntervalRecognitionController.majorThirdButton,
+                    harmonicIntervalRecognitionController.perfectFifthButton,
+                    harmonicIntervalRecognitionController.octaveButton};
+        } else {
+            click("#hardRadioButton");
+            buttons = new Button[]{harmonicIntervalRecognitionController.unisonButton,
+                    harmonicIntervalRecognitionController.minorSecondButton,
+                    harmonicIntervalRecognitionController.majorSecondButton,
+                    harmonicIntervalRecognitionController.minorThirdButton,
+                    harmonicIntervalRecognitionController.majorThirdButton,
+                    harmonicIntervalRecognitionController.perfectFourthButton,
+                    harmonicIntervalRecognitionController.tritoneButton,
+                    harmonicIntervalRecognitionController.perfectFifthButton,
+                    harmonicIntervalRecognitionController.minorSixthButton,
+                    harmonicIntervalRecognitionController.majorSixthButton,
+                    harmonicIntervalRecognitionController.minorSeventhButton,
+                    harmonicIntervalRecognitionController.majorSeventhButton,
+                    harmonicIntervalRecognitionController.octaveButton};
         }
 
-        click(buttons[i]);
 
-        int numberOfCorrectAnswersAfterClick = harmonicIntervalRecognitionController.numberOfCorrectAnswers;
-
-        String text = ((Label) find("#correctIncorrectLabel")).getText();
-        verifyThat(text, is("Incorrect."));
-
-        verifyThat(numberOfCorrectAnswersAfterClick, is(numberOfCorrectAnswers));
-
-    }
-
-
-    @Test
-    public void clickingIncorrectButtonHardModeOutputsIncorrectAndDoesNotIncrementScore(){
-        buttons = new Button[]{harmonicIntervalRecognitionController.unisonButton,
-                                harmonicIntervalRecognitionController.minorSecondButton,
-                                harmonicIntervalRecognitionController.majorSecondButton,
-                                harmonicIntervalRecognitionController.minorThirdButton,
-                                harmonicIntervalRecognitionController.majorThirdButton,
-                                harmonicIntervalRecognitionController.perfectFourthButton,
-                                harmonicIntervalRecognitionController.tritoneButton,
-                                harmonicIntervalRecognitionController.perfectFifthButton,
-                                harmonicIntervalRecognitionController.minorSixthButton,
-                                harmonicIntervalRecognitionController.majorSixthButton,
-                                harmonicIntervalRecognitionController.minorSeventhButton,
-                                harmonicIntervalRecognitionController.majorSeventhButton,
-                                harmonicIntervalRecognitionController.octaveButton};
-
-
-        click("#hardRadioButton");
         click(startButton);
 
         Button correctButton = harmonicIntervalRecognitionController.correctButton;

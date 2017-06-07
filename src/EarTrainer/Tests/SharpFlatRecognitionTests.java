@@ -14,7 +14,6 @@ import org.junit.Test;
 import org.loadui.testfx.GuiTest;
 import java.io.IOException;
 import java.util.Random;
-import static com.google.common.base.Verify.verify;
 import static org.hamcrest.Matchers.not;
 import static org.hamcrest.core.Is.is;
 import static org.loadui.testfx.Assertions.verifyThat;
@@ -106,34 +105,6 @@ public class SharpFlatRecognitionTests extends GuiTest{
 
 
     @Test
-    public void clickingCorrectButtonOutputsCorrectAndIncrementsScore(){
-        int difficultyMode = rn.nextInt(3);
-
-        if(difficultyMode == 0){
-            click("#easyRadioButton");
-        } else if(difficultyMode == 1){
-            click("#mediumRadioButton");
-        } else {
-            click("#hardRadioButton");
-        }
-
-        click(startButton);
-
-        Button correctButton = sharpFlatRecognitionController.correctButton;
-        int numberOfCorrectAnswers = sharpFlatRecognitionController.numberOfCorrectAnswers;
-
-        click(correctButton);
-
-        int numberOfCorrectAnswersAfterClick = sharpFlatRecognitionController.numberOfCorrectAnswers;
-
-        String text = ((Label) find("#correctIncorrectLabel")).getText();
-        verifyThat(text, is("Correct!"));
-
-        verifyThat(numberOfCorrectAnswersAfterClick, is(numberOfCorrectAnswers + 1));
-    }
-
-
-    @Test
     public void clickingStopResetsScore(){
         String startStopButtonText = startButton.getText();
         verifyThat(startStopButtonText, is("Start"));
@@ -200,7 +171,7 @@ public class SharpFlatRecognitionTests extends GuiTest{
     }
 
 
-   @Test
+    @Test
     public void nextQuestionButtonTextChangesToScoreOn10thQuestion(){
         click(startButton);
 
@@ -222,58 +193,35 @@ public class SharpFlatRecognitionTests extends GuiTest{
 
 
     @Test
-    public void clickingIncorrectButtonEasyModeOutputsIncorrectAndDoesNotIncrementScore(){
+    public void clickingCorrectButtonOutputsCorrectAndIncrementsScore(){
+        int difficultyMode = rn.nextInt(3);
+
+        if(difficultyMode == 0){
+            click("#easyRadioButton");
+        } else if(difficultyMode == 1){
+            click("#mediumRadioButton");
+        } else {
+            click("#hardRadioButton");
+        }
+
         click(startButton);
 
         Button correctButton = sharpFlatRecognitionController.correctButton;
         int numberOfCorrectAnswers = sharpFlatRecognitionController.numberOfCorrectAnswers;
 
-        int i = rn.nextInt(buttons.length);
-
-        while(buttons[i] == correctButton){
-            i = rn.nextInt(buttons.length);
-        }
-
-        click(buttons[i]);
+        click(correctButton);
 
         int numberOfCorrectAnswersAfterClick = sharpFlatRecognitionController.numberOfCorrectAnswers;
 
         String text = ((Label) find("#correctIncorrectLabel")).getText();
-        verifyThat(text, is("Incorrect."));
+        verifyThat(text, is("Correct!"));
 
-        verifyThat(numberOfCorrectAnswersAfterClick, is(numberOfCorrectAnswers));
+        verifyThat(numberOfCorrectAnswersAfterClick, is(numberOfCorrectAnswers + 1));
     }
 
 
     @Test
-    public void clickingIncorrectButtonMediumModeOutputsIncorrectAndDoesNotIncrementScore(){
-        click("#mediumRadioButton");
-        click(startButton);
-
-        Button correctButton = sharpFlatRecognitionController.correctButton;
-        int numberOfCorrectAnswers = sharpFlatRecognitionController.numberOfCorrectAnswers;
-
-        int i = rn.nextInt(buttons.length);
-
-        while(buttons[i] == correctButton){
-            i = rn.nextInt(buttons.length);
-        }
-
-        click(buttons[i]);
-
-        int numberOfCorrectAnswersAfterClick = sharpFlatRecognitionController.numberOfCorrectAnswers;
-
-        String text = ((Label) find("#correctIncorrectLabel")).getText();
-        verifyThat(text, is("Incorrect."));
-
-        verifyThat(numberOfCorrectAnswersAfterClick, is(numberOfCorrectAnswers));
-
-    }
-
-
-    @Test
-    public void clickingIncorrectButtonHardModeOutputsIncorrectAndDoesNotIncrementScore(){
-        click("#hardRadioButton");
+    public void clickingIncorrectButtonOutputsIncorrectAndDoesNotIncrementScore(){
         click(startButton);
 
         Button correctButton = sharpFlatRecognitionController.correctButton;

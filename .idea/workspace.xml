@@ -7,21 +7,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d85771c-314b-47ed-90aa-8d9f517ced78" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496782454566.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496783353307.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496784915885.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/AbstractController.class" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/AbstractController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/InputPanel.class" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/InputPanel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/VoiceTunerController$2.class" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/VoiceTunerController$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/VoiceTunerController$3.class" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/VoiceTunerController$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/VoiceTunerController.class" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/VoiceTunerController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Music/HarmonicInterval.mid" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Music/HarmonicInterval.mid" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496787216714.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496787218675.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496787220429.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496787221477.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496787222838.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496787223631.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496787226916.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496787228247.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496787229934.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496787249202.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496787302045.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496787360704.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496789443944.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496789445988.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496789447131.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496789448193.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496789449446.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496789450158.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496789452735.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496789454055.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenshot1496789455693.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Music/Pitch.mid" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Music/Pitch.mid" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Music/SharpFlat.au" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Music/SharpFlat.au" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Tests/PitchRecognitionTests.class" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Tests/PitchRecognitionTests.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Music/Pitch.mid" afterPath="$PROJECT_DIR$/src/EarTrainer/Music/Pitch.mid" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Music/SharpFlat.au" afterPath="$PROJECT_DIR$/src/EarTrainer/Music/SharpFlat.au" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/AbstractController.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/AbstractController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/InputPanel.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/InputPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/SharpFlatRecognitionController.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/SharpFlatRecognitionController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/VoiceTunerController.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/VoiceTunerController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Tests/HarmonicIntervalRecognitionTests.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Tests/HarmonicIntervalRecognitionTests.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Tests/MelodicIntervalRecognitionTests.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Tests/MelodicIntervalRecognitionTests.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Tests/PitchRecognitionTests.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Tests/PitchRecognitionTests.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Tests/SharpFlatRecognitionTests.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Tests/SharpFlatRecognitionTests.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/IP/target/" />
@@ -47,22 +63,20 @@
       <file leaf-file-name="PitchRecognitionTests.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EarTrainer/Tests/PitchRecognitionTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="224" column="0" lean-forward="true" selection-start-line="224" selection-start-column="0" selection-end-line="224" selection-end-column="0" />
+            <state relative-caret-position="846">
+              <caret line="319" column="81" lean-forward="false" selection-start-line="319" selection-start-column="81" selection-end-line="319" selection-end-column="81" />
               <folding>
                 <element signature="method#getRootNode#0;class#PitchRecognitionTests#0" expanded="false" />
                 <element signature="method#changingDifficultyDisablesEnablesRelevantButtons#0;class#PitchRecognitionTests#0" expanded="false" />
                 <element signature="method#difficultyDescriptionsUpdate#0;class#PitchRecognitionTests#0" expanded="false" />
                 <element signature="method#startButtonTogglesToStopAndBack#0;class#PitchRecognitionTests#0" expanded="false" />
                 <element signature="method#clickingStartSetsCorrectAnswer#0;class#PitchRecognitionTests#0" expanded="false" />
-                <element signature="method#clickingCorrectButtonOutputsCorrectAndIncrementsScore#0;class#PitchRecognitionTests#0" expanded="false" />
                 <element signature="method#clickingStopResetsScore#0;class#PitchRecognitionTests#0" expanded="false" />
                 <element signature="method#clickingStopResetsQuestionNumber#0;class#PitchRecognitionTests#0" expanded="false" />
                 <element signature="method#clickingNextButtonIncrementsQuestionNumber#0;class#PitchRecognitionTests#0" expanded="false" />
                 <element signature="method#nextQuestionButtonTextChangesToScoreOn10thQuestion#0;class#PitchRecognitionTests#0" expanded="false" />
-                <element signature="method#clickingIncorrectButtonEasyModeOutputsIncorrectAndDoesNotIncrementScore#0;class#PitchRecognitionTests#0" expanded="false" />
-                <element signature="method#clickingIncorrectButtonMediumModeOutputsIncorrectAndDoesNotIncrementScore#0;class#PitchRecognitionTests#0" expanded="false" />
-                <element signature="method#clickingIncorrectButtonHardModeOutputsIncorrectAndDoesNotIncrementScore#0;class#PitchRecognitionTests#0" expanded="false" />
+                <element signature="method#clickingCorrectButtonOutputsCorrectAndIncrementsScore#0;class#PitchRecognitionTests#0" expanded="false" />
+                <element signature="method#clickingIncorrectButtonOutputsIncorrectAndDoesNotIncrementScore#0;class#PitchRecognitionTests#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -71,22 +85,20 @@
       <file leaf-file-name="MelodicIntervalRecognitionTests.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EarTrainer/Tests/MelodicIntervalRecognitionTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="150" column="49" lean-forward="false" selection-start-line="150" selection-start-column="49" selection-end-line="150" selection-end-column="49" />
+            <state relative-caret-position="846">
+              <caret line="328" column="81" lean-forward="false" selection-start-line="328" selection-start-column="81" selection-end-line="328" selection-end-column="81" />
               <folding>
                 <element signature="method#getRootNode#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
                 <element signature="method#changingDifficultyDisablesEnablesRelevantButtons#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
                 <element signature="method#difficultyDescriptionsUpdate#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
                 <element signature="method#startButtonTogglesToStopAndBack#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
                 <element signature="method#clickingStartSetsCorrectAnswer#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
-                <element signature="method#clickingCorrectButtonOutputsCorrectAndIncrementsScore#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
                 <element signature="method#clickingStopResetsScore#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
                 <element signature="method#clickingStopResetsQuestionNumber#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
                 <element signature="method#clickingNextButtonIncrementsQuestionNumber#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
                 <element signature="method#nextQuestionButtonTextChangesToScoreOn10thQuestion#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
-                <element signature="method#clickingIncorrectButtonEasyModeOutputsIncorrectAndDoesNotIncrementScore#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
-                <element signature="method#clickingIncorrectButtonMediumModeOutputsIncorrectAndDoesNotIncrementScore#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
-                <element signature="method#clickingIncorrectButtonHardModeOutputsIncorrectAndDoesNotIncrementScore#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
+                <element signature="method#clickingCorrectButtonOutputsCorrectAndIncrementsScore#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
+                <element signature="method#clickingIncorrectButtonOutputsIncorrectAndDoesNotIncrementScore#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -95,8 +107,8 @@
       <file leaf-file-name="HarmonicIntervalRecognitionTests.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EarTrainer/Tests/HarmonicIntervalRecognitionTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
-              <caret line="198" column="0" lean-forward="false" selection-start-line="198" selection-start-column="0" selection-end-line="199" selection-end-column="41" />
+            <state relative-caret-position="846">
+              <caret line="328" column="81" lean-forward="false" selection-start-line="328" selection-start-column="81" selection-end-line="328" selection-end-column="81" />
               <folding>
                 <element signature="method#getRootNode#0;class#HarmonicIntervalRecognitionTests#0" expanded="false" />
                 <element signature="method#changingDifficultyDisablesEnablesRelevantButtons#0;class#HarmonicIntervalRecognitionTests#0" expanded="false" />
@@ -107,9 +119,8 @@
                 <element signature="method#clickingStopResetsQuestionNumber#0;class#HarmonicIntervalRecognitionTests#0" expanded="false" />
                 <element signature="method#clickingNextButtonIncrementsQuestionNumber#0;class#HarmonicIntervalRecognitionTests#0" expanded="false" />
                 <element signature="method#nextQuestionButtonTextChangesToScoreOn10thQuestion#0;class#HarmonicIntervalRecognitionTests#0" expanded="false" />
-                <element signature="method#clickingIncorrectButtonEasyModeOutputsIncorrectAndDoesNotIncrementScore#0;class#HarmonicIntervalRecognitionTests#0" expanded="false" />
-                <element signature="method#clickingIncorrectButtonMediumModeOutputsIncorrectAndDoesNotIncrementScore#0;class#HarmonicIntervalRecognitionTests#0" expanded="false" />
-                <element signature="method#clickingIncorrectButtonHardModeOutputsIncorrectAndDoesNotIncrementScore#0;class#HarmonicIntervalRecognitionTests#0" expanded="false" />
+                <element signature="method#clickingCorrectButtonOutputsCorrectAndIncrementsScore#0;class#HarmonicIntervalRecognitionTests#0" expanded="false" />
+                <element signature="method#clickingIncorrectButtonOutputsIncorrectAndDoesNotIncrementScore#0;class#HarmonicIntervalRecognitionTests#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -119,7 +130,7 @@
         <entry file="file://$PROJECT_DIR$/src/EarTrainer/Tests/VoiceTunerTests.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="495">
-              <caret line="119" column="5" lean-forward="true" selection-start-line="119" selection-start-column="5" selection-end-line="119" selection-end-column="5" />
+              <caret line="119" column="5" lean-forward="false" selection-start-line="119" selection-start-column="5" selection-end-line="119" selection-end-column="5" />
               <folding>
                 <element signature="method#getRootNode#0;class#VoiceTunerTests#0" expanded="false" />
                 <element signature="method#difficultyDescriptionsUpdate#0;class#VoiceTunerTests#0" expanded="false" />
@@ -134,9 +145,20 @@
       <file leaf-file-name="SharpFlatRecognitionTests.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/EarTrainer/Tests/SharpFlatRecognitionTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="75">
+              <caret line="5" column="7" lean-forward="false" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+              <folding>
+                <element signature="method#getRootNode#0;class#SharpFlatRecognitionTests#0" expanded="false" />
+                <element signature="method#difficultyDescriptionsUpdate#0;class#SharpFlatRecognitionTests#0" expanded="false" />
+                <element signature="method#startButtonTogglesToStopAndBack#0;class#SharpFlatRecognitionTests#0" expanded="false" />
+                <element signature="method#clickingStartSetsCorrectAnswer#0;class#SharpFlatRecognitionTests#0" expanded="false" />
+                <element signature="method#clickingStopResetsScore#0;class#SharpFlatRecognitionTests#0" expanded="false" />
+                <element signature="method#clickingStopResetsQuestionNumber#0;class#SharpFlatRecognitionTests#0" expanded="false" />
+                <element signature="method#clickingNextButtonIncrementsQuestionNumber#0;class#SharpFlatRecognitionTests#0" expanded="false" />
+                <element signature="method#nextQuestionButtonTextChangesToScoreOn10thQuestion#0;class#SharpFlatRecognitionTests#0" expanded="false" />
+                <element signature="method#clickingCorrectButtonOutputsCorrectAndIncrementsScore#0;class#SharpFlatRecognitionTests#0" expanded="false" />
+                <element signature="method#clickingIncorrectButtonOutputsIncorrectAndDoesNotIncrementScore#0;class#SharpFlatRecognitionTests#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -144,8 +166,8 @@
       <file leaf-file-name="InputPanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/InputPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="62">
-              <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+            <state relative-caret-position="435">
+              <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -154,8 +176,8 @@
       <file leaf-file-name="VoiceTunerController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/VoiceTunerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27">
-              <caret line="115" column="73" lean-forward="true" selection-start-line="115" selection-start-column="73" selection-end-line="115" selection-end-column="73" />
+            <state relative-caret-position="1185">
+              <caret line="115" column="73" lean-forward="false" selection-start-line="115" selection-start-column="73" selection-end-line="115" selection-end-column="73" />
               <folding>
                 <element signature="e#2503#2512#0" expanded="false" />
                 <element signature="method#easyRadioButtonSelected#0;class#VoiceTunerController#0" expanded="false" />
@@ -186,7 +208,7 @@
       <file leaf-file-name="Shared.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/Shared.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
+            <state relative-caret-position="705">
               <caret line="54" column="32" lean-forward="false" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="38" />
               <folding />
             </state>
@@ -196,7 +218,7 @@
       <file leaf-file-name="AbstractController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/AbstractController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-715">
+            <state relative-caret-position="1695">
               <caret line="149" column="0" lean-forward="false" selection-start-line="149" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
               <folding>
                 <element signature="docComment;class#AbstractController#0" expanded="false" />
@@ -316,16 +338,16 @@
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/PitchRecognitionController.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/ModulationRecognitionController.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/CadenceRecognitionController.java" />
-        <option value="$PROJECT_DIR$/src/EarTrainer/Tests/PitchRecognitionTests.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/MelodicIntervalRecognitionController.java" />
-        <option value="$PROJECT_DIR$/src/EarTrainer/Tests/MelodicIntervalRecognitionTests.java" />
-        <option value="$PROJECT_DIR$/src/EarTrainer/Tests/HarmonicIntervalRecognitionTests.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/HarmonicIntervalRecognitionController.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/AbstractController.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/VoiceTunerController.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/InputPanel.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Tests/VoiceTunerTests.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/SharpFlatRecognitionController.java" />
+        <option value="$PROJECT_DIR$/src/EarTrainer/Tests/PitchRecognitionTests.java" />
+        <option value="$PROJECT_DIR$/src/EarTrainer/Tests/MelodicIntervalRecognitionTests.java" />
+        <option value="$PROJECT_DIR$/src/EarTrainer/Tests/HarmonicIntervalRecognitionTests.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Tests/SharpFlatRecognitionTests.java" />
       </list>
     </option>
@@ -337,8 +359,6 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="131" />
-    <option name="y" value="1080" />
     <option name="width" value="1680" />
     <option name="height" value="1050" />
   </component>
@@ -357,9 +377,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -486,6 +504,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -524,32 +544,6 @@
     </option>
   </component>
   <component name="RunManager" selected="JUnit.SharpFlatRecognitionTests">
-    <configuration default="false" name="MelodicIntervalRecognitionTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="EarTrainer.Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="EarTrainerProject" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="EarTrainer.Tests" />
-      <option name="MAIN_CLASS_NAME" value="EarTrainer.Tests.MelodicIntervalRecognitionTests" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
     <configuration default="false" name="HarmonicIntervalRecognitionTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -642,6 +636,32 @@
       <option name="MAIN_CLASS_NAME" value="EarTrainer.Tests.SharpFlatRecognitionTests" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="PitchRecognitionTests.clickingIncorrectButtonOutputsIncorrectAndDoesNotIncrementScore" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="EarTrainer.Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="EarTrainerProject" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="EarTrainer.Tests" />
+      <option name="MAIN_CLASS_NAME" value="EarTrainer.Tests.PitchRecognitionTests" />
+      <option name="METHOD_NAME" value="clickingIncorrectButtonOutputsIncorrectAndDoesNotIncrementScore" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -1060,19 +1080,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Application.Unnamed" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.MelodicIntervalRecognitionTests" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.HarmonicIntervalRecognitionTests" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.VoiceTunerTests.clickingCorrectButtonOutputsCorrectAndIncrementsScore" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.VoiceTunerTests" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.SharpFlatRecognitionTests" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.HarmonicIntervalRecognitionTests" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.VoiceTunerTests.clickingCorrectButtonOutputsCorrectAndIncrementsScore" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.VoiceTunerTests" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.SharpFlatRecognitionTests" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.PitchRecognitionTests.clickingIncorrectButtonOutputsIncorrectAndDoesNotIncrementScore" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="JUnit.SharpFlatRecognitionTests" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.VoiceTunerTests" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.VoiceTunerTests.clickingCorrectButtonOutputsCorrectAndIncrementsScore" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.HarmonicIntervalRecognitionTests" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.MelodicIntervalRecognitionTests" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.PitchRecognitionTests.clickingIncorrectButtonOutputsIncorrectAndDoesNotIncrementScore" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.VoiceTunerTests" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.VoiceTunerTests.clickingCorrectButtonOutputsCorrectAndIncrementsScore" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.HarmonicIntervalRecognitionTests" />
       </list>
     </recent_temporary>
   </component>
@@ -1127,14 +1147,15 @@
       <workItem from="1496659295323" duration="6962000" />
       <workItem from="1496685372791" duration="13061000" />
       <workItem from="1496754225140" duration="15023000" />
-      <workItem from="1496781875546" duration="6447000" />
+      <workItem from="1496781875546" duration="6521000" />
+      <workItem from="1496830410815" duration="283000" />
+      <workItem from="1496841558916" duration="385000" />
+      <workItem from="1496842159430" duration="43000" />
+      <workItem from="1496842243366" duration="389000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="HarmonicIntervalRecognitionTests - 2017.06.06 at 22h 36m 51s.xml">
-      <configuration name="HarmonicIntervalRecognitionTests" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="HarmonicIntervalRecognitionTests - 2017.06.06 at 23h 13m 05s.xml">
       <configuration name="HarmonicIntervalRecognitionTests" configurationId="JUnit" />
     </history-entry>
@@ -1145,6 +1166,9 @@
       <configuration name="SharpFlatRecognitionTests" configurationId="JUnit" />
     </history-entry>
     <history-entry file="SharpFlatRecognitionTests - 2017.06.06 at 23h 51m 32s.xml">
+      <configuration name="SharpFlatRecognitionTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SharpFlatRecognitionTests - 2017.06.07 at 14h 36m 48s.xml">
       <configuration name="SharpFlatRecognitionTests" configurationId="JUnit" />
     </history-entry>
     <history-entry file="VoiceTunerTests - 2017.06.06 at 23h 27m 48s.xml">
@@ -1164,10 +1188,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="193349000" />
+    <option name="totallyTimeSpent" value="194523000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="131" y="1080" width="1680" height="1050" extended-state="0" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1187,7 +1211,6 @@
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26904762" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32701895" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15885417" sideWeight="0.49565217" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1200,6 +1223,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15885417" sideWeight="0.5043478" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32701895" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1242,7 +1266,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="34" />
+      <option name="time" value="35" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1266,33 +1290,33 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/SplashScreen.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/SharpFlatRecognition.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/SharpFlatRecognition.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="65" lean-forward="false" selection-start-line="15" selection-start-column="61" selection-end-line="15" selection-end-column="65" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/VoiceTuner.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/VoiceTuner.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="353">
           <caret line="197" column="16" lean-forward="true" selection-start-line="197" selection-start-column="16" selection-end-line="197" selection-end-column="16" />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Style.css">
@@ -1305,14 +1329,14 @@
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/PitchDetectorExample.java" />
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/PitchDetectionPanel.java" />
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/CadenceRecognition.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="76" column="15" lean-forward="false" selection-start-line="76" selection-start-column="15" selection-end-line="76" selection-end-column="15" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/pom.xml" />
@@ -1326,14 +1350,14 @@
     <entry file="file://$PROJECT_DIR$/IP/IP.iml" />
     <entry file="file://$PROJECT_DIR$/IP/pom.xml" />
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/WrongNoteIdentification.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="268">
           <caret line="138" column="27" lean-forward="true" selection-start-line="138" selection-start-column="27" selection-end-line="138" selection-end-column="27" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/WrongNoteIdentificationController.java">
@@ -1369,25 +1393,25 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/ModulationRecognition.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2322">
           <caret line="15" column="65" lean-forward="false" selection-start-line="15" selection-start-column="61" selection-end-line="15" selection-end-column="65" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/Home.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/Home.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="21" column="45" lean-forward="false" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="jar://$USER_HOME$/Downloads/Automaton-1.3.2-all-deps.jar!/com/athaydes/automaton/FXer.class">
@@ -1451,14 +1475,14 @@
     <entry file="file://$PROJECT_DIR$/screenshot1496759383131.png" />
     <entry file="file://$PROJECT_DIR$/screenshot1496763005812.png" />
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/PitchRecognition.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="179">
           <caret line="124" column="36" lean-forward="false" selection-start-line="124" selection-start-column="26" selection-end-line="124" selection-end-column="36" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/Main.java">
@@ -1614,25 +1638,25 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/PopupScore.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="28" column="24" lean-forward="false" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="36" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/MelodicIntervalRecognition.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/MelodicIntervalRecognition.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="132" column="44" lean-forward="true" selection-start-line="132" selection-start-column="44" selection-end-line="132" selection-end-column="44" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/MelodicIntervalRecognitionController.java">
@@ -1665,14 +1689,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/HarmonicIntervalRecognition.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="179">
           <caret line="130" column="66" lean-forward="false" selection-start-line="130" selection-start-column="60" selection-end-line="130" selection-end-column="66" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/HarmonicIntervalRecognitionController.java">
@@ -1714,74 +1738,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Tests/MelodicIntervalRecognitionTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="150" column="49" lean-forward="false" selection-start-line="150" selection-start-column="49" selection-end-line="150" selection-end-column="49" />
-          <folding>
-            <element signature="method#getRootNode#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
-            <element signature="method#changingDifficultyDisablesEnablesRelevantButtons#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
-            <element signature="method#difficultyDescriptionsUpdate#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
-            <element signature="method#startButtonTogglesToStopAndBack#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
-            <element signature="method#clickingStartSetsCorrectAnswer#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
-            <element signature="method#clickingCorrectButtonOutputsCorrectAndIncrementsScore#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
-            <element signature="method#clickingStopResetsScore#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
-            <element signature="method#clickingStopResetsQuestionNumber#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
-            <element signature="method#clickingNextButtonIncrementsQuestionNumber#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
-            <element signature="method#nextQuestionButtonTextChangesToScoreOn10thQuestion#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
-            <element signature="method#clickingIncorrectButtonEasyModeOutputsIncorrectAndDoesNotIncrementScore#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
-            <element signature="method#clickingIncorrectButtonMediumModeOutputsIncorrectAndDoesNotIncrementScore#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
-            <element signature="method#clickingIncorrectButtonHardModeOutputsIncorrectAndDoesNotIncrementScore#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Tests/PitchRecognitionTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="224" column="0" lean-forward="true" selection-start-line="224" selection-start-column="0" selection-end-line="224" selection-end-column="0" />
-          <folding>
-            <element signature="method#getRootNode#0;class#PitchRecognitionTests#0" expanded="false" />
-            <element signature="method#changingDifficultyDisablesEnablesRelevantButtons#0;class#PitchRecognitionTests#0" expanded="false" />
-            <element signature="method#difficultyDescriptionsUpdate#0;class#PitchRecognitionTests#0" expanded="false" />
-            <element signature="method#startButtonTogglesToStopAndBack#0;class#PitchRecognitionTests#0" expanded="false" />
-            <element signature="method#clickingStartSetsCorrectAnswer#0;class#PitchRecognitionTests#0" expanded="false" />
-            <element signature="method#clickingCorrectButtonOutputsCorrectAndIncrementsScore#0;class#PitchRecognitionTests#0" expanded="false" />
-            <element signature="method#clickingStopResetsScore#0;class#PitchRecognitionTests#0" expanded="false" />
-            <element signature="method#clickingStopResetsQuestionNumber#0;class#PitchRecognitionTests#0" expanded="false" />
-            <element signature="method#clickingNextButtonIncrementsQuestionNumber#0;class#PitchRecognitionTests#0" expanded="false" />
-            <element signature="method#nextQuestionButtonTextChangesToScoreOn10thQuestion#0;class#PitchRecognitionTests#0" expanded="false" />
-            <element signature="method#clickingIncorrectButtonEasyModeOutputsIncorrectAndDoesNotIncrementScore#0;class#PitchRecognitionTests#0" expanded="false" />
-            <element signature="method#clickingIncorrectButtonMediumModeOutputsIncorrectAndDoesNotIncrementScore#0;class#PitchRecognitionTests#0" expanded="false" />
-            <element signature="method#clickingIncorrectButtonHardModeOutputsIncorrectAndDoesNotIncrementScore#0;class#PitchRecognitionTests#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Tests/HarmonicIntervalRecognitionTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="198" column="0" lean-forward="false" selection-start-line="198" selection-start-column="0" selection-end-line="199" selection-end-column="41" />
-          <folding>
-            <element signature="method#getRootNode#0;class#HarmonicIntervalRecognitionTests#0" expanded="false" />
-            <element signature="method#changingDifficultyDisablesEnablesRelevantButtons#0;class#HarmonicIntervalRecognitionTests#0" expanded="false" />
-            <element signature="method#difficultyDescriptionsUpdate#0;class#HarmonicIntervalRecognitionTests#0" expanded="false" />
-            <element signature="method#startButtonTogglesToStopAndBack#0;class#HarmonicIntervalRecognitionTests#0" expanded="false" />
-            <element signature="method#clickingStartSetsCorrectAnswer#0;class#HarmonicIntervalRecognitionTests#0" expanded="false" />
-            <element signature="method#clickingStopResetsScore#0;class#HarmonicIntervalRecognitionTests#0" expanded="false" />
-            <element signature="method#clickingStopResetsQuestionNumber#0;class#HarmonicIntervalRecognitionTests#0" expanded="false" />
-            <element signature="method#clickingNextButtonIncrementsQuestionNumber#0;class#HarmonicIntervalRecognitionTests#0" expanded="false" />
-            <element signature="method#nextQuestionButtonTextChangesToScoreOn10thQuestion#0;class#HarmonicIntervalRecognitionTests#0" expanded="false" />
-            <element signature="method#clickingIncorrectButtonEasyModeOutputsIncorrectAndDoesNotIncrementScore#0;class#HarmonicIntervalRecognitionTests#0" expanded="false" />
-            <element signature="method#clickingIncorrectButtonMediumModeOutputsIncorrectAndDoesNotIncrementScore#0;class#HarmonicIntervalRecognitionTests#0" expanded="false" />
-            <element signature="method#clickingIncorrectButtonHardModeOutputsIncorrectAndDoesNotIncrementScore#0;class#HarmonicIntervalRecognitionTests#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/AbstractController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-715">
+        <state relative-caret-position="1695">
           <caret line="149" column="0" lean-forward="false" selection-start-line="149" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#AbstractController#0" expanded="false" />
@@ -1813,7 +1772,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/Shared.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
+        <state relative-caret-position="705">
           <caret line="54" column="32" lean-forward="false" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="38" />
           <folding />
         </state>
@@ -1821,30 +1780,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/InputPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="62">
-          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+        <state relative-caret-position="435">
+          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Tests/VoiceTunerTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="119" column="5" lean-forward="true" selection-start-line="119" selection-start-column="5" selection-end-line="119" selection-end-column="5" />
-          <folding>
-            <element signature="method#getRootNode#0;class#VoiceTunerTests#0" expanded="false" />
-            <element signature="method#difficultyDescriptionsUpdate#0;class#VoiceTunerTests#0" expanded="false" />
-            <element signature="method#startButtonTogglesToStopAndBack#0;class#VoiceTunerTests#0" expanded="false" />
-            <element signature="method#clickingStartSetsCorrectAnswer#0;class#VoiceTunerTests#0" expanded="false" />
-            <element signature="method#playSound#0;class#VoiceTunerTests#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/VoiceTunerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="115" column="73" lean-forward="true" selection-start-line="115" selection-start-column="73" selection-end-line="115" selection-end-column="73" />
+        <state relative-caret-position="1185">
+          <caret line="115" column="73" lean-forward="false" selection-start-line="115" selection-start-column="73" selection-end-line="115" selection-end-column="73" />
           <folding>
             <element signature="e#2503#2512#0" expanded="false" />
             <element signature="method#easyRadioButtonSelected#0;class#VoiceTunerController#0" expanded="false" />
@@ -1879,11 +1824,96 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Tests/PitchRecognitionTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="846">
+          <caret line="319" column="81" lean-forward="false" selection-start-line="319" selection-start-column="81" selection-end-line="319" selection-end-column="81" />
+          <folding>
+            <element signature="method#getRootNode#0;class#PitchRecognitionTests#0" expanded="false" />
+            <element signature="method#changingDifficultyDisablesEnablesRelevantButtons#0;class#PitchRecognitionTests#0" expanded="false" />
+            <element signature="method#difficultyDescriptionsUpdate#0;class#PitchRecognitionTests#0" expanded="false" />
+            <element signature="method#startButtonTogglesToStopAndBack#0;class#PitchRecognitionTests#0" expanded="false" />
+            <element signature="method#clickingStartSetsCorrectAnswer#0;class#PitchRecognitionTests#0" expanded="false" />
+            <element signature="method#clickingStopResetsScore#0;class#PitchRecognitionTests#0" expanded="false" />
+            <element signature="method#clickingStopResetsQuestionNumber#0;class#PitchRecognitionTests#0" expanded="false" />
+            <element signature="method#clickingNextButtonIncrementsQuestionNumber#0;class#PitchRecognitionTests#0" expanded="false" />
+            <element signature="method#nextQuestionButtonTextChangesToScoreOn10thQuestion#0;class#PitchRecognitionTests#0" expanded="false" />
+            <element signature="method#clickingCorrectButtonOutputsCorrectAndIncrementsScore#0;class#PitchRecognitionTests#0" expanded="false" />
+            <element signature="method#clickingIncorrectButtonOutputsIncorrectAndDoesNotIncrementScore#0;class#PitchRecognitionTests#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Tests/MelodicIntervalRecognitionTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="846">
+          <caret line="328" column="81" lean-forward="false" selection-start-line="328" selection-start-column="81" selection-end-line="328" selection-end-column="81" />
+          <folding>
+            <element signature="method#getRootNode#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
+            <element signature="method#changingDifficultyDisablesEnablesRelevantButtons#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
+            <element signature="method#difficultyDescriptionsUpdate#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
+            <element signature="method#startButtonTogglesToStopAndBack#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
+            <element signature="method#clickingStartSetsCorrectAnswer#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
+            <element signature="method#clickingStopResetsScore#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
+            <element signature="method#clickingStopResetsQuestionNumber#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
+            <element signature="method#clickingNextButtonIncrementsQuestionNumber#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
+            <element signature="method#nextQuestionButtonTextChangesToScoreOn10thQuestion#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
+            <element signature="method#clickingCorrectButtonOutputsCorrectAndIncrementsScore#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
+            <element signature="method#clickingIncorrectButtonOutputsIncorrectAndDoesNotIncrementScore#0;class#MelodicIntervalRecognitionTests#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Tests/HarmonicIntervalRecognitionTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="846">
+          <caret line="328" column="81" lean-forward="false" selection-start-line="328" selection-start-column="81" selection-end-line="328" selection-end-column="81" />
+          <folding>
+            <element signature="method#getRootNode#0;class#HarmonicIntervalRecognitionTests#0" expanded="false" />
+            <element signature="method#changingDifficultyDisablesEnablesRelevantButtons#0;class#HarmonicIntervalRecognitionTests#0" expanded="false" />
+            <element signature="method#difficultyDescriptionsUpdate#0;class#HarmonicIntervalRecognitionTests#0" expanded="false" />
+            <element signature="method#startButtonTogglesToStopAndBack#0;class#HarmonicIntervalRecognitionTests#0" expanded="false" />
+            <element signature="method#clickingStartSetsCorrectAnswer#0;class#HarmonicIntervalRecognitionTests#0" expanded="false" />
+            <element signature="method#clickingStopResetsScore#0;class#HarmonicIntervalRecognitionTests#0" expanded="false" />
+            <element signature="method#clickingStopResetsQuestionNumber#0;class#HarmonicIntervalRecognitionTests#0" expanded="false" />
+            <element signature="method#clickingNextButtonIncrementsQuestionNumber#0;class#HarmonicIntervalRecognitionTests#0" expanded="false" />
+            <element signature="method#nextQuestionButtonTextChangesToScoreOn10thQuestion#0;class#HarmonicIntervalRecognitionTests#0" expanded="false" />
+            <element signature="method#clickingCorrectButtonOutputsCorrectAndIncrementsScore#0;class#HarmonicIntervalRecognitionTests#0" expanded="false" />
+            <element signature="method#clickingIncorrectButtonOutputsIncorrectAndDoesNotIncrementScore#0;class#HarmonicIntervalRecognitionTests#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Tests/VoiceTunerTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="119" column="5" lean-forward="false" selection-start-line="119" selection-start-column="5" selection-end-line="119" selection-end-column="5" />
+          <folding>
+            <element signature="method#getRootNode#0;class#VoiceTunerTests#0" expanded="false" />
+            <element signature="method#difficultyDescriptionsUpdate#0;class#VoiceTunerTests#0" expanded="false" />
+            <element signature="method#startButtonTogglesToStopAndBack#0;class#VoiceTunerTests#0" expanded="false" />
+            <element signature="method#clickingStartSetsCorrectAnswer#0;class#VoiceTunerTests#0" expanded="false" />
+            <element signature="method#playSound#0;class#VoiceTunerTests#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Tests/SharpFlatRecognitionTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="75">
+          <caret line="5" column="7" lean-forward="false" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+          <folding>
+            <element signature="method#getRootNode#0;class#SharpFlatRecognitionTests#0" expanded="false" />
+            <element signature="method#difficultyDescriptionsUpdate#0;class#SharpFlatRecognitionTests#0" expanded="false" />
+            <element signature="method#startButtonTogglesToStopAndBack#0;class#SharpFlatRecognitionTests#0" expanded="false" />
+            <element signature="method#clickingStartSetsCorrectAnswer#0;class#SharpFlatRecognitionTests#0" expanded="false" />
+            <element signature="method#clickingStopResetsScore#0;class#SharpFlatRecognitionTests#0" expanded="false" />
+            <element signature="method#clickingStopResetsQuestionNumber#0;class#SharpFlatRecognitionTests#0" expanded="false" />
+            <element signature="method#clickingNextButtonIncrementsQuestionNumber#0;class#SharpFlatRecognitionTests#0" expanded="false" />
+            <element signature="method#nextQuestionButtonTextChangesToScoreOn10thQuestion#0;class#SharpFlatRecognitionTests#0" expanded="false" />
+            <element signature="method#clickingCorrectButtonOutputsCorrectAndIncrementsScore#0;class#SharpFlatRecognitionTests#0" expanded="false" />
+            <element signature="method#clickingIncorrectButtonOutputsIncorrectAndDoesNotIncrementScore#0;class#SharpFlatRecognitionTests#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

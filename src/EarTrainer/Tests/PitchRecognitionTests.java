@@ -171,34 +171,6 @@ public class PitchRecognitionTests extends GuiTest{
 
 
     @Test
-    public void clickingCorrectButtonOutputsCorrectAndIncrementsScore(){
-        int difficultyMode = rn.nextInt(3);
-
-        if(difficultyMode == 0){
-            click("#easyRadioButton");
-        } else if(difficultyMode == 1){
-            click("#mediumRadioButton");
-        } else {
-            click("#hardRadioButton");
-        }
-
-        click(startButton);
-
-        Button correctButton = pitchRecognitionController.correctButton;
-        int numberOfCorrectAnswers = pitchRecognitionController.numberOfCorrectAnswers;
-
-        click(correctButton);
-
-        int numberOfCorrectAnswersAfterClick = pitchRecognitionController.numberOfCorrectAnswers;
-
-        String text = ((Label) find("#correctIncorrectLabel")).getText();
-        verifyThat(text, is("Correct!"));
-
-        verifyThat(numberOfCorrectAnswersAfterClick, is(numberOfCorrectAnswers + 1));
-    }
-
-
-    @Test
     public void clickingStopResetsScore(){
         String startStopButtonText = startButton.getText();
         verifyThat(startStopButtonText, is("Start"));
@@ -317,93 +289,77 @@ public class PitchRecognitionTests extends GuiTest{
 
 
     @Test
-    public void clickingIncorrectButtonEasyModeOutputsIncorrectAndDoesNotIncrementScore(){
-        buttons = new Button[]{pitchRecognitionController.cButton,
-                pitchRecognitionController.dButton,
-                pitchRecognitionController.eButton,
-                pitchRecognitionController.fButton,
-                pitchRecognitionController.gButton,
-                pitchRecognitionController.aButton,
-                pitchRecognitionController.bButton};
+    public void clickingCorrectButtonOutputsCorrectAndIncrementsScore(){
+        int difficultyMode = rn.nextInt(3);
+
+        if(difficultyMode == 0){
+            click("#easyRadioButton");
+        } else if(difficultyMode == 1){
+            click("#mediumRadioButton");
+        } else {
+            click("#hardRadioButton");
+        }
 
         click(startButton);
 
         Button correctButton = pitchRecognitionController.correctButton;
         int numberOfCorrectAnswers = pitchRecognitionController.numberOfCorrectAnswers;
 
-        int i = rn.nextInt(buttons.length);
-
-        while(buttons[i] == correctButton){
-            i = rn.nextInt(buttons.length);
-        }
-
-        click(buttons[i]);
+        click(correctButton);
 
         int numberOfCorrectAnswersAfterClick = pitchRecognitionController.numberOfCorrectAnswers;
 
         String text = ((Label) find("#correctIncorrectLabel")).getText();
-        verifyThat(text, is("Incorrect."));
+        verifyThat(text, is("Correct!"));
 
-        verifyThat(numberOfCorrectAnswersAfterClick, is(numberOfCorrectAnswers));
-
+        verifyThat(numberOfCorrectAnswersAfterClick, is(numberOfCorrectAnswers + 1));
     }
 
 
     @Test
-    public void clickingIncorrectButtonMediumModeOutputsIncorrectAndDoesNotIncrementScore(){
-        buttons = new Button[]{pitchRecognitionController.cButton,
-                pitchRecognitionController.cSharpButton,
-                pitchRecognitionController.dButton,
-                pitchRecognitionController.dSharpButton,
-                pitchRecognitionController.eButton,
-                pitchRecognitionController.fButton,
-                pitchRecognitionController.fSharpButton,
-                pitchRecognitionController.gButton,
-                pitchRecognitionController.gSharpButton,
-                pitchRecognitionController.aButton,
-                pitchRecognitionController.aSharpButton,
-                pitchRecognitionController.bButton};
+    public void clickingIncorrectButtonOutputsIncorrectAndDoesNotIncrementScore(){
+        int difficultyMode = rn.nextInt(3);
 
-        click("#mediumRadioButton");
-        click(startButton);
-
-        Button correctButton = pitchRecognitionController.correctButton;
-        int numberOfCorrectAnswers = pitchRecognitionController.numberOfCorrectAnswers;
-
-        int i = rn.nextInt(buttons.length);
-
-        while(buttons[i] == correctButton){
-            i = rn.nextInt(buttons.length);
+        if(difficultyMode == 0){
+            click("#easyRadioButton");
+            buttons = new Button[]{pitchRecognitionController.cButton,
+                    pitchRecognitionController.dButton,
+                    pitchRecognitionController.eButton,
+                    pitchRecognitionController.fButton,
+                    pitchRecognitionController.gButton,
+                    pitchRecognitionController.aButton,
+                    pitchRecognitionController.bButton};
+        } else if(difficultyMode == 1){
+            click("#mediumRadioButton");
+            buttons = new Button[]{pitchRecognitionController.cButton,
+                    pitchRecognitionController.cSharpButton,
+                    pitchRecognitionController.dButton,
+                    pitchRecognitionController.dSharpButton,
+                    pitchRecognitionController.eButton,
+                    pitchRecognitionController.fButton,
+                    pitchRecognitionController.fSharpButton,
+                    pitchRecognitionController.gButton,
+                    pitchRecognitionController.gSharpButton,
+                    pitchRecognitionController.aButton,
+                    pitchRecognitionController.aSharpButton,
+                    pitchRecognitionController.bButton};
+        } else {
+            click("#hardRadioButton");
+            buttons = new Button[]{pitchRecognitionController.cButton,
+                    pitchRecognitionController.cSharpButton,
+                    pitchRecognitionController.dButton,
+                    pitchRecognitionController.dSharpButton,
+                    pitchRecognitionController.eButton,
+                    pitchRecognitionController.fButton,
+                    pitchRecognitionController.fSharpButton,
+                    pitchRecognitionController.gButton,
+                    pitchRecognitionController.gSharpButton,
+                    pitchRecognitionController.aButton,
+                    pitchRecognitionController.aSharpButton,
+                    pitchRecognitionController.bButton};
         }
 
-        click(buttons[i]);
 
-        int numberOfCorrectAnswersAfterClick = pitchRecognitionController.numberOfCorrectAnswers;
-
-        String text = ((Label) find("#correctIncorrectLabel")).getText();
-        verifyThat(text, is("Incorrect."));
-
-        verifyThat(numberOfCorrectAnswersAfterClick, is(numberOfCorrectAnswers));
-
-    }
-
-
-    @Test
-    public void clickingIncorrectButtonHardModeOutputsIncorrectAndDoesNotIncrementScore(){
-        buttons = new Button[]{pitchRecognitionController.cButton,
-                pitchRecognitionController.cSharpButton,
-                pitchRecognitionController.dButton,
-                pitchRecognitionController.dSharpButton,
-                pitchRecognitionController.eButton,
-                pitchRecognitionController.fButton,
-                pitchRecognitionController.fSharpButton,
-                pitchRecognitionController.gButton,
-                pitchRecognitionController.gSharpButton,
-                pitchRecognitionController.aButton,
-                pitchRecognitionController.aSharpButton,
-                pitchRecognitionController.bButton};
-
-        click("#hardRadioButton");
         click(startButton);
 
         Button correctButton = pitchRecognitionController.correctButton;
