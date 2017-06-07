@@ -33,11 +33,11 @@ import static jm.constants.RhythmValues.*;
 
 public class ModulationRecognitionController extends AbstractController{
 
-    @FXML private Button similarKey0Button;
-    @FXML private Button similarKey1Button;
-    @FXML private Button similarKey2Button;
-    @FXML private Button similarKey3Button;
-    @FXML private Button similarKey4Button;
+    @FXML public Button similarKey0Button;
+    @FXML public Button similarKey1Button;
+    @FXML public Button similarKey2Button;
+    @FXML public Button similarKey3Button;
+    @FXML public Button similarKey4Button;
 
     @FXML private Label rootKeyLabel;
     @FXML private Label similarKey0Label;
@@ -157,19 +157,19 @@ public class ModulationRecognitionController extends AbstractController{
 
     @FXML
     private void easyRadioButtonSelected(ActionEvent event) throws IOException {
-        difficultyDescriptionLabel.setText("Identify the final key.");
+        difficultyDescriptionLabel.setText("Identify the new key. 3 options.");
     }
 
 
     @FXML
     private void mediumRadioButtonSelected(ActionEvent event) throws IOException {
-        difficultyDescriptionLabel.setText("");
+        difficultyDescriptionLabel.setText("Identify the new key. 4 options.");
     }
 
 
     @FXML
     private void hardRadioButtonSelected(ActionEvent event) throws IOException {
-        difficultyDescriptionLabel.setText("Identify both the starting key and the final key.");
+        difficultyDescriptionLabel.setText("Identify the new key. 5 options.");
     }
 
 
@@ -280,15 +280,15 @@ public class ModulationRecognitionController extends AbstractController{
     @FXML
     void startButtonClicked() throws IOException, InvalidMidiDataException, MidiUnavailableException, LineUnavailableException, UnsupportedAudioFileException {
         Button[] buttons = {similarKey0Button, similarKey1Button, similarKey2Button, similarKey3Button, similarKey4Button};
+        questionNumber = 1;
+        numberOfCorrectAnswers = 0;
+        questionLabel.setVisible(!startClicked);
+        timerLabel.setVisible(!startClicked);
+        radioButtonsGroup.setDisable(!startClicked);
 
         if(!startClicked) {
             startClicked = true;
-            questionNumber = 1;
-            numberOfCorrectAnswers = 0;
             startTimer();
-            questionLabel.setVisible(true);
-            timerLabel.setVisible(true);
-            radioButtonsGroup.setDisable(true);
             questionLabel.setText("Question 1");
             startButton.setText("Stop");
             startButton.setStyle("-fx-background-color: rgba(0,0,0,0.08), linear-gradient(#af595f, #754e53), linear-gradient(#ffd5de 0%, #facdd0 10%, #f9cdd6 50%, #fc8f9b 51%, #ffddeb 100%)");
@@ -307,11 +307,7 @@ public class ModulationRecognitionController extends AbstractController{
 
             startButton.setStyle("-fx-background-color: rgba(0,0,0,0.08), linear-gradient(#5a61af, #51536d), linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%)");
             startClicked = false;
-            numberOfCorrectAnswers = 0;
             stopTimer();
-            questionLabel.setVisible(false);
-            timerLabel.setVisible(false);
-            radioButtonsGroup.setDisable(false);
             startButton.setText("Start");
             correctIncorrectLabel.setText("");
         }
