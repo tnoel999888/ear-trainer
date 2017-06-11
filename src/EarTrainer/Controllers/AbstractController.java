@@ -213,7 +213,7 @@ public abstract class AbstractController {
     }
 
 
-    public String getNote(Note n2) {
+    String getNote(Note n2) {
         switch (n2.getPitch()) {
             case C3:
             case C4:
@@ -318,44 +318,60 @@ public abstract class AbstractController {
 
     private void makeChords(int[] scale) {
         Note note1 = new Note(scale[0], C);
+        Note note1OctaveBelow = new Note(scale[0] - 12, C);
+
         Note note2 = new Note(scale[1], C);
+        Note note2OctaveBelow = new Note(scale[1] - 12, C);
+
         Note note3 = new Note(scale[2], C);
+        Note note3OctaveBelow = new Note(scale[2] - 12, C);
+
         Note note4 = new Note(scale[3], C);
+        Note note4OctaveBelow = new Note(scale[3] - 12, C);
+
         Note note5 = new Note(scale[4], C);
+        Note note5OctaveBelow = new Note(scale[4] - 12, C);
+
         Note note6 = new Note(scale[5], C);
+        Note note6OctaveBelow = new Note(scale[5] - 12, C);
+
         Note note7 = new Note(scale[6], C);
         Note note8 = new Note(scale[7], C);
+
         Note note9 = new Note(scale[8], C);
+        Note note9OctaveBelow = new Note(scale[8] - 12, C);
+
         Note note10 = new Note(scale[9], C);
         Note note11 = new Note(scale[10], C);
         Note note12 = new Note(scale[11], C);
         Note note13 = new Note(scale[12], C);
         Note note14 = new Note(scale[13], C);
 
-        scaleChord1 = new Note[]{new Note(note1.getPitch() - 12, C), note1, note3, note5};
+
+        scaleChord1 = new Note[]{note1OctaveBelow, note1, note3, note5};
         scaleChord1RemovedFifth = new Note[]{new Note(note1.getPitch() - 12, C), note1, note3, note8};
 
         //If minor, diminished, invert
         if (minor) {
-            scaleChord2 = new Note[]{new Note(note4.getPitch() - 12, C), note4, note6, note9};
+            scaleChord2 = new Note[]{note4OctaveBelow, note4, note6, note9};
         } else {
-            scaleChord2 = new Note[]{new Note(note2.getPitch() - 12, C), note2, note4, note6};
+            scaleChord2 = new Note[]{note2OctaveBelow, note2, note4, note6};
         }
 
-        scaleChord3 = new Note[]{new Note(note3.getPitch() - 12, C), note3, note5, note7};
+        scaleChord3 = new Note[]{note3OctaveBelow, note3, note5, note7};
 
-        scaleChord4 = new Note[]{new Note(note4.getPitch() - 12, C), note4, note6, note8};
+        scaleChord4 = new Note[]{note4OctaveBelow, note4, note6, note8};
 
         //Minor 5 chord, make major if doing cadence into tonic, 7#, melodic minor scale
-        scaleChord5 = new Note[]{new Note(note5.getPitch() - 12, C), note5, note7, note9};
-        scaleChord5MelodicMinor = new Note[]{new Note(note5.getPitch() - 12, C), note5, new Note(sharpen(scale[6]), C), note9};
-        scaleChord5Seventh = new Note[]{new Note(note5.getPitch() - 12, C), note5, note7, note9, note11};
-        scaleChord5Inverted = new Note[]{new Note(note2.getPitch() - 12, C), note2, note5, note7};
+        scaleChord5 = new Note[]{note5OctaveBelow, note5, note7, note9};
+        scaleChord5MelodicMinor = new Note[]{note5OctaveBelow, note5, new Note(sharpen(scale[6]), C), note9};
+        scaleChord5Seventh = new Note[]{note5OctaveBelow, note5, note7, note9, note11};
+        scaleChord5Inverted = new Note[]{note2OctaveBelow, note2, note5, note7};
 
-        scaleChord6 = new Note[]{new Note(note6.getPitch() - 12, C), note6, note8, note10};
+        scaleChord6 = new Note[]{note6OctaveBelow, note6, note8, note10};
 
         //For major and minor 1st inversion
-        scaleChord7 = new Note[]{new Note(note9.getPitch() - 12, C), note9, note11, note14};
+        scaleChord7 = new Note[]{note9OctaveBelow, note9, note11, note14};
     }
 
 
@@ -500,10 +516,15 @@ public abstract class AbstractController {
     }
 
 
-    Phrase removeOctaveJumps(Phrase notePhrase) {
+    Phrase removeOctaveJumpsAndHighNotes(Phrase notePhrase) {
         Note[] notes = notePhrase.getNoteArray();
 
         for(int i = 0; i < notes.length - 1; i++){
+            if(notes[i].getPitch() >= C6){
+                System.out.println("Removing high note");
+                notes[i].setPitch(notes[i].getPitch() - 12);
+            }
+
             if(notes[i+1].getPitch() >= notes[i].getPitch() + 12){
                 System.out.println("Removing octave jump up");
                 notes[i+1].setPitch(notes[i+1].getPitch() - 12);

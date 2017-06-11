@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import org.junit.Before;
 import org.junit.Test;
 import org.loadui.testfx.GuiTest;
 import java.io.IOException;
@@ -28,7 +29,19 @@ public class MelodicIntervalRecognitionTests extends GuiTest{
     private Random rn = new Random();
     private Button nextQuestionButton;
     private Button startButton;
-
+    private Button unisonButton;
+    private Button minorSecondButton;
+    private Button majorSecondButton;
+    private Button minorThirdButton;
+    private Button majorThirdButton;
+    private Button perfectFourthButton;
+    private Button tritoneButton;
+    private Button perfectFifthButton;
+    private Button minorSixthButton;
+    private Button majorSixthButton;
+    private Button minorSeventhButton;
+    private Button majorSeventhButton;
+    private Button octaveButton;
 
 
     @Override
@@ -45,7 +58,19 @@ public class MelodicIntervalRecognitionTests extends GuiTest{
         melodicIntervalRecognitionController = loader.getController();
         nextQuestionButton = melodicIntervalRecognitionController.nextQuestionButton;
         startButton = melodicIntervalRecognitionController.startButton;
-
+        unisonButton = melodicIntervalRecognitionController.unisonButton;
+        minorSecondButton = melodicIntervalRecognitionController.minorSecondButton;
+        majorSecondButton = melodicIntervalRecognitionController.majorSecondButton;
+        minorThirdButton = melodicIntervalRecognitionController.minorThirdButton;
+        majorThirdButton = melodicIntervalRecognitionController.majorThirdButton;
+        perfectFourthButton = melodicIntervalRecognitionController.perfectFourthButton;
+        tritoneButton = melodicIntervalRecognitionController.tritoneButton;
+        perfectFifthButton = melodicIntervalRecognitionController.perfectFifthButton;
+        minorSixthButton = melodicIntervalRecognitionController.minorSixthButton;
+        majorSixthButton = melodicIntervalRecognitionController.majorSixthButton;
+        minorSeventhButton = melodicIntervalRecognitionController.minorSeventhButton;
+        majorSeventhButton = melodicIntervalRecognitionController.majorSeventhButton;
+        octaveButton = melodicIntervalRecognitionController.octaveButton;
 
         Stage newStage = new Stage();
         Scene scene = new Scene(root);
@@ -58,73 +83,73 @@ public class MelodicIntervalRecognitionTests extends GuiTest{
 
     @Test
     public void changingDifficultyDisablesEnablesRelevantButtons() throws InterruptedException {
-        verify(!melodicIntervalRecognitionController.unisonButton.isDisabled());
-        verify(!melodicIntervalRecognitionController.minorThirdButton.isDisabled());
-        verify(!melodicIntervalRecognitionController.majorThirdButton.isDisabled());
-        verify(!melodicIntervalRecognitionController.perfectFifthButton.isDisabled());
-        verify(!melodicIntervalRecognitionController.octaveButton.isDisabled());
+        verify(!unisonButton.isDisabled());
+        verify(!minorThirdButton.isDisabled());
+        verify(!majorThirdButton.isDisabled());
+        verify(!perfectFifthButton.isDisabled());
+        verify(!octaveButton.isDisabled());
 
-        verify(melodicIntervalRecognitionController.minorSecondButton.isDisabled());
-        verify(melodicIntervalRecognitionController.majorSecondButton.isDisabled());
-        verify(melodicIntervalRecognitionController.perfectFourthButton.isDisabled());
-        verify(melodicIntervalRecognitionController.tritoneButton.isDisabled());
-        verify(melodicIntervalRecognitionController.minorSixthButton.isDisabled());
-        verify(melodicIntervalRecognitionController.majorSixthButton.isDisabled());
-        verify(melodicIntervalRecognitionController.minorSeventhButton.isDisabled());
-        verify(melodicIntervalRecognitionController.majorSeventhButton.isDisabled());
+        verify(minorSecondButton.isDisabled());
+        verify(majorSecondButton.isDisabled());
+        verify(perfectFourthButton.isDisabled());
+        verify(tritoneButton.isDisabled());
+        verify(minorSixthButton.isDisabled());
+        verify(majorSixthButton.isDisabled());
+        verify(minorSeventhButton.isDisabled());
+        verify(majorSeventhButton.isDisabled());
 
 
         click("#mediumRadioButton");
 
-        verify(!melodicIntervalRecognitionController.unisonButton.isDisabled());
-        verify(!melodicIntervalRecognitionController.minorThirdButton.isDisabled());
-        verify(!melodicIntervalRecognitionController.majorThirdButton.isDisabled());
-        verify(!melodicIntervalRecognitionController.perfectFifthButton.isDisabled());
-        verify(!melodicIntervalRecognitionController.octaveButton.isDisabled());
-        verify(!melodicIntervalRecognitionController.minorSecondButton.isDisabled());
-        verify(!melodicIntervalRecognitionController.majorSecondButton.isDisabled());
+        verify(!unisonButton.isDisabled());
+        verify(!minorThirdButton.isDisabled());
+        verify(!majorThirdButton.isDisabled());
+        verify(!perfectFifthButton.isDisabled());
+        verify(!octaveButton.isDisabled());
+        verify(!minorSecondButton.isDisabled());
+        verify(!majorSecondButton.isDisabled());
 
-        verify(melodicIntervalRecognitionController.perfectFourthButton.isDisabled());
-        verify(melodicIntervalRecognitionController.tritoneButton.isDisabled());
-        verify(melodicIntervalRecognitionController.minorSixthButton.isDisabled());
-        verify(melodicIntervalRecognitionController.majorSixthButton.isDisabled());
-        verify(melodicIntervalRecognitionController.minorSeventhButton.isDisabled());
-        verify(melodicIntervalRecognitionController.majorSeventhButton.isDisabled());
+        verify(perfectFourthButton.isDisabled());
+        verify(tritoneButton.isDisabled());
+        verify(minorSixthButton.isDisabled());
+        verify(majorSixthButton.isDisabled());
+        verify(minorSeventhButton.isDisabled());
+        verify(majorSeventhButton.isDisabled());
 
 
         click("#hardRadioButton");
 
-        verify(!melodicIntervalRecognitionController.unisonButton.isDisabled());
-        verify(!melodicIntervalRecognitionController.minorThirdButton.isDisabled());
-        verify(!melodicIntervalRecognitionController.majorThirdButton.isDisabled());
-        verify(!melodicIntervalRecognitionController.perfectFifthButton.isDisabled());
-        verify(!melodicIntervalRecognitionController.octaveButton.isDisabled());
-        verify(!melodicIntervalRecognitionController.minorSecondButton.isDisabled());
-        verify(!melodicIntervalRecognitionController.majorSecondButton.isDisabled());
-        verify(!melodicIntervalRecognitionController.perfectFourthButton.isDisabled());
-        verify(!melodicIntervalRecognitionController.tritoneButton.isDisabled());
-        verify(!melodicIntervalRecognitionController.minorSixthButton.isDisabled());
-        verify(!melodicIntervalRecognitionController.majorSixthButton.isDisabled());
-        verify(!melodicIntervalRecognitionController.minorSeventhButton.isDisabled());
-        verify(!melodicIntervalRecognitionController.majorSeventhButton.isDisabled());
+        verify(!unisonButton.isDisabled());
+        verify(!minorThirdButton.isDisabled());
+        verify(!majorThirdButton.isDisabled());
+        verify(!perfectFifthButton.isDisabled());
+        verify(!octaveButton.isDisabled());
+        verify(!minorSecondButton.isDisabled());
+        verify(!majorSecondButton.isDisabled());
+        verify(!perfectFourthButton.isDisabled());
+        verify(!tritoneButton.isDisabled());
+        verify(!minorSixthButton.isDisabled());
+        verify(!majorSixthButton.isDisabled());
+        verify(!minorSeventhButton.isDisabled());
+        verify(!majorSeventhButton.isDisabled());
 
 
         click("#easyRadioButton");
 
-        verify(!melodicIntervalRecognitionController.unisonButton.isDisabled());
-        verify(!melodicIntervalRecognitionController.minorThirdButton.isDisabled());
-        verify(!melodicIntervalRecognitionController.majorThirdButton.isDisabled());
-        verify(!melodicIntervalRecognitionController.perfectFifthButton.isDisabled());
-        verify(!melodicIntervalRecognitionController.octaveButton.isDisabled());
+        verify(!unisonButton.isDisabled());
+        verify(!minorThirdButton.isDisabled());
+        verify(!majorThirdButton.isDisabled());
+        verify(!perfectFifthButton.isDisabled());
+        verify(!octaveButton.isDisabled());
 
-        verify(melodicIntervalRecognitionController.minorSecondButton.isDisabled());
-        verify(melodicIntervalRecognitionController.majorSecondButton.isDisabled());
-        verify(melodicIntervalRecognitionController.perfectFourthButton.isDisabled());
-        verify(melodicIntervalRecognitionController.tritoneButton.isDisabled());
-        verify(melodicIntervalRecognitionController.minorSixthButton.isDisabled());
-        verify(melodicIntervalRecognitionController.majorSixthButton.isDisabled());
-        verify(melodicIntervalRecognitionController.minorSeventhButton.isDisabled());
-        verify(melodicIntervalRecognitionController.majorSeventhButton.isDisabled());
+        verify(minorSecondButton.isDisabled());
+        verify(majorSecondButton.isDisabled());
+        verify(perfectFourthButton.isDisabled());
+        verify(tritoneButton.isDisabled());
+        verify(minorSixthButton.isDisabled());
+        verify(majorSixthButton.isDisabled());
+        verify(minorSeventhButton.isDisabled());
+        verify(majorSeventhButton.isDisabled());
     }
 
 
@@ -229,19 +254,19 @@ public class MelodicIntervalRecognitionTests extends GuiTest{
 
     @Test
     public void clickingNextButtonIncrementsQuestionNumber(){
-        buttons = new Button[]{melodicIntervalRecognitionController.unisonButton,
-                                melodicIntervalRecognitionController.minorSecondButton,
-                                melodicIntervalRecognitionController.majorSecondButton,
-                                melodicIntervalRecognitionController.minorThirdButton,
-                                melodicIntervalRecognitionController.majorThirdButton,
-                                melodicIntervalRecognitionController.perfectFourthButton,
-                                melodicIntervalRecognitionController.tritoneButton,
-                                melodicIntervalRecognitionController.perfectFifthButton,
-                                melodicIntervalRecognitionController.minorSixthButton,
-                                melodicIntervalRecognitionController.majorSixthButton,
-                                melodicIntervalRecognitionController.minorSeventhButton,
-                                melodicIntervalRecognitionController.majorSeventhButton,
-                                melodicIntervalRecognitionController.octaveButton};
+        buttons = new Button[]{unisonButton,
+                                minorSecondButton,
+                                majorSecondButton,
+                                minorThirdButton,
+                                majorThirdButton,
+                                perfectFourthButton,
+                                tritoneButton,
+                                perfectFifthButton,
+                                minorSixthButton,
+                                majorSixthButton,
+                                minorSeventhButton,
+                                majorSeventhButton,
+                                octaveButton};
 
 
         click("#hardRadioButton");
@@ -261,19 +286,19 @@ public class MelodicIntervalRecognitionTests extends GuiTest{
 
     @Test
     public void nextQuestionButtonTextChangesToScoreOn10thQuestion(){
-        buttons = new Button[]{melodicIntervalRecognitionController.unisonButton,
-                                melodicIntervalRecognitionController.minorSecondButton,
-                                melodicIntervalRecognitionController.majorSecondButton,
-                                melodicIntervalRecognitionController.minorThirdButton,
-                                melodicIntervalRecognitionController.majorThirdButton,
-                                melodicIntervalRecognitionController.perfectFourthButton,
-                                melodicIntervalRecognitionController.tritoneButton,
-                                melodicIntervalRecognitionController.perfectFifthButton,
-                                melodicIntervalRecognitionController.minorSixthButton,
-                                melodicIntervalRecognitionController.majorSixthButton,
-                                melodicIntervalRecognitionController.minorSeventhButton,
-                                melodicIntervalRecognitionController.majorSeventhButton,
-                                melodicIntervalRecognitionController.octaveButton};
+        buttons = new Button[]{unisonButton,
+                minorSecondButton,
+                majorSecondButton,
+                minorThirdButton,
+                majorThirdButton,
+                perfectFourthButton,
+                tritoneButton,
+                perfectFifthButton,
+                minorSixthButton,
+                majorSixthButton,
+                minorSeventhButton,
+                majorSeventhButton,
+                octaveButton};
 
 
         click("#hardRadioButton");
@@ -331,35 +356,35 @@ public class MelodicIntervalRecognitionTests extends GuiTest{
 
         if(difficultyMode == 0){
             click("#easyRadioButton");
-            buttons = new Button[]{melodicIntervalRecognitionController.unisonButton,
-                    melodicIntervalRecognitionController.minorThirdButton,
-                    melodicIntervalRecognitionController.majorThirdButton,
-                    melodicIntervalRecognitionController.perfectFifthButton,
-                    melodicIntervalRecognitionController.octaveButton};
+            buttons = new Button[]{unisonButton,
+                    minorThirdButton,
+                    majorThirdButton,
+                    perfectFifthButton,
+                    octaveButton};
         } else if(difficultyMode == 1){
             click("#mediumRadioButton");
-            buttons = new Button[]{melodicIntervalRecognitionController.unisonButton,
-                    melodicIntervalRecognitionController.minorSecondButton,
-                    melodicIntervalRecognitionController.majorSecondButton,
-                    melodicIntervalRecognitionController.minorThirdButton,
-                    melodicIntervalRecognitionController.majorThirdButton,
-                    melodicIntervalRecognitionController.perfectFifthButton,
-                    melodicIntervalRecognitionController.octaveButton};
+            buttons = new Button[]{unisonButton,
+                    minorSecondButton,
+                    majorSecondButton,
+                    minorThirdButton,
+                    majorThirdButton,
+                    perfectFifthButton,
+                    octaveButton};
         } else {
             click("#hardRadioButton");
-            buttons = new Button[]{melodicIntervalRecognitionController.unisonButton,
-                    melodicIntervalRecognitionController.minorSecondButton,
-                    melodicIntervalRecognitionController.majorSecondButton,
-                    melodicIntervalRecognitionController.minorThirdButton,
-                    melodicIntervalRecognitionController.majorThirdButton,
-                    melodicIntervalRecognitionController.perfectFourthButton,
-                    melodicIntervalRecognitionController.tritoneButton,
-                    melodicIntervalRecognitionController.perfectFifthButton,
-                    melodicIntervalRecognitionController.minorSixthButton,
-                    melodicIntervalRecognitionController.majorSixthButton,
-                    melodicIntervalRecognitionController.minorSeventhButton,
-                    melodicIntervalRecognitionController.majorSeventhButton,
-                    melodicIntervalRecognitionController.octaveButton};
+            buttons = new Button[]{unisonButton,
+                    minorSecondButton,
+                    majorSecondButton,
+                    minorThirdButton,
+                    majorThirdButton,
+                    perfectFourthButton,
+                    tritoneButton,
+                    perfectFifthButton,
+                    minorSixthButton,
+                    majorSixthButton,
+                    minorSeventhButton,
+                    majorSeventhButton,
+                    octaveButton};
         }
 
 

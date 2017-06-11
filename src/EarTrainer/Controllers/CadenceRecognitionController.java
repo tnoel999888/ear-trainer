@@ -328,10 +328,10 @@ public class CadenceRecognitionController extends AbstractController{
 
 
         //Remove jumps of an octave or more in each voice
-        bottomBottomNotes = removeOctaveJumps(bottomBottomNotes);
-        bottomNotes = removeOctaveJumps(bottomNotes);
-        middleNotes = removeOctaveJumps(middleNotes);
-        topNotes = removeOctaveJumps(topNotes);
+        bottomBottomNotes = removeOctaveJumpsAndHighNotes(bottomBottomNotes);
+        bottomNotes = removeOctaveJumpsAndHighNotes(bottomNotes);
+        middleNotes = removeOctaveJumpsAndHighNotes(middleNotes);
+        topNotes = removeOctaveJumpsAndHighNotes(topNotes);
 
 
         //Set the scores
@@ -464,10 +464,10 @@ public class CadenceRecognitionController extends AbstractController{
 
 
         //Remove jumps of an octave or more in each voice
-        bottomBottomNotes = removeOctaveJumps(bottomBottomNotes);
-        bottomNotes = removeOctaveJumps(bottomNotes);
-        middleNotes = removeOctaveJumps(middleNotes);
-        topNotes = removeOctaveJumps(topNotes);
+        bottomBottomNotes = removeOctaveJumpsAndHighNotes(bottomBottomNotes);
+        bottomNotes = removeOctaveJumpsAndHighNotes(bottomNotes);
+        middleNotes = removeOctaveJumpsAndHighNotes(middleNotes);
+        topNotes = removeOctaveJumpsAndHighNotes(topNotes);
 
 
         //Set the scores
@@ -607,10 +607,10 @@ public class CadenceRecognitionController extends AbstractController{
 
 
         //Remove jumps of an octave or more in each voice
-        bottomBottomNotes = removeOctaveJumps(bottomBottomNotes);
-        bottomNotes = removeOctaveJumps(bottomNotes);
-        middleNotes = removeOctaveJumps(middleNotes);
-        topNotes = removeOctaveJumps(topNotes);
+        bottomBottomNotes = removeOctaveJumpsAndHighNotes(bottomBottomNotes);
+        bottomNotes = removeOctaveJumpsAndHighNotes(bottomNotes);
+        middleNotes = removeOctaveJumpsAndHighNotes(middleNotes);
+        topNotes = removeOctaveJumpsAndHighNotes(topNotes);
 
 
         //Set the scores
@@ -745,10 +745,10 @@ public class CadenceRecognitionController extends AbstractController{
 
 
         //Remove jumps of an octave or more in each voice
-        bottomBottomNotes = removeOctaveJumps(bottomBottomNotes);
-        bottomNotes = removeOctaveJumps(bottomNotes);
-        middleNotes = removeOctaveJumps(middleNotes);
-        topNotes = removeOctaveJumps(topNotes);
+        bottomBottomNotes = removeOctaveJumpsAndHighNotes(bottomBottomNotes);
+        bottomNotes = removeOctaveJumpsAndHighNotes(bottomNotes);
+        middleNotes = removeOctaveJumpsAndHighNotes(middleNotes);
+        topNotes = removeOctaveJumpsAndHighNotes(topNotes);
 
 
         //Set the scores

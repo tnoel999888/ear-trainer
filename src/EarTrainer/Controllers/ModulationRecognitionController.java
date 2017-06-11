@@ -470,10 +470,10 @@ public class ModulationRecognitionController extends AbstractController{
         //5th Chord. Add the tonic of the new key
         usedChord5 = scaleChord1;
 
-        //6th Chord. Add the dominant 7 of new key
+        //6th Chord. Add the invertede dominant of new key
         usedChord6 = scaleChord5Inverted;
 
-        //7th Chord. Add the dominant 7 of new key
+        //7th Chord. Add the tonic of the new key
         usedChord7 = scaleChord1;
 
 
@@ -498,6 +498,15 @@ public class ModulationRecognitionController extends AbstractController{
         chord7Changed = placeCommonNotesInSameVoice(usedChord6, usedChord7);
 
 
+        //Put notes in chords in ascending order
+        usedChord1 = putNotesInVoicesInAscendingOrder(usedChord1);
+        usedChord2 = putNotesInVoicesInAscendingOrder(usedChord2);
+        usedChord3 = putNotesInVoicesInAscendingOrder(usedChord3);
+        usedChord4 = putNotesInVoicesInAscendingOrder(usedChord4);
+        usedChord5 = putNotesInVoicesInAscendingOrder(usedChord5);
+        usedChord6 = putNotesInVoicesInAscendingOrder(usedChord6);
+        usedChord7 = putNotesInVoicesInAscendingOrder(usedChord7);
+
 
         usedChord1 = usedChord1Copy;
         int removeFifth;
@@ -507,7 +516,7 @@ public class ModulationRecognitionController extends AbstractController{
             usedChord2 = usedChord2Copy;
 
             removeFifth = rn.nextInt(2);
-            if(removeFifth == 0){
+            if (removeFifth == 0) {
                 removeFifth(usedChord2);
             }
         }
@@ -515,46 +524,52 @@ public class ModulationRecognitionController extends AbstractController{
         if(!chord3Changed){
             usedChord3 = usedChord3Copy;
 
-            removeFifth = rn.nextInt(2);
-            if(removeFifth == 0){
-                removeFifth(usedChord3);
+            if(!chord2Changed) {
+                removeFifth = rn.nextInt(2);
+                if(removeFifth == 0){
+                    removeFifth(usedChord3);
+                }
             }
         }
 
         if(!chord4Changed){
             usedChord4 = usedChord4Copy;
 
-            removeFifth = rn.nextInt(2);
-            if(removeFifth == 0){
-                removeFifth(usedChord4);
+            if(!chord3Changed) {
+                removeFifth = rn.nextInt(2);
+                if (removeFifth == 0) {
+                    removeFifth(usedChord4);
+                }
             }
         }
 
         if(!chord5Changed){
             usedChord5 = usedChord5Copy;
 
-            removeFifth = rn.nextInt(2);
-            if(removeFifth == 0){
-                removeFifth(usedChord5);
+            if(!chord4Changed) {
+                removeFifth = rn.nextInt(2);
+                if (removeFifth == 0) {
+                    removeFifth(usedChord5);
+                }
             }
         }
 
         if(!chord6Changed){
             usedChord6 = usedChord6Copy;
 
-            removeFifth = rn.nextInt(2);
-            if(removeFifth == 0){
-                removeFifth(usedChord6);
-            }
+//            removeFifth = rn.nextInt(2);
+//            if(removeFifth == 0){
+//                removeFifth(usedChord6);
+//            }
         }
 
         if(!chord7Changed){
             usedChord7 = usedChord7Copy;
 
-            removeFifth = rn.nextInt(2);
-            if(removeFifth == 0){
-                removeFifth(usedChord7);
-            }
+//            removeFifth = rn.nextInt(2);
+//            if(removeFifth == 0){
+//                removeFifth(usedChord7);
+//            }
         }
 
 
@@ -603,10 +618,10 @@ public class ModulationRecognitionController extends AbstractController{
 
 
         //Remove jumps of an octave or more
-        bottomBottomNotes = removeOctaveJumps(bottomBottomNotes);
-        bottomNotes = removeOctaveJumps(bottomNotes);
-        middleNotes = removeOctaveJumps(middleNotes);
-        topNotes = removeOctaveJumps(topNotes);
+        bottomBottomNotes = removeOctaveJumpsAndHighNotes(bottomBottomNotes);
+        bottomNotes = removeOctaveJumpsAndHighNotes(bottomNotes);
+        middleNotes = removeOctaveJumpsAndHighNotes(middleNotes);
+        topNotes = removeOctaveJumpsAndHighNotes(topNotes);
 
 
         //Set the scores
@@ -739,6 +754,18 @@ public class ModulationRecognitionController extends AbstractController{
         chord9Changed = placeCommonNotesInSameVoice(usedChord8, usedChord9);
 
 
+        //Put notes in chords in ascending order
+        usedChord1 = putNotesInVoicesInAscendingOrder(usedChord1);
+        usedChord2 = putNotesInVoicesInAscendingOrder(usedChord2);
+        usedChord3 = putNotesInVoicesInAscendingOrder(usedChord3);
+        usedChord4 = putNotesInVoicesInAscendingOrder(usedChord4);
+        usedChord5 = putNotesInVoicesInAscendingOrder(usedChord5);
+        usedChord6 = putNotesInVoicesInAscendingOrder(usedChord6);
+        usedChord7 = putNotesInVoicesInAscendingOrder(usedChord7);
+        usedChord8 = putNotesInVoicesInAscendingOrder(usedChord8);
+        usedChord9 = putNotesInVoicesInAscendingOrder(usedChord9);
+
+
         usedChord1 = usedChord1Copy;
         int removeFifth;
 
@@ -747,7 +774,7 @@ public class ModulationRecognitionController extends AbstractController{
             usedChord2 = usedChord2Copy;
 
             removeFifth = rn.nextInt(2);
-            if(removeFifth == 0){
+            if (removeFifth == 0) {
                 removeFifth(usedChord2);
             }
         }
@@ -755,64 +782,74 @@ public class ModulationRecognitionController extends AbstractController{
         if(!chord3Changed){
             usedChord3 = usedChord3Copy;
 
-            removeFifth = rn.nextInt(2);
-            if(removeFifth == 0){
-                removeFifth(usedChord3);
+            if(!chord2Changed) {
+                removeFifth = rn.nextInt(2);
+                if(removeFifth == 0){
+                    removeFifth(usedChord3);
+                }
             }
         }
 
         if(!chord4Changed){
             usedChord4 = usedChord4Copy;
 
-            removeFifth = rn.nextInt(2);
-            if(removeFifth == 0){
-                removeFifth(usedChord4);
+            if(!chord3Changed) {
+                removeFifth = rn.nextInt(2);
+                if (removeFifth == 0) {
+                    removeFifth(usedChord4);
+                }
             }
         }
 
         if(!chord5Changed){
             usedChord5 = usedChord5Copy;
 
-            removeFifth = rn.nextInt(2);
-            if(removeFifth == 0){
-                removeFifth(usedChord5);
+            if(!chord4Changed) {
+                removeFifth = rn.nextInt(2);
+                if (removeFifth == 0) {
+                    removeFifth(usedChord5);
+                }
             }
         }
 
         if(!chord6Changed){
             usedChord6 = usedChord6Copy;
 
-            removeFifth = rn.nextInt(2);
-            if(removeFifth == 0){
-                removeFifth(usedChord6);
+            if(!chord5Changed) {
+                removeFifth = rn.nextInt(2);
+                if (removeFifth == 0) {
+                    removeFifth(usedChord6);
+                }
             }
         }
 
         if(!chord7Changed){
             usedChord7 = usedChord7Copy;
 
-            removeFifth = rn.nextInt(2);
-            if(removeFifth == 0){
-                removeFifth(usedChord7);
+            if(!chord6Changed) {
+                removeFifth = rn.nextInt(2);
+                if (removeFifth == 0) {
+                    removeFifth(usedChord7);
+                }
             }
         }
 
         if(!chord8Changed){
             usedChord8 = usedChord8Copy;
 
-            removeFifth = rn.nextInt(2);
-            if(removeFifth == 0){
-                removeFifth(usedChord8);
-            }
+//            removeFifth = rn.nextInt(2);
+//            if(removeFifth == 0){
+//                removeFifth(usedChord8);
+//            }
         }
 
         if(!chord9Changed){
             usedChord9 = usedChord9Copy;
 
-            removeFifth = rn.nextInt(2);
-            if(removeFifth == 0){
-                removeFifth(usedChord9);
-            }
+//            removeFifth = rn.nextInt(2);
+//            if(removeFifth == 0){
+//                removeFifth(usedChord9);
+//            }
         }
 
 
@@ -871,10 +908,10 @@ public class ModulationRecognitionController extends AbstractController{
 
 
         //Remove jumps of an octave or more
-        bottomBottomNotes = removeOctaveJumps(bottomBottomNotes);
-        bottomNotes = removeOctaveJumps(bottomNotes);
-        middleNotes = removeOctaveJumps(middleNotes);
-        topNotes = removeOctaveJumps(topNotes);
+        bottomBottomNotes = removeOctaveJumpsAndHighNotes(bottomBottomNotes);
+        bottomNotes = removeOctaveJumpsAndHighNotes(bottomNotes);
+        middleNotes = removeOctaveJumpsAndHighNotes(middleNotes);
+        topNotes = removeOctaveJumpsAndHighNotes(topNotes);
 
 
         //Set the scores
@@ -922,9 +959,6 @@ public class ModulationRecognitionController extends AbstractController{
     private String makeMIDIEasyModulation(){
         int i = rn.nextInt(12);
         int root;
-
-        minor = false;
-        major = false;
 
         int minorOrMajor = rn.nextInt(2);
 
@@ -1055,6 +1089,10 @@ public class ModulationRecognitionController extends AbstractController{
                 }
             } while(numberToDisable != 0);
         }
+
+
+        minor = false;
+        major = false;
 
 
         playSound();

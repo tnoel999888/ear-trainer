@@ -118,16 +118,4 @@ public class VoiceTunerTests extends GuiTest{
         correctAnswer = voiceTunerController.correctAnswer;
         verifyThat(correctAnswer, not(""));
     }
-
-
-    protected void playSound() throws MidiUnavailableException, IOException, InvalidMidiDataException {
-        final String MEDIA_URL;
-
-        MEDIA_URL = "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/VoiceTunerTest.mid";
-
-        sequencer = MidiSystem.getSequencer();
-        sequencer.open();
-        InputStream is = new BufferedInputStream(new FileInputStream(new File(MEDIA_URL)));
-        sequencer.setSequence(is);
-    }
 }

@@ -3,7 +3,6 @@ package EarTrainer.Tests;
 /**
  * Created by timannoel on 05/06/2017.
  */
-
 import EarTrainer.Controllers.WrongNoteIdentificationController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,18 +11,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import jm.music.data.Note;
-import jm.music.data.Phrase;
 import org.junit.Test;
 import org.loadui.testfx.GuiTest;
-
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Random;
-
-import static com.google.common.base.Verify.verify;
 import static jm.constants.Durations.C;
 import static jm.constants.Pitches.C4;
-import static org.hamcrest.Matchers.not;
 import static org.hamcrest.core.Is.is;
 import static org.loadui.testfx.Assertions.verifyThat;
 
