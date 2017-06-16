@@ -267,7 +267,7 @@ public class CadenceRecognitionController extends AbstractController{
 
             int removeFifth = rn.nextInt(2);
             if(removeFifth == 0){
-                removeFifth(usedChord2);
+                removeFifth(usedChord1, usedChord2);
             }
         }
 
@@ -277,7 +277,7 @@ public class CadenceRecognitionController extends AbstractController{
 
             int removeFifth = rn.nextInt(2);
             if(removeFifth == 0){
-                removeFifth(usedChord3);
+                removeFifth(usedChord2, usedChord3);
             }
         }
 
@@ -287,7 +287,7 @@ public class CadenceRecognitionController extends AbstractController{
 
             int removeFifth = rn.nextInt(2);
             if(removeFifth == 0){
-                removeFifth(usedChord4);
+                removeFifth(usedChord3, usedChord4);
             }
         }
 
@@ -405,7 +405,7 @@ public class CadenceRecognitionController extends AbstractController{
 
             int removeFifth = rn.nextInt(2);
             if(removeFifth == 0){
-                removeFifth(usedChord2);
+                removeFifth(usedChord1, usedChord2);
             }
         }
 
@@ -414,7 +414,7 @@ public class CadenceRecognitionController extends AbstractController{
 
             int removeFifth = rn.nextInt(2);
             if(removeFifth == 0){
-                removeFifth(usedChord3);
+                removeFifth(usedChord2, usedChord3);
             }
         }
 
@@ -423,7 +423,7 @@ public class CadenceRecognitionController extends AbstractController{
 
             int removeFifth = rn.nextInt(2);
             if(removeFifth == 0){
-                removeFifth(usedChord4);
+                removeFifth(usedChord3, usedChord4);
             }
         }
 
@@ -548,7 +548,7 @@ public class CadenceRecognitionController extends AbstractController{
 
             int removeFifth = rn.nextInt(2);
             if(removeFifth == 0){
-                removeFifth(usedChord2);
+                removeFifth(usedChord1, usedChord2);
             }
         }
 
@@ -557,7 +557,7 @@ public class CadenceRecognitionController extends AbstractController{
 
             int removeFifth = rn.nextInt(2);
             if(removeFifth == 0){
-                removeFifth(usedChord3);
+                removeFifth(usedChord2, usedChord3);
             }
         }
 
@@ -566,7 +566,7 @@ public class CadenceRecognitionController extends AbstractController{
 
             int removeFifth = rn.nextInt(2);
             if(removeFifth == 0){
-                removeFifth(usedChord4);
+                removeFifth(usedChord3, usedChord4);
             }
         }
 
@@ -686,7 +686,7 @@ public class CadenceRecognitionController extends AbstractController{
 
             int removeFifth = rn.nextInt(2);
             if(removeFifth == 0){
-                removeFifth(usedChord2);
+                removeFifth(usedChord1, usedChord2);
             }
         }
 
@@ -695,7 +695,7 @@ public class CadenceRecognitionController extends AbstractController{
 
             int removeFifth = rn.nextInt(2);
             if(removeFifth == 0){
-                removeFifth(usedChord3);
+                removeFifth(usedChord2, usedChord3);
             }
         }
 
@@ -704,7 +704,7 @@ public class CadenceRecognitionController extends AbstractController{
 
             int removeFifth = rn.nextInt(2);
             if(removeFifth == 0){
-                removeFifth(usedChord4);
+                removeFifth(usedChord3, usedChord4);
             }
         }
 

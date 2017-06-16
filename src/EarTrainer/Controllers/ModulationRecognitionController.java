@@ -75,6 +75,9 @@ public class ModulationRecognitionController extends AbstractController{
 
     private String rootKeyString;
 
+    private boolean rootMajor;
+    private boolean rootMinor;
+
 
 
 
@@ -425,7 +428,7 @@ public class ModulationRecognitionController extends AbstractController{
 
 
         //2nd Chord. Add random chord of original key
-        int i2 = rn.nextInt(7);
+        int i2 = rn.nextInt(6);
         usedChord2 = scaleChords[i2];
 
 
@@ -438,9 +441,11 @@ public class ModulationRecognitionController extends AbstractController{
         //Make the scale and chords of the new key
         if (i3 == 0 || i3 == 2 || i3 == 4) {
             minor = true;
+            major = false;
             makeMinorScale(newKey);
         } else {
             major = true;
+            minor = false;
             makeMajorScale(newKey);
         }
 
@@ -470,7 +475,7 @@ public class ModulationRecognitionController extends AbstractController{
         //5th Chord. Add the tonic of the new key
         usedChord5 = scaleChord1;
 
-        //6th Chord. Add the invertede dominant of new key
+        //6th Chord. Add the inverted dominant of new key
         usedChord6 = scaleChord5Inverted;
 
         //7th Chord. Add the tonic of the new key
@@ -517,7 +522,7 @@ public class ModulationRecognitionController extends AbstractController{
 
             removeFifth = rn.nextInt(2);
             if (removeFifth == 0) {
-                removeFifth(usedChord2);
+                removeFifth(usedChord1, usedChord2);
             }
         }
 
@@ -527,7 +532,7 @@ public class ModulationRecognitionController extends AbstractController{
             if(!chord2Changed) {
                 removeFifth = rn.nextInt(2);
                 if(removeFifth == 0){
-                    removeFifth(usedChord3);
+                    removeFifth(usedChord2, usedChord3);
                 }
             }
         }
@@ -538,7 +543,7 @@ public class ModulationRecognitionController extends AbstractController{
             if(!chord3Changed) {
                 removeFifth = rn.nextInt(2);
                 if (removeFifth == 0) {
-                    removeFifth(usedChord4);
+                    removeFifth(usedChord3, usedChord4);
                 }
             }
         }
@@ -549,7 +554,7 @@ public class ModulationRecognitionController extends AbstractController{
             if(!chord4Changed) {
                 removeFifth = rn.nextInt(2);
                 if (removeFifth == 0) {
-                    removeFifth(usedChord5);
+                    removeFifth(usedChord4, usedChord5);
                 }
             }
         }
@@ -713,8 +718,12 @@ public class ModulationRecognitionController extends AbstractController{
 
         //Make the scale and chords of the new key
         if (i3 == 1 || i3 == 3) {
+            minor = true;
+            major = false;
             makeMinorScale(newKey);
         } else {
+            major = true;
+            minor = false;
             makeMajorScale(newKey);
         }
 
@@ -723,7 +732,7 @@ public class ModulationRecognitionController extends AbstractController{
         usedChord7 = scaleChord5Inverted;
 
         //8th Chord. Add the dominant 7 of new key
-        usedChord8 = scaleChord5Seventh;
+        usedChord8 = scaleChord5;
 
         //9th Chord. Add the tonic of the new key
         usedChord9 = scaleChord1;
@@ -775,7 +784,7 @@ public class ModulationRecognitionController extends AbstractController{
 
             removeFifth = rn.nextInt(2);
             if (removeFifth == 0) {
-                removeFifth(usedChord2);
+                removeFifth(usedChord1, usedChord2);
             }
         }
 
@@ -785,7 +794,7 @@ public class ModulationRecognitionController extends AbstractController{
             if(!chord2Changed) {
                 removeFifth = rn.nextInt(2);
                 if(removeFifth == 0){
-                    removeFifth(usedChord3);
+                    removeFifth(usedChord2, usedChord3);
                 }
             }
         }
@@ -796,7 +805,7 @@ public class ModulationRecognitionController extends AbstractController{
             if(!chord3Changed) {
                 removeFifth = rn.nextInt(2);
                 if (removeFifth == 0) {
-                    removeFifth(usedChord4);
+                    removeFifth(usedChord3, usedChord4);
                 }
             }
         }
@@ -807,7 +816,7 @@ public class ModulationRecognitionController extends AbstractController{
             if(!chord4Changed) {
                 removeFifth = rn.nextInt(2);
                 if (removeFifth == 0) {
-                    removeFifth(usedChord5);
+                    removeFifth(usedChord4, usedChord5);
                 }
             }
         }
@@ -815,12 +824,12 @@ public class ModulationRecognitionController extends AbstractController{
         if(!chord6Changed){
             usedChord6 = usedChord6Copy;
 
-            if(!chord5Changed) {
-                removeFifth = rn.nextInt(2);
-                if (removeFifth == 0) {
-                    removeFifth(usedChord6);
-                }
-            }
+//            if(!chord5Changed) {
+//                removeFifth = rn.nextInt(2);
+//                if (removeFifth == 0) {
+//                    removeFifth(usedChord5, usedChord6);
+//                }
+//            }
         }
 
         if(!chord7Changed){
@@ -829,7 +838,7 @@ public class ModulationRecognitionController extends AbstractController{
             if(!chord6Changed) {
                 removeFifth = rn.nextInt(2);
                 if (removeFifth == 0) {
-                    removeFifth(usedChord7);
+                    removeFifth(usedChord6, usedChord7);
                 }
             }
         }
@@ -960,16 +969,22 @@ public class ModulationRecognitionController extends AbstractController{
         int i = rn.nextInt(12);
         int root;
 
+        rootMinor = false;
+        rootMajor = false;
+
         int minorOrMajor = rn.nextInt(2);
 
         if(minorOrMajor == 0) {
-            minor = true;
+            rootMinor = true;
+            rootMajor = false;
             root = circleOfFifthsMinor[i];
             makeMinorScale(root);
             rootKeyString = getNote(new Note(root, C));
+            rootKeyString += "m";
             return modulateFromMinor(i, root);
         } else {
-            major = true;
+            rootMajor = true;
+            rootMinor = false;
             root = circleOfFifthsMajor[i];
             makeMajorScale(root);
             rootKeyString = getNote(new Note(root, C));
@@ -1019,8 +1034,9 @@ public class ModulationRecognitionController extends AbstractController{
         }
 
         rootKeyLabel.setVisible(true);
-        rootKeyLabel.setText("Root key: " + getRootKeyString());
+        rootKeyLabel.setText("Root key: " + rootKeyString);
 
+        System.out.println("Root key: " + rootKeyString);
         System.out.println("New key: " + correctAnswer);
 
         String similarKey0Text;
@@ -1029,8 +1045,8 @@ public class ModulationRecognitionController extends AbstractController{
         String similarKey3Text;
         String similarKey4Text;
 
-        if(major) {
-            System.out.println("major");
+
+        if (rootMajor && !rootMinor) {
             similarKey0Label.setText("Root Key Relative Minor:");
             similarKey0Text = getNote(new Note(similarKeys[0], 1.0)) + "m";
             similarKey1Label.setText("Sub Dominant:");
@@ -1042,7 +1058,6 @@ public class ModulationRecognitionController extends AbstractController{
             similarKey4Label.setText("Dominant Relative Minor:");
             similarKey4Text = getNote(new Note(similarKeys[4], 1.0)) + "m";
         } else {
-            System.out.println("minor");
             similarKey0Label.setText("Root Key Relative Major:");
             similarKey0Text = getNote(new Note(similarKeys[0], 1.0));
             similarKey1Label.setText("Sub Dominant:");
@@ -1061,7 +1076,9 @@ public class ModulationRecognitionController extends AbstractController{
         similarKey3Button.setText(similarKey3Text);
         similarKey4Button.setText(similarKey4Text);
 
+
         correctButton = getCorrectButton(correctAnswer);
+        System.out.println("Correct button: " + correctButton.getText());
 
         for(Button button : buttons){
             button.setDisable(false);
@@ -1089,10 +1106,6 @@ public class ModulationRecognitionController extends AbstractController{
                 }
             } while(numberToDisable != 0);
         }
-
-
-        minor = false;
-        major = false;
 
 
         playSound();

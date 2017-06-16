@@ -130,7 +130,7 @@ public abstract class AbstractController {
 
     @FXML Pane scorePane;
 
-    public JGrandStave jScore = new JGrandStave();
+    JGrandStave jScore = new JGrandStave();
     JGrandStave jScoreBottom = new JGrandStave();
     JGrandStave jScoreTop = new JGrandStave();
 
@@ -144,7 +144,7 @@ public abstract class AbstractController {
 
     public String correctAnswer = "";
     boolean questionAnswered;
-    Timeline timeline;
+    private Timeline timeline;
     boolean startClicked = false;
 
     Sequencer sequencer;
@@ -349,7 +349,7 @@ public abstract class AbstractController {
 
 
         scaleChord1 = new Note[]{note1OctaveBelow, note1, note3, note5};
-        scaleChord1RemovedFifth = new Note[]{new Note(note1.getPitch() - 12, C), note1, note3, note8};
+        scaleChord1RemovedFifth = new Note[]{note1OctaveBelow, note1, note1, note3};
 
         //If minor, diminished, invert
         if (minor) {
@@ -540,8 +540,27 @@ public abstract class AbstractController {
     }
 
 
-    void removeFifth(Note[] chord2){
-        chord2[3] = chord2[1];
+    void removeFifth(Note[] chord1, Note[] chord2){
+        int chord1Fifth = chord1[3].getPitch();
+        int chord2Root = chord2[1].getPitch();
+        int chord2Third = chord2[2].getPitch();
+
+        int distanceToRoot = Math.abs(chord2Root - chord1Fifth);
+        int distanceToThird = Math.abs(chord2Third - chord1Fifth);
+
+
+        if(distanceToRoot < distanceToThird) {
+            System.out.println("Doubling root");
+            chord2[3] = chord2[1];
+        } else {
+            if(minor){
+                System.out.println("Doubling third");
+                chord2[3] = chord2[2];
+            } else {
+                System.out.println("Closer to third but in major so doubling root");
+                chord2[3] = chord2[1];
+            }
+        }
     }
 
 

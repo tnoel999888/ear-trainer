@@ -193,7 +193,7 @@ public class PitchRecognitionController extends AbstractController{
     }
 
 
-    Button getCorrectButton(String correctAnswer) {
+    private Button getCorrectButton(String correctAnswer) {
         switch(correctAnswer){
             case "C":
                 return cButton;
@@ -230,54 +230,63 @@ public class PitchRecognitionController extends AbstractController{
         int[] array = {0, 2, 4, 5, 7, 9, 11};
         int interval = array[i];
 
+        Note n1 = new Note(C4, C);
+        phr1.add(n1);
         setScore(phr1);
 
-        Note n = new Note(C4 + interval, C);
+        Note n2 = new Note(C4 + interval, C);
 
-        phr2.addNote(n);
+        phr2.addNote(n1);
+        phr2.addNote(n2);
 
         p.addPhrase(phr2);
         s.addPart(p);
 
         Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Pitch.mid");
 
-        return getNote(n);
+        return getNote(n2);
     }
 
 
     private String makeMIDIMediumPitch() {
         int interval = rn.nextInt(12);
 
+        Note n1 = new Note(C4, C);
+        phr1.add(n1);
         setScore(phr1);
 
-        Note n = new Note(C4 + interval, C);
+        Note n2 = new Note(C4 + interval, C);
 
-        phr2.addNote(n);
+        phr2.addNote(n1);
+        phr2.addNote(n2);
 
         p.addPhrase(phr2);
         s.addPart(p);
 
         Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Pitch.mid");
 
-        return getNote(n);
+        return getNote(n2);
     }
 
 
     private String makeMIDIHardPitch() {
         int interval = rn.nextInt(36);
 
+        Note n1 = new Note(C4, C);
+        phr1.add(n1);
         setScore(phr1);
 
-        Note n = new Note(C3 + interval, C);
+        Note n2 = new Note(C3 + interval, C);
 
-        phr2.addNote(n);
+        phr2.addNote(n1);
+        phr2.addNote(n2);
 
         p.addPhrase(phr2);
         s.addPart(p);
 
         Write.midi(s, "/Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject/src/EarTrainer/Music/Pitch.mid");
 
-        return getNote(n);
+        return getNote(n2);
     }
 
 
