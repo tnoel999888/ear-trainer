@@ -396,15 +396,6 @@ public class ModulationRecognitionController extends AbstractController{
     }
 
 
-    private String getRootKeyString(){
-        if(minor){
-            rootKeyString += "m";
-        }
-
-        return rootKeyString;
-    }
-
-
     private String modulateFromMajor(int i, int root) {
         Note[][] rootKeyChords = scaleChords;
 
@@ -559,23 +550,10 @@ public class ModulationRecognitionController extends AbstractController{
             }
         }
 
-        if(!chord6Changed){
-            usedChord6 = usedChord6Copy;
+        usedChord6 = usedChord6Copy;
 
-//            removeFifth = rn.nextInt(2);
-//            if(removeFifth == 0){
-//                removeFifth(usedChord6);
-//            }
-        }
+        usedChord7 = usedChord7Copy;
 
-        if(!chord7Changed){
-            usedChord7 = usedChord7Copy;
-
-//            removeFifth = rn.nextInt(2);
-//            if(removeFifth == 0){
-//                removeFifth(usedChord7);
-//            }
-        }
 
 
         //Put notes in chords in ascending order
@@ -843,23 +821,10 @@ public class ModulationRecognitionController extends AbstractController{
             }
         }
 
-        if(!chord8Changed){
-            usedChord8 = usedChord8Copy;
+        usedChord8 = usedChord8Copy;
 
-//            removeFifth = rn.nextInt(2);
-//            if(removeFifth == 0){
-//                removeFifth(usedChord8);
-//            }
-        }
+        usedChord9 = usedChord9Copy;
 
-        if(!chord9Changed){
-            usedChord9 = usedChord9Copy;
-
-//            removeFifth = rn.nextInt(2);
-//            if(removeFifth == 0){
-//                removeFifth(usedChord9);
-//            }
-        }
 
 
         //Put notes in chords in ascending order
