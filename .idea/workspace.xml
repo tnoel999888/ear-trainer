@@ -7,8 +7,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d85771c-314b-47ed-90aa-8d9f517ced78" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/AbstractController$1.class" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/AbstractController$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/AbstractController.class" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/AbstractController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/ModulationRecognitionController.class" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Controllers/ModulationRecognitionController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Music/Modulation.mid" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Music/Modulation.mid" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Music/Pitch.mid" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Music/Pitch.mid" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Music/VoiceTuner.mid" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Music/VoiceTuner.mid" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Music/WrongNote.mid" afterPath="$PROJECT_DIR$/out/production/EarTrainerProject/EarTrainer/Music/WrongNote.mid" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Music/Cadence.mid" afterPath="$PROJECT_DIR$/src/EarTrainer/Music/Cadence.mid" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Music/HarmonicInterval.mid" afterPath="$PROJECT_DIR$/src/EarTrainer/Music/HarmonicInterval.mid" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Music/MelodicInterval.mid" afterPath="$PROJECT_DIR$/src/EarTrainer/Music/MelodicInterval.mid" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Music/Modulation.mid" afterPath="$PROJECT_DIR$/src/EarTrainer/Music/Modulation.mid" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Music/Pitch.mid" afterPath="$PROJECT_DIR$/src/EarTrainer/Music/Pitch.mid" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Music/SharpFlat.au" afterPath="$PROJECT_DIR$/src/EarTrainer/Music/SharpFlat.au" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Music/VoiceTuner.mid" afterPath="$PROJECT_DIR$/src/EarTrainer/Music/VoiceTuner.mid" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Music/WrongNote.mid" afterPath="$PROJECT_DIR$/src/EarTrainer/Music/WrongNote.mid" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/AbstractController.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/AbstractController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/ModulationRecognitionController.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/ModulationRecognitionController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/VoiceTunerController.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/VoiceTunerController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Controllers/WrongNoteIdentificationController.java" afterPath="$PROJECT_DIR$/src/EarTrainer/Controllers/WrongNoteIdentificationController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EarTrainer/Views/WrongNoteIdentification.fxml" afterPath="$PROJECT_DIR$/src/EarTrainer/Views/WrongNoteIdentification.fxml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/IP/target/" />
@@ -31,11 +50,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AbstractController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AbstractController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/AbstractController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="790">
-              <caret line="748" column="39" lean-forward="false" selection-start-line="748" selection-start-column="39" selection-end-line="748" selection-end-column="39" />
+            <state relative-caret-position="240">
+              <caret line="52" column="38" lean-forward="true" selection-start-line="52" selection-start-column="38" selection-end-line="52" selection-end-column="38" />
               <folding>
                 <element signature="docComment;class#AbstractController#0" expanded="false" />
                 <element signature="method#getInterval#0;class#AbstractController#0" expanded="false" />
@@ -44,6 +63,7 @@
                 <element signature="method#sharpen#0;class#AbstractController#0" expanded="false" />
                 <element signature="method#makeChords#0;class#AbstractController#0" expanded="false" />
                 <element signature="method#makeMinorScale#0;class#AbstractController#0" expanded="false" />
+                <element signature="e#12038#12082#0" expanded="false" />
                 <element signature="method#makeMajorScale#0;class#AbstractController#0" expanded="false" />
                 <element signature="method#chooseRandomRootAndMakeScale#0;class#AbstractController#0" expanded="false" />
                 <element signature="method#placeCommonNotesInSameVoice#0;class#AbstractController#0" expanded="false" />
@@ -51,7 +71,7 @@
                 <element signature="method#removeOctaveJumpsAndHighNotes#0;class#AbstractController#0" expanded="false" />
                 <element signature="method#removeFifth#0;class#AbstractController#0" expanded="false" />
                 <element signature="method#initialize#0;class#AbstractController#0" expanded="false" />
-                <element signature="e#17970#18025#0" expanded="false" />
+                <element signature="e#18610#18665#0" expanded="false" />
                 <element signature="method#backButtonClicked#0;class#AbstractController#0" expanded="false" />
                 <element signature="method#startButtonClicked#0;class#AbstractController#0" expanded="false" />
                 <element signature="method#nextQuestionButtonClicked#0;class#AbstractController#0" expanded="false" />
@@ -60,8 +80,8 @@
                 <element signature="method#answerButtonClicked#0;class#AbstractController#0" expanded="false" />
                 <element signature="method#checkAnswer#0;class#AbstractController#0" expanded="false" />
                 <element signature="method#startTimer#0;class#AbstractController#0" expanded="false" />
-                <element signature="class#24515:25296" expanded="false" />
-                <element signature="method#handle#0;class#24515:25296" expanded="false" />
+                <element signature="class#25266:26047" expanded="false" />
+                <element signature="method#handle#0;class#25266:26047" expanded="false" />
                 <element signature="method#replayButtonClicked#0;class#AbstractController#0" expanded="false" />
                 <element signature="method#setScore#0;class#AbstractController#0" expanded="false" />
               </folding>
@@ -69,11 +89,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ModulationRecognitionController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ModulationRecognitionController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/ModulationRecognitionController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="550" column="9" lean-forward="false" selection-start-line="550" selection-start-column="9" selection-end-line="550" selection-end-column="9" />
+            <state relative-caret-position="1215">
+              <caret line="283" column="158" lean-forward="false" selection-start-line="283" selection-start-column="158" selection-end-line="283" selection-end-column="158" />
               <folding>
                 <element signature="e#2691#2700#0" expanded="false" />
                 <element signature="method#initialize#0;class#ModulationRecognitionController#0" expanded="false" />
@@ -95,17 +115,62 @@
                 <element signature="method#similarKey4ButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
                 <element signature="e#9710#9719#0" expanded="false" />
                 <element signature="method#startButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
-                <element signature="e#11260#11269#0" expanded="false" />
+                <element signature="e#11621#11630#0" expanded="false" />
                 <element signature="method#answerButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
                 <element signature="method#getCorrectButton#0;class#ModulationRecognitionController#0" expanded="false" />
                 <element signature="method#getRelativeMinor#0;class#ModulationRecognitionController#0" expanded="false" />
                 <element signature="method#getRelativeMajor#0;class#ModulationRecognitionController#0" expanded="false" />
                 <element signature="method#findCommonChords#0;class#ModulationRecognitionController#0" expanded="false" />
-                <element signature="e#27403#27437#0" expanded="false" />
+                <element signature="method#modulateFromMajor#0;class#ModulationRecognitionController#0" expanded="false" />
+                <element signature="e#17336#17376#0" expanded="false" />
+                <element signature="method#modulateFromMinor#0;class#ModulationRecognitionController#0" expanded="false" />
+                <element signature="e#25862#25902#0" expanded="false" />
+                <element signature="e#27796#27830#0" expanded="false" />
                 <element signature="method#makeMIDIEasyModulation#0;class#ModulationRecognitionController#0" expanded="false" />
-                <element signature="e#32625#32634#0" expanded="false" />
+                <element signature="e#33018#33027#0" expanded="false" />
+                <element signature="method#generateQuestion#0;class#ModulationRecognitionController#0" expanded="false" />
                 <element signature="method#playSound#0;class#ModulationRecognitionController#0" expanded="false" />
                 <element signature="method#setScoreSpecific#0;class#ModulationRecognitionController#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VoiceTunerController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/VoiceTunerController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+              <folding>
+                <element signature="e#2458#2467#0" expanded="false" />
+                <element signature="method#initialize#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="e#2925#2991#0" expanded="false" />
+                <element signature="class#3465:4116" expanded="false" />
+                <element signature="method#propertyChange#0;class#3465:4116" expanded="false" />
+                <element signature="method#easyRadioButtonSelected#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="method#mediumRadioButtonSelected#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="method#hardRadioButtonSelected#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="e#4714#4723#0" expanded="false" />
+                <element signature="method#startButtonClicked#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="e#6614#6623#0" expanded="false" />
+                <element signature="method#nextQuestionButtonClicked#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="method#recordButtonClicked#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="class#8981:9650" expanded="false" />
+                <element signature="method#handle#0;class#8981:9650" expanded="false" />
+                <element signature="method#convertNoteDurationToSeconds#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="method#getModePitch#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="method#checkAnswer#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="method#resetButtonColours#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="method#makeMIDIEasyVoiceTuner#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="method#makeMIDIMediumVoiceTuner#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="method#makeMIDIHardVoiceTuner#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="method#generateQuestion#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="method#playSound#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="method#setNewMixer#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="method#calculateNoteFromPitch#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="method#handlePitch#0;class#VoiceTunerController#0" expanded="false" />
+                <element signature="class#24919:25462" expanded="false" />
+                <element signature="method#run#0;class#24919:25462" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -122,19 +187,7 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>nextQue</find>
-      <find>&quot;Start&quot;</find>
-      <find>load</find>
-      <find>bottomNotesArray</find>
-      <find>questionAnswered</find>
-      <find>build</find>
-      <find>event</find>
-      <find>getCorrectButton</find>
-      <find>args</find>
-      <find>launch</find>
-      <find>questionLabel</find>
       <find>LABEL</find>
-      <find>correctIncorrectLabel</find>
       <find>radio</find>
       <find>difficulty</find>
       <find>ok</find>
@@ -152,6 +205,18 @@
       <find>score</find>
       <find>rootKeyString</find>
       <find>minor</find>
+      <find>sharpen</find>
+      <find>scaleChord5MelodicMinor</find>
+      <find>stop</find>
+      <find>start</find>
+      <find>next</find>
+      <find>reset</find>
+      <find>correctInco</find>
+      <find>correctIncorrectText</find>
+      <find>correctInc</find>
+      <find>incorrect</find>
+      <find>correctIncorrectLabel</find>
+      <find>correctIncor</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -177,21 +242,17 @@
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/PopupScoreController.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Views/pom.xml" />
         <option value="$PROJECT_DIR$/IP/pom.xml" />
-        <option value="$PROJECT_DIR$/src/EarTrainer/Views/WrongNoteIdentification.fxml" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Views/Home.fxml" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/Main.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/HomeController.java" />
         <option value="$PROJECT_DIR$/Maven/pom.xml" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/Tests.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Tests/Tests.java" />
-        <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/MelodicIntervalRecognitionController.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/HarmonicIntervalRecognitionController.java" />
-        <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/VoiceTunerController.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/InputPanel.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/SharpFlatRecognitionController.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Views/CadenceRecognition.fxml" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Views/ModulationRecognition.fxml" />
-        <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/WrongNoteIdentificationController.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Tests/CadenceRecognitionTests.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Tests/HarmonicIntervalRecognitionTests.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Tests/ModulationRecognitionTests.java" />
@@ -202,8 +263,12 @@
         <option value="$PROJECT_DIR$/src/EarTrainer/Tests/MelodicIntervalRecognitionTests.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/CadenceRecognitionController.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/PitchRecognitionController.java" />
+        <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/MelodicIntervalRecognitionController.java" />
+        <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/WrongNoteIdentificationController.java" />
+        <option value="$PROJECT_DIR$/src/EarTrainer/Views/WrongNoteIdentification.fxml" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/AbstractController.java" />
         <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/ModulationRecognitionController.java" />
+        <option value="$PROJECT_DIR$/src/EarTrainer/Controllers/VoiceTunerController.java" />
       </list>
     </option>
   </component>
@@ -214,8 +279,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1920" />
-    <option name="height" value="1080" />
+    <option name="x" value="131" />
+    <option name="y" value="1080" />
+    <option name="width" value="1680" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -232,8 +299,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -296,7 +361,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
+              <option name="myItemId" value="Views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -310,13 +375,23 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Maven" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EarTrainer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -968,7 +1043,19 @@
       <workItem from="1497374231061" duration="1691000" />
       <workItem from="1497445478222" duration="2689000" />
       <workItem from="1497536523354" duration="1517000" />
-      <workItem from="1497609067745" duration="6056000" />
+      <workItem from="1497609067745" duration="9561000" />
+      <workItem from="1497651413031" duration="1084000" />
+      <workItem from="1497728267321" duration="2817000" />
+      <workItem from="1497797703168" duration="139000" />
+      <workItem from="1497799535228" duration="298000" />
+      <workItem from="1497804239613" duration="881000" />
+      <workItem from="1497876055442" duration="542000" />
+      <workItem from="1497879067415" duration="261000" />
+      <workItem from="1498069631609" duration="312000" />
+      <workItem from="1498138906349" duration="334000" />
+      <workItem from="1498162842937" duration="220000" />
+      <workItem from="1498173695743" duration="135000" />
+      <workItem from="1498212275879" duration="1688000" />
     </task>
     <servers />
   </component>
@@ -1005,10 +1092,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="233125000" />
+    <option name="totallyTimeSpent" value="245341000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
+    <frame x="131" y="1080" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1020,60 +1107,28 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24878994" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913843" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23928215" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901296" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23489584" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25357142" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32623428" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15885417" sideWeight="0.49565217" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3998006" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15885417" sideWeight="0.5043478" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32623428" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15885417" sideWeight="0.49565217" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31171346" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22033899" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15885417" sideWeight="0.5043478" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32720232" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
@@ -1106,26 +1161,16 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/PitchDetectorExample.java" />
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/PitchDetectionPanel.java" />
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/pom.xml" />
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/.idea/misc.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/IP/IP.iml" />
     <entry file="file://$PROJECT_DIR$/IP/pom.xml" />
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/Home.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="21" column="45" lean-forward="false" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="jar://$USER_HOME$/Downloads/Automaton-1.3.2-all-deps.jar!/com/athaydes/automaton/FXer.class">
@@ -1158,28 +1203,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/screenshot1496756083219.png" />
     <entry file="file://$PROJECT_DIR$/screenshot1496756683884.png" />
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/HomeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="74" column="0" lean-forward="true" selection-start-line="74" selection-start-column="0" selection-end-line="77" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/screenshot1496756929946.png" />
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/SplashScreenController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/screenshot1496757047827.png" />
     <entry file="file://$PROJECT_DIR$/screenshot1496757432661.png" />
     <entry file="file://$PROJECT_DIR$/Maven/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="23" column="21" lean-forward="false" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1187,360 +1217,611 @@
     <entry file="file://$PROJECT_DIR$/screenshot1496759383131.png" />
     <entry file="file://$PROJECT_DIR$/screenshot1496763005812.png" />
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/PitchRecognition.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="179">
           <caret line="124" column="36" lean-forward="false" selection-start-line="124" selection-start-column="26" selection-end-line="124" selection-end-column="36" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/PopupScore.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/PopupScoreController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#OKButtonClicked#0;class#PopupScoreController#0" expanded="false" />
-            <element signature="method#setNumberOfCorrectAnswers#0;class#PopupScoreController#0" expanded="false" />
-            <element signature="e#2488#2489#0" expanded="false" />
-            <element signature="e#2540#2541#0" expanded="false" />
-            <element signature="e#2602#2603#0" expanded="false" />
-            <element signature="e#2660#2661#0" expanded="false" />
-            <element signature="method#setImageToUse#0;class#PopupScoreController#0" expanded="false" />
-            <element signature="e#2884#2885#0" expanded="false" />
-            <element signature="e#2924#2925#0" expanded="false" />
-            <element signature="e#2972#2973#0" expanded="false" />
-            <element signature="e#3006#3007#0" expanded="false" />
-            <element signature="e#3066#3067#0" expanded="false" />
-            <element signature="e#3112#3113#0" expanded="false" />
-            <element signature="e#3166#3167#0" expanded="false" />
-            <element signature="e#3206#3207#0" expanded="false" />
-            <element signature="e#3261#3262#0" expanded="false" />
-            <element signature="e#3309#3310#0" expanded="false" />
-            <element signature="e#3357#3358#0" expanded="false" />
-            <element signature="e#3395#3396#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/PopupScore.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="28" column="24" lean-forward="false" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="36" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/HarmonicIntervalRecognition.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/HarmonicIntervalRecognition.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="179">
           <caret line="130" column="66" lean-forward="false" selection-start-line="130" selection-start-column="60" selection-end-line="130" selection-end-column="66" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/MelodicIntervalRecognition.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/HarmonicIntervalRecognitionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="100" column="0" lean-forward="false" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
-          <folding>
-            <element signature="e#1291#1300#0" expanded="false" />
-            <element signature="method#initialize#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="e#1957#2043#0" expanded="false" />
-            <element signature="e#2148#2237#0" expanded="false" />
-            <element signature="e#2401#2513#0" expanded="false" />
-            <element signature="e#2649#2763#0" expanded="false" />
-            <element signature="method#easyRadioButtonSelected#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#mediumRadioButtonSelected#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#hardRadioButtonSelected#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#resetButtonColours#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#unisonButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#minorSecondButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#majorSecondButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#perfectFourthButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#tritoneButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#minorThirdButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#majorThirdButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#perfectFifthButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#octaveButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#minorSixthButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#majorSixthButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#minorSeventhButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#majorSeventhButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#answerButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#getCorrectButton#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#makeMIDIEasyHarmonic#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#makeMIDIMediumHarmonic#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#makeMIDIHardHarmonic#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#generateQuestion#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#playSound#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/Shared.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="54" column="32" lean-forward="false" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/InputPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/VoiceTunerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1185">
-          <caret line="115" column="73" lean-forward="false" selection-start-line="115" selection-start-column="73" selection-end-line="115" selection-end-column="73" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2503#2512#0" expanded="false" />
-            <element signature="method#easyRadioButtonSelected#0;class#VoiceTunerController#0" expanded="false" />
-            <element signature="method#mediumRadioButtonSelected#0;class#VoiceTunerController#0" expanded="false" />
-            <element signature="method#hardRadioButtonSelected#0;class#VoiceTunerController#0" expanded="false" />
-            <element signature="e#4759#4768#0" expanded="false" />
-            <element signature="method#startButtonClicked#0;class#VoiceTunerController#0" expanded="false" />
-            <element signature="e#6255#6264#0" expanded="false" />
-            <element signature="method#nextQuestionButtonClicked#0;class#VoiceTunerController#0" expanded="false" />
-            <element signature="method#recordButtonClicked#0;class#VoiceTunerController#0" expanded="false" />
-            <element signature="class#8622:9291" expanded="false" />
-            <element signature="method#handle#0;class#8622:9291" expanded="false" />
-            <element signature="method#convertNoteDurationToSeconds#0;class#VoiceTunerController#0" expanded="false" />
-            <element signature="method#getModePitch#0;class#VoiceTunerController#0" expanded="false" />
-            <element signature="method#checkAnswer#0;class#VoiceTunerController#0" expanded="false" />
-            <element signature="method#makeMIDIMediumVoiceTuner#0;class#VoiceTunerController#0" expanded="false" />
-            <element signature="method#makeMIDIHardVoiceTuner#0;class#VoiceTunerController#0" expanded="false" />
-            <element signature="method#generateQuestion#0;class#VoiceTunerController#0" expanded="false" />
-            <element signature="method#setNewMixer#0;class#VoiceTunerController#0" expanded="false" />
-            <element signature="method#calculateNoteFromPitch#0;class#VoiceTunerController#0" expanded="false" />
-            <element signature="class#24560:25103" expanded="false" />
-            <element signature="method#run#0;class#24560:25103" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/SharpFlatRecognitionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="23" column="16" lean-forward="false" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/MelodicIntervalRecognition.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
           <caret line="123" column="19" lean-forward="true" selection-start-line="123" selection-start-column="19" selection-end-line="123" selection-end-column="19" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/ModulationRecognition.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/ModulationRecognition.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="137" column="93" lean-forward="false" selection-start-line="137" selection-start-column="93" selection-end-line="137" selection-end-column="93" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/WrongNoteIdentification.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="60" column="46" lean-forward="false" selection-start-line="60" selection-start-column="26" selection-end-line="60" selection-end-column="46" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/screenshot1496854253181.png" />
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/CadenceRecognition.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="135" column="119" lean-forward="false" selection-start-line="135" selection-start-column="119" selection-end-line="135" selection-end-column="119" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Tests/WrongNoteIdentificationTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="80" column="47" lean-forward="false" selection-start-line="80" selection-start-column="16" selection-end-line="80" selection-end-column="47" />
+    <entry file="uml://MODULES/mdl-EarTrainerProject">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>MODULES</ID>
+          <OriginalElement>mdl-EarTrainerProject</OriginalElement>
+          <nodes>
+            <node x="" y="">mdl-EarTrainerProject</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.4869501597520416" x="143.0" y="-164.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Tests/PitchRecognitionTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="34" column="4" lean-forward="false" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="34" />
+    <entry file="uml://JavaScript-modules-diagram//Users/timannoel/Documents/Uni/3rd Year/Individual Project/EarTrainerProject">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JavaScript-modules-diagram</ID>
+          <OriginalElement>$PROJECT_DIR$</OriginalElement>
+          <nodes>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit/build/docs/javadoc/org/testfx/framework/junit/ApplicationAdapter.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit/build/docs/javadoc/org/testfx/framework/junit/class-use/ApplicationAdapter.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit5/build/docs/javadoc/org/testfx/framework/junit5/ApplicationAdapter.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit5/build/docs/javadoc/org/testfx/framework/junit5/class-use/ApplicationAdapter.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit5/build/docs/javadoc/org/testfx/framework/junit5/ApplicationExtension.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit5/build/docs/javadoc/org/testfx/framework/junit5/class-use/ApplicationExtension.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit/build/docs/javadoc/org/testfx/framework/junit/ApplicationFixture.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit/build/docs/javadoc/org/testfx/framework/junit/class-use/ApplicationFixture.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit5/build/docs/javadoc/org/testfx/framework/junit5/ApplicationFixture.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit5/build/docs/javadoc/org/testfx/framework/junit5/class-use/ApplicationFixture.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/toolkit/ApplicationLauncher.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/toolkit/class-use/ApplicationLauncher.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/toolkit/impl/ApplicationLauncherImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/toolkit/impl/class-use/ApplicationLauncherImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit/build/docs/javadoc/org/testfx/framework/junit/ApplicationRule.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit/build/docs/javadoc/org/testfx/framework/junit/class-use/ApplicationRule.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/toolkit/ApplicationService.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/toolkit/class-use/ApplicationService.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/toolkit/impl/ApplicationServiceImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/toolkit/impl/class-use/ApplicationServiceImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit/build/docs/javadoc/org/testfx/framework/junit/ApplicationTest.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit/build/docs/javadoc/org/testfx/framework/junit/class-use/ApplicationTest.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit5/build/docs/javadoc/org/testfx/framework/junit5/ApplicationTest.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit5/build/docs/javadoc/org/testfx/framework/junit5/class-use/ApplicationTest.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/Assertions.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/class-use/Assertions.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/adapter/impl/AwtRobotAdapter.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/adapter/impl/class-use/AwtRobotAdapter.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/BaseRobot.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/class-use/BaseRobot.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/impl/BaseRobotImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/impl/class-use/BaseRobotImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/locator/BoundsLocator.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/locator/class-use/BoundsLocator.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/locator/BoundsLocatorException.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/locator/class-use/BoundsLocatorException.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/locator/impl/BoundsLocatorImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/locator/impl/class-use/BoundsLocatorImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/query/impl/BoundsPointQuery.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/query/impl/class-use/BoundsPointQuery.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/query/BoundsQuery.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/query/class-use/BoundsQuery.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/util/BoundsQueryUtils.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/util/class-use/BoundsQueryUtils.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/matcher/control/ButtonMatchers.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/matcher/control/class-use/ButtonMatchers.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/query/impl/CallableBoundsPointQuery.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/query/impl/class-use/CallableBoundsPointQuery.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/support/Capture.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/support/class-use/Capture.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/support/CaptureSupport.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/support/class-use/CaptureSupport.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/support/impl/CaptureSupportImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/support/impl/class-use/CaptureSupportImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/ClickRobot.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/class-use/ClickRobot.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/impl/ClickRobotImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/impl/class-use/ClickRobotImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/util/ColorUtils.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/util/class-use/ColorUtils.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/matcher/control/ComboBoxMatchers.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/matcher/control/class-use/ComboBoxMatchers.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/controls/Commons.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/controls/class-use/Commons.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/controls/impl/ContainsNodesMatcher.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/controls/impl/class-use/ContainsNodesMatcher.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/DragRobot.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/class-use/DragRobot.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/impl/DragRobotImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/impl/class-use/DragRobotImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/controls/impl/EnabledMatcher.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/controls/impl/class-use/EnabledMatcher.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/utils/FXTestUtils.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/utils/class-use/FXTestUtils.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/api/FxAssert.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/api/class-use/FxAssert.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/api/FxAssertContext.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/api/class-use/FxAssertContext.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/api/FxRobot.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/api/class-use/FxRobot.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/api/FxRobotContext.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/api/class-use/FxRobotContext.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/api/FxRobotException.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/api/class-use/FxRobotException.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/api/FxRobotInterface.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/api/class-use/FxRobotInterface.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/api/FxService.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/api/class-use/FxService.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/api/FxServiceContext.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/api/class-use/FxServiceContext.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/api/FxToolkit.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/api/class-use/FxToolkit.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/api/FxToolkitContext.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/api/class-use/FxToolkitContext.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/matcher/base/GeneralMatchers.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/matcher/base/class-use/GeneralMatchers.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/matcher/base/GeometryMatchers.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/matcher/base/class-use/GeometryMatchers.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/adapter/impl/GlassRobotAdapter.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/adapter/impl/class-use/GlassRobotAdapter.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/GuiTest.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/class-use/GuiTest.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/controls/impl/HasLabelMatcher.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/controls/impl/class-use/HasLabelMatcher.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/controls/impl/HasLabelStringMatcher.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/controls/impl/class-use/HasLabelStringMatcher.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit5/build/docs/javadoc/org/testfx/framework/junit5/Init.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit5/build/docs/javadoc/org/testfx/framework/junit5/class-use/Init.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/adapter/impl/JavafxRobotAdapter.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/adapter/impl/class-use/JavafxRobotAdapter.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/utils/KeyCodeUtils.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/utils/class-use/KeyCodeUtils.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/KeyboardRobot.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/class-use/KeyboardRobot.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/impl/KeyboardRobotImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/impl/class-use/KeyboardRobotImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/matcher/control/LabeledMatchers.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/matcher/control/class-use/LabeledMatchers.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/matcher/control/ListViewMatchers.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/matcher/control/class-use/ListViewMatchers.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/controls/ListViews.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/controls/class-use/ListViews.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/Motion.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/class-use/Motion.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/MouseRobot.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/class-use/MouseRobot.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/impl/MouseRobotImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/impl/class-use/MouseRobotImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/MoveRobot.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/class-use/MoveRobot.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/impl/MoveRobotImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/impl/class-use/MoveRobotImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/exceptions/NoNodesFoundException.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/exceptions/class-use/NoNodesFoundException.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/exceptions/NoNodesVisibleException.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/exceptions/class-use/NoNodesVisibleException.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/controls/impl/NodeExistsMatcher.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/controls/impl/class-use/NodeExistsMatcher.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/finder/NodeFinder.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/finder/class-use/NodeFinder.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/finder/NodeFinderException.ErrorType.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/finder/class-use/NodeFinderException.ErrorType.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/finder/NodeFinderException.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/finder/class-use/NodeFinderException.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/finder/impl/NodeFinderImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/finder/impl/class-use/NodeFinderImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/matcher/base/NodeMatchers.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/matcher/base/class-use/NodeMatchers.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/query/NodeQuery.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/query/class-use/NodeQuery.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/exceptions/NodeQueryException.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/exceptions/class-use/NodeQueryException.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/query/NodeQueryFactory.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/query/class-use/NodeQueryFactory.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/query/impl/NodeQueryFactoryImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/query/impl/class-use/NodeQueryFactoryImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/query/impl/NodeQueryImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/query/impl/class-use/NodeQueryImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/util/NodeQueryUtils.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/util/class-use/NodeQueryUtils.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/matcher/base/ParentMatchers.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/matcher/base/class-use/ParentMatchers.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/support/PixelMatcher.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/support/class-use/PixelMatcher.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/support/impl/PixelMatcherBase.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/support/impl/class-use/PixelMatcherBase.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/support/PixelMatcherResult.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/support/class-use/PixelMatcherResult.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/support/impl/PixelMatcherRgb.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/support/impl/class-use/PixelMatcherRgb.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/locator/PointLocator.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/locator/class-use/PointLocator.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/locator/impl/PointLocatorImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/locator/impl/class-use/PointLocatorImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/query/PointQuery.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/query/class-use/PointQuery.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/query/impl/PointQueryBase.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/query/impl/class-use/PointQueryBase.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/util/PointQueryUtils.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/util/class-use/PointQueryUtils.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/toolkit/PrimaryStageApplication.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/toolkit/class-use/PrimaryStageApplication.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/toolkit/PrimaryStageFuture.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/toolkit/class-use/PrimaryStageFuture.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/adapter/RobotAdapter.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/adapter/class-use/RobotAdapter.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/ScrollRobot.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/class-use/ScrollRobot.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/impl/ScrollRobotImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/impl/class-use/ScrollRobotImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/SleepRobot.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/class-use/SleepRobot.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/impl/SleepRobotImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/impl/class-use/SleepRobotImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/api/annotation/Stable.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/api/annotation/class-use/Stable.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit5/build/docs/javadoc/org/testfx/framework/junit5/Start.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit5/build/docs/javadoc/org/testfx/framework/junit5/class-use/Start.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit5/build/docs/javadoc/org/testfx/framework/junit5/Stop.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit5/build/docs/javadoc/org/testfx/framework/junit5/class-use/Stop.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/matcher/control/TableViewMatchers.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/matcher/control/class-use/TableViewMatchers.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/controls/TableViews.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/controls/class-use/TableViews.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/categories/TestFX.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/categories/class-use/TestFX.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/matcher/control/TextFlowMatchers.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/matcher/control/class-use/TextFlowMatchers.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/matcher/control/TextInputControlMatchers.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/matcher/control/class-use/TextInputControlMatchers.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/controls/TextInputControls.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/controls/class-use/TextInputControls.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/matcher/control/TextMatchers.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/matcher/control/class-use/TextMatchers.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/toolkit/ToolkitService.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/toolkit/class-use/ToolkitService.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/toolkit/impl/ToolkitServiceImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/toolkit/impl/class-use/ToolkitServiceImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/TypeRobot.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/class-use/TypeRobot.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/impl/TypeRobotImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/impl/class-use/TypeRobotImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/api/annotation/Unstable.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/api/annotation/class-use/Unstable.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/controls/impl/VisibleNodesMatcher.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/controls/impl/class-use/VisibleNodesMatcher.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/util/WaitForAsyncUtils.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/util/class-use/WaitForAsyncUtils.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/support/WaitUntilSupport.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/support/class-use/WaitUntilSupport.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/finder/WindowFinder.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/finder/class-use/WindowFinder.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/finder/impl/WindowFinderImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/finder/impl/class-use/WindowFinderImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/matcher/base/WindowMatchers.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/matcher/base/class-use/WindowMatchers.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/WriteRobot.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/class-use/WriteRobot.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/impl/WriteRobotImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/impl/class-use/WriteRobotImpl.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/allclasses-frame.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit/build/docs/javadoc/allclasses-frame.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit5/build/docs/javadoc/allclasses-frame.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/allclasses-frame.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/allclasses-noframe.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit/build/docs/javadoc/allclasses-noframe.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit5/build/docs/javadoc/allclasses-noframe.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/allclasses-noframe.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/constant-values.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit/build/docs/javadoc/constant-values.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit5/build/docs/javadoc/constant-values.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/constant-values.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/deprecated-list.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit/build/docs/javadoc/deprecated-list.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit5/build/docs/javadoc/deprecated-list.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/deprecated-list.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/help-doc.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit/build/docs/javadoc/help-doc.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit5/build/docs/javadoc/help-doc.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/help-doc.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/index-files/index-1.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit/build/docs/javadoc/index-files/index-1.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit5/build/docs/javadoc/index-files/index-1.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/index-files/index-1.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/index-files/index-10.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit5/build/docs/javadoc/index-files/index-10.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/index-files/index-10.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/index-files/index-11.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/index-files/index-11.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/index-files/index-12.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/index-files/index-12.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/index-files/index-13.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/index-files/index-13.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/index-files/index-14.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/index-files/index-14.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/index-files/index-15.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/index-files/index-15.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/index-files/index-16.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/index-files/index-16.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/index-files/index-17.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/index-files/index-17.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/index-files/index-18.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/index-files/index-18.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/index-files/index-19.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/index-files/index-2.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit/build/docs/javadoc/index-files/index-2.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit5/build/docs/javadoc/index-files/index-2.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/index-files/index-2.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/index-files/index-20.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/index-files/index-21.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/index-files/index-22.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/index-files/index-23.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/index-files/index-3.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit/build/docs/javadoc/index-files/index-3.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit5/build/docs/javadoc/index-files/index-3.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/index-files/index-3.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/index-files/index-4.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit/build/docs/javadoc/index-files/index-4.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit5/build/docs/javadoc/index-files/index-4.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/index-files/index-4.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/index-files/index-5.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit/build/docs/javadoc/index-files/index-5.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit5/build/docs/javadoc/index-files/index-5.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/index-files/index-5.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/index-files/index-6.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit/build/docs/javadoc/index-files/index-6.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit5/build/docs/javadoc/index-files/index-6.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/index-files/index-6.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/index-files/index-7.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit/build/docs/javadoc/index-files/index-7.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit5/build/docs/javadoc/index-files/index-7.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/index-files/index-7.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/index-files/index-8.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit5/build/docs/javadoc/index-files/index-8.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/index-files/index-8.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/index-files/index-9.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit5/build/docs/javadoc/index-files/index-9.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/index-files/index-9.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/overview-frame.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/overview-frame.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/overview-summary.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/overview-summary.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/overview-tree.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit/build/docs/javadoc/overview-tree.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit5/build/docs/javadoc/overview-tree.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/overview-tree.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/api/package-frame.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/api/annotation/package-frame.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/util/package-frame.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/package-frame.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/impl/package-frame.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/matcher/base/package-frame.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/matcher/control/package-frame.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/query/package-frame.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/query/impl/package-frame.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/finder/package-frame.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/finder/impl/package-frame.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/adapter/package-frame.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/adapter/impl/package-frame.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/locator/package-frame.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/locator/impl/package-frame.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/support/package-frame.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/support/impl/package-frame.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/toolkit/package-frame.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/toolkit/impl/package-frame.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit/build/docs/javadoc/org/testfx/framework/junit/package-frame.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit5/build/docs/javadoc/org/testfx/framework/junit5/package-frame.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/package-frame.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/utils/package-frame.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/controls/package-frame.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/controls/impl/package-frame.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/categories/package-frame.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/exceptions/package-frame.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/api/package-summary.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/api/annotation/package-summary.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/util/package-summary.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/package-summary.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/impl/package-summary.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/matcher/base/package-summary.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/matcher/control/package-summary.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/query/package-summary.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/query/impl/package-summary.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/finder/package-summary.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/finder/impl/package-summary.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/adapter/package-summary.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/adapter/impl/package-summary.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/locator/package-summary.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/locator/impl/package-summary.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/support/package-summary.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/support/impl/package-summary.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/toolkit/package-summary.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/toolkit/impl/package-summary.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit/build/docs/javadoc/org/testfx/framework/junit/package-summary.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit5/build/docs/javadoc/org/testfx/framework/junit5/package-summary.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/package-summary.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/utils/package-summary.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/controls/package-summary.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/controls/impl/package-summary.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/categories/package-summary.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/exceptions/package-summary.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/api/package-tree.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/api/annotation/package-tree.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/util/package-tree.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/package-tree.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/impl/package-tree.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/matcher/base/package-tree.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/matcher/control/package-tree.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/query/package-tree.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/query/impl/package-tree.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/finder/package-tree.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/finder/impl/package-tree.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/adapter/package-tree.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/adapter/impl/package-tree.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/locator/package-tree.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/locator/impl/package-tree.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/support/package-tree.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/support/impl/package-tree.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/toolkit/package-tree.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/toolkit/impl/package-tree.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit/build/docs/javadoc/org/testfx/framework/junit/package-tree.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit5/build/docs/javadoc/org/testfx/framework/junit5/package-tree.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/package-tree.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/utils/package-tree.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/controls/package-tree.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/controls/impl/package-tree.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/categories/package-tree.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/exceptions/package-tree.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/api/package-use.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/api/annotation/package-use.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/util/package-use.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/package-use.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/robot/impl/package-use.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/matcher/base/package-use.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/matcher/control/package-use.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/query/package-use.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/query/impl/package-use.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/finder/package-use.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/finder/impl/package-use.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/adapter/package-use.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/adapter/impl/package-use.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/locator/package-use.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/locator/impl/package-use.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/support/package-use.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/service/support/impl/package-use.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/toolkit/package-use.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/org/testfx/toolkit/impl/package-use.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit/build/docs/javadoc/org/testfx/framework/junit/package-use.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit5/build/docs/javadoc/org/testfx/framework/junit5/package-use.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/package-use.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/utils/package-use.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/controls/package-use.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/controls/impl/package-use.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/categories/package-use.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/org/loadui/testfx/exceptions/package-use.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/script.js</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit/build/docs/javadoc/script.js</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit5/build/docs/javadoc/script.js</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/script.js</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/serialized-form.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/serialized-form.html</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-core/build/docs/javadoc/stylesheet.css</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit/build/docs/javadoc/stylesheet.css</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-junit5/build/docs/javadoc/stylesheet.css</node>
+            <node x="" y="">$PROJECT_DIR$/TestFX/subprojects/testfx-legacy/build/docs/javadoc/stylesheet.css</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.13398895263671876" x="3723.0" y="3338.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>All</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>Details</VISIBILITY>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Tests/VoiceTunerTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="119" column="5" lean-forward="false" selection-start-line="119" selection-start-column="5" selection-end-line="119" selection-end-column="5" />
+    <entry file="uml://JAVA/EarTrainer.Controllers">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>EarTrainer.Controllers</OriginalElement>
+          <nodes>
+            <node x="" y="">EarTrainer.Controllers.WrongNoteIdentificationController</node>
+            <node x="" y="">EarTrainer.Controllers.Main</node>
+            <node x="" y="">EarTrainer.Controllers.PopupScoreController</node>
+            <node x="" y="">EarTrainer.Controllers.AbstractController</node>
+            <node x="" y="">EarTrainer.Controllers.Shared</node>
+            <node x="" y="">EarTrainer.Controllers.VoiceTunerController</node>
+            <node x="" y="">EarTrainer.Controllers.CadenceRecognitionController</node>
+            <node x="" y="">EarTrainer.Controllers.HarmonicIntervalRecognitionController</node>
+            <node x="" y="">EarTrainer.Controllers.SplashScreenController</node>
+            <node x="" y="">EarTrainer.Controllers.HomeController</node>
+            <node x="" y="">EarTrainer.Controllers.InputPanel</node>
+            <node x="" y="">EarTrainer.Controllers.ModulationRecognitionController</node>
+            <node x="" y="">EarTrainer.Controllers.SharpFlatRecognitionController</node>
+            <node x="" y="">EarTrainer.Controllers.MelodicIntervalRecognitionController</node>
+            <node x="" y="">EarTrainer.Controllers.OvertoneInst</node>
+            <node x="" y="">EarTrainer.Controllers.PitchRecognitionController</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.6539819665704409" x="1066.0" y="353.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Tests/ModulationRecognitionTests.java">
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/HomeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="602">
-          <caret line="390" column="30" lean-forward="false" selection-start-line="390" selection-start-column="30" selection-end-line="390" selection-end-column="30" />
+        <state relative-caret-position="330">
+          <caret line="41" column="37" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Tests/SharpFlatRecognitionTests.java">
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/InputPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="602">
-          <caret line="223" column="32" lean-forward="false" selection-start-line="223" selection-start-column="32" selection-end-line="223" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Tests/CadenceRecognitionTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="602">
-          <caret line="276" column="36" lean-forward="false" selection-start-line="276" selection-start-column="36" selection-end-line="276" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Tests/HarmonicIntervalRecognitionTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="26" column="28" lean-forward="true" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
+        <state relative-caret-position="450">
+          <caret line="44" column="23" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="84" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="18" column="30" lean-forward="false" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
-          <folding />
+        <state relative-caret-position="300">
+          <caret line="30" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Tests/MelodicIntervalRecognitionTests.java">
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/OvertoneInst.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="283" column="5" lean-forward="false" selection-start-line="283" selection-start-column="5" selection-end-line="283" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/WrongNoteIdentificationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="83" column="79" lean-forward="false" selection-start-line="83" selection-start-column="79" selection-end-line="83" selection-end-column="79" />
-          <folding>
-            <element signature="class#1194:1714" expanded="false" />
-            <element signature="method#mouseClicked#0;class#1194:1714" expanded="false" />
-            <element signature="method#mousePressed#0;class#1194:1714" expanded="false" />
-            <element signature="method#mouseReleased#0;class#1194:1714" expanded="false" />
-            <element signature="method#mouseEntered#0;class#1194:1714" expanded="false" />
-            <element signature="method#mouseExited#0;class#1194:1714" expanded="false" />
-            <element signature="method#easyRadioButtonSelected#0;class#WrongNoteIdentificationController#0" expanded="false" />
-            <element signature="method#mediumRadioButtonSelected#0;class#WrongNoteIdentificationController#0" expanded="false" />
-            <element signature="method#hardRadioButtonSelected#0;class#WrongNoteIdentificationController#0" expanded="false" />
-            <element signature="method#SubmitButtonClicked#0;class#WrongNoteIdentificationController#0" expanded="false" />
-            <element signature="e#2939#2948#0" expanded="false" />
-            <element signature="method#nextQuestionButtonClicked#0;class#WrongNoteIdentificationController#0" expanded="false" />
-            <element signature="method#resetButtonColours#0;class#WrongNoteIdentificationController#0" expanded="false" />
-            <element signature="method#checkAnswer#0;class#WrongNoteIdentificationController#0" expanded="false" />
-            <element signature="method#makeMelody#0;class#WrongNoteIdentificationController#0" expanded="false" />
-            <element signature="method#makeMIDIEasyWrongNote#0;class#WrongNoteIdentificationController#0" expanded="false" />
-            <element signature="method#makeMIDIMediumWrongNote#0;class#WrongNoteIdentificationController#0" expanded="false" />
-            <element signature="method#makeMIDIHardWrongNote#0;class#WrongNoteIdentificationController#0" expanded="false" />
-            <element signature="method#generateQuestion#0;class#WrongNoteIdentificationController#0" expanded="false" />
-            <element signature="method#replayButtonClicked#0;class#WrongNoteIdentificationController#0" expanded="false" />
-            <element signature="method#playChangedButtonClicked#0;class#WrongNoteIdentificationController#0" expanded="false" />
-            <element signature="method#playSound#0;class#WrongNoteIdentificationController#0" expanded="false" />
-            <element signature="method#playSound#1;class#WrongNoteIdentificationController#0" expanded="false" />
-            <element signature="method#setScore#0;class#WrongNoteIdentificationController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/CadenceRecognitionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7365">
-          <caret line="638" column="0" lean-forward="false" selection-start-line="638" selection-start-column="0" selection-end-line="638" selection-end-column="0" />
-          <folding>
-            <element signature="e#1072#1081#0" expanded="false" />
-            <element signature="method#initialize#0;class#CadenceRecognitionController#0" expanded="false" />
-            <element signature="e#1949#2035#0" expanded="false" />
-            <element signature="e#2138#2228#0" expanded="false" />
-            <element signature="e#2333#2424#0" expanded="false" />
-            <element signature="e#2626#2738#0" expanded="false" />
-            <element signature="e#2913#3027#0" expanded="false" />
-            <element signature="e#3208#3322#0" expanded="false" />
-            <element signature="method#easyRadioButtonSelected#0;class#CadenceRecognitionController#0" expanded="false" />
-            <element signature="method#mediumRadioButtonSelected#0;class#CadenceRecognitionController#0" expanded="false" />
-            <element signature="method#hardRadioButtonSelected#0;class#CadenceRecognitionController#0" expanded="false" />
-            <element signature="method#resetButtonColours#0;class#CadenceRecognitionController#0" expanded="false" />
-            <element signature="method#perfectButtonClicked#0;class#CadenceRecognitionController#0" expanded="false" />
-            <element signature="method#interruptiveButtonClicked#0;class#CadenceRecognitionController#0" expanded="false" />
-            <element signature="method#imperfectButtonClicked#0;class#CadenceRecognitionController#0" expanded="false" />
-            <element signature="method#plagalButtonClicked#0;class#CadenceRecognitionController#0" expanded="false" />
-            <element signature="e#6092#6101#0" expanded="false" />
-            <element signature="method#answerButtonClicked#0;class#CadenceRecognitionController#0" expanded="false" />
-            <element signature="e#6252#6268#0" expanded="false" />
-            <element signature="method#getCorrectButton#0;class#CadenceRecognitionController#0" expanded="false" />
-            <element signature="method#makeMIDIMediumCadence#0;class#CadenceRecognitionController#0" expanded="false" />
-            <element signature="method#makeMIDIHardCadence#0;class#CadenceRecognitionController#0" expanded="false" />
-            <element signature="method#generateQuestion#0;class#CadenceRecognitionController#0" expanded="false" />
-            <element signature="method#playSound#0;class#CadenceRecognitionController#0" expanded="false" />
-            <element signature="method#setScoreSpecific#0;class#CadenceRecognitionController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/MelodicIntervalRecognitionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="256" column="0" lean-forward="false" selection-start-line="256" selection-start-column="0" selection-end-line="257" selection-end-column="0" />
-          <folding>
-            <element signature="method#resetButtonColours#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#unisonButtonClicked#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#minorSecondButtonClicked#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#majorSecondButtonClicked#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#perfectFourthButtonClicked#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#tritoneButtonClicked#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#minorThirdButtonClicked#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#majorThirdButtonClicked#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#perfectFifthButtonClicked#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#octaveButtonClicked#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#minorSixthButtonClicked#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#majorSixthButtonClicked#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#minorSeventhButtonClicked#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#majorSeventhButtonClicked#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#getCorrectButton#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#makeMIDIMediumMelodic#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#makeMIDIHardMelodic#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#generateQuestion#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
-            <element signature="method#playSound#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="420">
+          <caret line="31" column="41" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="64" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/PitchRecognitionController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1290">
-          <caret line="195" column="25" lean-forward="false" selection-start-line="195" selection-start-column="25" selection-end-line="195" selection-end-column="25" />
+        <state relative-caret-position="450">
+          <caret line="115" column="19" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="328" selection-end-column="0" />
           <folding>
             <element signature="method#easyRadioButtonSelected#0;class#PitchRecognitionController#0" expanded="false" />
             <element signature="method#mediumRadioButtonSelected#0;class#PitchRecognitionController#0" expanded="false" />
@@ -1568,46 +1849,265 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/AbstractController.java">
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/PopupScoreController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="790">
-          <caret line="748" column="39" lean-forward="false" selection-start-line="748" selection-start-column="39" selection-end-line="748" selection-end-column="39" />
+        <state relative-caret-position="405">
+          <caret line="40" column="11" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
           <folding>
-            <element signature="docComment;class#AbstractController#0" expanded="false" />
-            <element signature="method#getInterval#0;class#AbstractController#0" expanded="false" />
-            <element signature="method#getNote#0;class#AbstractController#0" expanded="false" />
-            <element signature="method#setScoreEditable#0;class#AbstractController#0" expanded="false" />
-            <element signature="method#sharpen#0;class#AbstractController#0" expanded="false" />
-            <element signature="method#makeChords#0;class#AbstractController#0" expanded="false" />
-            <element signature="method#makeMinorScale#0;class#AbstractController#0" expanded="false" />
-            <element signature="method#makeMajorScale#0;class#AbstractController#0" expanded="false" />
-            <element signature="method#chooseRandomRootAndMakeScale#0;class#AbstractController#0" expanded="false" />
-            <element signature="method#placeCommonNotesInSameVoice#0;class#AbstractController#0" expanded="false" />
-            <element signature="method#putNotesInVoicesInAscendingOrder#0;class#AbstractController#0" expanded="false" />
-            <element signature="method#removeOctaveJumpsAndHighNotes#0;class#AbstractController#0" expanded="false" />
-            <element signature="method#removeFifth#0;class#AbstractController#0" expanded="false" />
-            <element signature="method#initialize#0;class#AbstractController#0" expanded="false" />
-            <element signature="e#17970#18025#0" expanded="false" />
-            <element signature="method#backButtonClicked#0;class#AbstractController#0" expanded="false" />
-            <element signature="method#startButtonClicked#0;class#AbstractController#0" expanded="false" />
-            <element signature="method#nextQuestionButtonClicked#0;class#AbstractController#0" expanded="false" />
-            <element signature="method#loadScore#0;class#AbstractController#0" expanded="false" />
-            <element signature="method#stopTimer#0;class#AbstractController#0" expanded="false" />
-            <element signature="method#answerButtonClicked#0;class#AbstractController#0" expanded="false" />
-            <element signature="method#checkAnswer#0;class#AbstractController#0" expanded="false" />
-            <element signature="method#startTimer#0;class#AbstractController#0" expanded="false" />
-            <element signature="class#24515:25296" expanded="false" />
-            <element signature="method#handle#0;class#24515:25296" expanded="false" />
-            <element signature="method#replayButtonClicked#0;class#AbstractController#0" expanded="false" />
-            <element signature="method#setScore#0;class#AbstractController#0" expanded="false" />
+            <element signature="method#OKButtonClicked#0;class#PopupScoreController#0" expanded="false" />
+            <element signature="method#setNumberOfCorrectAnswers#0;class#PopupScoreController#0" expanded="false" />
+            <element signature="method#setImageToUse#0;class#PopupScoreController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/Shared.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="35" column="35" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="83" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/SplashScreenController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="48" column="32" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Tests/CadenceRecognitionTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="264" column="29" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="318" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Tests/HarmonicIntervalRecognitionTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="41" column="32" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="385" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Tests/MelodicIntervalRecognitionTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="255" column="53" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="410" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Tests/ModulationRecognitionTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="380" column="34" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="455" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Tests/PitchRecognitionTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="451">
+          <caret line="45" column="21" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="382" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Tests/SharpFlatRecognitionTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="213" column="30" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="244" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Tests/VoiceTunerTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="88" column="19" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="120" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Tests/WrongNoteIdentificationTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="86" column="37" lean-forward="true" selection-start-line="86" selection-start-column="37" selection-end-line="86" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/HarmonicIntervalRecognitionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="154" column="26" lean-forward="true" selection-start-line="154" selection-start-column="26" selection-end-line="154" selection-end-column="26" />
+          <folding>
+            <element signature="e#1291#1300#0" expanded="false" />
+            <element signature="method#initialize#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="e#1957#2043#0" expanded="false" />
+            <element signature="e#2148#2237#0" expanded="false" />
+            <element signature="e#2401#2513#0" expanded="false" />
+            <element signature="e#2649#2763#0" expanded="false" />
+            <element signature="method#easyRadioButtonSelected#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#mediumRadioButtonSelected#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#hardRadioButtonSelected#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#unisonButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#minorSecondButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#majorSecondButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#perfectFourthButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#tritoneButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#minorThirdButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#majorThirdButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#perfectFifthButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#octaveButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#minorSixthButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#majorSixthButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#minorSeventhButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#majorSeventhButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#answerButtonClicked#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#getCorrectButton#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#makeMIDIMediumHarmonic#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#makeMIDIHardHarmonic#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#generateQuestion#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#playSound#0;class#HarmonicIntervalRecognitionController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/MelodicIntervalRecognitionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="218" column="29" lean-forward="false" selection-start-line="218" selection-start-column="29" selection-end-line="218" selection-end-column="29" />
+          <folding>
+            <element signature="method#easyRadioButtonSelected#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#mediumRadioButtonSelected#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#hardRadioButtonSelected#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#resetButtonColours#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#unisonButtonClicked#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#minorSecondButtonClicked#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#majorSecondButtonClicked#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#perfectFourthButtonClicked#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#tritoneButtonClicked#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#minorThirdButtonClicked#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#majorThirdButtonClicked#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#perfectFifthButtonClicked#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#octaveButtonClicked#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#minorSixthButtonClicked#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#majorSixthButtonClicked#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#minorSeventhButtonClicked#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#majorSeventhButtonClicked#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#getCorrectButton#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#makeMIDIEasyMelodic#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#makeMIDIMediumMelodic#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#makeMIDIHardMelodic#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#generateQuestion#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
+            <element signature="method#playSound#0;class#MelodicIntervalRecognitionController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Views/WrongNoteIdentification.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="74" column="25" lean-forward="true" selection-start-line="74" selection-start-column="25" selection-end-line="74" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/WrongNoteIdentificationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="618">
+          <caret line="162" column="0" lean-forward="false" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/SharpFlatRecognitionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="53" column="182" lean-forward="false" selection-start-line="53" selection-start-column="182" selection-end-line="53" selection-end-column="182" />
+          <folding>
+            <element signature="method#nextQuestionButtonClicked#0;class#SharpFlatRecognitionController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/CadenceRecognitionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="681">
+          <caret line="650" column="31" lean-forward="false" selection-start-line="650" selection-start-column="31" selection-end-line="650" selection-end-column="31" />
+          <folding>
+            <element signature="e#1072#1081#0" expanded="false" />
+            <element signature="method#initialize#0;class#CadenceRecognitionController#0" expanded="false" />
+            <element signature="e#1949#2035#0" expanded="false" />
+            <element signature="e#2138#2228#0" expanded="false" />
+            <element signature="e#2333#2424#0" expanded="false" />
+            <element signature="e#2626#2738#0" expanded="false" />
+            <element signature="e#2913#3027#0" expanded="false" />
+            <element signature="e#3208#3322#0" expanded="false" />
+            <element signature="method#easyRadioButtonSelected#0;class#CadenceRecognitionController#0" expanded="false" />
+            <element signature="method#mediumRadioButtonSelected#0;class#CadenceRecognitionController#0" expanded="false" />
+            <element signature="method#hardRadioButtonSelected#0;class#CadenceRecognitionController#0" expanded="false" />
+            <element signature="method#resetButtonColours#0;class#CadenceRecognitionController#0" expanded="false" />
+            <element signature="method#perfectButtonClicked#0;class#CadenceRecognitionController#0" expanded="false" />
+            <element signature="method#interruptiveButtonClicked#0;class#CadenceRecognitionController#0" expanded="false" />
+            <element signature="method#imperfectButtonClicked#0;class#CadenceRecognitionController#0" expanded="false" />
+            <element signature="method#plagalButtonClicked#0;class#CadenceRecognitionController#0" expanded="false" />
+            <element signature="e#6092#6101#0" expanded="false" />
+            <element signature="method#answerButtonClicked#0;class#CadenceRecognitionController#0" expanded="false" />
+            <element signature="e#6252#6268#0" expanded="false" />
+            <element signature="method#getCorrectButton#0;class#CadenceRecognitionController#0" expanded="false" />
+            <element signature="method#makePerfect#0;class#CadenceRecognitionController#0" expanded="false" />
+            <element signature="method#makeInterruptive#0;class#CadenceRecognitionController#0" expanded="false" />
+            <element signature="method#makeMIDIEasyCadence#0;class#CadenceRecognitionController#0" expanded="false" />
+            <element signature="method#makeMIDIMediumCadence#0;class#CadenceRecognitionController#0" expanded="false" />
+            <element signature="method#makeMIDIHardCadence#0;class#CadenceRecognitionController#0" expanded="false" />
+            <element signature="method#generateQuestion#0;class#CadenceRecognitionController#0" expanded="false" />
+            <element signature="method#playSound#0;class#CadenceRecognitionController#0" expanded="false" />
+            <element signature="method#setScoreSpecific#0;class#CadenceRecognitionController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/VoiceTunerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding>
+            <element signature="e#2458#2467#0" expanded="false" />
+            <element signature="method#initialize#0;class#VoiceTunerController#0" expanded="false" />
+            <element signature="e#2925#2991#0" expanded="false" />
+            <element signature="class#3465:4116" expanded="false" />
+            <element signature="method#propertyChange#0;class#3465:4116" expanded="false" />
+            <element signature="method#easyRadioButtonSelected#0;class#VoiceTunerController#0" expanded="false" />
+            <element signature="method#mediumRadioButtonSelected#0;class#VoiceTunerController#0" expanded="false" />
+            <element signature="method#hardRadioButtonSelected#0;class#VoiceTunerController#0" expanded="false" />
+            <element signature="e#4714#4723#0" expanded="false" />
+            <element signature="method#startButtonClicked#0;class#VoiceTunerController#0" expanded="false" />
+            <element signature="e#6614#6623#0" expanded="false" />
+            <element signature="method#nextQuestionButtonClicked#0;class#VoiceTunerController#0" expanded="false" />
+            <element signature="method#recordButtonClicked#0;class#VoiceTunerController#0" expanded="false" />
+            <element signature="class#8981:9650" expanded="false" />
+            <element signature="method#handle#0;class#8981:9650" expanded="false" />
+            <element signature="method#convertNoteDurationToSeconds#0;class#VoiceTunerController#0" expanded="false" />
+            <element signature="method#getModePitch#0;class#VoiceTunerController#0" expanded="false" />
+            <element signature="method#checkAnswer#0;class#VoiceTunerController#0" expanded="false" />
+            <element signature="method#resetButtonColours#0;class#VoiceTunerController#0" expanded="false" />
+            <element signature="method#makeMIDIEasyVoiceTuner#0;class#VoiceTunerController#0" expanded="false" />
+            <element signature="method#makeMIDIMediumVoiceTuner#0;class#VoiceTunerController#0" expanded="false" />
+            <element signature="method#makeMIDIHardVoiceTuner#0;class#VoiceTunerController#0" expanded="false" />
+            <element signature="method#generateQuestion#0;class#VoiceTunerController#0" expanded="false" />
+            <element signature="method#playSound#0;class#VoiceTunerController#0" expanded="false" />
+            <element signature="method#setNewMixer#0;class#VoiceTunerController#0" expanded="false" />
+            <element signature="method#calculateNoteFromPitch#0;class#VoiceTunerController#0" expanded="false" />
+            <element signature="method#handlePitch#0;class#VoiceTunerController#0" expanded="false" />
+            <element signature="class#24919:25462" expanded="false" />
+            <element signature="method#run#0;class#24919:25462" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/ModulationRecognitionController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="550" column="9" lean-forward="false" selection-start-line="550" selection-start-column="9" selection-end-line="550" selection-end-column="9" />
+        <state relative-caret-position="1215">
+          <caret line="283" column="158" lean-forward="false" selection-start-line="283" selection-start-column="158" selection-end-line="283" selection-end-column="158" />
           <folding>
             <element signature="e#2691#2700#0" expanded="false" />
             <element signature="method#initialize#0;class#ModulationRecognitionController#0" expanded="false" />
@@ -1629,17 +2129,59 @@
             <element signature="method#similarKey4ButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
             <element signature="e#9710#9719#0" expanded="false" />
             <element signature="method#startButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
-            <element signature="e#11260#11269#0" expanded="false" />
+            <element signature="e#11621#11630#0" expanded="false" />
             <element signature="method#answerButtonClicked#0;class#ModulationRecognitionController#0" expanded="false" />
             <element signature="method#getCorrectButton#0;class#ModulationRecognitionController#0" expanded="false" />
             <element signature="method#getRelativeMinor#0;class#ModulationRecognitionController#0" expanded="false" />
             <element signature="method#getRelativeMajor#0;class#ModulationRecognitionController#0" expanded="false" />
             <element signature="method#findCommonChords#0;class#ModulationRecognitionController#0" expanded="false" />
-            <element signature="e#27403#27437#0" expanded="false" />
+            <element signature="method#modulateFromMajor#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="e#17336#17376#0" expanded="false" />
+            <element signature="method#modulateFromMinor#0;class#ModulationRecognitionController#0" expanded="false" />
+            <element signature="e#25862#25902#0" expanded="false" />
+            <element signature="e#27796#27830#0" expanded="false" />
             <element signature="method#makeMIDIEasyModulation#0;class#ModulationRecognitionController#0" expanded="false" />
-            <element signature="e#32625#32634#0" expanded="false" />
+            <element signature="e#33018#33027#0" expanded="false" />
+            <element signature="method#generateQuestion#0;class#ModulationRecognitionController#0" expanded="false" />
             <element signature="method#playSound#0;class#ModulationRecognitionController#0" expanded="false" />
             <element signature="method#setScoreSpecific#0;class#ModulationRecognitionController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EarTrainer/Controllers/AbstractController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="52" column="38" lean-forward="true" selection-start-line="52" selection-start-column="38" selection-end-line="52" selection-end-column="38" />
+          <folding>
+            <element signature="docComment;class#AbstractController#0" expanded="false" />
+            <element signature="method#getInterval#0;class#AbstractController#0" expanded="false" />
+            <element signature="method#getNote#0;class#AbstractController#0" expanded="false" />
+            <element signature="method#setScoreEditable#0;class#AbstractController#0" expanded="false" />
+            <element signature="method#sharpen#0;class#AbstractController#0" expanded="false" />
+            <element signature="method#makeChords#0;class#AbstractController#0" expanded="false" />
+            <element signature="method#makeMinorScale#0;class#AbstractController#0" expanded="false" />
+            <element signature="e#12038#12082#0" expanded="false" />
+            <element signature="method#makeMajorScale#0;class#AbstractController#0" expanded="false" />
+            <element signature="method#chooseRandomRootAndMakeScale#0;class#AbstractController#0" expanded="false" />
+            <element signature="method#placeCommonNotesInSameVoice#0;class#AbstractController#0" expanded="false" />
+            <element signature="method#putNotesInVoicesInAscendingOrder#0;class#AbstractController#0" expanded="false" />
+            <element signature="method#removeOctaveJumpsAndHighNotes#0;class#AbstractController#0" expanded="false" />
+            <element signature="method#removeFifth#0;class#AbstractController#0" expanded="false" />
+            <element signature="method#initialize#0;class#AbstractController#0" expanded="false" />
+            <element signature="e#18610#18665#0" expanded="false" />
+            <element signature="method#backButtonClicked#0;class#AbstractController#0" expanded="false" />
+            <element signature="method#startButtonClicked#0;class#AbstractController#0" expanded="false" />
+            <element signature="method#nextQuestionButtonClicked#0;class#AbstractController#0" expanded="false" />
+            <element signature="method#loadScore#0;class#AbstractController#0" expanded="false" />
+            <element signature="method#stopTimer#0;class#AbstractController#0" expanded="false" />
+            <element signature="method#answerButtonClicked#0;class#AbstractController#0" expanded="false" />
+            <element signature="method#checkAnswer#0;class#AbstractController#0" expanded="false" />
+            <element signature="method#startTimer#0;class#AbstractController#0" expanded="false" />
+            <element signature="class#25266:26047" expanded="false" />
+            <element signature="method#handle#0;class#25266:26047" expanded="false" />
+            <element signature="method#replayButtonClicked#0;class#AbstractController#0" expanded="false" />
+            <element signature="method#setScore#0;class#AbstractController#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -58,7 +58,7 @@
                   <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
-            <Label fx:id="correctIncorrectText" textAlignment="CENTER" textFill="#da4343">
+            <Label fx:id="correctIncorrectLabel" textAlignment="CENTER" textFill="#da4343">
                <font>
                   <Font size="23.0" />
                </font>

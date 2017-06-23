@@ -41,8 +41,6 @@ import static jm.constants.RhythmValues.*;
 public class VoiceTunerController extends AbstractController implements PitchDetectionHandler {
 
     @FXML private Label questionNoteLabel;
-    @FXML private Label correctIncorrectLabel;
-
     @FXML private Label noteLabel;
     @FXML private Label noteLabelm1;
     @FXML private Label noteLabelm2;
@@ -75,6 +73,9 @@ public class VoiceTunerController extends AbstractController implements PitchDet
 
     private double QUARTER_NOTE_LENGTH_IN_SECONDS = 2.2291157245635986 - 1.0448979139328003;
     public JPanel inputPanel;
+
+
+
 
 
     @Override
@@ -179,6 +180,16 @@ public class VoiceTunerController extends AbstractController implements PitchDet
             radioButtonsGroup.setDisable(false);
             startButton.setText("Start");
             correctIncorrectLabel.setText("");
+            questionNoteLabel.setText("");
+            resetButtonColours();
+            nextQuestionButton.setDisable(true);
+            jScore.setPhrase(emptyPhr);
+            jScore.removeTitle();
+            jScoreBottom.setPhrase(emptyPhr);
+            jScoreBottom.removeTitle();
+            jScoreTop.setPhrase(emptyPhr);
+            jScoreTop.removeTitle();
+            questionAnswered = false;
         }
     }
 

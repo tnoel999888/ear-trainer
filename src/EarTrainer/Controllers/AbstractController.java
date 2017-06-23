@@ -370,7 +370,7 @@ public abstract class AbstractController {
 
         scaleChord6 = new Note[]{note6OctaveBelow, note6, note8, note10};
 
-        //For major and minor 1st inversion
+        //For major and melodic minor 1st inversion
         scaleChord7 = new Note[]{note9OctaveBelow, note9, note11, note14};
     }
 
@@ -405,6 +405,28 @@ public abstract class AbstractController {
                 break;
             }
         }
+
+//        String[] strings = new String[22];
+//
+//        for(int i = 0; i < minorScale.length; i++){
+//            strings[i] = getNote(new Note(minorScale[i], C));
+//        }
+//
+//        List sharps = new LinkedList();
+//
+//        for(int i = 0; i < strings.length; i++){
+//            if(strings[i].length() == 2){
+//                sharps.add(strings[i]);
+//            }
+//        }
+//
+//        for(int i = 0; i < sharps.size(); i++){
+//            for(int j = 0; j < strings.length; j++){
+//                if(((String)sharps.get(i)).charAt(0) == strings[j].charAt(0)){
+//
+//                }
+//            }
+//        }
 
         makeChords(minorScale);
 
@@ -648,8 +670,11 @@ public abstract class AbstractController {
             resetButtonColours();
             nextQuestionButton.setDisable(true);
             jScore.setPhrase(emptyPhr);
+            jScore.removeTitle();
             jScoreBottom.setPhrase(emptyPhr);
+            jScoreBottom.removeTitle();
             jScoreTop.setPhrase(emptyPhr);
+            jScoreTop.removeTitle();
             questionAnswered = false;
         }
     }

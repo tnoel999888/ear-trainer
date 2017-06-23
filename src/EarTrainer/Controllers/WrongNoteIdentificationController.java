@@ -27,7 +27,7 @@ public class WrongNoteIdentificationController extends AbstractController{
     @FXML public Button submitButton;
     @FXML private Button playChangedButton;
 
-    @FXML private Label correctIncorrectText;
+//    @FXML private Label correctIncorrectText;
 
     private int indexOfChangedNote = 0;
     public List theirMelodyAnswer;
@@ -101,7 +101,7 @@ public class WrongNoteIdentificationController extends AbstractController{
     void nextQuestionButtonClicked(ActionEvent event) throws IOException, InvalidMidiDataException, MidiUnavailableException {
         sequencer.stop();
         sequencer.close();
-        correctIncorrectText.setText("");
+        correctIncorrectLabel.setText("");
 
 
         if (questionNumber != TOTAL_QUESTIONS) {
@@ -148,20 +148,20 @@ public class WrongNoteIdentificationController extends AbstractController{
             if (i != indexOfChangedNote) {
                 if (((Note)theirMelodyAnswer.get(i)).getPitch() != correctMelody[i].getPitch()) {
                     makeButtonRed(submitButton);
-                    correctIncorrectText.setTextFill(Color.web("#da4343"));
-                    correctIncorrectText.setText("Incorrect.");
+                    correctIncorrectLabel.setTextFill(Color.web("#da4343"));
+                    correctIncorrectLabel.setText("Incorrect.");
                     break;
                 }
             } else {
                 if (((Note)theirMelodyAnswer.get(i)).getPitch() == correctMelody[i].getPitch()) {
                     makeButtonGreen(submitButton);
                     numberOfCorrectAnswers++;
-                    correctIncorrectText.setTextFill(Color.web("#3abf4c"));
-                    correctIncorrectText.setText("Correct!");
+                    correctIncorrectLabel.setTextFill(Color.web("#3abf4c"));
+                    correctIncorrectLabel.setText("Correct!");
                 } else {
                     makeButtonRed(submitButton);
-                    correctIncorrectText.setTextFill(Color.web("#da4343"));
-                    correctIncorrectText.setText("Incorrect.");
+                    correctIncorrectLabel.setTextFill(Color.web("#da4343"));
+                    correctIncorrectLabel.setText("Incorrect.");
                     break;
                 }
             }

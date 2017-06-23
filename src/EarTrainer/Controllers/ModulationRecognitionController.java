@@ -313,6 +313,15 @@ public class ModulationRecognitionController extends AbstractController{
             stopTimer();
             startButton.setText("Start");
             correctIncorrectLabel.setText("");
+            resetButtonColours();
+            nextQuestionButton.setDisable(true);
+            jScore.setPhrase(emptyPhr);
+            jScore.removeTitle();
+            jScoreBottom.setPhrase(emptyPhr);
+            jScoreBottom.removeTitle();
+            jScoreTop.setPhrase(emptyPhr);
+            jScoreTop.removeTitle();
+            questionAnswered = false;
         }
     }
 
@@ -495,13 +504,13 @@ public class ModulationRecognitionController extends AbstractController{
 
 
         //Put notes in chords in ascending order
-        usedChord1 = putNotesInVoicesInAscendingOrder(usedChord1);
-        usedChord2 = putNotesInVoicesInAscendingOrder(usedChord2);
-        usedChord3 = putNotesInVoicesInAscendingOrder(usedChord3);
-        usedChord4 = putNotesInVoicesInAscendingOrder(usedChord4);
-        usedChord5 = putNotesInVoicesInAscendingOrder(usedChord5);
-        usedChord6 = putNotesInVoicesInAscendingOrder(usedChord6);
-        usedChord7 = putNotesInVoicesInAscendingOrder(usedChord7);
+//        usedChord1 = putNotesInVoicesInAscendingOrder(usedChord1);
+//        usedChord2 = putNotesInVoicesInAscendingOrder(usedChord2);
+//        usedChord3 = putNotesInVoicesInAscendingOrder(usedChord3);
+//        usedChord4 = putNotesInVoicesInAscendingOrder(usedChord4);
+//        usedChord5 = putNotesInVoicesInAscendingOrder(usedChord5);
+//        usedChord6 = putNotesInVoicesInAscendingOrder(usedChord6);
+//        usedChord7 = putNotesInVoicesInAscendingOrder(usedChord7);
 
 
         usedChord1 = usedChord1Copy;
@@ -742,15 +751,15 @@ public class ModulationRecognitionController extends AbstractController{
 
 
         //Put notes in chords in ascending order
-        usedChord1 = putNotesInVoicesInAscendingOrder(usedChord1);
-        usedChord2 = putNotesInVoicesInAscendingOrder(usedChord2);
-        usedChord3 = putNotesInVoicesInAscendingOrder(usedChord3);
-        usedChord4 = putNotesInVoicesInAscendingOrder(usedChord4);
-        usedChord5 = putNotesInVoicesInAscendingOrder(usedChord5);
-        usedChord6 = putNotesInVoicesInAscendingOrder(usedChord6);
-        usedChord7 = putNotesInVoicesInAscendingOrder(usedChord7);
-        usedChord8 = putNotesInVoicesInAscendingOrder(usedChord8);
-        usedChord9 = putNotesInVoicesInAscendingOrder(usedChord9);
+//        usedChord1 = putNotesInVoicesInAscendingOrder(usedChord1);
+//        usedChord2 = putNotesInVoicesInAscendingOrder(usedChord2);
+//        usedChord3 = putNotesInVoicesInAscendingOrder(usedChord3);
+//        usedChord4 = putNotesInVoicesInAscendingOrder(usedChord4);
+//        usedChord5 = putNotesInVoicesInAscendingOrder(usedChord5);
+//        usedChord6 = putNotesInVoicesInAscendingOrder(usedChord6);
+//        usedChord7 = putNotesInVoicesInAscendingOrder(usedChord7);
+//        usedChord8 = putNotesInVoicesInAscendingOrder(usedChord8);
+//        usedChord9 = putNotesInVoicesInAscendingOrder(usedChord9);
 
 
         usedChord1 = usedChord1Copy;
