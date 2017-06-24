@@ -193,9 +193,9 @@ public class CadenceRecognitionController extends AbstractController{
         nextQuestionButton.setDisable(false);
 
         //Set the scores
-//        setScoreSpecific(bottomNotes, "left");
-//        setScoreSpecific(middleNotes, "middle");
-//        setScoreSpecific(topNotes, "right");
+        setScoreSpecific(bottomNotes, "left");
+        setScoreSpecific(middleNotes, "middle");
+        setScoreSpecific(topNotes, "right");
     }
 
 
@@ -335,9 +335,12 @@ public class CadenceRecognitionController extends AbstractController{
 
 
         //Set the scores
-        setScoreSpecific(bottomNotes, "left");
-        setScoreSpecific(middleNotes, "middle");
-        setScoreSpecific(topNotes, "right");
+        Phrase bottomFirstNote = new Phrase(bottomNotesArray[0]);
+        Phrase middleFirstNote = new Phrase(middleNotesArray[0]);
+        Phrase topFirstNote = new Phrase(topNotesArray[0]);
+        setScoreSpecific(bottomFirstNote, "left");
+        setScoreSpecific(middleFirstNote, "middle");
+        setScoreSpecific(topFirstNote, "right");
 
 
         //Add the selected chords to the CPhrases
@@ -471,9 +474,12 @@ public class CadenceRecognitionController extends AbstractController{
 
 
         //Set the scores
-        setScoreSpecific(bottomNotes, "left");
-        setScoreSpecific(middleNotes, "middle");
-        setScoreSpecific(topNotes, "right");
+        Phrase bottomFirstNote = new Phrase(bottomNotesArray[0]);
+        Phrase middleFirstNote = new Phrase(middleNotesArray[0]);
+        Phrase topFirstNote = new Phrase(topNotesArray[0]);
+        setScoreSpecific(bottomFirstNote, "left");
+        setScoreSpecific(middleFirstNote, "middle");
+        setScoreSpecific(topFirstNote, "right");
 
 
         //Add the selected chords to the CPhrases
@@ -614,9 +620,12 @@ public class CadenceRecognitionController extends AbstractController{
 
 
         //Set the scores
-        setScoreSpecific(bottomNotes, "left");
-        setScoreSpecific(middleNotes, "middle");
-        setScoreSpecific(topNotes, "right");
+        Phrase bottomFirstNote = new Phrase(bottomNotesArray[0]);
+        Phrase middleFirstNote = new Phrase(middleNotesArray[0]);
+        Phrase topFirstNote = new Phrase(topNotesArray[0]);
+        setScoreSpecific(bottomFirstNote, "left");
+        setScoreSpecific(middleFirstNote, "middle");
+        setScoreSpecific(topFirstNote, "right");
 
 
         //Add the selected chords to the CPhrases
@@ -752,9 +761,12 @@ public class CadenceRecognitionController extends AbstractController{
 
 
         //Set the scores
-        setScoreSpecific(bottomNotes, "left");
-        setScoreSpecific(middleNotes, "middle");
-        setScoreSpecific(topNotes, "right");
+        Phrase bottomFirstNote = new Phrase(bottomNotesArray[0]);
+        Phrase middleFirstNote = new Phrase(middleNotesArray[0]);
+        Phrase topFirstNote = new Phrase(topNotesArray[0]);
+        setScoreSpecific(bottomFirstNote, "left");
+        setScoreSpecific(middleFirstNote, "middle");
+        setScoreSpecific(topFirstNote, "right");
 
 
         //Add the selected chords to the CPhrases
@@ -890,6 +902,10 @@ public class CadenceRecognitionController extends AbstractController{
         p = new Part();
         s = new Score();
 
+
+        jScore.setPhrase(emptyPhr);
+        jScoreTop.setPhrase(emptyPhr);
+        jScoreBottom.setPhrase(emptyPhr);
 
         if(easyRadioButton.isSelected()){
             correctAnswer = makeMIDIEasyCadence();
