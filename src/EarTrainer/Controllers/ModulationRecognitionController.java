@@ -617,9 +617,12 @@ public class ModulationRecognitionController extends AbstractController{
 
 
         //Set the scores
-        setScoreSpecific(bottomNotes, "left");
-        setScoreSpecific(middleNotes, "middle");
-        setScoreSpecific(topNotes, "right");
+        Phrase bottomFirstNote = new Phrase(new Note[]{usedChord1[1], usedChord2[1], usedChord3[1]});
+        Phrase middleFirstNote = new Phrase(new Note[]{usedChord1[2], usedChord2[2], usedChord3[2]});
+        Phrase topFirstNote = new Phrase(new Note[]{usedChord1[3], usedChord2[3], usedChord3[3]});
+        setScoreSpecific(bottomFirstNote, "left");
+        setScoreSpecific(middleFirstNote, "middle");
+        setScoreSpecific(topFirstNote, "right");
 
 
         //Add the selected chords to the CPhrases
@@ -898,9 +901,12 @@ public class ModulationRecognitionController extends AbstractController{
 
 
         //Set the scores
-        setScoreSpecific(bottomNotes, "left");
-        setScoreSpecific(middleNotes, "middle");
-        setScoreSpecific(topNotes, "right");
+        Phrase bottomFirstNote = new Phrase(new Note[]{usedChord1[1], usedChord2[1], usedChord3[1], usedChord4[1], usedChord5[1]});
+        Phrase middleFirstNote = new Phrase(new Note[]{usedChord1[2], usedChord2[2], usedChord3[2], usedChord4[2], usedChord5[2]});
+        Phrase topFirstNote = new Phrase(new Note[]{usedChord1[3], usedChord2[3], usedChord3[3], usedChord4[3], usedChord5[3]});
+        setScoreSpecific(bottomFirstNote, "left");
+        setScoreSpecific(middleFirstNote, "middle");
+        setScoreSpecific(topFirstNote, "right");
 
 
         //Add the selected chords to the CPhrases

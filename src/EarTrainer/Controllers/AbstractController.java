@@ -589,44 +589,33 @@ public abstract class AbstractController {
     @FXML
     public void initialize() {
         Dimension d = new Dimension();
-        d.setSize(600,300);
+        d.setSize(475,300);
+
         jScore.setPreferredSize(d);
         jScore.setMaximumSize(d);
-
         jScore.removeTitle();
         jScore.setEditable(true);
 
         SwingNode swingNode = new SwingNode();
+
+        swingNode.setLayoutY(-100.0);
+        swingNode.layoutBoundsProperty().addListener((o, ov, nv) -> {
+            scorePane.setMaxHeight(nv.getHeight() - 100.0);
+        });
+
+
+        // Set a clip for the layout bounds of Pane if you need
+        javafx.scene.shape.Rectangle clip = new javafx.scene.shape.Rectangle();
+        scorePane.layoutBoundsProperty().addListener((o, ov, nv) -> {
+            clip.setWidth(nv.getWidth());
+            clip.setHeight(nv.getHeight());
+        });
+        scorePane.setClip(clip);
+
+
         swingNode.setContent(jScore);
 
         scorePane.getChildren().add(swingNode);
-
-//        jScore.addMouseListener(new MouseListener() {
-//            @Override
-//            public void mouseClicked(MouseEvent e) {
-//
-//            }
-//
-//            @Override
-//            public void mousePressed(MouseEvent e) {
-//
-//            }
-//
-//            @Override
-//            public void mouseReleased(MouseEvent e) {
-//                theirMelodyAnswer = jScore.getPhrase().getNoteArray();
-//            }
-//
-//            @Override
-//            public void mouseEntered(MouseEvent e) {
-//
-//            }
-//
-//            @Override
-//            public void mouseExited(MouseEvent e) {
-//
-//            }
-//        });
     }
 
 

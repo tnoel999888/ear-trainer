@@ -44,10 +44,10 @@
                </VBox.margin>
             </Label>
             <Region maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="200.0" />
-            <HBox>
+            <HBox maxHeight="120.0" prefHeight="120.0">
                <children>
                   <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                  <Pane fx:id="scorePane" maxHeight="300.0" maxWidth="600.0" minHeight="300.0" minWidth="600.0" pickOnBounds="false" prefHeight="300.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
+                  <Pane fx:id="scorePane" maxHeight="120.0" maxWidth="475.0" minHeight="120.0" minWidth="475.0" pickOnBounds="false" prefHeight="120.0" prefWidth="475.0" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
