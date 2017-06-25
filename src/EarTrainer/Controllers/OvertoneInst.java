@@ -9,6 +9,13 @@ import jm.audio.AudioObject;
  * which includes sine waves as overtones.
  * @author Andrew Brown
  */
+
+/***********************************************************************************************************************
+ THIS FILE WAS TAKEN FROM http://explodingart.com/jmusic/inst/OvertoneInst.java A TUTORIAL ON SYNTHESIS IN JMUSIC
+***********************************************************************************************************************/
+
+
+
 public final class OvertoneInst extends jm.audio.Instrument{
     //----------------------------------------------
     // Attributes

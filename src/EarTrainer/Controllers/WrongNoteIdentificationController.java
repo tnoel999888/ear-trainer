@@ -27,8 +27,6 @@ public class WrongNoteIdentificationController extends AbstractController{
     @FXML public Button submitButton;
     @FXML private Button playChangedButton;
 
-//    @FXML private Label correctIncorrectText;
-
     private int indexOfChangedNote = 0;
     public List theirMelodyAnswer;
 

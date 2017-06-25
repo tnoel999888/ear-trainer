@@ -21,6 +21,10 @@ package EarTrainer.Controllers;/*
 *
 */
 
+/***********************************************************************************************************************
+THIS FILE WAS TAKEN FROM THE OPEN SOURCE PROJECT https://github.com/JorenSix/TarsosDSP POSTED BY THE DEVELOPERS OF TarsosDSP
+***********************************************************************************************************************/
+
 
 import java.util.Vector;
 

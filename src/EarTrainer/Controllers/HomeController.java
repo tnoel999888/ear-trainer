@@ -15,10 +15,6 @@ import java.io.IOException;
 
 public class HomeController{
 
-    @FXML private StackPane ap;
-    @FXML private Button pitchRecognitionButton;
-
-
 
     @FXML
     void PitchRecognitionButtonClicked() throws IOException {
