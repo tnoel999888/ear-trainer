@@ -179,6 +179,7 @@ public class VoiceTunerController extends AbstractController implements PitchDet
             timerLabel.setVisible(false);
             radioButtonsGroup.setDisable(false);
             startButton.setText("Start");
+            recordButton.setText("Record");
             correctIncorrectLabel.setText("");
             questionNoteLabel.setText("");
             resetButtonColours();
@@ -210,21 +211,20 @@ public class VoiceTunerController extends AbstractController implements PitchDet
         if (questionNumber != TOTAL_QUESTIONS) {
             questionNumber++;
             questionLabel.setText("Question " + Integer.toString(questionNumber));
-
             questionAnswered = false;
             nextQuestionButton.setDisable(true);
             resetButtonColours();
             setScore(phrase);
             generateQuestion();
         } else {
+            startButton.setStyle("-fx-background-color: rgba(0,0,0,0.08), linear-gradient(#5a61af, #51536d), linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%)");
+            startButton.setText("Start");
             nextQuestionButton.setText("Next Question");
             questionLabel.setVisible(false);
-            nextQuestionButton.setDisable(true);
             startClicked = false;
             recordButton.setDisable(true);
             stopTimer();
             loadScore();
-
             questionAnswered = false;
             nextQuestionButton.setDisable(true);
             resetButtonColours();

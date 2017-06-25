@@ -591,10 +591,12 @@ public abstract class AbstractController {
         Dimension d = new Dimension();
         d.setSize(475,300);
 
+        setScore(emptyPhr);
         jScore.setPreferredSize(d);
         jScore.setMaximumSize(d);
         jScore.removeTitle();
         jScore.setEditable(true);
+
 
         SwingNode swingNode = new SwingNode();
 

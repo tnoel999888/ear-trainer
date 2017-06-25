@@ -3,7 +3,6 @@ package EarTrainer.Controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.stage.Stage;
 import jm.music.data.Note;
 import jm.music.data.Part;
 import jm.music.data.Phrase;
@@ -23,7 +22,8 @@ public class SharpFlatRecognitionController extends AbstractController {
     @FXML public Button flatButton;
     @FXML public Button sharpButton;
 
-    private final double ONE_CENT_RATIO = 1.000578;
+//    private final double ONE_CENT_RATIO = 1.000578;
+    private final double THREE_CENT_RATIO = 1.001734;
     private final double FIVE_CENTS_RATIO = 1.002892;
     private final double FIFTEEN_CENTS_RATIO = 1.008702;
     private final double TWENTY_FIVE_CENTS_RATIO = 1.014545;
@@ -45,7 +45,7 @@ public class SharpFlatRecognitionController extends AbstractController {
 
     @FXML
     private void hardRadioButtonSelected(ActionEvent event) throws IOException {
-        difficultyDescriptionLabel.setText("All notes. 1 Octave. +/- 1-5 Cents");
+        difficultyDescriptionLabel.setText("All notes. 1 Octave. +/- 3-5 Cents");
     }
 
 
@@ -201,7 +201,7 @@ public class SharpFlatRecognitionController extends AbstractController {
         // set up an audio instrument
         Instrument sineWave = new OvertoneInst(44100);
 
-        double note2Freq = getSecondNoteFrequency(ONE_CENT_RATIO, FIVE_CENTS_RATIO, n.getFrequency());
+        double note2Freq = getSecondNoteFrequency(THREE_CENT_RATIO, FIVE_CENTS_RATIO, n.getFrequency());
 
         Note n2 = new Note(note2Freq, C);
         phr1.addNote(n2);
